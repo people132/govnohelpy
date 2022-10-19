@@ -1,0 +1,136 @@
+.moderator_table {
+	background: #ccccff;
+	padding: 1%;
+	border-color: black;
+	border-style: ridge;
+	border-radius: 20px;
+	width: 50%;
+	height: 90%;
+	position: relative;
+}
+.background_page{
+	position: fixed;
+	top: 8%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(#0260e8, white);
+}
+.menu{
+	display: flex;
+	background: #0260e5;
+	position: relative;
+	width: 100%;
+	height: 8%;
+	border-bottom-style: solid;
+	border-bottom-color: #005ce1;
+	border-bottom-width: 2px;
+}
+.left_menu_text{
+	width: 15%;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+	color: white;
+	font-size: 3vw;
+    white-space: nowrap;
+}
+.right_menu_text{
+	top: 50%;
+	left: 74%;
+	width: 10%;
+	height: 100%;
+	position: absolute;
+	display: table-cell;
+	text-align: center;
+	color: white;
+	font-size: 1.3vw;
+	white-space: nowrap;
+}
+.over_right_menu_text{
+	top: 50%;
+	left: 85%;
+	width: 14%;
+	height: 100%;
+	position: absolute;
+	display: table-cell;
+	text-align: center;
+	color: white;
+	font-size: 1.3vw;
+	white-space: nowrap;
+}
+@keyframes tuda_obratno {
+   0%{
+   	color: black;
+   }    
+   99%{
+   	color: white;
+   	transition-duration: 700ms;
+   }
+}
+.title_text:hover{
+  	animation: tuda_obratno 1400ms;
+}
+.over_right_menu_text:hover {
+  	color: black;
+  	transition-duration: 700ms;
+}
+.right_menu_text:hover{
+	color: black;
+  	transition-duration: 700ms;
+}
+.title{
+	display: flex;
+	position: relative;
+	left: 0;
+	width: 100%;
+	height: 20%;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
+.title_text{
+	position: absolute;
+	text-align: center;
+	font-size: 8vw;
+	color: white;
+}
+.down_text{
+	position: relative;
+	left: 0;
+	width: 100%;
+	height: 10%;
+	text-align: center;
+	font-size: 2vw;
+	color: black;
+}
+.out_table {
+	display: flex;
+	flex-direction: column;
+    width: 100%;
+    height: 45%;
+    position: fixed;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.page{
+	flex: flow;
+	flex-direction: column;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+.row {
+	margin-bottom: 1%;
+	position: relative;
+	background: #eeeeee;
+	padding: 2%;
+	background: white;
+	border-color: black;
+	border-style: solid;
+	border-radius: 50px;
+	height: 7%;
+}
