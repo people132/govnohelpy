@@ -3,8 +3,39 @@
 <head>
 	<meta charset="utf-8">
 	<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='style/moderator.css') }}">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script>
+		function refresh(){
+			/*$.ajax({
+				async: false,
+				url: '/moderator',
+				method: 'GET',
+				data: {'u': 1},
+				dataType: 'json',
+				success: function (result) {
+
+					for(let i = 0; i < 5; i++){
+						let x =	document.getElementById("__row_"+String(i));
+						if(x){
+							x.remove();
+						}
+						else{
+							break;
+						}
+					}
+					for(let i = 0; i < result; i++){
+						let newelem = document.createElement('div');
+						newelem.className = "row";
+						newelem.innerHTML = "Кок";
+						newelem.id = "__row_" + String(i);
+						table.append(newelem);
+					}         
+				},
+			}); */
+		}
+	</script>
 </head>
-<body>
+<body onload="refresh()">
 	<div class="background_page"></div>
 	<div class="page">
 		<div class="menu">
@@ -17,13 +48,14 @@
 		</div>
 		<div class="down_text">Необработанные заявки</div>
 		<div class="out_table">
-			<div class="moderator_table">
-				<div class="row">KOK</div>
-				<div class="row">KOK</div>
-				<div class="row">KOK</div>
-				<div class="row">KOK</div>
-				<div class="row">KOK</div>
+			<div class="moderator_table" id="table">
+				<div class="row">
+					<div class="login_text">adamkhrom@gmail.com</div>
+				</div>
 			</div>
+		</div>
+		<div class="div_for_button">
+			<button onclick="refresh()" class="button_refresh">Refresh!</button>
 		</div>
 	</div>
 </div>

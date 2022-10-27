@@ -1,0 +1,270 @@
+.menu{
+	position: fixed;
+	height: 8%;
+	width: 100%;
+	background-color: #0260e8;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.30);
+}
+.left_menu_text{
+	top: 23%;
+	left: 2.4%;
+	position: absolute;
+	width: 7%;
+	height: 100%;
+	font-size: 2.4vw;
+	color: white;
+	font-family: Rany-Bold;
+}
+.contacts{
+	font-weight: 900;
+	font-family: Sans;
+	top: 35%;
+	left: 85%;
+	width: 7%;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+	color: white;
+	font-size: 1.2vw;
+	white-space: nowrap;
+}
+.otzivi{
+	font-weight: 900;
+	font-family: Sans;
+	top: 35%;
+	left: 92%;
+	width: 6%;
+	height: 100%;
+	position: absolute;
+	display: table-cell;
+	text-align: center;
+	color: white;
+	font-size: 1.2vw;
+	white-space: nowrap;
+}
+.otzivi:hover {
+  	transition-duration: 700ms;
+  	color: black;
+}
+.contacts:hover{
+	color: black;
+  	transition-duration: 700ms;
+}
+@keyframes tuda_obratno {
+   0%{
+   	color: white;
+   }
+   10%{
+   	color: blue;
+   }
+   50%{
+   	color: black;
+   }
+   75%{
+   	color: violet;
+   }
+   100%{
+   	color: white;
+   }
+}
+@keyframes kok{
+	0%{
+		opacity: 0;
+		font-size: 3vw;
+	}
+	50%{
+		opacity: 0;
+		font-size: 3vw;
+	}
+	100%{
+		opacity: 1;
+		font-size: 7.8vw;
+	}
+}
+.title_text{
+	height: 15%;
+	text-align: center;
+	position: absolute;
+	font-family: Sans;
+	font-weight: 900;
+	font-size: 7.8vw;
+	top: 27%;
+	color: white;
+	animation-name: kok;
+	animation-duration: 1000ms;
+}
+@keyframes kok2{
+	0%{
+		opacity: 0;
+		font-size: 3vw;
+	}
+	60%{
+		opacity: 0;
+		top: 60%;
+	}
+	100%{
+		opacity: 1;
+		top: 50%;
+	}
+}
+.title_text2{
+	height: 10%;
+	line-height: 1;
+	text-align: center;
+	position: absolute;
+	font-family: Sans;
+	font-weight: 300;
+	color: black;
+	top: 50%;
+	font-size: 2.35vw;
+	animation-name: kok2;
+	animation-duration: 1700ms;
+}
+@keyframes arrow_kok{
+	0%{
+		opacity: 0;
+		top: 60%;
+	}
+	30%{
+		opacity: 0;
+		top: 70%;
+	}
+	65%{
+		opacity: 1;
+		top: 75%;
+	}
+	100%{
+		opacity: 0;
+		top: 70%;
+	}
+}
+
+.arrow{
+	position: absolute;
+	top: 70%;
+	width: 6%;
+	height: 6%;
+	animation-name: arrow_kok;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+.page1{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(#0260e8, #0461e8 31%, white 88%);
+	display: flex;
+   align-items: center;
+   align-content: center;
+   justify-content: center;
+}
+
+.page2{
+	position: absolute;
+	top: 100%;
+	left: 0%;
+	width: 100%;
+	height: 60%;
+	background: white;
+	display: flex;
+   align-items: center;
+   align-content: center;
+   justify-content: center;
+}
+
+.kok3{
+	position: absolute;
+	text-align: center;
+	font-family: Sans;
+	font-size: 4vw;
+	top: 20%;
+	font-weight: 900;
+}
+
+.kok4{
+	position: absolute;
+	text-align: center;
+	font-family: Sans;
+	width: 54%;
+	font-size: 1.7vw;
+	top: 62%;
+	font-weight: 300;
+}
+
+.page3{
+	position: absolute;
+	top: 160%;
+	left: 0%;
+	width: 100%;
+	height: 20%;
+	background: white;
+	display: flex;
+   align-items: center;
+   align-content: center;
+   justify-content: center;
+	text-align: center;
+	font-family: Sans;
+	font-size: 4vw;
+	font-weight: 900;
+}
+
+.row{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 38%;
+}
+
+.row_title{
+	font-weight: 900;
+	position: absolute;
+	top: 13%;
+	left: 47%;
+	width: 35%;
+	height: 30%;
+	text-align: center;
+	font-family: Sans;
+	font-size: 2.1vw;
+}
+.row_main_text{
+	font-weight: 550;
+	position: absolute;	
+	top: 33%;
+	left: 52%;
+	width: 23%;
+	height: 50%;
+	text-align: center;
+	font-family: Sans;
+	font-size: 1.6vw;
+}
+
+@font-face {
+	font-family: Rany;  
+	src: url("../fonts/Rany Font/Rany.otf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+ }
+ @font-face {
+	font-family: Rany-Bold;  
+	src: url("../fonts/Rany Font/Rany-Bold.otf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+ }
+ @font-face {
+	font-family: 'Moncerat';  
+	src: url("../fonts/20806.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+ }
+  @font-face {
+	font-family: 'Sans';  
+	src: url("../fonts/ArialSans.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+ }

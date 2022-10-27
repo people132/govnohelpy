@@ -1,36 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <div class="t456__logo t-title" field="title" style="color:#ffffff;font-size:45px;font-weight:700;font-family:'TildaSans';">Helpy</div>
-    <div id="nav417777667" class="t456 t456__hidden t456__positionfixed " style="background-color: rgba(2,96,232,1); height:10vh; box-shadow: 0px 1px 3px rgba(0,0,0,0.20);" data-bgcolor-hex="#0260e8" data-bgcolor-rgba="rgba(2,96,232,1)" data-navmarker="nav417777667marker" data-appearoffset="" data-bgopacity-two="" data-menushadow="20" data-bgopacity="1" data-menu-items-align="right" data-menu="yes" data-bgcolor-setbyscript="yes">
-        <div class="t456__maincontainer " style="height:10vh;">
-            <div class="t456__leftwrapper" style="">
-                <div>
-                    <a href="http://project4638911.tilda.ws" style="color:#000000;font-size:45px;font-weight:700;font-family:'TildaSans';">
-                        <div class="t456__logo t-title" field="title" style="color:#ffffff;font-size:45px;font-weight:700;font-family:'TildaSans';">Helpy
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="t456__rightwrapper t456__menualign_right" style="">
-                <ul class="t456__list">
-                    <li class="t456__list_item" style="padding:0 20px 0 0;">
-                        <a class="t-menu__link-item t-active" href="http://project4638911.tilda.ws/" data-menu-submenu-hook="" style="color:#000000;font-size:22px;font-weight:700;font-family:'TildaSans';" data-menu-item-number="1">На главную
-                        </a>
-                    </li>
-                    <li class="t456__list_item" style="padding:0 20px;">
-                        <a class="t-menu__link-item" href="http://project4638911.tilda.ws/contacts" data-menu-submenu-hook="" style="color:#000000;font-size:22px;font-weight:700;font-family:'TildaSans';" data-menu-item-number="2">Контакты
-                        </a>
-                    </li>
-                    <li class="t456__list_item" style="padding:0 0 0 20px;"><a class="t-menu__link-item" href="http://project4638911.tilda.ws/reviews" data-menu-submenu-hook="" style="color:#000000;font-size:22px;font-weight:700;font-family:'TildaSans';" data-menu-item-number="3">Отзывы</a>
-    </li>
-    </ul>
-    </div>
-    </div>
-    </div>
-</head>
-<body>
-
-</body>
+<html lang="ru">
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename= 'style/main.css') }}">
+</html>
+    <body>
+        <div class="page1">
+            <div class="title_text">Helpy</div>
+            <div class="title_text2">Сервис, который помогает <br> фрилансерам</div>
+            <img class="arrow" src="{{ url_for('static', filename= 'imgs/arrow.svg') }}">
+        </div>
+        <div class="page2">
+            <div class="kok3">Чем мы занимаемся?</div>
+            <div class="kok4">Оказываем поддержку фрилансерам на всём их пути: от регистрации аккаунта и выполнения первых заказов до стабильно высокого дохода.</div>
+        </div>
+        <div class="page3">Наши Услуги</div>
+        <div class="row" style="top: 190%">
+            <img style="height: 100%; left: 20%; top: 0%; position: absolute;" src="{{ url_for('static', filename= 'imgs/Consulting.svg') }}">
+            <div class="row_title">Преодоление языкового барьера</div>
+            <div class="row_main_text">Наши переводчики помогут вам в общении с заказчиком</div>
+        </div>
+        <div class=menu>
+            <div class="left_menu_text">Helpy</div>
+            <div class="contacts">Контакты</div>
+            <div class="otzivi">Отзывы</div>
+        </div>
+    </body>
 </html>
