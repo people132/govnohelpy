@@ -1,0 +1,40 @@
+element {
+  color: #000;
+  border: 2px solid #000;
+  background-color: #fff;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  font-size: 17px;
+  font-weight: 400;
+  height: 50px;
+}
+.t-select {
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 60px;
+  padding: 0 45px 0 20px;
+  font-size: 16px;
+  line-height: 1.33;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background: 0 0;
+    background-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+}
+.t-select {
+  font-family: 'TildaSans';
+  src: url("../fonts/ArialSans.ttf");
+  fonts-style: normal;
+  fonts-weight: normal;
+
+}
+*, ::after, ::before {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}

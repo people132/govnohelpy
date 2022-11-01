@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style/qu.css') }}">
 </head>
 <body>
 <p><strong>{{log}}</strong></p>
@@ -100,17 +101,18 @@
      </p>
 
 
-        <fieldset>
+        <form>
             <label>Вы работаете только на фрилансе?</label>
             <div>
-                <input type="checkbox" id="yes" name="yes">
+                <input type="radio" id="yes" name="field">
                 <label for="yes">да</label>
             </div>
             <div>
-                <input type="checkbox" id="no" name="no">
+                <input type="radio" id="no" name="field">
                 <label for="no">нет</label>
             </div>
-        </fieldset>
+        </form>
+     <button id="saveForm" type="submit">Применить</button>
 </form>
 </body>
 </html>

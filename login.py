@@ -7,45 +7,59 @@ app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
 
 
-@app.route('/authorization', methods=['GET', 'POST'])
-def form_authorization():
+@app.route('/qu', methods=['GET', 'POST'])
+def qu():
+    if 'email' in session:
+        db_lp = sqlite3.connect('bases/login_password.db')
+        cursor_db = db_lp.cursor()
+        log = cursor_db.execute(('''SELECT fio FROM info
+                                               WHERE login = '{}';
+                                               ''').format(session['email'])).fetchone()[0]
+        return render_template('qu.html', log=log)
+    else:
+        return redirect(url_for('auth'))
+
+
+@app.route('/auth', methods=['GET', 'POST'])
+def auth():
     if request.method == 'POST':
-        session['email'] = request.form['Email']
-        Login = request.form.get('Login')
-        Password = request.form.get('Password')
+        session['email'] = request.form['email']
+        email = request.form['email']
+        print(email)
+        Password = request.form['password']
 
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
-        cursor_db.execute(('''SELECT password FROM login_password
-                                               WHERE login = '{}';
-                                               ''').format(Login))
-        pas = hashlib.sha512(cursor_db.fetchall().encode()).hexdigest()
-
-        cursor_db.close()
-        try:
-            if pas[0][0] != Password:
+        cur = cursor_db.execute(f'''SELECT password FROM login_password
+                                               WHERE login = "{email}"''').fetchone()
+        if cur is not None:
+            print(cur[0], hashlib.sha512(Password.encode()).hexdigest())
+            if cur[0] != str(hashlib.sha512(Password.encode()).hexdigest()):
                 return render_template('auth_bad.html')
-        except:
-            return render_template('auth_bad.html')
+            else:
+                redirect(url_for('qu'))
+        else:
+            redirect(url_for('reg'))
+
         db_lp.close()
+
         return redirect(url_for('qu'))
 
-    return render_template('authorization.html')
+    return render_template('auth.html')
 
 
-@app.route('/registration', methods=['GET', 'POST'])
-def form_registration():
+@app.route('/reg', methods=['GET', 'POST'])
+def reg():
     if request.method == 'POST':
-        Login = request.form.get('Login')
-        Password = request.form.get('Password')
-        Phone = request.form.get('Phone')
-        FIO = request.form.get('FIO')
-        Password1 = hashlib.sha512(Password.encode()).hexdigest()
+        login = str(request.form['login'])
+        password = request.form['password']
+        phone = request.form['phone']
+        fio = request.form['fio']
 
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
-        sql_insert = '''INSERT INTO login_password VALUES('{}','{}');'''.format(Login, Password1)
-        sql_insert1 = '''INSERT INTO info VALUES('{}','{}', '{}');'''.format(Login, FIO, Phone)
+        sql_insert = f'''INSERT INTO login_password VALUES('{login}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
+        sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}');'''
 
         cursor_db.execute(sql_insert)
         cursor_db.execute(sql_insert1)
@@ -55,22 +69,10 @@ def form_registration():
         db_lp.commit()
         db_lp.close()
 
-        return redirect(url_for('form_authorization'))
+        return redirect(url_for('auth'))
 
-    return render_template('registration.html')
-
-
-@app.route('/qu')
-def qu():
-    if 'email' in session:
-        db_lp = sqlite3.connect('bases/login_password.db')
-        cursor_db = db_lp.cursor()
-        log = str(cursor_db.execute(('''SELECT FIO FROM info
-                                               WHERE login = '{}';
-                                               ''').format(session['email'])).fetchall())
-        return render_template('qu.html', log=log)
-    return redirect(url_for(qu))
+    return render_template('reg.html')
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
