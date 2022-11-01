@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="POST">
+  <div class="container">
+      <p><label for="Login"><b>Логин</b></label>
+      <input type="text" placeholder="" name="Login" required id = 'Login'></p>
+
+    <p><label for="FIO"><b>ФИО</b></label>
+      <input type="text" placeholder="" name="FIO" required id = 'FIO'></p>
+
+    <p><label for="Phone"><b>Телефон</b></label>
+      <input type="tel" placeholder="" name="Phone" required id= 'Phone'></p>
+
+
+      <p><label for="Password"><b>Пароль</b></label>
+      <input type="password" placeholder="" name="Password" required id = 'Password'></p>
+
+     <button type="submit">Зарегистрироваться</button>
+    </div>
+  </form>
+
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style/regis.css') }}">
+</body>
+</html>
