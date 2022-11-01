@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, session, url_for, redirect
 import sqlite3
 import hashlib
 import os
+import math
 
 app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
