@@ -10,6 +10,7 @@ app.secret_key = os.urandom(20).hex()
 @app.route('/qu', methods=['GET', 'POST'])
 def qu():
     if 'email' in session:
+        print(session['email'])
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         try:
@@ -93,7 +94,7 @@ def reg():
         if cursor_db.execute(f'''SELECT password FROM login_password
                                             WHERE login = "{login}"''').fetchone() == None:
             sql_insert = f'''INSERT INTO login_password VALUES('{login}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
-            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}');'''
+            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{None}', '{None}', '{None}', '{None}', '{None}', '{None}', '{None}');'''
 
             cursor_db.execute(sql_insert)
             cursor_db.execute(sql_insert1)
@@ -110,6 +111,13 @@ def reg():
         return redirect(url_for('auth'))
 
     return render_template('reg.html')
+
+
+@app.route('/logout')
+def logout():
+    session.pop('email', None)
+#    print(session['email'])
+    return redirect(url_for('auth'))
 
 
 app.run(debug=True)
