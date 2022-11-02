@@ -1,0 +1,64 @@
+.container{
+padding-top: 10px; /*Размер внутренних отступов контейнера*/
+    padding-bottom: 10px;
+}
+
+.letter_ground{
+  position: fixed;
+    background-color: #0260e8;
+    width: 100px; /*Ширина*/
+    height: 100px;
+    -webkit-border-radius: 30px;
+    padding-top: 10px;
+    margin-left: 25px;
+    margin-right: 1600px;
+    padding-bottom: 1px;
+}
+.letter{
+    font-family:ArialSans;
+    font-size: 90px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+}
+
+.account1{
+    width: 100%;
+    font-weight: 600;
+    color: #000000;
+    font-size: 31px;
+    line-height: 48px;
+    font-family: ArialSans;
+    margin-left: 130px;
+}
+.account2{
+    width: 100%;
+    font-weight: 600;
+    color: #000000;
+    font-size: 31px;
+    line-height: 48px;
+    font-family: ArialSans;
+    margin-left: 130px;
+    padding-top: 0.3px;
+}
+
+box{
+     -webkit-border-radius: 15px;
+     background-color: #ffffff;
+     margin-left:300px;
+     weight: 3px;
+     height 100px;
+}
+
+.name{
+    margin-left: 400px;
+    font-family: ArialSans;
+    font-size: 30px;
+}
+
+ @font-face {
+  font-family: ArialSans;
+  src: url("../fonts/Rany Font/ArialSans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+ }

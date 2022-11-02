@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="menu">
+    <div class="text_bottom">
+Начало вашего сотрудничества с Helpy
+</div>
+</div>
+
+
+<div class = "menu_center">
+    <div class="text_center">Заполните поля ниже для создания личного кабинета</div>
+</div>
+  <form method="POST">
+  <div class="container">
+      <p><label for="Login"><b>Email (логин для входа в личный кабинет)</b></label>
+      <input type="text" placeholder="" name="login" required id = 'Login'></p>
+
+    <p><label for="FIO"><b>Имя и фамилия</b></label>
+      <input type="text" placeholder="" name="fio" required id = 'FIO'></p>
+
+    <p><label for="Phone"><b>Номер телефона</b></label>
+      <input type="tel" placeholder="" name="phone" required id= 'Phone'></p>
+
+
+      <p><label for="Password"><b>Пароль</b></label>
+      <input type="password" placeholder="" name="password" required id = 'Password'></p>
+
+     <button type="submit">Зарегистрироваться</button>
+    </div>
+  </form>
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style/regis.css') }}">
+</body>
+</html>
