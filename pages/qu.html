@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style/qu.css') }}">
+</head>
+<body>
+  <form method="POST">
+
+<div class="letter_ground">
+    <div class="letter">H</div>
+    <div class="point1">.</div>
+</div> 
+
+<div class="box1">
+<div class="account">
+    <div class="account1">Личный</div>
+    <div class="account2">кабинет</div>
+</div>
+<div class="box"></div>
+<div class="name">
+    {{log}}
+</div>
+<!-- <button class="button-exit">Выйти</button> -->
+</div>
+<!--<a class="button-exit" href="/logout">Выйти</a>-->
+
+         <div class="mainSkill1">Главный навык</div>
+         <div id="lable1" class="mainSkill2">Умение в котором у вас есть большой опыт</div>
+         <div class = 'select1-wrapper'>
+       <select name="select1" id = 'select1' class="select1">
+          <option value="video">видеомонтаж</option>
+          <option  value="photo">фоторедактура</option>
+          <option  value="front-app">фронт-энд разработка приложений</option>
+          <option  value="front-site">фронт-энд разработка сайтов</option>
+       </select>
+       </div>
+       <!--Выпадающий список-->
+         <div class="mainHour1">Опыт</div>
+         <div class="mainHour2" id="lable2">(в годах)</div>
+       <div class="select2-wrapper">
+       <select id = 'select2' name="select2" class="select2">
+          <option value="one">1</option>
+          <option value="two">2</option>
+          <option value="three">3</option>
+          <option value="four">4</option>
+          <option value="five">5</option>
+          <option value="five-ten">5-10</option>
+          <option value="more ten">10+</option>
+       </select>
+       </div>
+    
+    
+      <div  class="secondSkill1">Вторичный навык</div>
+         <div id="lable3" class="secondSkill2">навык, в котором у вас чуть меньше опыта, но вы можете его применять</div>
+       <div class="select3-wrapper">
+       <select id = 'select3' name="select3" class="select3">
+          <option value="video">видеомонтаж</option>
+          <option value="photo">фоторедактура</option>
+          <option value="front-app">фронт-энд разработка приложений</option>
+          <option value="front-site">фронт-энд разработка сайтов</option>
+       </select>
+       </div>
+    
+         <div  class="secondHour1">Опыт</div>
+         <div class="secondHour2" id="lable4">(в годах)</div>
+         <div class="select4-wrapper">
+       <select class="select4" id = 'select4' name="select4">
+          <option value="one">1</option>
+          <option value="two">2</option>
+          <option value="three">3</option>
+          <option value="four">4</option>
+          <option value="'five">5</option>
+          <option value="'five-ten">5-10</option>
+          <option value="'more ten">10+</option>
+       </select>
+     </div>
+        <label class="lable">Каким языком вы владеете?</label>
+            
+            
+              
+              <label class="lable1-select option">
+                <input class="check_input" type="checkbox"  value="engl" id="eng" name="len">
+                <span class="check_box"></span>
+                 Английский
+                </label>
+           
+            <label class="lable2-select option">
+              <input class="check_input" type="checkbox" value="frenc" id="fn" name="len">
+              <span class="check_box"></span>
+              Французкий
+            </label>
+
+           
+           <label class="lable3-select option">
+            <input class="check_input" type="checkbox" value="doutch"  id="dn" name="len">
+            <span class="check_box"></span>
+            Немецкий
+          </label>
+
+            <label class="lable4-select option">
+              <input class="check_input" type="checkbox" value="italian"  id="it" name="len">
+              <span class="check_box"></span>
+              Италия
+            </label>
+
+            <label class="lable5-select option">
+              <input class="check_input" type="checkbox" value="rus" id="ru" name="len">
+              <span class="check_box"></span>
+              Русский
+            </label>
+
+           <label class="lable6-select option">
+            <input class="check_input" type="checkbox" value="ukrain"  id="uk" name="len">
+            <span class="check_box"></span>
+            Украинский
+          </label>
+            
+           <label class="lable7-select option">
+            <input class="check_input" type="checkbox" value="belarus" id="bn" name="len">
+            <span class="check_box"></span>
+            Беларусский
+          </label>
+
+
+
+       
+         <div  class="manyHour1">Сколько часов вы готовы работать на фрилансе в неделю?</div>
+         <div class="manyHour2" >Ответьте обьективно, лучше не перегружать себя</div>
+          <div class="select5-wrapper">
+         <select  class="select5"  name="select5">
+          <option value="one-five">1-5</option>
+          <option value="five-ten">5-10</option>
+          <option value="ten-twelve">10-20</option>
+          <option value="twelve-thirty">20-30</option>
+          <option value="thirty-forty">30-40</option>
+          <option value="more forty">40+</option>
+       </select>
+        </div>
+
+ 
+            <div class="lable2">Вы работаете только на фрилансе?</div>
+            
+               
+           
+
+               <label class="lable8-select option1">
+                  <input class="check_input1" type="radio" value="yes" name="field">
+                  <span class="check_box1"></span>
+                  да
+                </label>
+           
+            
+               
+                <label class="lable9-select option1">
+                  <input class="check_input1" type="radio"  value="no" name="field">
+                  <span class="check_box1"></span>
+                  нет
+                </label>
+               
+              <!--  <div class="radio">
+                  <input class = "radio_input" type="radio" id="radio1" name="work" value="yes">
+                  <label for="radio1" class="radio_lable">да</label>
+                </div>
+                <div>
+                  <input class = "" type="radio" id="radio2" name="work" value="no">
+                  <label for="radio2"> нет</label>
+                </div> -->
+    
+    <button class="button-save" type="submit">Применить</button> 
+   
+  
+</form>
+</body>
+</html>

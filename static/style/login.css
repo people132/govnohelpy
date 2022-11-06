@@ -24,7 +24,7 @@ input[type=text], input[type=password] {
     font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
     color: #777991;/*Цвет текста в input */
 }
-
+/**/
 button {
     font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
     background-color: #454cee; /*Выбираем цвет фона */

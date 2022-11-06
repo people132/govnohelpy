@@ -1,0 +1,587 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    }
+    
+
+    .menu{
+    position: relative;
+    height: auto;
+    width: 100%;
+    background-color: #f7f7f7;
+    border: none;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 1px 3px rgba(255, 255, 255, 0);
+    }
+    .letter_ground{
+        position: relative;
+        position: absolute;
+        background-color: #0260e8;
+        width: 6em; /*Ширина*/
+        height: 7em;
+        border-radius: 25px;
+        top: 10%;
+        left: 8%;
+    }
+    .letter{
+        font-family:ArialSans;
+        font-size: 5vw;
+        font-weight: 900;
+        color: #ffffff;
+        text-align: center;
+    }
+    .point1{
+        color: black;
+        font-size:90px;
+        font-family:ArialSans;
+        font-weight: 500;
+        position: absolute;
+        width: 8%;
+        height: 10%;
+        top: 1%;
+        left: 75%; 
+        text-align: center;
+    }
+    .account1{
+        padding-top: 3%;
+        width: 8%;
+        font-weight: 600;
+        color: #000000;
+        font-size: 200%;
+        line-height: 48px;
+        font-family: ArialSans;
+        padding-left: 7%;
+        right: 90%;
+    }
+    .account2{
+        width: 8%;
+        font-weight: 600;
+        color: #000000;
+        font-size: 200%;
+        line-height: 48px;
+        font-family: ArialSans;
+        padding-left: 7%;
+        padding-top: 0.1%;
+        right: 90%;
+    }
+    
+    .box{
+         border-radius: 15px;
+         background-color: black;
+         position:absolute;
+         top:15%;
+         left:120%;
+         width: 4%;
+         height: 80%;
+    }
+    
+
+    .account{
+        width: 80%;
+    }
+    
+    .name{
+        position: absolute;
+        width: 300%;
+        top: 36%;
+        left: 130%;
+        font-family: ArialSans;
+        font-size: 200%;
+    }
+    .mainSkill1{
+        font-family: ArialSans;
+        position: absolute;
+        font-size: 30px;
+        left: 30%;
+        top: 24%;
+    }
+    .mainSkill2{
+        position: absolute;
+        font-family: ArialSans;
+        font-size: 15px;
+        left: 30%;
+        top: 28%;
+    }
+    
+    .select1{
+       appearance: none; 
+        width: 30%;
+        height: 6%;
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        background-color: #ffffff;
+        /* border-color: #00000; */
+        border-radius: 10px;
+        cursor: pointer;
+        border: 2px solid black;
+        padding: 10px 35px 10px 35px ;
+    }
+    .select1::-ms-expand{
+        display: none;
+    }
+
+   /* .select-wrapper{
+        position: relative;
+    }*/
+
+    .select1-wrapper::after{
+        content: '';
+        position:absolute;
+        top: 33%;
+        right: 41%;
+        transform: translateY(-50%);
+
+        display: block;
+        pointer-events: none;
+
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 9px 6px 0 6px;
+        border-color: #0262e8 transparent transparent transparent;
+    }
+
+    
+    
+    .box1{
+        display: inline-block;
+        position: absolute;
+        left: 13%;
+        top: 10%;
+    }
+    
+    .button-exit{
+        font-family: ArialSans;
+        text-decoration: none;
+        position: absolute;
+        background-color: #0260e8;
+        color: white; /*Выбираем цвет текста*/
+        padding: 16px 20px; /*Размер внутренних отступов*/
+        margin: 8px 2px;/*Размер внешних отступов*/
+        border: none; /*Без границы*/
+        cursor: pointer; /*Изменение курсора при наведении на кнопку*/
+        width: auto; /*Ширина*/
+        height: 4%;
+        border: none;
+        font-size: 30px;
+        left: 50%;
+        bottom: 1%;
+        border-radius: 20%;
+    }
+
+
+    .mainHour1{
+        font-family: ArialSans;
+        position: absolute;
+        font-size: 30px;
+        left: 30%;
+        top: 38%;
+    }
+
+
+    .mainHour2{
+        position: absolute;
+        font-family: ArialSans;
+        font-size: 15px;
+        left: 30.1%;
+        top: 41.5%;
+    }
+
+    .select2{
+        appearance: none; 
+         width: 30%;
+         height: 6%;
+         position: absolute;
+         top: 44%;
+         left: 30%;
+         background-color: #ffffff;
+         /* border-color: #00000; */
+         border-radius: 10px;
+         cursor: pointer;
+         border: 2px solid black;
+         padding: 10px 35px 10px 35px ;
+     }
+     .select2::-ms-expand{
+         display: none;
+     }
+ 
+
+     .select2-wrapper::after{
+         content: '';
+         position:absolute;
+         top: 47%;
+         right: 41%;
+         transform: translateY(-50%);
+ 
+         display: block;
+         pointer-events: none;
+ 
+         width: 0;
+         height: 0;
+         border-style: solid;
+         border-width: 9px 6px 0 6px;
+         border-color: #0262e8 transparent transparent transparent;
+     }
+
+
+
+
+     .secondSkill1{
+        font-family: ArialSans;
+        position: absolute;
+        font-size: 30px;
+        left: 30%;
+        top: 52%;
+    }
+
+
+    .secondSkill2{
+        position: absolute;
+        font-family: ArialSans;
+        font-size: 15px;
+        left: 30.1%;
+        top: 55.5%;
+    }
+
+    .select3{
+        appearance: none; 
+         width: 30%;
+         height: 6%;
+         position: absolute;
+         top: 59%;
+         left: 30%;
+         background-color: #ffffff;
+         /* border-color: #00000; */
+         border-radius: 10px;
+         cursor: pointer;
+         border: 2px solid black;
+         padding: 10px 35px 10px 35px ;
+     }
+     .select3::-ms-expand{
+         display: none;
+     }
+ 
+
+     .select3-wrapper::after{
+         content: '';
+         position:absolute;
+         top: 62%;
+         right: 41%;
+         transform: translateY(-50%);
+ 
+         display: block;
+         pointer-events: none;
+ 
+         width: 0;
+         height: 0;
+         border-style: solid;
+         border-width: 9px 6px 0 6px;
+         border-color: #0262e8 transparent transparent transparent;
+     }
+
+
+
+
+     .secondHour1{
+        font-family: ArialSans;
+        position: absolute;
+        font-size: 30px;
+        left: 30%;
+        top: 68%;
+    }
+
+
+    .secondHour2{
+        position: absolute;
+        font-family: ArialSans;
+        font-size: 15px;
+        left: 30.1%;
+        top: 71.5%;
+    }
+
+    .select4{
+        appearance: none; 
+         width: 30%;
+         height: 6%;
+         position: absolute;
+         top: 75%;
+         left: 30%;
+         background-color: #ffffff;
+         /* border-color: #00000; */
+         border-radius: 10px;
+         cursor: pointer;
+         border: 2px solid black;
+         padding: 10px 35px 10px 35px ;
+     }
+     .select4::-ms-expand{
+         display: none;
+     }
+ 
+
+     .select4-wrapper::after{
+         content: '';
+         position:absolute;
+         top: 78%;
+         right: 41%;
+         transform: translateY(-50%);
+ 
+         display: block;
+         pointer-events: none;
+ 
+         width: 0;
+         height: 0;
+         border-style: solid;
+         border-width: 9px 6px 0 6px;
+         border-color: #0262e8 transparent transparent transparent;
+     }
+
+
+
+     .lable{
+        font-family: ArialSans;
+        position: absolute;
+        font-size: 30px;
+        left: 30%;
+        top: 84%;
+     }
+    
+
+
+     .lable1-select{
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 90%;
+     }
+
+     .lable2-select{
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 93%;
+     }
+
+     .lable3-select{
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 96%;
+     }
+
+     .lable4-select{
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 99%;
+     }
+
+     .lable5-select{
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 102%;
+     }
+
+     .lable6-select{
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 105%;
+     }
+
+     .lable7-select{
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 108%;
+     }
+
+     .check_input{
+        position: absolute;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+     }
+
+
+     .check_box{
+        top: 1%;
+        margin-left: -1.2em;
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        background-image: url('../imgs/off1.svg');
+     }
+
+     .option{
+        display: block;
+        margin-bottom: 0.25em;
+     }
+
+     .check_input:checked + .check_box{
+        background-image: url('../imgs/on1.svg');
+     }
+   
+
+
+     .manyHour1{
+        font-family: ArialSans;
+        position: absolute;
+        font-size: 30px;
+        left: 30%;
+        top: 113%;
+    }
+
+
+    .manyHour2{
+        position: absolute;
+        font-family: ArialSans;
+        font-size: 15px;
+        left: 30.1%;
+        top: 116.5%;
+    }
+
+    .select5{
+        appearance: none; 
+         width: 30%;
+         height: 6%;
+         position: absolute;
+         top: 119%;
+         left: 30%;
+         background-color: #ffffff;
+         /* border-color: #00000; */
+         border-radius: 10px;
+         cursor: pointer;
+         border: 2px solid black;
+         padding: 10px 35px 10px 35px ;
+     }
+     .select5::-ms-expand{
+         display: none;
+     }
+ 
+
+     .select5-wrapper::after{
+         content: '';
+         position:absolute;
+         top: 122.5%;
+         right: 41%;
+         transform: translateY(-50%);
+ 
+         display: block;
+         pointer-events: none;
+ 
+         width: 0;
+         height: 0;
+         border-style: solid;
+         border-width: 9px 6px 0 6px;
+         border-color: #0262e8 transparent transparent transparent;
+     }
+    
+
+     .lable2{
+        position: absolute;
+        top: 129%;
+        font-family: ArialSans;
+        font-size: 30px;
+        left: 30%;
+
+     }
+
+     .lable8-select{
+        display: inline-block;
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 133%;
+     }
+
+     .lable9-select{
+        display: inline-block;
+        position: absolute;
+        cursor: pointer;
+        font-family: ArialSans;
+        font-size: 24px;
+        padding-left: 1.2em ;
+        left: 30%;
+        top: 136%;
+     }
+
+     .check_input1 {
+        position: absolute;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+     }
+
+
+    .check_box1 {
+        top: 0.2em;
+        margin-left: -1.2em;
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        background-image: url('../imgs/off.svg');
+    } 
+
+     .option1{
+        display: block;
+        margin-bottom: 0.25em;
+     }
+
+     .check_input1:checked + .check_box1{
+        background-image: url('../imgs/on.svg');
+     }
+
+
+    .button-save{
+        width: 200px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #0260e8;
+        font-family: ArialSans;
+        font-size: 30px;
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        padding: 0 15px;
+        display: block;
+        cursor: pointer;
+     }
+
+
+     @font-face {
+      font-family: ArialSans;
+      src: url("../fonts/Rany Font/ArialSans.ttf") format("truetype");
+      font-style: normal;
+      font-weight: normal;
+     }
