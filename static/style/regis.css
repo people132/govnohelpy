@@ -40,33 +40,50 @@
       color: black;
   }
   
-  form {
-       font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-      border: 1px solid none;/*Цвет, размер и тип границы */
-      -webkit-border-radius: 20px;/*Скругляем углы */
-      color: #777991;/*Цвет label */
-      width: 25%; /*Ширина формы */
-      padding-top: 0px;
-      margin-right: auto; /*Положение формы */
-      margin-left: auto; /*Положение формы */
-      text-align: center; /*Центровка текста*/
+ /* form {
+    position: absolute;
+    top: 2%;
+       font: 14px ArialSans,arial, sans-serif;
+      border: 1px solid none;
+      -webkit-border-radius: 20px;
+      color: #777991;
+      width: 25%; 
+      text-align: center; 
+  } */
   
-  }
-  
-  input[type=text], input[type=text], input[type=tel], input[type=password] {
-      text-align: center; /*Центровка текста*/
-      -webkit-border-radius: 4px;/*Скругляем углы */
-      width: 500px; /*Ширина */
+ /* input[type=text], input[type=text], input[type=tel], input[type=password] {
+      text-align: center; 
+      -webkit-border-radius: 4px;
+      width: 500px; 
       height: 60px;
-      padding: 0px 20px; /*Размер внутренних отступов*/
-      margin: 10px 0; /*Размер внешних отступов*/
-      margin-right: auto; /*Размер внешних отступов справа*/
-      margin-left: auto; /*Размер внешних отступов слева*/
-      display: block; /*тип отображения*/
-      border: 1px solid #050c26;/*Цвет, размер и тип границы */
-      box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-      font: 14px ArialSans;/*Выбираем шрифт */
-      color: #777991;/*Цвет текста в input */
+      padding: 0px 20px; 
+      margin: 10px 0; 
+      margin-right: auto; 
+      margin-left: auto; 
+      display: block; 
+      border: 1px solid #050c26;
+      box-sizing: border-box; 
+      font: 14px ArialSans;
+      color: #777991;
+  } */
+
+  .select1{
+    position: absolute;
+    top: 5%;
+    font-size: 20px;
+    font-family: ArialSans;
+    left: 30%;
+    font-weight: 100;
+  }
+
+  .input1{
+    border: 1px solid black;
+    border-radius: 3px;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    height: 3em;
+    width: 40em;
   }
   
   button {
@@ -89,14 +106,15 @@
   
    @font-face {
     font-family: ArialSans;
-    src: url("../fonts/Rany Font/ArialSans.ttf") format("truetype");
+    src: url("../fonts/ArialSans.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
    }
   
   .container {
-      position: fixed;
-      top: 30%;
-      padding-top: 20%; /*Размер внутренних отступов контейнера*/
+    position: absolute;
+      position: relative;
+      top: 5%;
+      padding-top: 1%; /*Размер внутренних отступов контейнера*/
       padding-bottom: 1%; 
   }

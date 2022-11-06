@@ -30,6 +30,13 @@
     left: 0;
   }
   /**/
+
+  .reg{
+    text-decoration: none;
+    color: black;
+    font-family: ArialSans;
+  }
+
   .text_center{
       font-family: ArialSans;
       margin-left: center;
@@ -70,7 +77,7 @@
   }
   
   button {
-      font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
+      font: 16px ArialSans, arial, sans-serif; /*Выбираем шрифт кнопки */
       background-color: #454cee; /*Выбираем цвет фона */
       -webkit-border-radius: 30px; /*Закругление */
       color: white; /*Выбираем цвет текста*/
@@ -89,7 +96,7 @@
   
    @font-face {
     font-family: ArialSans;
-    src: url("../fonts/Rany Font/ArialSans.ttf") format("truetype");
+    src: url("../fonts/ArialSans.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
    }
