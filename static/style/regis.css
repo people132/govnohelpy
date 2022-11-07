@@ -69,7 +69,7 @@
 
   .select1{
     position: absolute;
-    top: 5%;
+    top: 1%;
     font-size: 20px;
     font-family: ArialSans;
     left: 30%;
@@ -80,29 +80,68 @@
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
-    top: 20%;
+    top: 40%;
     left: 30%;
     height: 3em;
-    width: 40em;
+    width: 40%;
   }
   
-  button {
-      font: 16px ArialSans, arial, sans-serif; /*Выбираем шрифт кнопки */
-      background-color: #454cee; /*Выбираем цвет фона */
-      -webkit-border-radius: 30px; /*Закругление */
-      color: white; /*Выбираем цвет текста*/
-      padding: 16px 20px; /*Размер внутренних отступов*/
-      margin: 8px 0;/*Размер внешних отступов*/
-      border: none; /*Без границы*/
-      cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-      width: 185px; /*Ширина*/
-      height: 60px;
-      background-color: #0260e8;
+  .select2{
+    position: absolute;
+    top: 115%;
+    font-size: 20px;
+    font-family: ArialSans;
+    left: 30%;
+    font-weight: 100;
+  }
+
+  .input2{
+    border: 1px solid black;
+    border-radius: 3px;
+    position: absolute;
+    top: 155%;
+    left: 30%;
+    height: 3em;
+    width: 40%;
   }
   
-  button:hover {
-      opacity: 0.9; /*Изменение яркости кнопки при наведении*/
+
+
+  .select3{
+    position: absolute;
+    top: 235%;
+    font-size: 20px;
+    font-family: ArialSans;
+    left: 30%;
+    font-weight: 100;
   }
+
+  .input3{
+    border: 1px solid black;
+    border-radius: 3px;
+    position: absolute;
+    top: 270%;
+    left: 30%;
+    height: 3em;
+    width: 40%;
+  }
+
+.button{
+  position: absolute;
+  top: 150%;
+  left:30;
+  font-size: 16px;
+  background-color: #0260e8;
+  color: white;
+  border-radius: 30px;
+  border: 2px solid #0155c9;
+  border-style: outset;
+  width: 15%;
+  height: 60%;
+  font-weight: 700;
+  padding-left: 10%;
+  padding: 4px 10px 4px 10px;
+}
   
    @font-face {
     font-family: ArialSans;
@@ -117,4 +156,6 @@
       top: 5%;
       padding-top: 1%; /*Размер внутренних отступов контейнера*/
       padding-bottom: 1%; 
+      width: 100%;
+      height: auto;
   }
