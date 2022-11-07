@@ -3,6 +3,7 @@ import sqlite3
 import hashlib
 import os
 
+
 app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
 
@@ -118,6 +119,16 @@ def logout():
     session.pop('email', None)
 #    print(session['email'])
     return redirect(url_for('auth'))
+
+
+
+@app.route('/account')
+def account():
+    if 'email' in session:
+         Log = session['email']
+         return render_template('account.html', Log = Log)
+
+
 
 
 app.run(debug=True)

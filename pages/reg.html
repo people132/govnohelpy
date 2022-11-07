@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style/regis.css') }}">
 </head>
 <body>
 
@@ -18,22 +19,22 @@
 </div>
   <form method="POST">
   <div class="container">
-      <p><label for="Login"><b>Email (логин для входа в личный кабинет)</b></label>
-      <input type="text" placeholder="" name="login" required id = 'Login'></p>
+      <div class="select2">Email (логин для входа в личный кабинет)</div>
+      <input class="input2" type="text"  name="login" required id = 'Login'>
 
-    <p><label for="FIO"><b>Имя и фамилия</b></label>
-      <input type="text" placeholder="" name="fio" required id = 'FIO'></p>
+    <div class="select1">Имя и фамилия</div>
+      <input class="input1" type="text" placeholder="" name="fio" required id = 'FIO'>
 
-    <p><label for="Phone"><b>Номер телефона</b></label>
-      <input type="tel" placeholder="" name="phone" required id= 'Phone'></p>
+    <div class="select3">Номер телефона</div>
+      <input class="input3" type="tel" placeholder="" name="phone" required id= 'Phone'>
 
 
-      <p><label for="Password"><b>Пароль</b></label>
-      <input type="password" placeholder="" name="password" required id = 'Password'></p>
+      <div class="select4"><b>Пароль</b></div>
+      <input class="input4" type="password" placeholder="" name="password" required id = 'Password'>
 
-     <button type="submit">Зарегистрироваться</button>
+     <button class="button" type="submit">Отправить</button>
     </div>
   </form>
-<link rel="stylesheet" href="{{ url_for('static', filename= 'style/regis.css') }}">
+
 </body>
 </html>

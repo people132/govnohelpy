@@ -1,0 +1,75 @@
+.letter_ground{
+    position: relative;
+    position: absolute;
+    background-color: #0260e8;
+    width: 6em; /*Ширина*/
+    height: 7em;
+    border-radius: 25px;
+    top: 2%;
+    left: 8%;
+}
+.letter{
+    font-family:ArialSans;
+    font-size: 5vw;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+}
+.point1{
+    color: black;
+    font-size:90px;
+    font-family:ArialSans;
+    font-weight: 500;
+    position: absolute;
+    width: 8%;
+    height: 10%;
+    top: 1%;
+    left: 75%; 
+    text-align: center;
+}
+.account1{
+    padding-top: 3%;
+    width: 8%;
+    font-weight: 600;
+    color: #000000;
+    font-size: 200%;
+    line-height: 48px;
+    font-family: ArialSans;
+    padding-left: 7%;
+    right: 90%;
+}
+.account2{
+    width: 8%;
+    font-weight: 600;
+    color: #000000;
+    font-size: 200%;
+    line-height: 48px;
+    font-family: ArialSans;
+    padding-left: 7%;
+    padding-top: 0.1%;
+    right: 90%;
+}
+
+.box{
+     border-radius: 15px;
+     background-color: black;
+     position:absolute;
+     top:15%;
+     left:120%;
+     width: 4%;
+     height: 80%;
+}
+
+.box1{
+    display: inline-block;
+    position: absolute;
+    left: 13%;
+    top: 2.5%;
+}
+
+@font-face {
+    font-family: ArialSans;
+    src: url("../fonts/ArialSans.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+   }
