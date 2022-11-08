@@ -31,8 +31,8 @@ def qu():
 
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor_db = db_lp.cursor()
-            sql_insert1 = f'''UPDATE info SET mainskill = "{mainSkill}",mainhoure = "{mainHour}",secondskill = "{secondSkill}",
-                    secondhour = "{secondHour}", laguage = "{lengug}", freehour = "{hour}", work = "{work}" 
+            sql_insert1 = f'''UPDATE info SET mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                    secondHour = "{secondHour}", lengug = "{lengug}", hour = "{hour}", work = "{work}" 
                          WHERE login ="{session['email']}";'''
 
             cursor_db.execute(sql_insert1)
@@ -42,11 +42,10 @@ def qu():
             db_lp.commit()
             db_lp.close()
             print(mainSkill, mainHour, secondSkill, secondHour, lengug, work)
-
+            return redirect(url_for('account'))
         return render_template('qu.html', log=log)
     else:
         return redirect(url_for('auth'))
-
 
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
@@ -73,8 +72,20 @@ def auth():
                 db_lp.close()
                 return redirect(url_for('reg'))
             else:
-                db_lp.close()
-                redirect(url_for('qu'))
+                skill = cursor_db.execute(('''SELECT mainSkill FROM info
+                                               WHERE login = '{}';
+                                               ''').format(session['email'])).fetchone()[0]
+                print(skill)
+                print(type(skill))
+                if skill != '0':
+                    db_lp.close()
+                    redirect(url_for('account'))
+                else:
+                   db_lp.close()
+                   redirect(url_for('qu'))
+
+
+                
 
 
         return redirect(url_for('qu'))
@@ -95,7 +106,7 @@ def reg():
         if cursor_db.execute(f'''SELECT password FROM login_password
                                             WHERE login = "{login}"''').fetchone() == None:
             sql_insert = f'''INSERT INTO login_password VALUES('{login}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
-            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{None}', '{None}', '{None}', '{None}', '{None}', '{None}', '{None}');'''
+            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}');'''
 
             cursor_db.execute(sql_insert)
             cursor_db.execute(sql_insert1)
@@ -125,8 +136,12 @@ def logout():
 @app.route('/account')
 def account():
     if 'email' in session:
-         Log = session['email']
-         return render_template('account.html', Log = Log)
+        db_lp = sqlite3.connect('bases/login_password.db')
+        cursor_db = db_lp.cursor()
+        Log = cursor_db.execute(('''SELECT fio FROM info
+                                               WHERE login = '{}';
+                                               ''').format(session['email'])).fetchone()[0]
+    return render_template('account.html', Log = Log)
 
 
 

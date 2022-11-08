@@ -76,7 +76,8 @@
     font-weight: 100;
   }
 
-  .input1{
+  .input1{ 
+    font-family: ArialSans;
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -96,6 +97,7 @@
   }
 
   .input2{
+    font-family: ArialSans;
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -117,6 +119,7 @@
   }
 
   .input3{
+    font-family: ArialSans;
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -136,6 +139,7 @@
   }
 
   .input4{
+    font-family: ArialSans;
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -146,6 +150,7 @@
   }
 
 .button{
+  text-decoration: none;
   cursor: pointer;
   position: absolute;
   top: 1100%;

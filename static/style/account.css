@@ -8,4 +8,13 @@ body{
     background-color: #f7f7f7;
 }
 
+.name{
+    position: absolute;
+    width: 300%;
+    top: 36%;
+    left: 130%;
+    font-family: ArialSans;
+    font-size: 200%;
+    height: 50px;
+}
 
