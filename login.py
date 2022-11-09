@@ -77,18 +77,13 @@ def auth():
                                                ''').format(session['email'])).fetchone()[0]
                 print(skill)
                 print(type(skill))
-                if skill != '0':
-                    db_lp.close()
-                    redirect(url_for('account'))
-                else:
-                   db_lp.close()
-                   redirect(url_for('qu'))
+                db_lp.close()
 
-
-                
-
-
-        return redirect(url_for('qu'))
+        if skill != '0':
+            return  redirect(url_for('account'))
+        else:
+            print('qu')
+            return redirect(url_for('qu'))
 
     return render_template('auth.html')
 

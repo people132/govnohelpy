@@ -2,8 +2,8 @@
     position: relative;
     position: absolute;
     background-color: #0260e8;
-    width: 6em; /*Ширина*/
-    height: 7em;
+    width: 6%; /*Ширина*/
+    height: auto;
     border-radius: 25px;
     top: 2%;
     left: 8%;
@@ -23,9 +23,9 @@
     position: absolute;
     width: 8%;
     height: 10%;
-    top: 1%;
+    top: 0;
     left: 75%; 
-    text-align: center;
+   /* text-align: center; */
 }
 .account1{
     padding-top: 3%;
@@ -63,7 +63,7 @@
 .box1{
     display: inline-block;
     position: absolute;
-    left: 13%;
+    left: 15%;
     top: 2.5%;
 }
 
