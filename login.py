@@ -72,11 +72,18 @@ def auth():
                 db_lp.close()
                 return redirect(url_for('reg'))
             else:
+                skill = cursor_db.execute(('''SELECT mainSkill FROM info
+                                               WHERE login = '{}';
+                                               ''').format(session['email'])).fetchone()[0]
+                print(skill)
+                print(type(skill))
                 db_lp.close()
-                redirect(url_for('qu'))
 
-
-        return redirect(url_for('qu'))
+        if skill != '0':
+            return  redirect(url_for('account'))
+        else:
+            print('qu')
+            return redirect(url_for('qu'))
 
     return render_template('auth.html')
 
