@@ -21,8 +21,8 @@
     font-family:ArialSans;
     font-weight: 500;
     position: absolute;
-    width: 8%;
-    height: 10%;
+    width: 8vw;
+    height: 10vw;
     top: 0;
     left: 75%; 
    /* text-align: center; */
@@ -32,7 +32,7 @@
     width: 8%;
     font-weight: 600;
     color: #000000;
-    font-size: 200%;
+    font-size: 2vw;
     line-height: 48px;
     font-family: ArialSans;
     padding-left: 7%;
@@ -42,7 +42,7 @@
     width: 8%;
     font-weight: 600;
     color: #000000;
-    font-size: 200%;
+    font-size: 2vw;
     line-height: 48px;
     font-family: ArialSans;
     padding-left: 7%;
@@ -56,15 +56,16 @@
      position:absolute;
      top:15%;
      left:120%;
-     width: 4%;
-     height: 80%;
+     width: 3%;
+     height: 90%;
 }
 
 .box1{
-    display: inline-block;
     position: absolute;
     left: 15%;
     top: 2.5%;
+    width: 7%;
+    height: 11%;
 }
 
 @font-face {
