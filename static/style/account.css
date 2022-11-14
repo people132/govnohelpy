@@ -52,32 +52,15 @@ body{
     backface-visibility: hidden;
 }
 
-.conect{
-    padding: 20px 10px;
-    width: 20em;
-    height: 3em;
-    font-size: 35px;
-    font-family: ArialSans;
-    font-weight: 350;
-    position: absolute;
-    top: 120%;
-    left: 32%;
-    border: none;
-    background-color: #0260e8;
-    color: white;
-    border-radius: 20px;
-    text-align: center;
-    cursor: pointer;
-}
 
 .myorder{
-    width: 20em;
-    height: 20em;
+    width: 6em;
+    height: 1em;
     font-size: 30px;
     font-family: ArialSans;
     font-weight: 500;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     color: black;
 }
@@ -118,7 +101,7 @@ footer {
     position: absolute;
     display: flex;
     justify-content: center;
-    top: 500%;
+    top: 225%;
     background-color: #0260e8;
     color: #fff;
     left: 0;
@@ -155,8 +138,8 @@ p{
 
 .money{
     position: absolute;
-    top: 125%;
-    font-size: 25px;
+    top: 120%;
+    font-size: 40px;
     font-family: ArialSans;
     left: 45%;
 }
@@ -177,17 +160,64 @@ p{
     width: 60%;
     height: 13%;
     cursor: pointer;
+    align-items: center;
 }
 
 .circle{
     position: absolute;
-    width: 15em;
-    height: 15em;
+    width: 17em;
+    height: 17em;
     background-color: #fff;
     border: 5px solid #0260e8 ;
     border-radius: 50%;
-    top: 136%;
-    left: 43%;
+    top: 133%;
+    left: 45%;
+}
+
+.conect{
+    text-decoration: none;
+    padding-top: 27px;
+    /*padding: 10px;*/
+    width: 60%;
+    height: 11%;
+    font-size: 50px;
+    font-family: ArialSans;
+    font-weight: 800;
+    position: absolute;
+    top: 170%;
+    left: 22%;
+    border: none;
+    background-color: #0260e8;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logout{
+    text-decoration: none;
+    position: absolute;
+    padding: 10px 100px;
+    width: auto;
+    height: auto;
+    border-radius: 25px;
+    background-color: #0260e8;
+    color: #fff;
+    font-size: 40px;
+    font-family: ArialSans;
+    font-weight: 750;
+    top: 199%;
+    left: 35%;
+    cursor: pointer;
+}
+
+
+.yourmony{
+    position: absolute;
+    font-size: 30px;
+    font-family: ArialSans;
+    top: 220%;
+    
 }
 
 @font-face {

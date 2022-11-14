@@ -128,6 +128,12 @@ def logout():
 
 
 
+@app.route('/neworder')
+def neworder():
+    
+
+
+
 @app.route('/account')
 def account():
     if 'email' in session:
