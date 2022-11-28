@@ -2,6 +2,9 @@ from flask import Flask, request, render_template, session, url_for, redirect
 import sqlite3
 import hashlib
 import os
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
 
 
 app = Flask(__name__, template_folder='pages')
@@ -123,16 +126,31 @@ def reg():
 @app.route('/logout')
 def logout():
     session.pop('email', None)
-#    print(session['email'])
     return redirect(url_for('auth'))
 
 
 
 @app.route('/neworder')
 def neworder():
-    
-
-
+    db_lp = sqlite3.connect('bases/requeset.db')
+    db_lp1 = sqlite3.connect('bases/login_password.db')
+    cursor_db_lp = db_lp.cursor()
+    cursor_db_lp1 = db_lp1.cursor()
+    skill1 = cursor_db_lp1.execute(f'''SELECT mainSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    skill2 = cursor_db_lp1.execute(f'''SELECT secondHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    hour1 = cursor_db_lp1.execute(f'''SELECT secondSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    houre2 = cursor_db_lp1.execute(f'''SELECT secondHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    email = session['email']
+    fio =  cursor_db_lp1.execute(f'''SELECT fio FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    sql_insert = f'''INSERT INTO requeset VALUES('{skill1}','{hour1}','{skill2}','{houre2}','{fio}', '{email}');'''
+    print('ready')
+    cursor_db_lp.execute(sql_insert)
+    cursor_db_lp.close()
+    db_lp.commit()
+    db_lp.close()
+    cursor_db_lp1.close()
+    db_lp1.close()
+    return redirect(url_for('account'))
 
 @app.route('/account')
 def account():
