@@ -137,7 +137,7 @@ def neworder():
     cursor_db_lp = db_lp.cursor()
     cursor_db_lp1 = db_lp1.cursor()
     skill1 = cursor_db_lp1.execute(f'''SELECT mainSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
-    skill2 = cursor_db_lp1.execute(f'''SELECT secondHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    skill2 = cursor_db_lp1.execute(f'''SELECT mainHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
     hour1 = cursor_db_lp1.execute(f'''SELECT secondSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
     houre2 = cursor_db_lp1.execute(f'''SELECT secondHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
     email = session['email']
