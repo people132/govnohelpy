@@ -225,23 +225,48 @@
 	font-weight: 900;
 	position: absolute;
 	top: 13%;
-	left: 47%;
+	left: 45%;
 	width: 35%;
 	height: 30%;
 	text-align: center;
 	font-family: Sans;
-	font-size: 2.1vw;
+	font-size: 2.2vw;
 }
 .row_main_text{
 	font-weight: 550;
 	position: absolute;	
 	top: 33%;
-	left: 52%;
-	width: 23%;
+	left: 49%;
+	width: 28%;
 	height: 50%;
 	text-align: center;
 	font-family: Sans;
 	font-size: 1.6vw;
+}
+.row_button{
+	font-family: Sans;
+	font-weight: 600;
+	position: absolute;
+	text-align: center;
+	top: 65%;
+	left: 45%;
+	width: 35%;
+	height: 14%;
+	color: #000000;
+	font-size: 1.6vw;
+	line-height: 1.65;
+	border-width: 1px;
+	border-radius: 20px;
+	background-color: #ffffff;
+	background-position: center center;
+	text-decoration: none;
+	border-color: #000000;
+	border-style: none;
+	box-shadow: 0px 0px 30px 1px rgba(2,96,232,1);
+}
+.how_we_works_row{
+	position: absolute;
+	
 }
 
 @font-face {
