@@ -209,9 +209,10 @@
    align-content: center;
    justify-content: center;
 	text-align: center;
-	font-family: Sans;
-	font-size: 4vw;
-	font-weight: 900;
+	font-family: TSbold;
+	font-size: 3.80vw;
+	font-weight: 700;
+	letter-spacing: 1.1px;
 }
 
 .row{
@@ -293,3 +294,21 @@
 	font-style: normal; 
 	font-weight: normal;
  }
+ @font-face {
+    font-family: 'TSExBold';
+    src:
+        url("../fonts/TildaSans-ExtraBold.woff2") format('woff2'),
+        url("../fonts/TildaSans-ExtraBold.woff") format('woff'),
+        url("../fonts/TildaSans-ExtraBold.ttf") format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TSbold';
+    src:
+        url('../fonts/TildaSans-Bold.woff2') format('woff2'),
+        url('../fonts/TildaSans-Bold.woff') format('woff'),
+        url('../fonts/TildaSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }

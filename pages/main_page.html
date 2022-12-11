@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <meta charset="utf-8">
+    <head>
+        <title>Сайт помощи фрилансерам</title>
+    </head>
 <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename= 'style/main.css') }}">
 </html>
     <body>
@@ -15,7 +18,7 @@
         </div>
         <div class="page3">Наши Услуги</div>
         <div class="row" style="top: 190%">
-            <img style="height: 100%; left: 20%; top: 0%; position: absolute;" src="{{ url_for('static', filename= 'imgs/Consulting.svg') }}">
+            <img style="height: 100%; left: 20%; top: 0%; position: absolute;" src="{{ url_for('static', filename= 'imgs/Consulting.svg') }}" alt="Трудности перевода">
             <div class="row_title">Трудности перевода</div>
             <div class="row_main_text">Наши переводчики общаются с англоговорящими заказчиками за вас</div>
             <a class="row_button" href="http://www.google.com/">Подробнее</a>
@@ -40,10 +43,5 @@
         </div>
         <div class="page3" style="top: 355%;">Как мы работаем</div>
         <div class="how_we_works_row"></div>
-        <div class=menu>
-            <div class="left_menu_text">Helpy</div>
-            <div class="contacts">Контакты</div>
-            <div class="otzivi">Отзывы</div>
-        </div>
     </body>
 </html>
