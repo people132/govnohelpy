@@ -113,11 +113,6 @@ def reg():
 
             db_lp.commit()
             db_lp.close()
-        else:
-            return redirect(url_for('auth'))
-            return '''<script> 
-                alert('Пользователь уже существует')
-            </script>'''
         return redirect(url_for('auth'))
 
     return render_template('reg.html')
