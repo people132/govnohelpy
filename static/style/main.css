@@ -235,8 +235,8 @@
 
 .pozvoleniya_main_text{
 	position: absolute;
+	width: 36%;
 	left: 44.4%;
-	width: 600px;
 	line-height: 74px;
 	font-size: 45px;
 	display: flex;
@@ -246,12 +246,11 @@
 }
 .pozvoleniya_sircles{
 	left: 50%;
-	width: 12px;
-	height: 12px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	color: #000000;
     font-size: 18px;
-    font-family: 'TildaSans',Arial,sans-serif;
     font-weight: 400;
     background-color: #0260e8;
     background-position: center center;
