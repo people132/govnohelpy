@@ -9,7 +9,7 @@ import smtplib
 
 app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
-
+#what git is?
 
 @app.route('/qu', methods=['GET', 'POST'])
 def qu():
