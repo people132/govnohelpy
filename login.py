@@ -2,6 +2,10 @@ from flask import Flask, request, render_template, session, url_for, redirect
 import sqlite3
 import hashlib
 import os
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
+
 
 app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
@@ -30,8 +34,8 @@ def qu():
 
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor_db = db_lp.cursor()
-            sql_insert1 = f'''UPDATE info SET mainskill = "{mainSkill}",mainhoure = "{mainHour}",secondskill = "{secondSkill}",
-                    secondhour = "{secondHour}", laguage = "{lengug}", freehour = "{hour}", work = "{work}" 
+            sql_insert1 = f'''UPDATE info SET mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                    secondHour = "{secondHour}", lengug = "{lengug}", hour = "{hour}", work = "{work}" 
                          WHERE login ="{session['email']}";'''
 
             cursor_db.execute(sql_insert1)
@@ -41,11 +45,10 @@ def qu():
             db_lp.commit()
             db_lp.close()
             print(mainSkill, mainHour, secondSkill, secondHour, lengug, work)
-
+            return redirect(url_for('account'))
         return render_template('qu.html', log=log)
     else:
         return redirect(url_for('auth'))
-
 
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
@@ -101,7 +104,7 @@ def reg():
         if cursor_db.execute(f'''SELECT password FROM login_password
                                             WHERE login = "{login}"''').fetchone() == None:
             sql_insert = f'''INSERT INTO login_password VALUES('{login}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
-            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{None}', '{None}', '{None}', '{None}', '{None}', '{None}', '{None}');'''
+            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}');'''
 
             cursor_db.execute(sql_insert)
             cursor_db.execute(sql_insert1)
@@ -110,11 +113,6 @@ def reg():
 
             db_lp.commit()
             db_lp.close()
-        else:
-            return redirect(url_for('auth'))
-            return '''<script> 
-                alert('Пользователь уже существует')
-            </script>'''
         return redirect(url_for('auth'))
 
     return render_template('reg.html')
@@ -123,13 +121,43 @@ def reg():
 @app.route('/logout')
 def logout():
     session.pop('email', None)
-#    print(session['email'])
     return redirect(url_for('auth'))
 
 
-#работа над новой страницей
-#@app.route('/account')
-#def account():
+
+@app.route('/neworder')
+def neworder():
+    db_lp = sqlite3.connect('bases/requeset.db')
+    db_lp1 = sqlite3.connect('bases/login_password.db')
+    cursor_db_lp = db_lp.cursor()
+    cursor_db_lp1 = db_lp1.cursor()
+    skill1 = cursor_db_lp1.execute(f'''SELECT mainSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    skill2 = cursor_db_lp1.execute(f'''SELECT mainHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    hour1 = cursor_db_lp1.execute(f'''SELECT secondSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    houre2 = cursor_db_lp1.execute(f'''SELECT secondHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    email = session['email']
+    fio =  cursor_db_lp1.execute(f'''SELECT fio FROM info WHERE login = '{session['email']}';''').fetchone()[0]
+    sql_insert = f'''INSERT INTO requeset VALUES('{skill1}','{hour1}','{skill2}','{houre2}','{fio}', '{email}');'''
+    print('ready')
+    cursor_db_lp.execute(sql_insert)
+    cursor_db_lp.close()
+    db_lp.commit()
+    db_lp.close()
+    cursor_db_lp1.close()
+    db_lp1.close()
+    return redirect(url_for('account'))
+
+@app.route('/account')
+def account():
+    if 'email' in session:
+        db_lp = sqlite3.connect('bases/login_password.db')
+        cursor_db = db_lp.cursor()
+        Log = cursor_db.execute(('''SELECT fio FROM info
+                                               WHERE login = '{}';
+                                               ''').format(session['email'])).fetchone()[0]
+    return render_template('account.html', Log = Log)
+ 
+
 
 
 app.run(debug=True)
