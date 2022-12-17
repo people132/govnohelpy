@@ -2,9 +2,7 @@ from flask import Flask, request, render_template, session, url_for, redirect
 import sqlite3
 import hashlib
 import os
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-import smtplib
+
 
 #ds
 app = Flask(__name__, template_folder='pages')
