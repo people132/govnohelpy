@@ -603,6 +603,7 @@ footer{
 	width: 100%;
 	height: 340px;
 	position: absolute;
+	display: flex;
 }
 .social{
     top: 25%;
