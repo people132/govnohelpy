@@ -156,7 +156,8 @@ def account():
                                                WHERE login = '{}';
                                                ''').format(session['email'])).fetchone()[0]
     return render_template('account.html', Log = Log)
-
+def f():
+    return None
 
 
 
