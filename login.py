@@ -146,7 +146,7 @@ def neworder():
     cursor_db_lp1.close()
     db_lp1.close()
     return redirect(url_for('account'))
-
+#ap
 @app.route('/account')
 def account():
     if 'email' in session:
