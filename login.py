@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 
-
+#ds
 app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
 #what git is?
