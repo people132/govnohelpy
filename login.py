@@ -25,7 +25,6 @@ def qu():
             secondSkill = request.form['select3']
             secondHour = request.form['select4']
             #hgjlfjjfhl
-            #ghfaskhjh
             hour = request.form['select5']
             lengug = ' '.join(request.form.getlist('len'))
             work = ' '.join(request.form.getlist('field'))
