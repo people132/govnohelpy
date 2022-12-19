@@ -1,6 +1,6 @@
 console.log("ПРИВ");
 
-const animItems = document.querySelectorAll('._anim_items');
+const animItems = document.querySelectorAll(".anim_items");
 console.log(animItems.length);
 if(animItems.length > 0){
     window.addEventListener("scroll", animOnScroll);
@@ -19,9 +19,6 @@ if(animItems.length > 0){
             if ((window.pageYOffset > (animItemOffset - animItemPointer)) && (window.pageYOffset < (animItemOffset + animItemHeight))){
                 animItem.classList.add("_active");
             }
-            else {
-                animItem.classList.remove("_active");
-            }
         }
     }
     function offset(el) {
@@ -30,4 +27,5 @@ if(animItems.length > 0){
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
     }
+    animOnScroll();
 }
