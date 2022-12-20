@@ -4,14 +4,14 @@
     <head>
         <title>Сайт помощи фрилансерам</title>
     </head>
-<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename= 'style/main.css') }}">
+<link type="text/css" rel="stylesheet" href="../static/style/main.css">
 </html>
     <body>
         <div class="arrow-2"></div>
         <div class="page1">
             <div class="title_text">Helpy</div>
             <div class="title_text2">Сервис, который помогает <br> фрилансерам</div>
-            <img class="arrow" src="{{ url_for('static', filename= 'imgs/arrow.svg') }}">
+            <img class="arrow" src="../static/imgs/arrow.svg">
         </div>
         <div class="page2">
             <div class="big_circle anim_items"></div>
@@ -33,28 +33,28 @@
         <a href="http://www.google.com/" class="btn_pozvol anim_items">начать работу</a>
         <div class="page3 anim_items">Наши Услуги</div>
         <div class="row" style="top: 370%">
-            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="{{ url_for('static', filename= 'imgs/Consulting.svg') }}" alt="Трудности перевода">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/Consulting.svg" alt="Трудности перевода">
             <div class="row_title anim_items">Трудности перевода</div>
             <div class="row_main_text anim_items">Переводчики общаются с <br> англоговорящими заказчиками за вас</div>
-            <a class="row_button anim_items" href="http://www.google.com/">Подробнее</a>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
         </div>
         <div class="row" style="top: 413%">
-            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="{{ url_for('static', filename= 'imgs/SpotlightFlatline.svg') }}">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/SpotlightFlatline.svg">
             <div class="row_title anim_items">Подбор заказчиков</div>
             <div class="row_main_text anim_items">Мы будем искать добросовестных <br> заказчиков, которые платят за вашу работу</div>
-            <a class="row_button anim_items" href="http://www.google.com/">Подробнее</a>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
         </div>
         <div class="row" style="top: 455%">
-            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="{{ url_for('static', filename= 'imgs/MoneyFlat.svg') }}">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/MoneyFlat.svg">
             <div class="row_title anim_items">Проблемы с выводом</div>
             <div class="row_main_text anim_items">Тонкости перевода денег с иностранных <br> платформ на российские карты берём на себя</div>
-            <a class="row_button anim_items" href="http://www.google.com/">Подробнее</a>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
         </div>
         <div class="row" style="top: 495%">
-            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="{{ url_for('static', filename= 'imgs/PRFlatline.svg') }}">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/PRFlatline.svg">
             <div class="row_title anim_items">Оформление аккаунта</div><!--ЧТО ПРОИСХОДИТ?!?!?-->
             <div class="row_main_text anim_items">Мы поможем оформить аккаунт даже в <br> условиях санкций и блокировок</div>
-            <a class="row_button anim_items" href="http://www.google.com/">Подробнее</a>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
         </div>
         <div class="page3 anim_items" style="top: 545%;">Как мы работаем</div>
         <div class="how_we_works_row" style="top:560%;">
@@ -77,10 +77,32 @@
             <div class="how_we_works_text anim_items" style="left: calc(73% - 200px); transition-duration: 2.5s; animation-duration: 4s; transition-delay: 0.6s;">Мы всегда будем на связи и решить любые <br> проблемы или задать вопросы можно в <br> разделе "Контакты" </div>
         </div>
         <div class="page3 anim_items" style="top: 620%;">Сколько?</div>
-        <div class="how_many_text">Такую комиссию берёт Helpy с каждой <br> выплаты по подобранному нами заказу. <br>
-            Мы переведём ваш гонорар в рубли и <br> пришлём сумму с уже включенной <br> комиссией к вам на счёт.</div>
+            <div class="how_many_text anim_items">
+                <div class="spanan anim_items">Такую</div>
+                <div class="spanan anim_items">комиссию</div>
+                <div class="spanan anim_items">берёт</div>
+                <div class="spanan anim_items">с каждой<br></div>
+                <div class="spanan anim_items">выплаты</div>
+                <div class="spanan anim_items">по</div>
+                <div class="spanan anim_items">подобранному</div>
+                <div class="spanan anim_items">нами</div>
+                <div class="spanan anim_items">заказу.<br></div>
+                <div class="spanan anim_items">Мы</div>
+                <div class="spanan anim_items">переведём</div>
+                <div class="spanan anim_items">ваш</div>
+                <div class="spanan anim_items">гонорар</div>
+                <div class="spanan anim_items">в рубли и <br></div>
+                <div class="spanan anim_items">пришлём</div>
+                <div class="spanan anim_items">сумму</div>
+                <div class="spanan anim_items">с уже</div>
+                <div class="spanan anim_items">включенной<br></div>
+                <div class="spanan anim_items">комиссией</div>
+                <div class="spanan anim_items">к вам</div>
+                <div class="spanan anim_items">на счёт.</div>
+            </div>
         <div class="how_many_circle anim_items"></div>
-        <div class="how_many_percent anim_items">10%</div>
+        <div class="how_many_percent anim_items">10</div>
+        <div class="how_many_percent anim_items" style="left: calc(25% + 5px - 2%)">%</div>
         <div class="page3 anim_items" style="top: 700%;">Попробуйте!</div>
         <div class="try_text">Зарегистрируйтесь уже сейчас. Мы создадим личный кабинет и <br> зададим несколько необходимых вопросов, которые помогут <br> оказывать эффективную помощь.</div>
         <a href="http://www.google.com/" class="try_btn">Поехали!</a>
@@ -95,6 +117,6 @@
                 <a href="https://www.google.com/" class="a_footer"><img src="../static/imgs/icons8-mail-60.png"></a>
             </div>
         </footer>
-        <script src="{{ url_for('static', filename= 'animation/main.js') }}"></script>
+        <script src="../static/animation/main.js"></script>
     </body>
 </html>
