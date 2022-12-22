@@ -414,7 +414,7 @@
 }
 .row_title._active{
 	transform: translate(0, 0);
-	transition-delay: 0.6s;
+	transition-delay: 0.2s;
 	opacity: 1;
 }
 .row_main_text{
@@ -437,7 +437,7 @@
 }
 .row_main_text._active{
 	transform: translate(0, 0);
-	transition-delay: 0.7s;
+	transition-delay: 0.3s;
 	opacity: 1;
 }
 .row_button{
@@ -461,27 +461,36 @@
 	border-color: #000000;
 	border-style: none;
 	box-shadow: 3px 4px 5px 2px rgb(0 0 0 / 30%);
+	display: inline-block;
 
-	opacity: 0;
-    transition-duration: 1s;
-    transition-timing-function: cubic-bezier(.19,1,.22,1);
-    backface-visibility: hidden;
-    transform: translate(-100px,0);
+	opacity: 1;
 }
 .row_button._active{
-	transition-delay: 1s;
+	animation-fill-mode:backwards;
 	animation-name: row_button_animation;
-	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-timing-function: cubic-bezier(.19,1,.22,1);
+	animation-delay: 0.4s;
 }
 
 @keyframes row_button_animation{
+	0%{
+		transform: translate(-100px, 0);
+		opacity: 0;
+	}
 	100%{
 		transform: translate(0, 0);
 		opacity: 1;
-		transition-delay: 0s;
 	}
 }
+.row_button:link,
+.row_button:visited {
+    border-radius: 100px;
+    transition: all .2s;
+}
 .row_button:hover {
+	border-radius: 100px;
+	transition: all .2s;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
@@ -489,6 +498,7 @@
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 .how_we_works_row{
 	position: absolute;
