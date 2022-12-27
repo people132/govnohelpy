@@ -31,5 +31,30 @@ if(animItems.length > 0){
 }
 
 function Changename(fieldName, text) {
+    fieldName = document.getElementById(fieldName);
     fieldName.textContent = text;
 }
+
+function ChangeURL(fieldName, URL){
+    fieldName = document.getElementById(fieldName);
+    fieldName.href = URL;
+}
+var flag = 0;
+document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
+    if(flag === 0){
+        document.getElementsByClassName("tablet_of_CO")[0].style.height = "410px";
+        document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130% + 205px)";
+        Changename("tablet_of_CO_arrow_frame", "↑")
+        document.getElementsByTagName("footer")[0].style.top = "180%";
+        flag = 1;
+    }
+    else{
+        document.getElementsByClassName("tablet_of_CO")[0].style.height = "205px";
+        document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130%)";
+        Changename("tablet_of_CO_arrow_frame", "↓")
+        document.getElementsByTagName("footer")[0].style.top = "150%";
+        flag = 0
+    }
+
+    return false;
+  };
