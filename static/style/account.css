@@ -70,6 +70,7 @@ body{
 }
 
 .top_line{
+    z-index: 5;
     top: 1.5%;
     width: 3px;
     height: 105px;
@@ -79,52 +80,63 @@ body{
 }
 
 .top_text_left{
+    z-index: 2;
     top: 2%;
-    width: 0px;
+    width: 110px;
     height: 90px;
     position: absolute;
-    left: calc(77% - 235px - 50% - 1px - 4.5% - 112px);
+    left: calc(77% - 235px - 50% - 1px - 4.5% - 55px);
     line-height: 48px;
     color: #000000;
     font-size: 31px;
     font-weight: 600;
-    text-align: center;
+    text-align: right;
     font-family: 'WSB',Arial,sans-serif;
     transition: 0.3s;
     overflow: hidden;
     white-space: nowrap;
-
-    transform: translate(200px, 0px);
-    animation-name: top_text_left_animation;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-delay: 1s;
 }
 
-@keyframes top_text_left_animation{
+@keyframes top_text_animation{
     0%{
-        width: 0;
+        opacity: 0;
     }
     100%{
+        opacity: 1;
         transform: translate(0px, 0px);
-        width: 200px;
     }
-
 }
 
-.top_text_right{
+#top_text_right{
+    z-index: 0;
     top: 4%;
-    width: 200px;
+    width: 500px;
     height: 80px;
     position: absolute;
-    left: calc(77% - 235px - 50% - 1px + 5.5% - 100px);
+    left: calc(77% - 235px - 50% - 1px + 4.5% - 55px);
     line-height: 54px;
     color: #000000;
     font-size: 36px;
     font-weight: 400;
-    text-align: center;
     font-family: 'WSL',Arial,sans-serif;
     transition: 0.3s;
+
+    transform: translate(-500px, 0px);
+    animation-name: top_text_animation;
+    animation-timing-function: ease-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+.top_text_upperblock_for_right{
+    position: absolute;
+    z-index: 1;
+    background-color:inherit;
+    width: calc(77% - 235px - 50% - 1px);
+    height: 90px;
+    left: 0;
+    top: 2%;
 }
 
 .tablet{
@@ -467,19 +479,8 @@ button:hover .button-text {
     box-shadow: 12px 10px 30px 0px rgb(0 0 0 / 40%);
     display: table-cell;
     vertical-align: middle;
+}
 
-    transform: translateY(50px);
-    animation-name: mini_title_frame_animation;
-    animation-timing-function: ease-in-out;
-    animation-duration: 0.5s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-}
-@keyframes mini_title_frame_animation{
-    100%{
-        transform: translateY(0);
-    }
-}
 .mini_titles_texts{
     position: relative;
     top: 20%;

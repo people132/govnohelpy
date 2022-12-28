@@ -85,9 +85,7 @@ let history = [ ["видеомонтаж. fiverr. свадебный ролик.
                 ["17", "17"],
                 ["18", "18"],
                 ["19", "19"],
-                ["20", "20"],
-                ["21", "та дааа"], 
-                ["свадьба ёмаё", "1000 баксов"]];
+                ["20", "20"] ];
 let tablet_left = document.getElementsByClassName("tablet_of_CO_el_left");
 let tablet_right = document.getElementsByClassName("tablet_of_CO_el_right");
 for (let i = 0; i < 8; i++) {
@@ -124,6 +122,7 @@ document.getElementById("arrow_left_frame").onclick = function() {
                 tablet_right[i].textContent = "";
             }
         }
-    }
-    
+    } 
 }
+
+Changename("top_text_right", "Владислав Александров");
