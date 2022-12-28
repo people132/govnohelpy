@@ -964,3 +964,11 @@ footer{
     font-style: normal;
   }
   /**/
+
+  .hedder{
+	position: absolute;
+	top: 0;
+	height: 5%;
+	width: 100%;
+	
+  }
