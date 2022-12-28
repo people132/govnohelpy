@@ -1,30 +1,126 @@
 <!DOCTYPE html>
 <html lang="ru">
 <meta charset="utf-8">
-<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename= 'style/main.css') }}">
+    <head>
+        <title>Сайт помощи фрилансерам</title>
+    </head>
+<link type="text/css" rel="stylesheet" href="../static/style/main.css">
 </html>
     <body>
+        <div class="arrow-2"></div>
         <div class="page1">
             <div class="title_text">Helpy</div>
             <div class="title_text2">Сервис, который помогает <br> фрилансерам</div>
-            <img class="arrow" src="{{ url_for('static', filename= 'imgs/arrow.svg') }}">
+            <img class="arrow" src="../static/imgs/arrow.svg">
         </div>
         <div class="page2">
-            <div class="kok3">Чем мы занимаемся?</div>
-            <div class="kok4">Оказываем поддержку фрилансерам на всём их пути: от регистрации аккаунта и выполнения первых заказов до стабильно высокого дохода.</div>
+            <div class="big_circle anim_items"></div>
+            <div class="kok4" style="line-height: 89px;" > Helpy <br> лучшее решение для <br> российских фрилансеров <br> в 2022 году </div>
         </div>
-        <div class="page3">Наши Услуги</div>
-        <div class="row" style="top: 190%">
-            <img style="height: 100%; left: 20%; top: 0%; position: absolute;" src="{{ url_for('static', filename= 'imgs/Consulting.svg') }}">
-            <div class="row_title">Преодоление языкового барьера</div>
-            <div class="row_main_text">Наши переводчики помогут вам в общении с заказчиком</div>
+        <div class="page3 anim_items" style="top: 210%; font-size: 3.50vw;">Helpy позволяет</div>
+        <div class="pozvoleniya" style="top: 225%">
+            <div class="pozvoleniya_sircles anim_items" style="top: 23%;"></div>
+            <div class="pozvoleniya_main_text anim_items">работать на ушедших с <br> российского рынка биржах <br> фриланса</div>
         </div>
-        <div class=menu>
-            <div class="left_menu_text">Helpy</div>
-            <div class="contacts">Контакты</div>
-            <div class="otzivi">Отзывы</div>
+        <div class="pozvoleniya" style="top: 263%">
+            <div class="pozvoleniya_sircles anim_items" style="top: 14%;"></div>
+            <div class="pozvoleniya_main_text anim_items">получать выплаты в рублях, <br> зарабатывая в долларах</div>
         </div>
+        <div class="pozvoleniya" style="top: 299%">
+            <div class="pozvoleniya_sircles anim_items" style="top: 18%;"></div>
+            <div class="pozvoleniya_main_text anim_items">не тратить время на поиск, <br> проверку и общение с <br> иностранными <br> заказчиками</div>
+        </div>
+        <a href="http://www.google.com/" class="btn_pozvol anim_items">начать работу</a>
+        <div class="page3 anim_items">Наши Услуги</div>
+        <div class="row" style="top: 370%">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/Consulting.svg" alt="Трудности перевода">
+            <div class="row_title anim_items">Трудности перевода</div>
+            <div class="row_main_text anim_items">Переводчики общаются с <br> англоговорящими заказчиками за вас</div>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
+        </div>
+        <div class="row" style="top: 413%">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/SpotlightFlatline.svg">
+            <div class="row_title anim_items">Подбор заказчиков</div>
+            <div class="row_main_text anim_items">Мы будем искать добросовестных <br> заказчиков, которые платят за вашу работу</div>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
+        </div>
+        <div class="row" style="top: 455%">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/MoneyFlat.svg">
+            <div class="row_title anim_items">Проблемы с выводом</div>
+            <div class="row_main_text anim_items">Тонкости перевода денег с иностранных <br> платформ на российские карты берём на себя</div>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
+        </div>
+        <div class="row" style="top: 495%">
+            <img style="height: 100%; width: 544.5px; left: calc(30% - 272.25px); top: 9%; position: absolute;" src="../static/imgs/PRFlatline.svg">
+            <div class="row_title anim_items">Оформление аккаунта</div><!--ЧТО ПРОИСХОДИТ?!?!?-->
+            <div class="row_main_text anim_items">Мы поможем оформить аккаунт даже в <br> условиях санкций и блокировок</div>
+            <a class="row_button anim_items" href="http://www.google.com/">подробнее</a>
+        </div>
+        <div class="page3 anim_items" style="top: 545%;">Как мы работаем</div>
+        <div class="how_we_works_row" style="top:560%;">
+            <div class="how_we_works_circles anim_items" style="left: calc(27% - 40px); transition-duration: 0.5s; animation-duration: 2s; transition-delay: 0.2s;">
+                <div class="how_we_works_circles_text anim_items" style="left: calc(50% - 40px); transition-duration: 0.5s; animation-duration: 2s; transition-delay: 0.2s;">1</div>
+            </div>
+            <div class="how_we_works_titles anim_items" style="left: calc(27% - 200px); transition-duration: 0.5s; animation-duration: 2s; transition-delay: 0.2s;">Оставьте заявку на <br> нашем сайте</div>
+            <div class="how_we_works_text anim_items" style="left: calc(27% - 200px); transition-duration: 0.5s; animation-duration: 2s; transition-delay: 0.2s;">Наш менеджер примет её и свяжется с <br> вами в ближайшее время для <br> уточнения данных и ваших предпочтений в работе.</div>
+
+            <div class="how_we_works_circles anim_items" style="left: calc(50% - 40px); transition-duration: 1.5s; animation-duration: 3s; transition-delay: 0.4s;">
+                <div class="how_we_works_circles_text anim_items" style="left: calc(50% - 40px); transition-duration: 1.5s; animation-duration: 3s; transition-delay: 0.4s;">2</div>
+            </div>
+            <div class="how_we_works_titles anim_items" style="left: calc(50% - 200px); transition-duration: 1.5s; animation-duration: 3s; transition-delay: 0.4s; ">Персонализированный <br> подбор заказов</div>
+            <div class="how_we_works_text anim_items" style="left: calc(50% - 200px); transition-duration: 1.5s; animation-duration: 3s; transition-delay: 0.4s;">Основываясь на ваших целях и <br> возможностях, мы подберём для вас <br> подходящие задания для выполнения.</div>
+
+            <div class="how_we_works_circles anim_items" style="left: calc(73% - 40px); transition-duration: 2.5s; animation-duration: 4s; transition-delay: 0.6s;">
+                <div class="how_we_works_circles_text anim_items" style="left: calc(50% - 40px); transition-duration: 2.5s; animation-duration: 4s; transition-delay: 0.6s;">3</div>
+            </div>
+            <div class="how_we_works_titles anim_items" style="left: calc(73% - 200px); transition-duration: 2.5s; animation-duration: 4s; transition-delay: 0.6s;">Наша поддержка будет <br> всегда на связи</div>
+            <div class="how_we_works_text anim_items" style="left: calc(73% - 200px); transition-duration: 2.5s; animation-duration: 4s; transition-delay: 0.6s;">Мы всегда будем на связи и решить любые <br> проблемы или задать вопросы можно в <br> разделе "Контакты" </div>
+        </div>
+        <div class="page3 anim_items" style="top: 620%;">Сколько?</div>
+            <div class="how_many_text anim_items">
+                <div class="spanan anim_items">Такую</div>
+                <div class="spanan anim_items">комиссию</div>
+                <div class="spanan anim_items">берёт</div>
+                <div class="spanan anim_items">с каждой<br></div>
+                <div class="spanan anim_items">выплаты</div>
+                <div class="spanan anim_items">по</div>
+                <div class="spanan anim_items">подобранному</div>
+                <div class="spanan anim_items">нами</div>
+                <div class="spanan anim_items">заказу.<br></div>
+                <div class="spanan anim_items">Мы</div>
+                <div class="spanan anim_items">переведём</div>
+                <div class="spanan anim_items">ваш</div>
+                <div class="spanan anim_items">гонорар</div>
+                <div class="spanan anim_items">в рубли и <br></div>
+                <div class="spanan anim_items">пришлём</div>
+                <div class="spanan anim_items">сумму</div>
+                <div class="spanan anim_items">с уже</div>
+                <div class="spanan anim_items">включенной<br></div>
+                <div class="spanan anim_items">комиссией</div>
+                <div class="spanan anim_items">к вам</div>
+                <div class="spanan anim_items">на счёт.</div>
+            </div>
+        <div class="how_many_circle anim_items"></div>
+        <div class="how_many_percent anim_items">10</div>
+        <div class="how_many_percent anim_items" style="left: calc(25% + 5px - 2%)">%</div>
+        <div class="page3 anim_items" style="top: 700%;">Попробуйте!</div>
+        <div class="try_text">Зарегистрируйтесь уже сейчас. Мы создадим личный кабинет и <br> зададим несколько необходимых вопросов, которые помогут <br> оказывать эффективную помощь.</div>
+        <a href="http://www.google.com/" class="try_btn">Поехали!</a>
+        <footer>
+            <div class = "helpy_footer">©<strong>Helpy</strong> </div>
+            <div class="footer_line"></div>
+            <div class="social"> 
+                <a href="https://www.google.com/" class="a_footer"><img src="../static/imgs/icons8-vk-circled-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img src="../static/imgs/icons8-telegram-app-.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img src="../static/imgs/icons8-instagram-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img src="../static/imgs/icons8-phone-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img src="../static/imgs/icons8-mail-60.png"></a>
+            </div>
+        </footer>
+        <script src="../static/animation/main.js"></script>
     </body>
+<<<<<<< HEAD
+=======
     <!---->
     <body>
         <div class="heder">
@@ -33,4 +129,5 @@
 
         </div>
     </body>
+>>>>>>> c7bdd35a76ea2bb6abc5d8dba5523b34b462701c
 </html>
