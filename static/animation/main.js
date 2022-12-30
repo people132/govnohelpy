@@ -125,4 +125,4 @@ document.getElementById("arrow_left_frame").onclick = function() {
     } 
 }
 
-Changename("top_text_right", "Владислав Александров");
+//Changename("top_text_right", "Владислав Александров");
