@@ -420,16 +420,6 @@
 .row_main_text{
 	line-height: 43px;
 	font-weight: 400;
-<<<<<<< HEAD
-	position: absolute;	
-	top: 43%;
-	left: calc(70% - 255px);
-	width: 510px;
-	height: 90px;
-	text-align: center;
-	font-family: 'WM';
-	font-size: 1.4vw;
-=======
 	text-align: center;
 	font-family: 'WM';
 	font-size: 1.4vw;
@@ -438,7 +428,6 @@
 	left: calc(70% - 255px);
 	width: 510px;
 	height: 90px;
->>>>>>> people
 
 	opacity: 0;
     transition-duration: 1s;
@@ -880,11 +869,7 @@ footer{
 	justify-content: center;
 	top: 770%;
 	width: 100%;
-<<<<<<< HEAD
-	height: 340px;
-=======
 	height: 300px;
->>>>>>> people
 	position: absolute;
 	display: flex;
 }

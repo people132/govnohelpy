@@ -4,95 +4,16 @@
     }
     
 
-<<<<<<< HEAD
-    .menu{
-    position: relative;
-    height: auto;
-    width: 100%;
-    background-color: #f7f7f7;
-    border: none;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 1px 3px rgba(255, 255, 255, 0);
-    }
-    .letter_ground{
-        position: relative;
-        position: absolute;
-        background-color: #0260e8;
-        width: 6em; /*Ширина*/
-        height: 7em;
-        border-radius: 25px;
-        top: 10%;
-        left: 8%;
-    }
-    .letter{
-        font-family:ArialSans;
-        font-size: 5vw;
-        font-weight: 900;
-        color: #ffffff;
-        text-align: center;
-    }
-    .point1{
-        color: black;
-        font-size:90px;
-        font-family:ArialSans;
-        font-weight: 500;
-        position: absolute;
-        width: 8%;
-        height: 10%;
-        top: 1%;
-        left: 75%; 
-        text-align: center;
-    }
-    .account1{
-        padding-top: 3%;
-        width: 8%;
-        font-weight: 600;
-        color: #000000;
-        font-size: 200%;
-        line-height: 48px;
-        font-family: ArialSans;
-        padding-left: 7%;
-        right: 90%;
-    }
-    .account2{
-        width: 8%;
-        font-weight: 600;
-        color: #000000;
-        font-size: 200%;
-        line-height: 48px;
-        font-family: ArialSans;
-        padding-left: 7%;
-        padding-top: 0.1%;
-        right: 90%;
-    }
-    
-    .box{
-         border-radius: 15px;
-         background-color: black;
-         position:absolute;
-         top:15%;
-         left:120%;
-         width: 4%;
-         height: 80%;
-    }
-    
-=======
 
 body{
         padding: 20px;
         background-color: #f7f7f7;
 }
->>>>>>> people
 
     .account{
         width: 80%;
     }
-<<<<<<< HEAD
-    
-=======
     /**/
->>>>>>> people
     .name{
         position: absolute;
         width: 300%;
@@ -156,17 +77,6 @@ body{
     }
 
     
-<<<<<<< HEAD
-    
-    .box1{
-        display: inline-block;
-        position: absolute;
-        left: 13%;
-        top: 10%;
-    }
-    
-=======
->>>>>>> people
     .button-exit{
         font-family: ArialSans;
         text-decoration: none;
@@ -561,11 +471,7 @@ body{
         position: absolute;
         width: 1em;
         height: 1em;
-<<<<<<< HEAD
-        background-image: url('../imgs/off.svg');
-=======
         background-image: url('../imgs/off1.svg');
->>>>>>> people
     } 
 
      .option1{
@@ -574,11 +480,7 @@ body{
      }
 
      .check_input1:checked + .check_box1{
-<<<<<<< HEAD
-        background-image: url('../imgs/on.svg');
-=======
         background-image: url('../imgs/on1.svg');
->>>>>>> people
      }
 
 
@@ -604,15 +506,8 @@ body{
 
      @font-face {
       font-family: ArialSans;
-<<<<<<< HEAD
-      src: url("../fonts/Rany Font/ArialSans.ttf") format("truetype");
-      font-style: normal;
-      font-weight: normal;
-     }
-=======
       src: url("../fonts/ArialSans.ttf") format("truetype");
       font-style: normal;
       font-weight: normal;
      }
     
->>>>>>> people
