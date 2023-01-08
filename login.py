@@ -2,15 +2,11 @@ from flask import Flask, request, render_template, session, url_for, redirect
 import sqlite3
 import hashlib
 import os
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-import smtplib
+
 
 
 app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
-
-
 @app.route('/qu', methods=['GET', 'POST'])
 def qu():
     if 'email' in session:
@@ -28,6 +24,7 @@ def qu():
             mainHour = request.form['select2']
             secondSkill = request.form['select3']
             secondHour = request.form['select4']
+            #hgjlfjjfhl
             hour = request.form['select5']
             lengug = ' '.join(request.form.getlist('len'))
             work = ' '.join(request.form.getlist('field'))
@@ -146,7 +143,7 @@ def neworder():
     cursor_db_lp1.close()
     db_lp1.close()
     return redirect(url_for('account'))
-
+#ap
 @app.route('/account')
 def account():
     if 'email' in session:
@@ -155,8 +152,18 @@ def account():
         Log = cursor_db.execute(('''SELECT fio FROM info
                                                WHERE login = '{}';
                                                ''').format(session['email'])).fetchone()[0]
+        db_lp1 = sqlite3.connect('bases/ready.db')
+        cursor_db1 = db_lp1.cursor()
+        Des = cursor_db1.execute((f'''SELECT description FROM ready WHERE email='{format(session['email'])}';''')).fetchall()
+        des1=[]
+        for i in Des:
+           des1.append(i[0])
+        db_lp.close()
+        db_lp1.close()                        
+        print(Des)
+        print(des1)
     return render_template('account.html', Log = Log)
- 
+    
 
 
 
