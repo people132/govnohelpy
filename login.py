@@ -152,9 +152,18 @@ def account():
         Log = cursor_db.execute(('''SELECT fio FROM info
                                                WHERE login = '{}';
                                                ''').format(session['email'])).fetchone()[0]
+        db_lp1 = sqlite3.connect('bases/ready.db')
+        cursor_db1 = db_lp1.cursor()
+        Des = cursor_db1.execute((f'''SELECT description FROM ready WHERE email='{format(session['email'])}';''')).fetchall()
+        des1=[]
+        for i in Des:
+           des1.append(i[0])
+        db_lp.close()
+        db_lp1.close()                        
+        print(Des)
+        print(des1)
     return render_template('account.html', Log = Log)
-def f():
-    return None
+    
 
 
 
