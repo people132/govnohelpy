@@ -1,5 +1,11 @@
 body{
     background-color: #f7f7f7;
+    min-width: 1638px;
+}
+
+.container{
+    width: 1638px;
+    margin: 0px auto;
 }
 
 .top_information_conteiner{
@@ -457,11 +463,12 @@ button:hover .button-text {
         grid-template-areas: ". main main ." ". main main .";
     }
     #container {
-        top: 82%;
+        top: 845px;
         position: absolute;
         grid-area: main;
         align-self: center;
         justify-self: center;
+        left: calc(50% - 116px);
     }
 }
 .mini_title_frame{

@@ -1,171 +1,115 @@
 .menu{
-    position: fixed;
-    height: 15%;
-    width: 100%;
-    background-color: #0260e8;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.30);
-  }
-  
-  .text_bottom{
-  
-      font-family: WM;
-      margin-right: center; /*Положение формы */
-      margin-left: center; /*Положение формы */
-      text-align: center; /*Центровка текста*/
-      padding-top: 2%;
-      color: white;
-      font-size: 40px;
-      font-weight: 900;
-  }
-  
-  .menu_center{
-    height: 30%;
-    width: 100%;
-    background-color: white;
-    padding-top: 225px;
-    padding-bottom: 100px;
-    top: 0;
-    left: 0;
-  }
-  /**/
+  position: fixed;
+  height: 15%;
+  width: 100%;
+  background-color: #0260e8;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.30);
+}
 
-  .reg{
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-    font-family: WM;
-  }
+.text_bottom{
 
-  .text_center{
-    text-decoration: none;
-      font-family: WM;
-      margin-left: center;
-      margin-right: center;
-      text-align: center;
-      font-size: 30px;
-      font-weight: 600;
-      color: black;
-  }
-  
-  form {
-      padding-top: 0px;
-      font: 14px WM;/*Выбираем шрифт */
-      border: 1px solid none;/*Цвет, размер и тип границы */
-      -webkit-border-radius: 20px;/*Скругляем углы */
-      color: #777991;/*Цвет label */
-      width: 100%; /*Ширина формы */
-      margin-right: center; /*Положение формы */
-      margin-left: auto; /*Положение формы */
-      text-align: center; /*Центровка текста*/
-  
-  }
-  
-  input[type=text], input[type=password] {
-      text-align: center; /*Центровка текста*/
-      -webkit-border-radius: 4px;/*Скругляем углы */
-      width: 500px; /*Ширина */
-      height: 60px;
-      padding: 5px 20px; /*Размер внутренних отступов*/
-      margin: 10px 0; /*Размер внешних отступов*/
-      margin-right: auto; /*Размер внешних отступов справа*/
-      margin-left: auto; /*Размер внешних отступов слева*/
-      display: block; /*тип отображения*/
-      border: 1px solid #050c26;/*Цвет, размер и тип границы */
-      box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-      font: 14px ArialSans;/*Выбираем шрифт */
-      color: #777991;
-  }
-  
-  button {
-      font: 16px 'Roboto';
-      ; /*Выбираем шрифт кнопки */
-      background-color: #454cee; /*Выбираем цвет фона */
-      -webkit-border-radius: 30px; /*Закругление */
-      color: white; /*Выбираем цвет текста*/
-      padding: 16px 20px; /*Размер внутренних отступов*/
-      margin: 8px 0;/*Размер внешних отступов*/
-      border: none; /*Без границы*/
-      cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-      width: 100px; /*Ширина*/
-      height: 60px;
-      background-color: #0260e8;
-  }
-  
-  button:hover {
-      opacity: 0.9; /*Изменение яркости кнопки при наведении*/
-  }
-  
-   @font-face {
     font-family: ArialSans;
-    src: url("../fonts/ArialSans.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-   }
-  
-  .container {
-      padding-top: 10px; /*Размер внутренних отступов контейнера*/
-      padding-bottom: 10px;
-  }
-  
-  font{
-      font-family:WM;
-      font-size:20px;
-      color:black;
-  }
-  @font-face {
-    font-family: 'Quicksand';  
-    src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;
-   }
-    @font-face {
-      font-family: 'WSB';
-      src:
-          url('../fonts/Whitney-Semibold.woff2') format('woff2'),
-          url('../fonts/Whitney-Semibold.woff') format('woff'),
-          url('../fonts/Whitney-Semibold.ttf') format('truetype');
-      font-weight: 600;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'WM';
-      src:
-          url('../fonts/Whitney-Medium.woff2') format('woff2'),
-          url('../fonts/Whitney-Medium.woff') format('woff'),
-          url('../fonts/Whitney-Medium.ttf') format('truetype');
-      font-weight: 500;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'WSL';
-      src:
-          url('../fonts/Whitney-Light.woff2') format('woff2'),
-          url('../fonts/Whitney-Light.woff') format('woff'),
-          url('../fonts/Whitney-Light.ttf') format('truetype');
-      font-weight: 300;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'WSExB';
-      src: local('Whitney Black')
-          url('../fonts/Whitney-Black.woff2') format('woff2'),
-          url('../fonts/Whitney-Black.woff') format('woff'),
-          url('../fonts/Whitney-Black.ttf') format('truetype');
-      font-weight: 900;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'WSExB';
-      src: local('Unbounded')
-          url('../fonts/Unbounded-ExtraBold.ttf') format('truetype');
-      font-weight: 900;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Roboto';
-      src:
-          url('../fonts/Roboto-Medium.ttf') format('truetype');
-      font-style: normal;
-    }
+    margin-right: center; /*Положение формы */
+    margin-left: center; /*Положение формы */
+    text-align: center; /*Центровка текста*/
+    padding-top: 2%;
+    color: white;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.menu_center{
+  height: 30%;
+  width: 100%;
+  background-color: white;
+  padding-top: 225px;
+  padding-bottom: 100px;
+  top: 0;
+  left: 0;
+}
+/**/
+
+.reg{
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-family: ArialSans;
+}
+
+.text_center{
+  text-decoration: none;
+    font-family: ArialSans;
+    margin-left: center;
+    margin-right: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+
+form {
+    padding-top: 0px;
+    font: 14px ArialSans,arial, sans-serif;/*Выбираем шрифт */
+    border: 1px solid none;/*Цвет, размер и тип границы */
+    -webkit-border-radius: 20px;/*Скругляем углы */
+    color: #777991;/*Цвет label */
+    width: 100%; /*Ширина формы */
+    margin-right: center; /*Положение формы */
+    margin-left: auto; /*Положение формы */
+    text-align: center; /*Центровка текста*/
+
+}
+
+input[type=text], input[type=password] {
+    text-align: center; /*Центровка текста*/
+    -webkit-border-radius: 4px;/*Скругляем углы */
+    width: 500px; /*Ширина */
+    height: 60px;
+    padding: 5px 20px; /*Размер внутренних отступов*/
+    margin: 10px 0; /*Размер внешних отступов*/
+    margin-right: auto; /*Размер внешних отступов справа*/
+    margin-left: auto; /*Размер внешних отступов слева*/
+    display: block; /*тип отображения*/
+    border: 1px solid #050c26;/*Цвет, размер и тип границы */
+    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
+    font: 14px ArialSans;/*Выбираем шрифт */
+    color: #777991;
+}
+
+button {
+    font: 16px ArialSans, arial, sans-serif; /*Выбираем шрифт кнопки */
+    background-color: #454cee; /*Выбираем цвет фона */
+    -webkit-border-radius: 30px; /*Закругление */
+    color: white; /*Выбираем цвет текста*/
+    padding: 16px 20px; /*Размер внутренних отступов*/
+    margin: 8px 0;/*Размер внешних отступов*/
+    border: none; /*Без границы*/
+    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
+    width: 100px; /*Ширина*/
+    height: 60px;
+    background-color: #0260e8;
+}
+
+button:hover {
+    opacity: 0.9; /*Изменение яркости кнопки при наведении*/
+}
+
+ @font-face {
+  font-family: ArialSans;
+  src: url("../fonts/ArialSans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+ }
+
+.container {
+    padding-top: 10px; /*Размер внутренних отступов контейнера*/
+    padding-bottom: 10px;
+}
+
+font{
+    font-family:ArialSans;
+    font-size:20px;
+    color:black;
+}
