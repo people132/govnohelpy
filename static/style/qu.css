@@ -4,6 +4,7 @@
     }
     
 
+<<<<<<< HEAD
     .menu{
     position: relative;
     height: auto;
@@ -76,11 +77,22 @@
          height: 80%;
     }
     
+=======
+
+body{
+        padding: 20px;
+        background-color: #f7f7f7;
+}
+>>>>>>> people
 
     .account{
         width: 80%;
     }
+<<<<<<< HEAD
     
+=======
+    /**/
+>>>>>>> people
     .name{
         position: absolute;
         width: 300%;
@@ -144,6 +156,7 @@
     }
 
     
+<<<<<<< HEAD
     
     .box1{
         display: inline-block;
@@ -152,6 +165,8 @@
         top: 10%;
     }
     
+=======
+>>>>>>> people
     .button-exit{
         font-family: ArialSans;
         text-decoration: none;
@@ -546,7 +561,11 @@
         position: absolute;
         width: 1em;
         height: 1em;
+<<<<<<< HEAD
         background-image: url('../imgs/off.svg');
+=======
+        background-image: url('../imgs/off1.svg');
+>>>>>>> people
     } 
 
      .option1{
@@ -555,7 +574,11 @@
      }
 
      .check_input1:checked + .check_box1{
+<<<<<<< HEAD
         background-image: url('../imgs/on.svg');
+=======
+        background-image: url('../imgs/on1.svg');
+>>>>>>> people
      }
 
 
@@ -581,7 +604,15 @@
 
      @font-face {
       font-family: ArialSans;
+<<<<<<< HEAD
       src: url("../fonts/Rany Font/ArialSans.ttf") format("truetype");
       font-style: normal;
       font-weight: normal;
      }
+=======
+      src: url("../fonts/ArialSans.ttf") format("truetype");
+      font-style: normal;
+      font-weight: normal;
+     }
+    
+>>>>>>> people

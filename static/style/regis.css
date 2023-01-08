@@ -76,7 +76,12 @@
     font-weight: 100;
   }
 
+<<<<<<< HEAD
   .input1{
+=======
+  .input1{ 
+    font-family: ArialSans;
+>>>>>>> people
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -96,6 +101,10 @@
   }
 
   .input2{
+<<<<<<< HEAD
+=======
+    font-family: ArialSans;
+>>>>>>> people
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -117,6 +126,10 @@
   }
 
   .input3{
+<<<<<<< HEAD
+=======
+    font-family: ArialSans;
+>>>>>>> people
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -136,6 +149,10 @@
   }
 
   .input4{
+<<<<<<< HEAD
+=======
+    font-family: ArialSans;
+>>>>>>> people
     border: 1px solid black;
     border-radius: 3px;
     position: absolute;
@@ -146,6 +163,11 @@
   }
 
 .button{
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+  cursor: pointer;
+>>>>>>> people
   position: absolute;
   top: 1100%;
   left:40%;
@@ -173,7 +195,11 @@
     position: absolute;
       position: relative;
       top: 1%;
+<<<<<<< HEAD
       padding-top: 1%; /*Размер внутренних отступов контейнера*/
+=======
+      padding-top: 1%; 
+>>>>>>> people
       padding-bottom: 1%; 
       width: 100%;
       height: 70%;
