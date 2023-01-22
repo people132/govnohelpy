@@ -32,13 +32,13 @@ body{
   .menu__btn {
     display: flex; /* используем flex для центрирования содержимого */
     align-items: center;  /* центрируем содержимое кнопки */
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     width: 26px;
     height: 26px;
     cursor: pointer;
-    z-index: 3;
+    z-index: 5;
   }
   /* добавляем "гамбургер" */
   .menu__btn > span,
@@ -61,7 +61,7 @@ body{
 
 /* контейнер меню */
 .menu__box {
-    z-index: 2;
+    z-index: 4;
     display: block;
     position: fixed;
     visibility: hidden;
@@ -124,14 +124,16 @@ body{
     width: 100%;
 }
 .top_information_conteiner{
-    width: 630px;
-    height: 80px;
+    min-width: 630px;
+    min-height: 80px;
+    height: 4.17vw;
     background-color: transparent;
     position: relative;
+    display: flex;
     top: 3%;
     float: right;
     transition: 0.2s;
-    border-radius: 20px;
+    border-radius: 1.04vw;
 }
 
 .top_information_conteiner:hover .exit_block{
@@ -144,21 +146,23 @@ body{
 }
 
 .top_information_text_btn{
+    min-width: 230px;
+    min-height: 80px;
     cursor: pointer;
     background-color: transparent;
-    width: 230px;
-    height: 80px;
-    position: absolute;
-    left: 0px;
-    line-height: 36px;
+    width: 11.98vw;
+    height: 4.17vw;
+    position: relative;
+    line-height: max(1.88vw, 36px);
     color: #000000;
-    font-size: 23px;
+    font-size: max(1.2vw, 23px);
     font-weight: 500;
     text-align: center;
     font-family: 'WM',Arial,sans-serif;
-    border-radius: 20px;
+    border-radius: 1.04vw;
     transition: 0.3s;
     display: flex;
+    float: left;
     align-items: center;
     justify-content: center;
 }
@@ -171,21 +175,22 @@ body{
 .top_information_textblue_btn{
     cursor: pointer;
     background-color: transparent;
-    width: 230px;
-    height: 80px;
-    position: absolute;
-    line-height: 36px;
-    font-size: 23px;
+    min-width: 220px;
+    min-height: 80px;
+    height: 4.17vw;
+    width: 11.46vw;
+    position: relative; 
+    line-height: max(1.88vw, 36px);
+    font-size: max(1.2vw, 23px);
     font-weight: 500;
     text-align: center;
     font-family: 'WM',Arial,sans-serif;
-    border-radius: 20px;
+    border-radius: 1.04vw;
     transition: 0.3s;
     display: flex;
+    float: right;
     align-items: center;
     justify-content: center;
-    left: calc(100% - 220px);
-    width: 220px;
     background-color:#0260e8;
     color:white
 }
@@ -196,24 +201,29 @@ body{
 }
 
 .exit_block{
-    width: 150px;
-    height: 80px;
+    min-width: 150px;
+    min-height: 80px;
+    width: 7.81vw;
+    height: 4.17vw;
     background-color: transparent;
-    position: relative;
-    top: calc(80px);
-    margin: 0 auto;
-    border-radius: 0 0 20px 20px;
+    position: absolute;
+    top: max(4.17vw, 80px);
+    border-radius: 0 0 1.04vw 1.04vw;
     display: flex;
     align-items: center;
     justify-content: center;
     transform: translateY(-10px);
     opacity: 0;
     color: #000000;
-    font-size: 23px;
+    font-size: max(1.2vw, 23px);
     font-weight: 500;
     text-align: center;
     font-family: 'WM',Arial,sans-serif;
     text-decoration: none;
+
+    margin: auto;
+    right: 0;
+    left: 0;
 
     transition: 0.2s;
 }
@@ -221,24 +231,28 @@ body{
 .top_line{
     z-index: 5;
     top: 1.5%;
-    width: 3px;
-    height: 105px;
+    min-width: 3px;
+    min-height: 105px;
+    width: 0.16vw;
+    height: 5.47vw;
     background-color: #000000;
     position: relative;
     float: left;
-    margin-left: 20px;
+    margin-left: max(1.04vw, 20px);
 }
 
 .top_text_left{
     z-index: 2;
     top: 2%;
-    width: 110px;
-    height: 90px;
+    min-width: 110px;
+    min-height: 90px;
+    width: 5.73vw;
+    height: 4.69vw;
     position: relative;
     float: left;
-    line-height: 48px;
+    line-height: max(2.50vw, 48px);
     color: #000000;
-    font-size: 31px;
+    font-size: max(1.61vw, 23px);
     font-weight: 600;
     text-align: right;
     font-family: 'WSB',Arial,sans-serif;
@@ -259,33 +273,39 @@ body{
 
 #top_text_right{
     z-index: 0;
-    width: 500px;
-    height: 90px;
+    min-width: 500px;
+    min-height: 90px;
+    width: 26.04vw;
+    height: 4.69vw;
     position: relative;
     float: left;
-    margin-left: 20px;
-    line-height: 90px;
+    margin-left: max(1.04vw, 20px);
+    line-height: max(4.69vw, 90px);
     color: #000000;
-    font-size: 36px;
+    font-size: max(1.88vw, 36px);
     font-weight: 400;
     font-family: 'WSL',Arial,sans-serif;
     transition: 0.3s;
     text-align: left;
     vertical-align: middle;
 
-    transform: translate(-500px, 0px);
+    transform: translate(min(-500px, -26.04vw), 0px);
     animation-name: top_text_animation;
     animation-timing-function: ease-out;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: 0.5s;
 }
 
 .top_text_upperblock_for_right{
     z-index: 1;
-    background-color:inherit;
-    height: 90px;
-    left: 0;
+    position: relative;
+    background-color:#f7f7f7;
+    min-width: 500px;
+    min-height: 90px;
+    width: 26.04vw;
+    height: 4.69vw;
+    left: min(-19vw, -370px);
     top: 2%;
 }
 
@@ -310,7 +330,7 @@ tr{
     top: 20vh;
     height: 22.5vw;
     border-width: 0px;
-    border-radius: 25px;
+    border-radius: max(1.3vw, 25px);
     background-color: #ffffff;
     background-position: center center;
     border-color: #000000;
@@ -321,12 +341,12 @@ tr{
     justify-content: center;
 }
 .earned_circle{
-    margin-top: 20px;
+    margin-top: max(1.04vw, 20px);
     height: 16vw;
     width: 16vw;
     min-width: 160px;
     min-height: 160px;
-    border-width: 10px;
+    border-width: max(0.52vw, 10px);
     border-radius: 100%;
     background-color: #ffffff;
     background-position: center center;
@@ -358,7 +378,7 @@ tr{
     top: 20vh;
     height: 22.5vw;
     border-width: 0px;
-    border-radius: 25px;
+    border-radius: max(1.3vw, 25px);
     background-color: #ffffff;
     background-position: center center;
     border-color: #000000;
@@ -374,7 +394,7 @@ tr{
     min-height: 80px;
     position: relative;
     border-width: 0px;
-    border-radius: 25px;
+    border-radius: max(1.3vw, 25px);
     background-color: #ffffff;
     background-position: center center;
     border-color: #000000;
@@ -397,7 +417,7 @@ tr{
     min-height: 80px;
     position: relative;
     border-width: 0px;
-    border-radius: 25px;
+    border-radius: max(1.3vw, 25px);
     background-color:  #0260e8;
     background-position: center center;
     color: #fff;
@@ -533,9 +553,9 @@ button:hover .button-text {
 .mini_titles_texts{
     position: relative;
     top: 20%;
-    line-height: 36px;
+    font-size: max(1.88vw, 36px);
     color: #000000;
-    font-size: 23px;
+    font-size: max(1.2vw, 23px);
     font-family: 'WSM',Arial,sans-serif;
     font-weight: 500;
     background-position: center center;
@@ -555,7 +575,7 @@ button:hover .button-text {
     min-height: 80px;
     position: relative;
     border-width: 0px;
-    border-radius: 25px;
+    border-radius: max(1.3vw, 25px);
     background-color: #ffffff;
     background-position: center center;
     border-color: #000000;
@@ -577,7 +597,7 @@ button:hover .button-text {
     min-height: 80px;
     position: relative;
     border-width: 0px;
-    border-radius: 25px;
+    border-radius: max(1.3vw, 25px);
     background-color:  #0260e8;
     background-position: center center;
     color: #fff;
@@ -774,9 +794,9 @@ footer{
 	left: 0;
 	background-color: #0260e8;
 	justify-content: center;
-	top: 300%;
+	top: 220%;
 	width: 100%;
-	height: 300px;
+	height: max(15.63vw, 300px);
 	position: absolute;
 	display: flex;
 
@@ -784,7 +804,6 @@ footer{
     transition: 1s;
 }
 .social{
-    top: 25%;
     position: absolute;
     display: flex;
     width: 65%;
@@ -793,13 +812,17 @@ footer{
     height: auto;
 }
 .a_footer{
-    width: 42px;
-    height: 42px;
+    display: flex;
     position: relative;
 	cursor: pointer;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-left: 5%; margin-right: 5%;
 }
+
+.img_size{
+    min-width: 42px; min-height: 42px;
+    width: 3vw; height: 3vw;
+}
+
 .helpy_footer{
 	position: absolute;
 	top: 70%;
@@ -826,6 +849,7 @@ footer{
 @media(min-width:2350px){
     .container{
         max-width: none;
+        width: 85%;
     }
 }
 @media(max-width:1335px){

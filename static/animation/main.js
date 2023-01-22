@@ -110,6 +110,7 @@ var page = 0;
 document.getElementById("arrow_right_frame").onclick = function() {
     if(history.length > (page + 1) * 8){
         page++;
+        Changename("counter", (page + 1).toString());
         for (let i = 0; i < 8; i++) {
             if(page * 8 + i + 1 <= history.length){
                 tablet_left[i].textContent = history[page * 8 + i][0];
@@ -125,6 +126,7 @@ document.getElementById("arrow_right_frame").onclick = function() {
 document.getElementById("arrow_left_frame").onclick = function() {
     if(page > 0){
         page--;
+        Changename("counter", (page + 1).toString());
         for (let i = 0; i < 8; i++) {
             if(page * 8 + i + 1 < history.length){
                 tablet_left[i].textContent = history[page * 8 + i][0];
