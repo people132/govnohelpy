@@ -1,206 +1,186 @@
 .menu{
-    position: fixed;
-    height: 15%;
-    width: 100%;
-    background-color: #0260e8;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.30);
-  }
-  
-  .text_bottom{
-  
-      font-family: ArialSans;
-      margin-right: center; /*Положение формы */
-      margin-left: center; /*Положение формы */
-      text-align: center; /*Центровка текста*/
-      padding-top: 2%;
-      color: white;
-      font-size: 40px;
-      font-weight: 900;
-  }
-  /**/
-  .menu_center{
-    height: 30%;
-    width: 100%;
-    background-color: white;
-    padding-top: 200px;
-    padding-bottom: 100px;
-    top: 0;
-    left: 0;
-  }
-  
-  .text_center{
-      font-family: ArialSans;
-      margin-left: center;
-      margin-right: center;
-      text-align: center;
-      font-size: 30px;
-      font-weight: 600;
-      color: black;
-  }
-  
- /* form {
-    position: absolute;
-    top: 2%;
-       font: 14px ArialSans,arial, sans-serif;
-      border: 1px solid none;
-      -webkit-border-radius: 20px;
-      color: #777991;
-      width: 25%; 
-      text-align: center; 
-  } */
-  
- /* input[type=text], input[type=text], input[type=tel], input[type=password] {
-      text-align: center; 
-      -webkit-border-radius: 4px;
-      width: 500px; 
-      height: 60px;
-      padding: 0px 20px; 
-      margin: 10px 0; 
-      margin-right: auto; 
-      margin-left: auto; 
-      display: block; 
-      border: 1px solid #050c26;
-      box-sizing: border-box; 
-      font: 14px ArialSans;
-      color: #777991;
-  } */
+  position: fixed;
+  height: 15%;
+  width: 100%;
+  background-color: #0260e8;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.30);
+}
 
-  .select1{
-    position: absolute;
-    top: 1%;
-    font-size: 20px;
-    font-family: ArialSans;
-    left: 30%;
-    font-weight: 100;
-  }
+.text_bottom{
 
-<<<<<<< HEAD
-  .input1{
-=======
-  .input1{ 
     font-family: ArialSans;
->>>>>>> people
-    border: 1px solid black;
-    border-radius: 3px;
-    position: absolute;
-    top: 100%;
-    left: 30%;
-    height: 3em;
-    width: 40%;
-  }
-  
-  .select2{
-    position: absolute;
-    top: 280%;
-    font-size: 20px;
-    font-family: ArialSans;
-    left: 30%;
-    font-weight: 100;
-  }
+    margin-right: center; /*Положение формы */
+    margin-left: center; /*Положение формы */
+    text-align: center; /*Центровка текста*/
+    padding-top: 2%;
+    color: white;
+    font-size: 40px;
+    font-weight: 900;
+}
+/**/
+.menu_center{
+  height: 30%;
+  width: 100%;
+  background-color: white;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  top: 0;
+  left: 0;
+}
 
-  .input2{
-<<<<<<< HEAD
-=======
+.text_center{
     font-family: ArialSans;
->>>>>>> people
-    border: 1px solid black;
-    border-radius: 3px;
-    position: absolute;
-    top: 370%;
-    left: 30%;
-    height: 3em;
-    width: 40%;
-  }
-  
+    margin-left: center;
+    margin-right: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+
+/* form {
+  position: absolute;
+  top: 2%;
+     font: 14px ArialSans,arial, sans-serif;
+    border: 1px solid none;
+    -webkit-border-radius: 20px;
+    color: #777991;
+    width: 25%; 
+    text-align: center; 
+} */
+
+/* input[type=text], input[type=text], input[type=tel], input[type=password] {
+    text-align: center; 
+    -webkit-border-radius: 4px;
+    width: 500px; 
+    height: 60px;
+    padding: 0px 20px; 
+    margin: 10px 0; 
+    margin-right: auto; 
+    margin-left: auto; 
+    display: block; 
+    border: 1px solid #050c26;
+    box-sizing: border-box; 
+    font: 14px ArialSans;
+    color: #777991;
+} */
+
+.select1{
+  position: absolute;
+  top: 1%;
+  font-size: 20px;
+  font-family: ArialSans;
+  left: 30%;
+  font-weight: 100;
+}
+
+.input1{ 
+  font-family: ArialSans;
+  border: 1px solid black;
+  border-radius: 3px;
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  height: 3em;
+  width: 40%;
+}
+
+.select2{
+  position: absolute;
+  top: 280%;
+  font-size: 20px;
+  font-family: ArialSans;
+  left: 30%;
+  font-weight: 100;
+}
+
+.input2{
+  font-family: ArialSans;
+  border: 1px solid black;
+  border-radius: 3px;
+  position: absolute;
+  top: 370%;
+  left: 30%;
+  height: 3em;
+  width: 40%;
+}
 
 
-  .select3{
-    position: absolute;
-    top: 510%;
-    font-size: 20px;
-    font-family: ArialSans;
-    left: 30%;
-    font-weight: 100;
-  }
 
-  .input3{
-<<<<<<< HEAD
-=======
-    font-family: ArialSans;
->>>>>>> people
-    border: 1px solid black;
-    border-radius: 3px;
-    position: absolute;
-    top: 610%;
-    left: 30%;
-    height: 3em;
-    width: 40%;
-  }
+.select3{
+  position: absolute;
+  top: 510%;
+  font-size: 20px;
+  font-family: ArialSans;
+  left: 30%;
+  font-weight: 100;
+}
 
-  .select4{
-    position: absolute;
-    top: 770%;
-    font-size: 20px;
-    font-family: ArialSans;
-    left: 30%;
-    font-weight: 100;
-  }
+.input3{
+  font-family: ArialSans;
+  border: 1px solid black;
+  border-radius: 3px;
+  position: absolute;
+  top: 610%;
+  left: 30%;
+  height: 3em;
+  width: 40%;
+}
 
-  .input4{
-<<<<<<< HEAD
-=======
-    font-family: ArialSans;
->>>>>>> people
-    border: 1px solid black;
-    border-radius: 3px;
-    position: absolute;
-    top: 860%;
-    left: 30%;
-    height: 3em;
-    width: 40%;
-  }
+.select4{
+  position: absolute;
+  top: 770%;
+  font-size: 20px;
+  font-family: ArialSans;
+  left: 30%;
+  font-weight: 100;
+}
+
+.input4{
+  font-family: ArialSans;
+  border: 1px solid black;
+  border-radius: 3px;
+  position: absolute;
+  top: 860%;
+  left: 30%;
+  height: 3em;
+  width: 40%;
+}
 
 .button{
-<<<<<<< HEAD
-=======
-  text-decoration: none;
-  cursor: pointer;
->>>>>>> people
-  position: absolute;
-  top: 1100%;
-  left:40%;
-  font-size: 16px;
-  background-color: #0260e8;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  width: 15%;
-  height: 3em;
-  font-weight: 900;
-  padding-left: 10%;
-  padding: 4px 10px 4px 10px;
-  font-family: ArialSans;
+text-decoration: none;
+cursor: pointer;
+position: absolute;
+top: 1100%;
+left:40%;
+font-size: 16px;
+background-color: #0260e8;
+color: white;
+border-radius: 30px;
+border: none;
+width: 15%;
+height: 3em;
+font-weight: 900;
+padding-left: 10%;
+padding: 4px 10px 4px 10px;
+font-family: ArialSans;
 }
-  
-   @font-face {
-    font-family: ArialSans;
-    src: url("../fonts/ArialSans.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-   }
-  
-  .container {
-    position: absolute;
-      position: relative;
-      top: 1%;
-<<<<<<< HEAD
-      padding-top: 1%; /*Размер внутренних отступов контейнера*/
-=======
-      padding-top: 1%; 
->>>>>>> people
-      padding-bottom: 1%; 
-      width: 100%;
-      height: 70%;
-  }
+
+ @font-face {
+  font-family: ArialSans;
+  src: url("../fonts/ArialSans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+ }
+
+.container {
+  position: absolute;
+    position: relative;
+    top: 1%;
+    padding-top: 1%; 
+    padding-bottom: 1%; 
+    width: 100%;
+    height: 70%;
+}
