@@ -16,7 +16,6 @@ body{
     width: 100%;
     display: flex;
     margin: 0 auto;
-    justify-content: center;
     flex-flow: row wrap;
 }
 
@@ -122,16 +121,30 @@ body{
     min-height: 105px;
     height: 6vw;
     width: 100%;
+    margin-top: 2vw;
     display: flex;
     vertical-align: middle;
     align-items: center;
 }
+svg{
+    position: relative;
+    display: flex;
+    float: left;
+    min-width: 105px;
+    min-height: 105px; 
+    width: 5.47vw;
+    height: 5.47vw; 
+}
 .img_size{
-    position: absolute;
-    left: 0;;
+    position: relative;
+    display: flex;
+    float: left;
+    left: 0;
     z-index: 6;
-    width: 25px;
-    height: 25px;
+    min-width: 105px;
+    min-height: 105px; 
+    width: 5.47vw;
+    height: 5.47vw; 
 }
 .top_information_conteiner{
     min-width: 630px;
@@ -140,7 +153,7 @@ body{
     background-color: transparent;
     position: relative;
     display: flex;
-    top: 3%;
+    margin-left: auto;
     float: right;
     transition: 0.2s;
     border-radius: 1.04vw;
@@ -255,13 +268,13 @@ body{
 
 .top_text_left{
     z-index: 2;
-    top: 2%;
-    min-width: 110px;
     min-height: 90px;
-    width: 5.73vw;
+    margin-left: max(1.04vw, 20px);
     height: 4.69vw;
+    display: flex;
     position: relative;
     float: left;
+    align-items: center;
     line-height: max(2.50vw, 48px);
     color: #000000;
     font-size: max(1.61vw, 23px);
@@ -301,24 +314,13 @@ body{
     text-align: left;
     vertical-align: middle;
 
-    transform: translate(min(-500px, -26.04vw), 0px);
+    transform: translateX(min(-1.04vw, -20px));
+    animation-duration: 0.5s;
     animation-name: top_text_animation;
     animation-timing-function: ease-out;
-    animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
-}
-
-.top_text_upperblock_for_right{
-    z-index: 1;
-    position: relative;
-    background-color:#f7f7f7;
-    min-width: 500px;
-    min-height: 90px;
-    width: 26.04vw;
-    height: 4.69vw;
-    left: calc(min(-19vw, -370px) + 10vw);
-    top: 2%;
+    opacity: 0;
 }
 
 table{
@@ -339,7 +341,7 @@ tr{
     min-width: 170px;
     position: relative;
     padding: 1vw 1vw;
-    top: 20vh;
+    top: 14vh;
     height: 22.5vw;
     border-width: 0px;
     border-radius: max(1.3vw, 25px);
@@ -389,7 +391,7 @@ tr{
     z-index: 1;
     min-width: 300px;
     position: relative;
-    top: 20vh;
+    top: 14vh;
     height: 22.5vw;
     border-width: 0px;
     border-radius: max(1.3vw, 25px);
@@ -585,11 +587,22 @@ button:hover .button-text {
     margin-right: auto;
 }
 
+.tablet_titles{
+    position: relative;
+    color: #000000;
+    font-size: max(1.2vw, 23px);
+    font-family: 'WSM',Arial,sans-serif;
+    font-weight: 500;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+    text-align: center;
+}
+
 .tablet_of_CO_el_left{
     z-index: 0;
-    width: 70%;
+    width: 150%;
     min-height: 80px;
-    position: relative;
     border-width: 0px;
     border-radius: max(1.3vw, 25px);
     background-color: #ffffff;
@@ -598,18 +611,19 @@ button:hover .button-text {
     border-style: solid;
     box-shadow: 12px 10px 30px 0px rgba(0,0,0,0.4);
     color: #000000;
-    text-decoration: none;
     line-height: 43px;
 	font-weight: 400;
 	text-align: center;
 	font-family: 'WM';
     font-size: max(1.2vw, 19px);
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 .tablet_of_CO_el_right{
     display: flex;
-    width: 30%;
+    width: 50%;
+    height: 100%;
     min-height: 80px;
     position: relative;
     border-width: 0px;
@@ -625,6 +639,7 @@ button:hover .button-text {
 	font-size: max(1.2vw, 19px);
     align-items: center;
     justify-content: center;
+    float: right;
 }
 
 #tablet_of_CO_arrow_frame{
@@ -834,7 +849,7 @@ footer{
     margin-left: 5%; margin-right: 5%;
 }
 
-.img_size{
+.imgs_footer{
     min-width: 42px; min-height: 42px;
     width: 3vw; height: 3vw;
 }
@@ -868,7 +883,7 @@ footer{
         width: 85%;
     }
 }
-@media(max-width:1335px){
+@media(max-width:1450px){
     #top_text_right{
         display: none;
     }
@@ -885,7 +900,7 @@ footer{
     }
 
 }
-@media(max-width:850px){
+@media(max-width:923px){
     .earned_circle_tablet{
         top: 110px;
     }
@@ -919,6 +934,7 @@ footer{
     }
     .tablet_of_CO_el_right{
         margin-top: 10px;
+        width: 100%;
     }
 }
 
