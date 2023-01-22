@@ -20,19 +20,19 @@ def qu():
         except:
             return redirect(url_for('reg'))
         if request.method == 'POST':
-            mainSkill = request.form['select1']
-            mainHour = request.form['select2']
-            secondSkill = request.form['select3']
-            secondHour = request.form['select4']
+            mainSkill = request.form['mainSkill']
+            mainHour = request.form['mainHour']
+            secondSkill = request.form['secondSkill']
+            secondHour = request.form['secondHour']
             #hgjlfjjfhl
-            hour = request.form['select5']
-            lengug = ' '.join(request.form.getlist('len'))
-            work = ' '.join(request.form.getlist('field'))
+            workHoure = request.form['workHoure']
+            language = ' '.join(request.form.getlist('language'))
+            typeConnect = ' '.join(request.form.getlist('typeConnect'))
 
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor_db = db_lp.cursor()
             sql_insert1 = f'''UPDATE info SET mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                    secondHour = "{secondHour}", lengug = "{lengug}", hour = "{hour}", work = "{work}" 
+                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}" 
                          WHERE login ="{session['email']}";'''
 
             cursor_db.execute(sql_insert1)
@@ -41,7 +41,7 @@ def qu():
 
             db_lp.commit()
             db_lp.close()
-            print(mainSkill, mainHour, secondSkill, secondHour, lengug, work)
+            print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
             return redirect(url_for('account'))
         return render_template('qu.html', log=log)
     else:

@@ -267,6 +267,7 @@ input[type="radio"]:checked + label:before {
     line-height: 1.55;
 	box-shadow: 10px 10px 10px 1px rgb(2 96 232 / 30%);
 	color: #ffffff !important;
+    border: none;
 }
 
 .save_btn:link,

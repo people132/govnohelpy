@@ -16,10 +16,11 @@
               <div id="top_text_right">Ну Сашка</div>
           </div>
         </div>
+        <form method="POST">
         <div class="container">
             <div class="main_texts">Главный навык</div>
             <div class="micro_texts">Умение, которому вы посвящаете наибольшее количество времени, в котором у вас есть большой опыт</div>
-            <select>
+            <select name="mainSkill">
                 <option value="видеомонтаж">видеомонтаж</option>
                 <option value="фоторедактура">фоторедактура</option>
                 <option value="фронт-энд разработка приложений">фронт-энд разработка приложений</option>
@@ -44,23 +45,23 @@
 
             <div class="main_texts">Опыт</div>
             <div class="micro_texts">(в годах)</div>
-            <select>
-                <option value="видеомонтаж">1</option>
-                <option value="фоторедактура">2</option>
-                <option value="фронт-энд разработка приложений">3</option>
-                <option value="фронт-энд разработка сайтов">4</option>
-                <option value="бэк-энд разработка сайтов">5</option>
-                <option value="zero coding">6</option>
-                <option value="музыка электронная">7</option>
-                <option value="музыка живая">8</option>
-                <option value="музыка вокал">9</option>
-                <option value="дикторское искусство ">10</option>
-                <option value="текст ">более 10</option>
+            <select name="mainHour">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="10+">более 10</option>
             </select>
 
             <div class="main_texts">Вторичный навык</div>
             <div class="micro_texts">навык, в котором у вас чуть меньше опыта, но вы можете его применять</div>
-            <select>
+            <select name="secondSkill">
                 <option value="видеомонтаж">видеомонтаж</option>
                 <option value="фоторедактура">фоторедактура</option>
                 <option value="фронт-энд разработка приложений">фронт-энд разработка приложений</option>
@@ -85,18 +86,18 @@
 
             <div class="main_texts">Опыт вторичного навыка</div>
             <div class="micro_texts">(в годах)</div>
-            <select>
-                <option value="видеомонтаж">1</option>
-                <option value="фоторедактура">2</option>
-                <option value="фронт-энд разработка приложений">3</option>
-                <option value="фронт-энд разработка сайтов">4</option>
-                <option value="бэк-энд разработка сайтов">5</option>
-                <option value="zero coding">6</option>
-                <option value="музыка электронная">7</option>
-                <option value="музыка живая">8</option>
-                <option value="музыка вокал">9</option>
-                <option value="дикторское искусство ">10</option>
-                <option value="текст ">более 10</option>
+            <select name="secondHour">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="10+">более 10</option>
             </select>
 
             <div class="main_texts" style="margin-bottom: 2%;">На каких языках вы можете общаться свободно?</div>
@@ -117,25 +118,26 @@
 
             <div class="main_texts">Сколько часов вы готовы работать на фрилансе в неделю?</div>
             <div class="micro_texts">Ответьте обьективно, лучше не перегружать себя</div>
-            <select >
-                <option value="видеомонтаж">1-5</option>
-                <option value="фоторедактура">5-10</option>
-                <option value="фронт-энд разработка приложений">10-20</option>
-                <option value="фронт-энд разработка сайтов">20-30</option>
-                <option value="бэк-энд разработка сайтов">30-40</option>
-                <option value="zero coding">более 40</option>
+            <select name="workHoure">
+                <option value="1-5">1-5</option>
+                <option value="5-10">5-10</option>
+                <option value="10-20">10-20</option>
+                <option value="20-30">20-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40+">более 40</option>
             </select>
             <div class="main_texts">Как вы предпочитаете получать новые заказы</div>
             <div class="micro_texts">В любом случае вы всегда сможете обратиться в поддержку по всем вопросам</div>
           
-            <input id="radio-1" type="radio" name="radio" value="1">
+            <input id="radio-1" type="radio" name="typeConnect" value="messenger">
             <label for="radio-1">через менеджера в Telegram или WhatsApp</label>
-            <input id="radio-2" type="radio" name="radio" value="2">
+            <input id="radio-2" type="radio" name="typeConnect" value="site">
             <label for="radio-2">В личном кабинете Helpy</label>
             <div style="width: 100%; display: flex; justify-content: center;">
-              <a href="http://www.google.com/" class="save_btn">сохранить</a>
+              <button type="submit" class="save_btn">сохранить</button>
             </div>
         </div>  
+    </form>
         
         
 
