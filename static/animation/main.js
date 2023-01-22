@@ -163,4 +163,4 @@ new ResizeObserver(checkForChanges).observe(tablet_history);
 
 
 
-Changename("top_text_right", "Владислав Александров");
+//Changename("top_text_right", "Владислав Александров");
