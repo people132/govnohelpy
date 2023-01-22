@@ -44,8 +44,13 @@ for (let i = 0; i < 6; i++) {
 }
 document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
 var flag = 0;
+var tablet_history = document.getElementsByClassName("tablet")[1];
+var tablet_orders = document.getElementsByClassName("tablet")[0];
 document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
     if(flag === 0){
+        if (window.innerWidth <= 454){
+            tablet_history.style['border-radius'] = '25px 25px 4px 25px';
+        }
         for (let i = 0; i < 6; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "";
         }
@@ -62,6 +67,9 @@ document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
         flag = 1;
     }
     else{
+        if (window.innerWidth > 454){
+            tablet_history.style['border-radius'] = '25px';
+        }
         for (let i = 0; i < 6; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "none";
         }
@@ -140,8 +148,6 @@ document.getElementById("arrow_left_frame").onclick = function() {
     } 
 }
 
-var tablet_history = document.getElementsByClassName("tablet")[1];
-var tablet_orders = document.getElementsByClassName("tablet")[0];
 tablet_history.style.top = "320px"
 var checkForChanges = function() {
     //относительно верхней таблицы
