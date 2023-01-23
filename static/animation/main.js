@@ -39,7 +39,7 @@ function ChangeURL(fieldName, URL){
     fieldName = document.getElementById(fieldName);
     fieldName.href = URL;
 }
-for (let i = 0; i < 6; i++) {
+for (let i = 2; i < 8; i++) {
     document.getElementsByTagName("tr")[6 + i].style.display = "none";
 }
 document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
@@ -51,7 +51,7 @@ document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
         if (window.innerWidth <= 454){
             tablet_history.style['border-radius'] = '25px 25px 4px 25px';
         }
-        for (let i = 0; i < 6; i++) {
+        for (let i = 2; i < 8; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "";
         }
         document.getElementsByClassName("tablet")[1].style.height = "22.5vw";
@@ -70,7 +70,7 @@ document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
         if (window.innerWidth > 454){
             tablet_history.style['border-radius'] = '25px';
         }
-        for (let i = 0; i < 6; i++) {
+        for (let i = 2; i < 8; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "none";
         }
         document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
@@ -169,4 +169,4 @@ new ResizeObserver(checkForChanges).observe(tablet_history);
 
 
 
-//Changename("top_text_right", "Владислав Александров");
+Changename("top_text_right", "Владислав Александров");
