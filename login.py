@@ -163,6 +163,10 @@ def account():
         print(Des)
         print(des1)
     return render_template('account.html', Log = Log)
+
+@app.route('/main')
+def main():
+    return render_template('main_page.html')
     
 
 
