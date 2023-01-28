@@ -24,21 +24,16 @@ def qu():
             mainHour = request.form['mainHour']
             secondSkill = request.form['secondSkill']
             secondHour = request.form['secondHour']
-            #hgjlfjjfhl
             workHoure = request.form['workHoure']
             language = ' '.join(request.form.getlist('language'))
             typeConnect = ' '.join(request.form.getlist('typeConnect'))
-
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor_db = db_lp.cursor()
             sql_insert1 = f'''UPDATE info SET mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
                     secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}" 
                          WHERE login ="{session['email']}";'''
-
             cursor_db.execute(sql_insert1)
-
             cursor_db.close()
-
             db_lp.commit()
             db_lp.close()
             print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
@@ -78,13 +73,11 @@ def auth():
                 print(skill)
                 print(type(skill))
                 db_lp.close()
-
         if skill != '0':
             return  redirect(url_for('account'))
         else:
             print('qu')
             return redirect(url_for('qu'))
-
     return render_template('auth.html')
 
 
@@ -95,23 +88,18 @@ def reg():
         password = request.form['password']
         phone = request.form['phone']
         fio = request.form['fio']
-
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         if cursor_db.execute(f'''SELECT password FROM login_password
                                             WHERE login = "{login}"''').fetchone() == None:
             sql_insert = f'''INSERT INTO login_password VALUES('{login}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
             sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}');'''
-
             cursor_db.execute(sql_insert)
             cursor_db.execute(sql_insert1)
-
             cursor_db.close()
-
             db_lp.commit()
             db_lp.close()
         return redirect(url_for('auth'))
-
     return render_template('reg.html')
 
 
@@ -121,29 +109,6 @@ def logout():
     return redirect(url_for('auth'))
 
 
-
-@app.route('/neworder')
-def neworder():
-    db_lp = sqlite3.connect('bases/requeset.db')
-    db_lp1 = sqlite3.connect('bases/login_password.db')
-    cursor_db_lp = db_lp.cursor()
-    cursor_db_lp1 = db_lp1.cursor()
-    skill1 = cursor_db_lp1.execute(f'''SELECT mainSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
-    skill2 = cursor_db_lp1.execute(f'''SELECT mainHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
-    hour1 = cursor_db_lp1.execute(f'''SELECT secondSkill FROM info WHERE login = '{session['email']}';''').fetchone()[0]
-    houre2 = cursor_db_lp1.execute(f'''SELECT secondHour FROM info WHERE login = '{session['email']}';''').fetchone()[0]
-    email = session['email']
-    fio =  cursor_db_lp1.execute(f'''SELECT fio FROM info WHERE login = '{session['email']}';''').fetchone()[0]
-    sql_insert = f'''INSERT INTO requeset VALUES('{skill1}','{hour1}','{skill2}','{houre2}','{fio}', '{email}');'''
-    print('ready')
-    cursor_db_lp.execute(sql_insert)
-    cursor_db_lp.close()
-    db_lp.commit()
-    db_lp.close()
-    cursor_db_lp1.close()
-    db_lp1.close()
-    return redirect(url_for('account'))
-#ap
 @app.route('/account')
 def account():
     if 'email' in session:
@@ -164,11 +129,10 @@ def account():
         print(des1)
     return render_template('account.html', Log = Log)
 
+
 @app.route('/main')
 def main():
     return render_template('main_page.html')
     
-
-
 
 app.run(debug=True)
