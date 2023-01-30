@@ -1,175 +1,156 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'style/qu.css') }}">
-    <link rel="stylesheet" href="{{url_for('static', filename= 'style/logo.css')}}">
-</head>
-<body>
-  <form method="POST">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+        <link rel="stylesheet" href="{{url_for('static', filename= 'style/qu.css' )}}">
+    </head>
 
-<div class="letter_ground">
-    <div class="letter">H</div>
-    <div class="point1">.</div>
-</div> 
-
-<div class="box1">
-<div class="account">
-    <div class="account1">Личный</div>
-    <div class="account2">кабинет</div>
-</div>
-<div class="box"></div>
-<div class="name">
-    {{log}}
-</div>
-
-</div>
-
-         <div class="mainSkill1">Главный навык</div>
-         <div id="lable1" class="mainSkill2">Умение в котором у вас есть большой опыт</div>
-         <div class = 'select1-wrapper'>
-       <select name="select1" id = 'select1' class="select1">
-          <option value="video">видеомонтаж</option>
-          <option  value="photo">фоторедактура</option>
-          <option  value="front-app">фронт-энд разработка приложений</option>
-          <option  value="front-site">фронт-энд разработка сайтов</option>
-       </select>
-       </div>
-       <!--Выпадающий список-->
-         <div class="mainHour1">Опыт</div>
-         <div class="mainHour2" id="lable2">(в годах)</div>
-       <div class="select2-wrapper">
-       <select id = 'select2' name="select2" class="select2">
-          <option value="one">1</option>
-          <option value="two">2</option>
-          <option value="three">3</option>
-          <option value="four">4</option>
-          <option value="five">5</option>
-          <option value="five-ten">5-10</option>
-          <option value="more ten">10+</option>
-       </select>
-       </div>
-    
-    
-      <div  class="secondSkill1">Вторичный навык</div>
-         <div id="lable3" class="secondSkill2">навык, в котором у вас чуть меньше опыта, но вы можете его применять</div>
-       <div class="select3-wrapper">
-       <select id = 'select3' name="select3" class="select3">
-          <option value="video">видеомонтаж</option>
-          <option value="photo">фоторедактура</option>
-          <option value="front-app">фронт-энд разработка приложений</option>
-          <option value="front-site">фронт-энд разработка сайтов</option>
-       </select>
-       </div>
-    
-         <div  class="secondHour1">Опыт</div>
-         <div class="secondHour2" id="lable4">(в годах)</div>
-         <div class="select4-wrapper">
-       <select class="select4" id = 'select4' name="select4">
-          <option value="one">1</option>
-          <option value="two">2</option>
-          <option value="three">3</option>
-          <option value="four">4</option>
-          <option value="'five">5</option>
-          <option value="'five-ten">5-10</option>
-          <option value="'more ten">10+</option>
-       </select>
-     </div>
-        <label class="lable">Каким языком вы владеете?</label>
-            
-            
-              
-              <label class="lable1-select option">
-                <input class="check_input" type="checkbox"  value="engl" id="eng" name="len">
-                <span class="check_box"></span>
-                 Английский
-                </label>
-           
-            <label class="lable2-select option">
-              <input class="check_input" type="checkbox" value="frenc" id="fn" name="len">
-              <span class="check_box"></span>
-              Французкий
-            </label>
-
-           
-           <label class="lable3-select option">
-            <input class="check_input" type="checkbox" value="doutch"  id="dn" name="len">
-            <span class="check_box"></span>
-            Немецкий
-          </label>
-
-            <label class="lable4-select option">
-              <input class="check_input" type="checkbox" value="italian"  id="it" name="len">
-              <span class="check_box"></span>
-              Италия
-            </label>
-
-            <label class="lable5-select option">
-              <input class="check_input" type="checkbox" value="rus" id="ru" name="len">
-              <span class="check_box"></span>
-              Русский
-            </label>
-
-           <label class="lable6-select option">
-            <input class="check_input" type="checkbox" value="ukrain"  id="uk" name="len">
-            <span class="check_box"></span>
-            Украинский
-          </label>
-            
-           <label class="lable7-select option">
-            <input class="check_input" type="checkbox" value="belarus" id="bn" name="len">
-            <span class="check_box"></span>
-            Беларусский
-          </label>
-
-
-
-       
-         <div  class="manyHour1">Сколько часов вы готовы работать на фрилансе в неделю?</div>
-         <div class="manyHour2" >Ответьте обьективно, лучше не перегружать себя</div>
-          <div class="select5-wrapper">
-         <select  class="select5"  name="select5">
-          <option value="one-five">1-5</option>
-          <option value="five-ten">5-10</option>
-          <option value="ten-twelve">10-20</option>
-          <option value="twelve-thirty">20-30</option>
-          <option value="thirty-forty">30-40</option>
-          <option value="more forty">40+</option>
-       </select>
+    <body class="page"> 
+        <div class="head">
+          <div class="top_text_upperblock_for_right"></div>
+          <div class="img_size"><img src="../static/imgs/h.svg" alt="УУПС"></div>
+          <div class="desktop_block head" style="margin-left: 0; margin-top: 0;">
+              <div class="top_text_left">Личный <br> кабинет</div>
+              <div class="top_line"></div>
+              <div id="top_text_right">{{log}}</div>
+          </div>
         </div>
+        <form method="POST">
+        <div class="container">
+            <div class="main_texts">Главный навык</div>
+            <div class="micro_texts">Умение, которому вы посвящаете наибольшее количество времени, в котором у вас есть большой опыт</div>
+            <select name="mainSkill">
+                <option value="видеомонтаж">видеомонтаж</option>
+                <option value="фоторедактура">фоторедактура</option>
+                <option value="фронт-энд разработка приложений">фронт-энд разработка приложений</option>
+                <option value="фронт-энд разработка сайтов">фронт-энд разработка сайтов</option>
+                <option value="бэк-энд разработка сайтов">бэк-энд разработка сайтов</option>
+                <option value="zero coding">zero coding</option>
+                <option value="музыка электронная">музыка электронная</option>
+                <option value="музыка живая">музыка живая</option>
+                <option value="музыка вокал">музыка вокал</option>
+                <option value="дикторское искусство ">дикторское искусство </option>
+                <option value="текст ">текст </option>
+                <option value="переводы (укажите язык ниже)">переводы (укажите язык ниже)</option>
+                <option value="SMM">SMM</option><option value="CGI (комп.графика)">CGI (комп.графика)</option>
+                <option value="Ui-дизайн (пользовательский интерфейс)">Ui-дизайн (пользовательский интерфейс)</option>
+                <option value="UX-дизайн (архитектура, удобство пользования)">UX-дизайн (архитектура, удобство пользования)</option>
+                <option value="живопись -digital ">живопись -digital </option>
+                <option value="живопись - классика">живопись - классика</option>
+                <option value="поделки руками из дерева">поделки руками из дерева</option>
+                <option value="поделки руками из ткани/шерсти">поделки руками из ткани/шерсти</option>
+                <option value="поделки руками из прочих худ. материалов">поделки руками из прочих худ. материалов</option>
+            </select>
 
- 
-            <div class="lable2">Вы работаете только на фрилансе?</div>
-            
-               
-           
+            <div class="main_texts">Опыт</div>
+            <div class="micro_texts">(в годах)</div>
+            <select name="mainHour">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="10+">более 10</option>
+            </select>
 
-               <label class="lable8-select option1">
-                  <input class="check_input1" type="radio" value="yes" name="field">
-                  <span class="check_box1"></span>
-                  да
-                </label>
-           
-            
-               
-                <label class="lable9-select option1">
-                  <input class="check_input1" type="radio"  value="no" name="field">
-                  <span class="check_box1"></span>
-                  нет
-                </label>
-               
-              <!--  <div class="radio">
-                  <input class = "radio_input" type="radio" id="radio1" name="work" value="yes">
-                  <label for="radio1" class="radio_lable">да</label>
-                </div>
-                <div>
-                  <input class = "" type="radio" id="radio2" name="work" value="no">
-                  <label for="radio2"> нет</label>
-                </div> -->
-    
-    <button class="button-save" type="submit">Применить</button> 
-   
-  
-</form>
-</body>
+            <div class="main_texts">Вторичный навык</div>
+            <div class="micro_texts">навык, в котором у вас чуть меньше опыта, но вы можете его применять</div>
+            <select name="secondSkill">
+                <option value="видеомонтаж">видеомонтаж</option>
+                <option value="фоторедактура">фоторедактура</option>
+                <option value="фронт-энд разработка приложений">фронт-энд разработка приложений</option>
+                <option value="фронт-энд разработка сайтов">фронт-энд разработка сайтов</option>
+                <option value="бэк-энд разработка сайтов">бэк-энд разработка сайтов</option>
+                <option value="zero coding">zero coding</option>
+                <option value="музыка электронная">музыка электронная</option>
+                <option value="музыка живая">музыка живая</option>
+                <option value="музыка вокал">музыка вокал</option>
+                <option value="дикторское искусство ">дикторское искусство </option>
+                <option value="текст ">текст </option>
+                <option value="переводы (укажите язык ниже)">переводы (укажите язык ниже)</option>
+                <option value="SMM">SMM</option><option value="CGI (комп.графика)">CGI (комп.графика)</option>
+                <option value="Ui-дизайн (пользовательский интерфейс)">Ui-дизайн (пользовательский интерфейс)</option>
+                <option value="UX-дизайн (архитектура, удобство пользования)">UX-дизайн (архитектура, удобство пользования)</option>
+                <option value="живопись -digital ">живопись -digital </option>
+                <option value="живопись - классика">живопись - классика</option>
+                <option value="поделки руками из дерева">поделки руками из дерева</option>
+                <option value="поделки руками из ткани/шерсти">поделки руками из ткани/шерсти</option>
+                <option value="поделки руками из прочих худ. материалов">поделки руками из прочих худ. материалов</option>
+            </select>
+
+            <div class="main_texts">Опыт вторичного навыка</div>
+            <div class="micro_texts">(в годах)</div>
+            <select name="secondHour">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="10+">более 10</option>
+            </select>
+
+            <div class="main_texts" style="margin-bottom: 2%;">На каких языках вы можете общаться свободно?</div>
+            <input name="language" value="английский" type="checkbox" id="box-1">
+            <label for="box-1">английский</label>
+            <input name="language" value="французский" type="checkbox" id="box-2">
+            <label for="box-2">французский</label>
+            <input name="language" value="немецкий" type="checkbox" id="box-3">
+            <label for="box-3">немецкий</label>
+            <input name="language" value="итальянский" type="checkbox" id="box-4">
+            <label for="box-4">итальянский</label>
+            <input name="language" value="русский" type="checkbox" id="box-5">
+            <label for="box-5">русский</label>
+            <input name="language" value="украинский" type="checkbox" id="box-6">
+            <label for="box-6">украинский</label>
+            <input name="language" value="белорусский" type="checkbox" id="box-7">
+            <label for="box-7">белорусский</label>
+
+            <div class="main_texts">Сколько часов вы готовы работать на фрилансе в неделю?</div>
+            <div class="micro_texts">Ответьте обьективно, лучше не перегружать себя</div>
+            <select name="workHoure">
+                <option value="1-5">1-5</option>
+                <option value="5-10">5-10</option>
+                <option value="10-20">10-20</option>
+                <option value="20-30">20-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40+">более 40</option>
+            </select>
+            <div class="main_texts">Как вы предпочитаете получать новые заказы</div>
+            <div class="micro_texts">В любом случае вы всегда сможете обратиться в поддержку по всем вопросам</div>
+          
+            <input id="radio-1" type="radio" name="typeConnect" value="messenger">
+            <label for="radio-1">через менеджера в Telegram или WhatsApp</label>
+            <input id="radio-2" type="radio" name="typeConnect" value="site">
+            <label for="radio-2">В личном кабинете Helpy</label>
+            <div style="width: 100%; display: flex; justify-content: center;">
+              <button type="submit" class="save_btn">сохранить</button>
+            </div>
+        </div>  
+    </form>
+        
+        
+
+          <footer>
+            <div class="social"> 
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-vk-circled-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-telegram-app-.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-instagram-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-phone-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-mail-60.png"></a>
+            </div>
+            <div class="footer_line"></div>
+            <div class = "helpy_footer">©<strong>Helpy</strong> </div>
+        </footer>
+    </body>
 </html>
