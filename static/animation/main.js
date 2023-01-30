@@ -39,26 +39,47 @@ function ChangeURL(fieldName, URL){
     fieldName = document.getElementById(fieldName);
     fieldName.href = URL;
 }
+for (let i = 2; i < 8; i++) {
+    document.getElementsByTagName("tr")[6 + i].style.display = "none";
+}
+document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
 var flag = 0;
+var tablet_history = document.getElementsByClassName("tablet")[1];
+var tablet_orders = document.getElementsByClassName("tablet")[0];
 document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
     if(flag === 0){
-        document.getElementsByClassName("tablet_of_CO")[0].style.height = "820px";
+        if (window.innerWidth <= 454){
+            tablet_history.style['border-radius'] = '25px 25px 4px 25px';
+        }
+        for (let i = 2; i < 8; i++) {
+            document.getElementsByTagName("tr")[6 + i].style.display = "";
+        }
+        document.getElementsByClassName("tablet")[1].style.height = "22.5vw";
+        document.getElementsByClassName("tablet")[1].style.top = "425px";
         document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130% + 615px)";
         Changename("tablet_of_CO_arrow_frame", "↑")
-        document.getElementsByTagName("footer")[0].style.top = "210%";
         setTimeout(() => {  document.getElementById("arrow_left_frame").classList.add('b-show') }, 1000);
         setTimeout(() => {  document.getElementById("arrow_left_frame").style.display = "flex"; }, 1000);
         setTimeout(() => {  document.getElementById("arrow_right_frame").classList.add('b-show') }, 1000);
         setTimeout(() => {  document.getElementById("arrow_right_frame").style.display = "flex"; }, 1000);
+        setTimeout(() => {  document.getElementById("counter").classList.add('b-show') }, 1000);
+        setTimeout(() => {  document.getElementById("counter").style.display = "flex"; }, 1000);
         flag = 1;
     }
     else{
-        document.getElementsByClassName("tablet_of_CO")[0].style.height = "205px";
+        if (window.innerWidth > 454){
+            tablet_history.style['border-radius'] = '25px';
+        }
+        for (let i = 2; i < 8; i++) {
+            document.getElementsByTagName("tr")[6 + i].style.display = "none";
+        }
+        document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
+        document.getElementsByClassName("tablet")[1].style.top = "320px";
         document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130%)";
         Changename("tablet_of_CO_arrow_frame", "↓")
-        document.getElementsByTagName("footer")[0].style.top = "150%";
         document.getElementById("arrow_left_frame").style.display = "none";
         document.getElementById("arrow_right_frame").style.display = "none";
+        document.getElementById("counter").style.display = "none";
         flag = 0
     }
 
@@ -73,7 +94,7 @@ let history = [ ["видеомонтаж. fiverr. свадебный ролик.
                 ["5", "5"], /*твой массив*/
                 ["6", "6"], 
                 ["7", "7"], 
-                ["8", "8"], 
+                ["8555523423415fsdg", "84234"], 
                 ["9", "9"], 
                 ["10", "10"], 
                 ["11", "11"], 
@@ -97,6 +118,7 @@ var page = 0;
 document.getElementById("arrow_right_frame").onclick = function() {
     if(history.length > (page + 1) * 8){
         page++;
+        Changename("counter", (page + 1).toString());
         for (let i = 0; i < 8; i++) {
             if(page * 8 + i + 1 <= history.length){
                 tablet_left[i].textContent = history[page * 8 + i][0];
@@ -112,6 +134,7 @@ document.getElementById("arrow_right_frame").onclick = function() {
 document.getElementById("arrow_left_frame").onclick = function() {
     if(page > 0){
         page--;
+        Changename("counter", (page + 1).toString());
         for (let i = 0; i < 8; i++) {
             if(page * 8 + i + 1 < history.length){
                 tablet_left[i].textContent = history[page * 8 + i][0];
@@ -124,5 +147,26 @@ document.getElementById("arrow_left_frame").onclick = function() {
         }
     } 
 }
+
+tablet_history.style.top = "320px"
+var checkForChanges = function() {
+    //относительно верхней таблицы
+    var hth = tablet_orders.offsetHeight;
+    var tth = tablet_orders.offsetTop;
+    document.getElementById("container1").style.top = 100 + hth + tth + "px";
+
+     //относительно нижней таблицы
+    var hth = tablet_history.offsetHeight;
+    var tth = tablet_history.offsetTop;
+    document.getElementById("tablet_of_CO_arrow_frame").style.top = tth + hth + "px";
+    document.getElementById("arrow_left_frame").style.top = tth + hth + "px";
+    document.getElementById("arrow_right_frame").style.top = tth + hth + "px";
+    document.getElementById("counter").style.top = tth + hth + "px";
+    document.getElementsByTagName("footer")[0].style.top = 200 + tth + hth + "px";
+
+};
+new ResizeObserver(checkForChanges).observe(tablet_history);
+
+
 
 //Changename("top_text_right", "Владислав Александров");
