@@ -47,10 +47,10 @@ def qu():
 def auth():
     if request.method == 'POST':
         try:
-            session['email'] = request.form['email']
-            email = request.form['email']
+            session['email'] = request.form['username']
+            email = request.form['username']
             print(email)
-            Password = request.form['password']
+            password = request.form['password']
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor_db = db_lp.cursor()
             cur = cursor_db.execute(f'''SELECT password FROM login_password
@@ -64,8 +64,8 @@ def auth():
                 db_lp.close()
                 redirect(url_for('reg'))
             else:
-                print(cur[0], hashlib.sha512(Password.encode()).hexdigest())
-                if cur[0] != str(hashlib.sha512(Password.encode()).hexdigest()):
+                print(cur[0], hashlib.sha512(password.encode()).hexdigest())
+                if cur[0] != str(hashlib.sha512(password.encode()).hexdigest()):
                     db_lp.close()
                     return redirect(url_for('reg'))
                 else:

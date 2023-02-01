@@ -1,7 +1,6 @@
 console.log("ПРИВ");
 
 const animItems = document.querySelectorAll(".anim_items");
-console.log(animItems.length);
 if(animItems.length > 0){
     window.addEventListener("scroll", animOnScroll);
     function animOnScroll(){
@@ -49,7 +48,7 @@ var tablet_orders = document.getElementsByClassName("tablet")[0];
 document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
     if(flag === 0){
         if (window.innerWidth <= 454){
-            tablet_history.style['border-radius'] = '25px 25px 4px 25px';
+            tablet_history.style['border-radius'] = '25px 25px 4px 25px';    
         }
         for (let i = 2; i < 8; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "";
@@ -67,9 +66,7 @@ document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
         flag = 1;
     }
     else{
-        if (window.innerWidth > 454){
-            tablet_history.style['border-radius'] = '25px';
-        }
+        tablet_history.style['border-radius'] = '25px';
         for (let i = 2; i < 8; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "none";
         }
@@ -148,7 +145,7 @@ document.getElementById("arrow_left_frame").onclick = function() {
     } 
 }
 
-tablet_history.style.top = "320px"
+tablet_history.style.top = "320px";
 var checkForChanges = function() {
     //относительно верхней таблицы
     var hth = tablet_orders.offsetHeight;
@@ -163,6 +160,15 @@ var checkForChanges = function() {
     document.getElementById("arrow_right_frame").style.top = tth + hth + "px";
     document.getElementById("counter").style.top = tth + hth + "px";
     document.getElementsByTagName("footer")[0].style.top = 200 + tth + hth + "px";
+
+    //подгоним высоту таблички с заработком под высоту таблицы с заказами
+    if (window.innerWidth > 1071){  
+        var earnedCircle = document.getElementsByClassName("earned_circle_tablet")[0];
+        earnedCircle.style['height'] = tablet_orders.offsetHeight + "px";
+    }
+    else {
+        earnedCircle.style['height'] = "22.5vw";
+    }
 
 };
 new ResizeObserver(checkForChanges).observe(tablet_history);

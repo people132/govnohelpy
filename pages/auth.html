@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="utf-8">
-<link rel="stylesheet" href="/static/style/auth.css">
-</head><body>
-
-    <div class="menu">
-        <div class="text_bottom">Вход в личный кабинет Helpy</div>
-    </div>
-<div class="menu_center">
-    <div class="text_center">Заполните поля ниже для входа в личный кабинет</div>
-</div>
-    <form method="POST">
-        <div class="container">
-        <p><label for="email" class="font">Email (логин для входа в личный кабинет)</label>
-            <input type="text" placeholder="" name="email" required="" id="email"></p>
-        <p><label for="password" class="font">Пароль</label>
-            <input type="password" placeholder="" name="password" required="" id="password"></p>
-        <button type="submit">Войти</button>
-        <div class="container">
-            <a class="reg" href="/reg">Регистрация</a>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+        <link rel="stylesheet" href="/static/style/auth.css">
+    </head>
+    <body>
+        <div class="head">
+            Вход в личный кабинет Helpy
         </div>
+        <form method="POST">
+        <div class="container">
+            <div class="main_text">Заполните поля ниже для входа в личный кабинет</div>
+            <input class="inputs" id="username" name="username" type="text" placeholder="Email"/>
+            <input class="inputs" id="password" name="password" type="password" placeholder="Пароль"/>
+            <button type="submit" class="btn_pozvol">войти</button>
+            <a href="/reg" class="btn_reg">Регистрация</a>
         </div>
-    </form>
-<!---->
-</body>
+        </form>
+        <footer>
+            <div class="social"> 
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-vk-circled-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-telegram-app-.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-instagram-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-phone-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="footer_imgs" src="../static/imgs/icons8-mail-60.png"></a>
+            </div>
+            <div class="footer_line"></div>
+            <div class = "helpy_footer">©<strong>Helpy</strong> </div>
+        </footer>
+    </body>
 </html>
