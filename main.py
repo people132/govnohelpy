@@ -116,25 +116,41 @@ def logout():
 @app.route('/account')
 def account():
     if 'email' in session:
+        summ = 0
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         Log = cursor_db.execute(('''SELECT fio FROM info
                                                WHERE login = '{}';
                                                ''').format(session['email'])).fetchone()[0]
 
+        #Получаю из базы список email-ов
+        Des = cursor_db.execute('''SELECT email FROM history;''').fetchall()
+        des3 = []
+        for i in Des:   #прохожу по списку email-ов
+            des3.append(i[0])
+        for i in set(des3):
+            Des1 = cursor_db.execute(('''SELECT des FROM history WHERE email = '{}';''').format(i)).fetchall()# получаю описание по взятому email-у
+            Des2 = cursor_db.execute(('''SELECT pr FROM history WHERE email = '{}';''').format(i)).fetchall()#  получаю цену по взятому email-у
+            des = []
+            for j in Des1:
+                des.append(j[0]) # создаю массив с описаниями
+            des1 = []
+            for j in Des2:
+                des1.append(j[0]) # создаю массив с ценами и датами
+            for j in des1:
+                k = j.index('(')
+                l = j[:k]
+                summ = summ + int(l)
+                print(l)
+            des5 = []
+            for j in range(len(des)):
+                des6 = [des[j], des1[j]] # создаю масив с соответсвующими полями из des и des1
+                des5.append(des6) # создаю общий массив состоящий из масивов 
+            obj = {i:des5} # создает словарь с индетификаторм email и значением масив
+            with open('static/animation/temp1.json', 'w') as f:
+                json.dump(obj, f, indent=2) # записывает получившийся словарь в json
         db_lp.close()
-               # Des = cursor_db1.execute((f'''SELECT description FROM ready WHERE email='{format(session['email'])}';''')).fetchall()
-        #des1=[]
-        #for i in Des:
-         #  des1.append(i[0])
-        #db_lp1.close()                        
-        #print(Des)
-        #print(des1)
-        obj1 = {'people':[{'name': 'Scott5', 'website': 'pythonist.ru5', 'from': 'Nebraska'}]}
-        with open('static/animation/temp1.json', 'w') as f:
-            json.dump(obj1, f, indent=2)
-
-    return render_template('account.html', Log = Log)
+    return render_template('account.html', Log = Log, Sum = summ)
 
 
 @app.route('/')
