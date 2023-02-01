@@ -1,115 +1,267 @@
-.menu{
-  position: fixed;
-  height: 15%;
-  width: 100%;
-  background-color: #0260e8;
-  top: 0;
-  left: 0;
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.30);
+body{
+  margin: 0;
+  background-color: #f7f7f7;
+  min-height: 100%;
+  height: auto;
 }
-
-.text_bottom{
-
-    font-family: ArialSans;
-    margin-right: center; /*Положение формы */
-    margin-left: center; /*Положение формы */
-    text-align: center; /*Центровка текста*/
-    padding-top: 2%;
-    color: white;
-    font-size: 40px;
-    font-weight: 900;
-}
-
-.menu_center{
-  height: 30%;
-  width: 100%;
-  background-color: white;
-  padding-top: 225px;
-  padding-bottom: 100px;
-  top: 0;
-  left: 0;
-}
-/**/
-
-.reg{
-  text-decoration: none;
-  color: black;
-  font-size: 15px;
-  font-family: ArialSans;
-}
-
-.text_center{
-  text-decoration: none;
-    font-family: ArialSans;
-    margin-left: center;
-    margin-right: center;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 600;
-    color: black;
-}
-
-form {
-    padding-top: 0px;
-    font: 14px ArialSans,arial, sans-serif;/*Выбираем шрифт */
-    border: 1px solid none;/*Цвет, размер и тип границы */
-    -webkit-border-radius: 20px;/*Скругляем углы */
-    color: #777991;/*Цвет label */
-    width: 100%; /*Ширина формы */
-    margin-right: center; /*Положение формы */
-    margin-left: auto; /*Положение формы */
-    text-align: center; /*Центровка текста*/
-
-}
-
-input[type=text], input[type=password] {
-    text-align: center; /*Центровка текста*/
-    -webkit-border-radius: 4px;/*Скругляем углы */
-    width: 500px; /*Ширина */
-    height: 60px;
-    padding: 5px 20px; /*Размер внутренних отступов*/
-    margin: 10px 0; /*Размер внешних отступов*/
-    margin-right: auto; /*Размер внешних отступов справа*/
-    margin-left: auto; /*Размер внешних отступов слева*/
-    display: block; /*тип отображения*/
-    border: 1px solid #050c26;/*Цвет, размер и тип границы */
-    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-    font: 14px ArialSans;/*Выбираем шрифт */
-    color: #777991;
-}
-
-button {
-    font: 16px ArialSans, arial, sans-serif; /*Выбираем шрифт кнопки */
-    background-color: #454cee; /*Выбираем цвет фона */
-    -webkit-border-radius: 30px; /*Закругление */
-    color: white; /*Выбираем цвет текста*/
-    padding: 16px 20px; /*Размер внутренних отступов*/
-    margin: 8px 0;/*Размер внешних отступов*/
-    border: none; /*Без границы*/
-    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-    width: 100px; /*Ширина*/
-    height: 60px;
-    background-color: #0260e8;
-}
-
-button:hover {
-    opacity: 0.9; /*Изменение яркости кнопки при наведении*/
-}
-
- @font-face {
-  font-family: ArialSans;
-  src: url("../fonts/ArialSans.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
- }
 
 .container {
-    padding-top: 10px; /*Размер внутренних отступов контейнера*/
-    padding-bottom: 10px;
+  max-width: 700px;
+  padding-left: 10px; padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  flex-flow: row wrap;
 }
 
-font{
-    font-family:ArialSans;
-    font-size:20px;
-    color:black;
+.head{
+  width: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #0260e8;
+  min-height: 75px;
+  height: 4vw;
+  color: white;
+  font-family: "WSB";
+  font-size: max(1.2vw, 23px);
+  font-weight: 400;
 }
+
+.main_text{
+  margin-top: 7vw;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-family: "WSB";
+  font-size: max(0.99vw, 30px);
+  font-weight: 500;
+  margin-bottom: 7vw;
+}
+
+.uname{
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-family: "WM";
+  font-size: max(0.99vw, 19px);
+  font-weight: 300;
+  margin-bottom: 1vw;
+}
+
+input{
+  min-height: 60px;
+  height: 3.13vw;
+  width: 100%;
+  margin-bottom: 1vw;
+  text-align: center;
+  position: relative;
+  border-width: 0.10vw;
+  border-color:#f7f7f7;
+  border-radius: max(1.3vw, 25px);
+  background-color: #ffffff;
+  background-position: center center;
+  border-style: solid;
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(0 0 0 / 40%);
+  color: #000000;
+	font-weight: 400;
+	font-family: 'WM';
+  font-size: max(0.99vw, 19px);
+  align-items: center;
+  outline:none;
+  transition: all 0.3s;
+}
+
+input:focus{
+  transition: all 0.3s;
+  border-color: rgb(2, 96, 232);
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(2 96 232 / 30%);
+}
+
+.btn_pozvol {
+  margin-top: 4vw;
+  font-family: 'WSL',Arial,sans-serif;
+  font-weight: 600;
+  text-transform: none;
+  border-radius: 5.21vw;
+	min-width: 250px;
+  width: 13.02vw;
+  min-height: 55px;
+  height: 2.86vw;
+	background-color: #0260e8;
+	font-size: max(1.30vw, 25px);
+  font-family: 'WSL',Arial,sans-serif;
+	box-shadow: 0.52vw 0.52vw 0.52vw 0.05vw rgb(2 96 232 / 30%);
+	color: #ffffff !important;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_pozvol:link,
+.btn_pozvol:visited {
+  text-decoration: none;
+  transition: all .2s;
+}
+.btn_pozvol:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.52vw 1.04vw rgba(0, 0, 0, 0.3);
+	background-color: #0260e8;
+}
+.btn_pozvol:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.26vw 0.52vw rgba(0, 0, 0, 0.2);
+}
+
+.btn_reg{
+  margin-top: 1.7vw;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-family: 'WSL',Arial,sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000000;
+  font-size: max(0.99vw, 19px);
+}
+
+footer{
+	left: 0;
+	background-color: #0260e8;
+	justify-content: center;
+	top: 100%;
+	width: 100%;
+	height: max(15.63vw, 300px);
+	position: absolute;
+	display: flex;
+
+  animation-timing-function: ease-in-out;
+  transition: 1s;
+}
+.social{
+    position: absolute;
+    display: flex;
+    width: 65%;
+    justify-content: center;
+    top: 20%;
+    height: auto;
+}
+.a_footer{
+    display: flex;
+    position: relative;
+	cursor: pointer;
+    margin-left: 5%; margin-right: 5%;
+}
+
+.img_size{
+    position: relative;
+    float: left;
+    z-index: 6;
+}
+
+.footer_imgs{
+    min-width: 42px; min-height: 42px;
+    width: 3vw; height: 3vw;
+}
+
+.helpy_footer{
+	position: absolute;
+	top: 70%;
+	color: #ffffff;
+    font-size: 28px;
+    font-family: 'WM',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 400;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+	width: 99.5%;
+	text-align: center;
+}
+.footer_line{
+	position: absolute;
+	background-position: center center;
+	top: 60%;
+	opacity: 0.3;
+	width: 60%;
+	height: 1px;
+	background-color: #ffffff;
+}
+
+img{
+  min-width: 105px;
+  min-height: 105px; 
+  width: 5.47vw;
+  height: 5.47vw; 
+}
+
+
+@media(min-width:2350px){
+  .container{
+      max-width: none;
+      width: 40%;
+  }
+}
+
+
+@font-face {
+	font-family: 'Quicksand';  
+	src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+ }
+  @font-face {
+    font-family: 'WSB';
+    src:
+        url('../fonts/Whitney-Semibold.woff2') format('woff2'),
+        url('../fonts/Whitney-Semibold.woff') format('woff'),
+        url('../fonts/Whitney-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WM';
+    src:
+        url('../fonts/Whitney-Medium.woff2') format('woff2'),
+        url('../fonts/Whitney-Medium.woff') format('woff'),
+        url('../fonts/Whitney-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WSL';
+    src:
+        url('../fonts/Whitney-Light.woff2') format('woff2'),
+        url('../fonts/Whitney-Light.woff') format('woff'),
+        url('../fonts/Whitney-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WSExB';
+    src: local('Whitney Black')
+        url('../fonts/Whitney-Black.woff2') format('woff2'),
+        url('../fonts/Whitney-Black.woff') format('woff'),
+        url('../fonts/Whitney-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WSExB';
+    src: local('Unbounded')
+        url('../fonts/Unbounded-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src:
+        url('../fonts/Roboto-Medium.ttf') format('truetype');
+    font-style: normal;
+  }
