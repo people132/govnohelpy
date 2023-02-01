@@ -126,17 +126,22 @@ def account():
         #Получаю из базы список email-ов
         Des = cursor_db.execute('''SELECT email FROM history;''').fetchall()
         des3 = []
-        for i in Des:   #прохожу по списку email-ов
+        #прохожу по списку email-ов
+        for i in Des:   
             des3.append(i[0])
         for i in set(des3):
-            Des1 = cursor_db.execute(('''SELECT des FROM history WHERE email = '{}';''').format(i)).fetchall()# получаю описание по взятому email-у
-            Des2 = cursor_db.execute(('''SELECT pr FROM history WHERE email = '{}';''').format(i)).fetchall()#  получаю цену по взятому email-у
+            # получаю описание по взятому email-у
+            Des1 = cursor_db.execute(('''SELECT des FROM history WHERE email = '{}';''').format(i)).fetchall()
+            #  получаю цену по взятому email-у
+            Des2 = cursor_db.execute(('''SELECT pr FROM history WHERE email = '{}';''').format(i)).fetchall()
             des = []
             for j in Des1:
-                des.append(j[0]) # создаю массив с описаниями
+                 # создаю массив с описаниями
+                des.append(j[0])
             des1 = []
             for j in Des2:
-                des1.append(j[0]) # создаю массив с ценами и датами
+                 # создаю массив с ценами и датами
+                des1.append(j[0])
             for j in des1:
                 k = j.index('(')
                 l = j[:k]
@@ -144,11 +149,15 @@ def account():
                 print(l)
             des5 = []
             for j in range(len(des)):
-                des6 = [des[j], des1[j]] # создаю масив с соответсвующими полями из des и des1
-                des5.append(des6) # создаю общий массив состоящий из масивов 
-            obj = {i:des5} # создает словарь с индетификаторм email и значением масив
+                # создаю масив с соответсвующими полями из des и des1
+                des6 = [des[j], des1[j]] 
+                 # создаю общий массив состоящий из масивов 
+                des5.append(des6)
+                # создает словарь с индетификаторм email и значением масив
+            obj = {i:des5} 
             with open('static/animation/temp1.json', 'w') as f:
-                json.dump(obj, f, indent=2) # записывает получившийся словарь в json
+                # записывает получившийся словарь в json
+                json.dump(obj, f, indent=2) 
         db_lp.close()
     return render_template('account.html', Log = Log, Sum = summ)
 
