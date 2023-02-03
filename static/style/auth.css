@@ -10,7 +10,6 @@ body{
   padding-left: 10px; padding-right: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
   margin: 0 auto;
   flex-flow: row wrap;
 }
@@ -28,10 +27,25 @@ body{
   font-family: "WSB";
   font-size: max(1.2vw, 23px);
   font-weight: 400;
+  text-align: center;
+}
+
+.back{
+  margin-top: 7vw;
+  margin-bottom: max(19px, 1vw);
+  background-color: #f1f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-flow: row wrap;
+  border-radius: max(19px, 1vw);
+  padding: max(19px, 1vw) 1vw max(19px, 1vw) 1vw;
+  border: 0.05vw solid #dadce0;
 }
 
 .main_text{
-  margin-top: 7vw;
+  margin-top: max(19px, 1vw);
   display: flex;
   position: relative;
   justify-content: center;
@@ -40,7 +54,22 @@ body{
   font-family: "WSB";
   font-size: max(0.99vw, 30px);
   font-weight: 500;
-  margin-bottom: 7vw;
+  text-align: center;
+  margin-bottom: max(38px, 2vw);
+}
+
+.errors{
+  z-index: 1;
+  margin-top: -1vw;
+  margin-bottom: 1vw;
+  color: red;
+  width: 100%;
+  font-family: "WSL";
+  font-size: max(0.52vw, 15px);
+  font-weight: 300;
+  text-align: left;
+  letter-spacing: 0.01vw;
+  margin-top: max(19px, 1vw);
 }
 
 .uname{
@@ -56,7 +85,7 @@ body{
   min-height: 60px;
   height: 3.13vw;
   width: 100%;
-  margin-bottom: 1vw;
+  margin-bottom: max(19px, 1vw);
   text-align: center;
   position: relative;
   border-width: 0.10vw;
@@ -81,8 +110,21 @@ body{
   box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(2 96 232 / 30%);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-color: rgb(2, 96, 232);
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(2 96 232 / 30%) inset;
+}
+
 .btn_pozvol {
-  margin-top: 4vw;
+  margin-top: max(76px, 4vw);
   font-family: 'WSL',Arial,sans-serif;
   font-weight: 600;
   text-transform: none;
@@ -93,7 +135,7 @@ body{
   min-height: 55px;
   height: 2.86vw;
 	background-color: #0260e8;
-	font-size: max(1.30vw, 25px);
+	font-size: max(1.15vw, 22px);
   font-family: 'WSL',Arial,sans-serif;
 	box-shadow: 0.52vw 0.52vw 0.52vw 0.05vw rgb(2 96 232 / 30%);
 	color: #ffffff !important;
@@ -123,7 +165,7 @@ body{
 }
 
 .btn_reg{
-  margin-top: 1.7vw;
+  margin-top: max(32px, 1.7vw);
   width: 100%;
   background: none;
   border: none;
@@ -139,67 +181,30 @@ body{
   cursor: pointer;
 }
 
-footer{
-	left: 0;
-	background-color: #0260e8;
-	justify-content: center;
-	top: 100%;
-	width: 100%;
-	height: max(15.63vw, 300px);
-	position: absolute;
-	display: flex;
-
-  animation-timing-function: ease-in-out;
-  transition: 1s;
-}
-.social{
-    position: absolute;
-    display: flex;
-    width: 65%;
-    justify-content: center;
-    top: 20%;
-    height: auto;
-}
-.a_footer{
-    display: flex;
-    position: relative;
-	cursor: pointer;
-    margin-left: 5%; margin-right: 5%;
+.res_pass{
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  font-family: "WSL";
+  font-size: max(0.52vw, 15px);
+  font-weight: 300;
+  text-align: left;
+  letter-spacing: 0.01vw;
+  text-decoration: none;
 }
 
-.img_size{
-    position: relative;
-    float: left;
-    z-index: 6;
-}
-
-.footer_imgs{
-    min-width: 42px; min-height: 42px;
-    width: 3vw; height: 3vw;
-}
-
-.helpy_footer{
-	position: absolute;
-	top: 70%;
-	color: #ffffff;
-    font-size: 28px;
-    font-family: 'WM',Arial,sans-serif;
-    line-height: 1.55;
-    font-weight: 400;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
-	width: 99.5%;
-	text-align: center;
-}
-.footer_line{
-	position: absolute;
-	background-position: center center;
-	top: 60%;
-	opacity: 0.3;
-	width: 60%;
-	height: 1px;
-	background-color: #ffffff;
+.technical_support{
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  font-family: "WSL";
+  font-size: max(0.52vw, 15px);
+  font-weight: 300;
+  text-align: right; 
+  letter-spacing: 0.01vw;
+  text-decoration: none;
+  margin-right: max(15px, 1vw);
+  margin-bottom: max(19px, 1vw);
 }
 
 img{
@@ -209,7 +214,6 @@ img{
   height: 5.47vw; 
 }
 
-
 @media(min-width:2350px){
   .container{
       max-width: none;
@@ -217,6 +221,18 @@ img{
   }
 }
 
+@media(max-width:700px){
+  .back{
+    background-color: #f7f7f7;
+    border-width: 0;
+    padding: 0;
+  }
+  .technical_support{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
 
 @font-face {
 	font-family: 'Quicksand';  
