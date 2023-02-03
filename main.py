@@ -158,6 +158,8 @@ def account():
             with open('static/animation/temp1.json', 'w') as f:
                 # записывает получившийся словарь в json
                 json.dump(obj, f, indent=2) 
+        if summ == 0:
+            summ = 'Вы бомж'
         db_lp.close()
     return render_template('account.html', Log = Log, Sum = summ)
 
