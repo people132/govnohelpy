@@ -60,4 +60,30 @@ if(animItems.length > 0){
         adaptiveFunc();
     });
     adaptiveFunc();
+    var tooltip = document.getElementsByClassName("tooltip")[0];
+    var tooltip_title = document.getElementsByClassName("tooltip_title")[0];
+    var tooltip_main_text = document.getElementsByClassName("tooltip_main_text")[0];
+    document.getElementsByClassName("close")[0].onclick = function(){
+        tooltip.style.display = "none";
+    }
+    document.getElementsByClassName("row_button")[0].onclick = function(){
+        tooltip_title.textContent = "Преодоление языкового барьера";
+        tooltip_main_text.textContent = "Для общения с иностранными заказчиками недостаточно переводчика в браузере. Мы будем вести переговоры с заказчиками за вас, соблюдая вежливость и ваши интересы.";
+        tooltip.style.display = "flex";
+    }
+    document.getElementsByClassName("row_button")[1].onclick = function(){
+        tooltip_title.textContent = "Поиск и проверка заказов";
+        tooltip_main_text.textContent = "Все заказы будут взяты с проверенных зарубежных источников. В личном кабинете вы можете указать стоит ли предлагать вам заказы только с зарубежных платформ";
+        tooltip.style.display = "flex";
+    }
+    document.getElementsByClassName("row_button")[2].onclick = function(){
+        tooltip_title.textContent = "Помощь с оформлением платежных систем";
+        tooltip_main_text.textContent = "Мы полностью проконсультируем вас по регистрации платёжных систем и пройдём вместе с вами путь от получения гонорара на платформе до зачисления его на ваш счёт";
+        tooltip.style.display = "flex";
+    }
+    document.getElementsByClassName("row_button")[3].onclick = function(){
+        tooltip_title.textContent = "Оформление аккаунта";
+        tooltip_main_text.textContent = "Каждая фриланс-биржа требует правильное оформление аккаунта, полное описание ваших навыков на иностранном языке. Иначе, ваш профиль будет на последних строчках в поиске, что означает меньше просмотров и заказов. Мы оформим аккаунт за вас или предложим конкретный план действий, ориентированный конкретно под вашу деятельность.";
+        tooltip.style.display = "flex";
+    }
 }

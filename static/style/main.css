@@ -423,6 +423,7 @@ body{
 	opacity: 1;
 }
 .row_button{
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -445,6 +446,7 @@ body{
 	box-shadow: max(3px, 0.16vw) max(4px, 0.21vw) max(5px, 0.26vw) max(2px, 0.10vw) rgb(0 0 0 / 30%);
 
 	opacity: 1;
+	transition: all .2s;
 }
 .row_button._active{
 	animation-fill-mode:backwards;
@@ -456,7 +458,7 @@ body{
 
 @keyframes row_button_animation{
 	0%{
-		transform: translate(-100px, 0);
+		transform: translate(min(-100px, -5.21vw), 0);
 		opacity: 0;
 	}
 	100%{
@@ -466,19 +468,85 @@ body{
 }
 .row_button:link,
 .row_button:visited {
-    border-radius: 100px;
+    border-radius: max(100px, 5.21vw);
     transition: all .2s;
 }
 .row_button:hover {
-	border-radius: 100px;
+	border-radius: max(100px, 5.21vw);
 	transition: all .2s;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(min(-3px, 0.16vw));
+    box-shadow: 0 max(10px, 0.52vw) max(20px, 1.04vw) rgba(0, 0, 0, 0.3);
 }
 .row_button:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 max(5px, 0.26vw) max(10px, 0.52vw) rgba(0, 0, 0, 0.2);
 }
+
+.tooltip{
+	position: fixed;
+	display: none;
+	justify-content: center;
+	top: calc(50% - 25%);
+	left: calc(50% - 35%);
+	width: 70%;
+	height: 50%;
+	background-color: #f7f7f7;
+	border-width: 0px;
+    border-radius: max(1.3vw, 25px);
+    background-position: center center;
+    border-color: #000000;
+    border-style: solid;
+    box-shadow: 0.63vw 0.52vw 1.56vw 0px rgb(0 0 0 / 40%);
+	flex-wrap: wrap;
+	z-index: 5;
+}
+
+.tooltip_title{
+	width: 100%;
+	margin-top: max(96px, 3vw);
+	display: flex;
+   	justify-content: center;
+	text-align: center;
+	font-family: WSB;
+	font-size: max(30px, 3.50vw);
+	font-weight: 700;
+	letter-spacing: 1.1px;
+}
+
+.tooltip_main_text{
+	font-weight: 500;
+	text-align: center;
+	font-family: 'WM';
+	font-size: max(20px, 1.82vw);
+	width: 90%;
+}
+
+.close {
+	position: absolute;
+	cursor: pointer;
+	right: max(32px, 1.67vw);
+	top: max(32px, 1.67vw);
+	width: max(32px, 1.67vw);
+	height: max(32px, 1.67vw);
+	opacity: 0.3;
+  }
+  .close:hover {
+	opacity: 1;
+  }
+  .close:before, .close:after {
+	position: absolute;
+	left: max(15px, 0.78vw);
+	content: ' ';
+	height: max(33px, 1.72vw);
+	width: max(2px, 0.10vw);
+	background-color: #333;
+  }
+  .close:before {
+	transform: rotate(45deg);
+  }
+  .close:after {
+	transform: rotate(-45deg);
+  }
 
 
 .how_we_works_row{
@@ -913,6 +981,10 @@ footer{
     .how_many_text {
 		width: 100%;
 		margin-left: 0;
+	}
+	.tooltip{
+		width: 90%;
+		left: calc(50% - 45%);
 	}
 }
 @media(max-width:830px){
