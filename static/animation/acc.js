@@ -22,16 +22,15 @@ document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
         for (let i = 2; i < 8; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "";
         }
-        document.getElementsByClassName("tablet")[1].style.height = "22.5vw";
-        document.getElementsByClassName("tablet")[1].style.top = "425px";
-        document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130% + 615px)";
         Changename("tablet_of_CO_arrow_frame", "↑")
+        checkForChanges();
         setTimeout(() => {  document.getElementById("arrow_left_frame").classList.add('b-show') }, 1000);
         setTimeout(() => {  document.getElementById("arrow_left_frame").style.display = "flex"; }, 1000);
         setTimeout(() => {  document.getElementById("arrow_right_frame").classList.add('b-show') }, 1000);
         setTimeout(() => {  document.getElementById("arrow_right_frame").style.display = "flex"; }, 1000);
         setTimeout(() => {  document.getElementById("counter").classList.add('b-show') }, 1000);
         setTimeout(() => {  document.getElementById("counter").style.display = "flex"; }, 1000);
+        checkForChanges();
         flag = 1;
     }
     else{
@@ -39,13 +38,11 @@ document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
         for (let i = 2; i < 8; i++) {
             document.getElementsByTagName("tr")[6 + i].style.display = "none";
         }
-        document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
-        document.getElementsByClassName("tablet")[1].style.top = "320px";
-        document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130%)";
         Changename("tablet_of_CO_arrow_frame", "↓")
         document.getElementById("arrow_left_frame").style.display = "none";
         document.getElementById("arrow_right_frame").style.display = "none";
         document.getElementById("counter").style.display = "none";
+        checkForChanges();
         flag = 0
     }
 
@@ -124,11 +121,11 @@ var checkForChanges = function() {
      //относительно нижней таблицы
     var hth = tablet_history.offsetHeight;
     var tth = tablet_history.offsetTop;
-    document.getElementById("tablet_of_CO_arrow_frame").style.top = tth + hth + "px";
-    document.getElementById("arrow_left_frame").style.top = tth + hth + "px";
-    document.getElementById("arrow_right_frame").style.top = tth + hth + "px";
-    document.getElementById("counter").style.top = tth + hth + "px";
-    document.getElementsByTagName("footer")[0].style.top = 200 + tth + hth + "px";
+    document.getElementById("tablet_of_CO_arrow_frame").style.top = (tth + hth - 1 )+ "px";
+    document.getElementById("arrow_left_frame").style.top = (tth + hth - 1) + "px";
+    document.getElementById("arrow_right_frame").style.top = (tth + hth - 1) + "px";
+    document.getElementById("counter").style.top = (tth + hth - 1) + "px";
+    document.getElementsByTagName("footer")[0].style.top = (200 + tth + hth) + "px";
 
     //подгоним высоту таблички с заработком под высоту таблицы с заказами
     if (window.innerWidth > 1071){  
@@ -136,8 +133,10 @@ var checkForChanges = function() {
         earnedCircle.style['height'] = tablet_orders.offsetHeight + "px";
     }
     else {
+        var earnedCircle = document.getElementsByClassName("earned_circle_tablet")[0];
         earnedCircle.style['height'] = "22.5vw";
     }
 
 };
+checkForChanges();
 new ResizeObserver(checkForChanges).observe(tablet_history);

@@ -913,6 +913,9 @@ footer{
     .hamburger-menu{
         display:block;
     }
+    .tablet_of_CO_el_left{
+        height: auto;
+    }
 }
 @media(max-width:600px){
     td {

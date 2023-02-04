@@ -27,4 +27,37 @@ if(animItems.length > 0){
         return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
     }
     animOnScroll();
+
+
+    function adaptiveFunc() {
+        var w = window.innerWidth;
+        if (w <= 805) {
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-right"] = "0";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-left"] = "0";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-top"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[2].style["margin-top"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("break")[10].style["display"] = "block";
+            document.getElementsByClassName("break")[11].style["display"] = "block";
+        }
+        else if (w > 805 && w <= 1265) {
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-right"] = "0";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-left"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-top"] = "0";
+            document.getElementsByClassName("how_we_works_block")[2].style["margin-top"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("break")[10].style["display"] = "none";
+            document.getElementsByClassName("break")[11].style["display"] = "block";
+        }
+        else{
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-right"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-left"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-top"] = "0";
+            document.getElementsByClassName("how_we_works_block")[2].style["margin-top"] = "0";
+            document.getElementsByClassName("break")[10].style["display"] = "none";
+            document.getElementsByClassName("break")[11].style["display"] = "none";
+        }
+    }
+    window.addEventListener('resize', function() {
+        adaptiveFunc();
+    });
+    adaptiveFunc();
 }

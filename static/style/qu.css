@@ -293,13 +293,13 @@ input[type="radio"]:checked + label:before {
 }
 
 footer{
+	margin-top: max(300px, 15.63vw);
 	left: 0;
 	background-color: #0260e8;
 	justify-content: center;
-	top: 220%;
 	width: 100%;
 	height: max(15.63vw, 300px);
-	position: absolute;
+	position: relative;
 	display: flex;
 
     animation-timing-function: ease-in-out;
