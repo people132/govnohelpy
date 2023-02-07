@@ -121,7 +121,7 @@ def account():
         cursor_db = db_lp.cursor()
         Log = cursor_db.execute(('''SELECT fio FROM info
                                                WHERE login = '{}';
-                                               ''').format(session['email'])).fetchone()[0]ы
+                                               ''').format(session['email'])).fetchone()[0]
 
         #Получаю из базы список email-ов
         Des = cursor_db.execute('''SELECT email FROM history;''').fetchall()
