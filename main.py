@@ -168,4 +168,8 @@ def main():
     return render_template('main_page.html')
     
 
+@app.route('/admin')
+def admin():
+    return render_template('admin_account.html')
+
 app.run(debug=True)
