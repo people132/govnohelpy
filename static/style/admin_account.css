@@ -1,0 +1,20 @@
+body{
+    background-color: #f7f7f7;
+    min-height: 100%;
+    height: auto;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+  
+.container {
+    max-width: 1700px;
+    padding-left: 10px; padding-right: 10px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    flex-flow: row wrap;
+}

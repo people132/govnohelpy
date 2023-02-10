@@ -147,7 +147,7 @@ svg{
     height: 5.47vw; 
 }
 .top_information_conteiner{
-    min-width: 440px;
+    min-width: 220px;
     min-height: 80px;
     height: 4.17vw;
     background-color: transparent;
@@ -167,34 +167,6 @@ svg{
 .top_information_conteiner:hover{
     border-radius: 1.04vw 1.04vw 0 0;
     background-color: rgba(236, 234, 234, 0.616);
-}
-
-.top_information_text_btn{
-    z-index: 1;
-    min-width: 220px;
-    min-height: 80px;
-    cursor: pointer;
-    background-color: transparent;
-    width: 11.46vw;
-    height: 4.17vw;
-    position: relative;
-    line-height: max(1.88vw, 36px);
-    color: #000000;
-    font-size: max(1.2vw, 23px);
-    font-weight: 500;
-    text-align: center;
-    font-family: 'WM',Arial,sans-serif;
-    border-radius: 1.04vw;
-    transition: 0.3s;
-    display: flex;
-    float: left;
-    align-items: center;
-    justify-content: center;
-}
-
-.top_information_text_btn:hover{
-    transform: translateY(3px);
-    background-color: rgba(224, 222, 222, 0.616)
 }
 
 .top_information_textblue_btn{
@@ -218,7 +190,8 @@ svg{
     align-items: center;
     justify-content: center;
     background-color:#0260e8;
-    color:white
+    color:white;
+    text-decoration: none;
 }
 
 .top_information_textblue_btn:hover{

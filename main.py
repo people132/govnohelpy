@@ -112,7 +112,6 @@ def logout():
     session.pop('email', None)
     return redirect(url_for('auth'))
 
-
 @app.route('/account')
 def account():
     if 'email' in session:
@@ -170,10 +169,3 @@ def main():
     
 
 app.run(debug=True)
-
-
-from smtplib import SMTP_SSL
-
-#with smtplib.SMTP_SSL("smtp.gmail.com") as smtp:
-#     smtp.login(mail, password) # обычный пароль не подойдёт, нужен пароль приложения (https://myaccount.google.com/apppasswords)
-#     smtp.sendmail(from, to, msg) # from - строка с адресом отправителя, to - строка с адресом получателя или список из этих строк, msg - текст письма, сейчас поищу как отправлять html
