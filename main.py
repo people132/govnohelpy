@@ -3,6 +3,8 @@ import sqlite3
 import hashlib
 import os
 import json
+import smtplib
+import random
 
 
 
@@ -49,7 +51,6 @@ def auth():
         try:
             session['email'] = request.form['username']
             email = request.form['username']
-            print(email)
             password = request.form['password']
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor_db = db_lp.cursor()
@@ -72,14 +73,25 @@ def auth():
                     skill = cursor_db.execute(('''SELECT mainSkill FROM info
                                                 WHERE login = '{}';
                                                 ''').format(session['email'])).fetchone()[0]
-                    print(skill)
-                    print(type(skill))
                     db_lp.close()
             if skill != '0':
                 return  redirect(url_for('account'))
             else:
-                print('qu')
-                return redirect(url_for('qu'))
+                db_lp1 = sqlite3.connect('bases/login_password.db')
+                db_cursor1 = db_lp1.cursor()
+                select = db_cursor1.execute(('''SELECT accept FROM info WHERE login = '{}';''').format(session['email'])).fetchone()[0]
+                if select == '0':
+                    message = f'''From: From Person <>\n
+                    To: To Person <{session['email']}>\n
+                    Subject: Accept\n
+                    accept: http://127.0.0.1:5000/accept\n
+                    '''
+                    #letter(session['email'], "Активируйте аккаунт: http://127.0.0.1:5000/accept")
+                    with smtplib.SMTP_SSL("smtp.gmail.com") as smtp:
+                        smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb') #https://myaccount.google.com/apppasswords
+                        smtp.sendmail('kuprvvv@gmail.com', session['email'], msg = message)
+                else:
+                    return redirect(url_for('qu'))
         except UnboundLocalError:
             return redirect(url_for('reg'))
     return render_template('auth.html')
@@ -97,7 +109,7 @@ def reg():
         if cursor_db.execute(f'''SELECT password FROM login_password
                                             WHERE login = "{login}"''').fetchone() == None:
             sql_insert = f'''INSERT INTO login_password VALUES('{login}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
-            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}');'''
+            sql_insert1 = f'''INSERT INTO info VALUES('{login}','{fio}', '{phone}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}', '{0}');'''
             cursor_db.execute(sql_insert)
             cursor_db.execute(sql_insert1)
             cursor_db.close()
@@ -121,7 +133,7 @@ def account():
         cursor_db = db_lp.cursor()
         Log = cursor_db.execute(('''SELECT fio FROM info
                                                WHERE login = '{}';
-                                               ''').format(session['email'])).fetchone()[0]ы
+                                               ''').format(session['email'])).fetchone()[0]
 
         #Получаю из базы список email-ов
         Des = cursor_db.execute('''SELECT email FROM history;''').fetchall()
@@ -167,13 +179,56 @@ def account():
 @app.route('/')
 def main():
     return render_template('main_page.html')
-    
 
+
+@app.route('/newpassword',  methods=['GET', 'POST'])
+def newpassword():
+    if request.method == 'POST':
+        code1 = str(request.form['code'])
+        print(session['code'], code1)
+        if code1 == session['code']:
+            print('yes')
+            return redirect(url_for('qu'))
+        else:
+            print('вы мошеник')
+    return render_template('code.html')
+
+
+@app.route('/sent')
+def sent():
+    code = generate(5)
+    letter('kuprvvv@gmail.com', code)
+    session['code'] = code
+    return redirect(url_for('newpassword'))
+
+def generate(length):
+    lower_case = "abcdefghiklmnopqrstuvwxyz"
+    upper_case = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
+
+    Use_for = lower_case + upper_case
+    length_for_pass = length
+    code = "".join(random.sample(Use_for, length_for_pass))
+    return code
+
+
+@app.route('/accept')
+def accept():
+    if 'email' in session:
+        print(session['email'])
+        if request.method == 'POST':
+            db_lp = sqlite3.connect('bases/login_password.db')
+            cursor_db = db_lp.cursor()
+            sql_insert = f'''UPDATE info SET accept = "{1}"
+                         WHERE login ="{session['email']}";'''
+            cursor_db.execute(sql_insert)
+            cursor_db.close()
+            db_lp.close
+    else:
+        print('NULL')
+    return render_template('accept.html')
+
+def letter(email, ms):
+    with smtplib.SMTP_SSL("smtp.gmail.com") as smtp:
+        smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb') #https://myaccount.google.com/apppasswords
+        smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 app.run(debug=True)
-
-
-from smtplib import SMTP_SSL
-
-#with smtplib.SMTP_SSL("smtp.gmail.com") as smtp:
-#     smtp.login(mail, password) # обычный пароль не подойдёт, нужен пароль приложения (https://myaccount.google.com/apppasswords)
-#     smtp.sendmail(from, to, msg) # from - строка с адресом отправителя, to - строка с адресом получателя или список из этих строк, msg - текст письма, сейчас поищу как отправлять html
