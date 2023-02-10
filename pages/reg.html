@@ -1,40 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'style/regis.css') }}">
-</head>
-<body>
-
-<div class="menu">
-    <div class="text_bottom">
-Начало вашего сотрудничества с Helpy
-</div>
-</div>
-<!---->
-
-<div class = "menu_center">
-    <div class="text_center">Заполните поля ниже для создания личного кабинета</div>
-</div>
-  <form method="POST">
-  <div class="container">
-      <div class="select2">Email (логин для входа в личный кабинет)</div>
-      <input class="input2" type="text"  name="login" required id = 'Login'>
-
-    <div class="select1">Имя и фамилия</div>
-      <input class="input1" type="text" placeholder="" name="fio" required id = 'FIO'>
-
-    <div class="select3">Номер телефона</div>
-      <input class="input3" type="tel" placeholder="" name="phone" required id= 'Phone'>
-
-
-      <div class="select4"><b>Пароль</b></div>
-      <input class="input4" type="password" placeholder="" name="password" required id = 'Password'>
-
-     <button class="button" type="submit">Отправить</button>
-    </div>
-  </form>
-
-</body>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+        <link rel="stylesheet" href="/static/style/auth.css">
+    </head>
+    <body>
+        <div class="head">
+            Начало Вашего сотруднечества с Helpy
+        </div>
+        <form method="POST">
+        <div class="container">
+            <div class="back" style="margin-top: max(10px, 2vw);">
+                <div class="main_text">Регистрация</div>
+                <input class="inputs" id="username" name="username" type="text" placeholder="Фамилия"/>
+                <input class="inputs" id="surname" name="surname" type="text" placeholder="Имя"/>
+                <input class="inputs" id="patronymic" name="patronymic" type="text" placeholder="Отчество(при наличии)"/>
+                <input class="inputs" id="email" name="email" type="email" placeholder="Email"/>
+                <input class="inputs" id="number" name="number" type="" placeholder="Номер телефона"/>
+                <input class="inputs" id="number" name="number" type="" placeholder="telegram(по желанию)"/>
+                <input class="inputs" id="number" name="number" type="" placeholder="VK(по желанию)"/>
+                <input class="inputs" id="password" name="password" type="password" placeholder="Пароль"/>
+                <input class="inputs" id="passagain" name="passagain" type="password" placeholder="Повторите пароль"/>
+                <button type="button" class="btn_pozvol" style="font-size: max(1.04vw, 20px);">Зарегистрироваться</button>
+            </div>
+            <a href="" class="technical_support">Техническая поддержка</a>
+        </div>
+        </form>
+        <script src="../static/animation/reg.js"></script>
+    </body>
 </html>

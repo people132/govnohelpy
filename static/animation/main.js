@@ -27,152 +27,63 @@ if(animItems.length > 0){
         return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
     }
     animOnScroll();
-}
 
-function Changename(fieldName, text) {
-    fieldName = document.getElementById(fieldName);
-    fieldName.textContent = text;
-}
 
-function ChangeURL(fieldName, URL){
-    fieldName = document.getElementById(fieldName);
-    fieldName.href = URL;
-}
-for (let i = 2; i < 8; i++) {
-    document.getElementsByTagName("tr")[6 + i].style.display = "none";
-}
-document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
-var flag = 0;
-var tablet_history = document.getElementsByClassName("tablet")[1];
-var tablet_orders = document.getElementsByClassName("tablet")[0];
-document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
-    if(flag === 0){
-        if (window.innerWidth <= 454){
-            tablet_history.style['border-radius'] = '25px 25px 4px 25px';    
+    function adaptiveFunc() {
+        var w = window.innerWidth;
+        if (w <= 805) {
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-right"] = "0";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-left"] = "0";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-top"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[2].style["margin-top"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("break")[10].style["display"] = "block";
+            document.getElementsByClassName("break")[11].style["display"] = "block";
         }
-        for (let i = 2; i < 8; i++) {
-            document.getElementsByTagName("tr")[6 + i].style.display = "";
+        else if (w > 805 && w <= 1265) {
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-right"] = "0";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-left"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-top"] = "0";
+            document.getElementsByClassName("how_we_works_block")[2].style["margin-top"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("break")[10].style["display"] = "none";
+            document.getElementsByClassName("break")[11].style["display"] = "block";
         }
-        document.getElementsByClassName("tablet")[1].style.height = "22.5vw";
-        document.getElementsByClassName("tablet")[1].style.top = "425px";
-        document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130% + 615px)";
-        Changename("tablet_of_CO_arrow_frame", "↑")
-        setTimeout(() => {  document.getElementById("arrow_left_frame").classList.add('b-show') }, 1000);
-        setTimeout(() => {  document.getElementById("arrow_left_frame").style.display = "flex"; }, 1000);
-        setTimeout(() => {  document.getElementById("arrow_right_frame").classList.add('b-show') }, 1000);
-        setTimeout(() => {  document.getElementById("arrow_right_frame").style.display = "flex"; }, 1000);
-        setTimeout(() => {  document.getElementById("counter").classList.add('b-show') }, 1000);
-        setTimeout(() => {  document.getElementById("counter").style.display = "flex"; }, 1000);
-        flag = 1;
-    }
-    else{
-        tablet_history.style['border-radius'] = '25px';
-        for (let i = 2; i < 8; i++) {
-            document.getElementsByTagName("tr")[6 + i].style.display = "none";
-        }
-        document.getElementsByClassName("tablet")[1].style.height = "11.25vw";
-        document.getElementsByClassName("tablet")[1].style.top = "320px";
-        document.getElementById("tablet_of_CO_arrow_frame").style.top = "calc(130%)";
-        Changename("tablet_of_CO_arrow_frame", "↓")
-        document.getElementById("arrow_left_frame").style.display = "none";
-        document.getElementById("arrow_right_frame").style.display = "none";
-        document.getElementById("counter").style.display = "none";
-        flag = 0
-    }
-
-    return false;
-  };
-
-let history = [ ["видеомонтаж. fiverr. свадебный ролик. (хронометраж) 1ч20мин. 13 700р. до 29.10", "9800 (1.12 в 7:23)"], 
-                ["1", "1"], 
-                ["2", "2"], 
-                ["3", "3"], 
-                ["4", "4"], 
-                ["5", "5"], /*твой массив*/
-                ["6", "6"], 
-                ["7", "7"], 
-                ["8555523423415fsdg", "84234"], 
-                ["9", "9"], 
-                ["10", "10"], 
-                ["11", "11"], 
-                ["12", "12"],
-                ["13", "13"],
-                ["14", "14"],
-                ["15", "15"],
-                ["16", "16"],
-                ["17", "17"],
-                ["18", "18"],
-                ["19", "19"],
-                ["20", "20"] ];
-let tablet_left = document.getElementsByClassName("tablet_of_CO_el_left");
-let tablet_right = document.getElementsByClassName("tablet_of_CO_el_right");
-for (let i = 0; i < 8; i++) {
-    tablet_left[i].textContent = history[i][0];
-    tablet_right[i].textContent = history[i][1];
-}
-
-var page = 0;
-document.getElementById("arrow_right_frame").onclick = function() {
-    if(history.length > (page + 1) * 8){
-        page++;
-        Changename("counter", (page + 1).toString());
-        for (let i = 0; i < 8; i++) {
-            if(page * 8 + i + 1 <= history.length){
-                tablet_left[i].textContent = history[page * 8 + i][0];
-                tablet_right[i].textContent = history[page * 8 + i][1];
-            }
-            else{
-                tablet_left[i].textContent = "";
-                tablet_right[i].textContent = "";
-            }
+        else{
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-right"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-left"] = "max(80px, 4.17vw)";
+            document.getElementsByClassName("how_we_works_block")[1].style["margin-top"] = "0";
+            document.getElementsByClassName("how_we_works_block")[2].style["margin-top"] = "0";
+            document.getElementsByClassName("break")[10].style["display"] = "none";
+            document.getElementsByClassName("break")[11].style["display"] = "none";
         }
     }
-}
-document.getElementById("arrow_left_frame").onclick = function() {
-    if(page > 0){
-        page--;
-        Changename("counter", (page + 1).toString());
-        for (let i = 0; i < 8; i++) {
-            if(page * 8 + i + 1 < history.length){
-                tablet_left[i].textContent = history[page * 8 + i][0];
-                tablet_right[i].textContent = history[page * 8 + i][1];
-            }
-            else{
-                tablet_left[i].textContent = "";
-                tablet_right[i].textContent = "";
-            }
-        }
-    } 
-}
-
-tablet_history.style.top = "320px";
-var checkForChanges = function() {
-    //относительно верхней таблицы
-    var hth = tablet_orders.offsetHeight;
-    var tth = tablet_orders.offsetTop;
-    document.getElementById("container1").style.top = 100 + hth + tth + "px";
-
-     //относительно нижней таблицы
-    var hth = tablet_history.offsetHeight;
-    var tth = tablet_history.offsetTop;
-    document.getElementById("tablet_of_CO_arrow_frame").style.top = tth + hth + "px";
-    document.getElementById("arrow_left_frame").style.top = tth + hth + "px";
-    document.getElementById("arrow_right_frame").style.top = tth + hth + "px";
-    document.getElementById("counter").style.top = tth + hth + "px";
-    document.getElementsByTagName("footer")[0].style.top = 200 + tth + hth + "px";
-
-    //подгоним высоту таблички с заработком под высоту таблицы с заказами
-    if (window.innerWidth > 1071){  
-        var earnedCircle = document.getElementsByClassName("earned_circle_tablet")[0];
-        earnedCircle.style['height'] = tablet_orders.offsetHeight + "px";
+    window.addEventListener('resize', function() {
+        adaptiveFunc();
+    });
+    adaptiveFunc();
+    var tooltip = document.getElementsByClassName("tooltip")[0];
+    var tooltip_title = document.getElementsByClassName("tooltip_title")[0];
+    var tooltip_main_text = document.getElementsByClassName("tooltip_main_text")[0];
+    document.getElementsByClassName("close")[0].onclick = function(){
+        tooltip.style.display = "none";
     }
-    else {
-        earnedCircle.style['height'] = "22.5vw";
+    document.getElementsByClassName("row_button")[0].onclick = function(){
+        tooltip_title.textContent = "Преодоление языкового барьера";
+        tooltip_main_text.textContent = "Для общения с иностранными заказчиками недостаточно переводчика в браузере. Мы будем вести переговоры с заказчиками за вас, соблюдая вежливость и ваши интересы.";
+        tooltip.style.display = "flex";
     }
-
-};
-new ResizeObserver(checkForChanges).observe(tablet_history);
-
-
-
-//Changename("top_text_right", "Владислав Александров");
+    document.getElementsByClassName("row_button")[1].onclick = function(){
+        tooltip_title.textContent = "Поиск и проверка заказов";
+        tooltip_main_text.textContent = "Все заказы будут взяты с проверенных зарубежных источников. В личном кабинете вы можете указать стоит ли предлагать вам заказы только с зарубежных платформ";
+        tooltip.style.display = "flex";
+    }
+    document.getElementsByClassName("row_button")[2].onclick = function(){
+        tooltip_title.textContent = "Помощь с оформлением платежных систем";
+        tooltip_main_text.textContent = "Мы полностью проконсультируем вас по регистрации платёжных систем и пройдём вместе с вами путь от получения гонорара на платформе до зачисления его на ваш счёт";
+        tooltip.style.display = "flex";
+    }
+    document.getElementsByClassName("row_button")[3].onclick = function(){
+        tooltip_title.textContent = "Оформление аккаунта";
+        tooltip_main_text.textContent = "Каждая фриланс-биржа требует правильное оформление аккаунта, полное описание ваших навыков на иностранном языке. Иначе, ваш профиль будет на последних строчках в поиске, что означает меньше просмотров и заказов. Мы оформим аккаунт за вас или предложим конкретный план действий, ориентированный конкретно под вашу деятельность.";
+        tooltip.style.display = "flex";
+    }
+}

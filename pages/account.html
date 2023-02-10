@@ -3,8 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name = "viewport" content="width=device-width">
-        <link rel="stylesheet" href="{{url_for('static', filename= 'style/account.css' )}}">
-        <link rel="stylesheet" href="{{url_for('static', filename= 'style/logo.css')}}">
+        <link rel="stylesheet" href="../static/style/account.css">
     </head>
 
     <body class="page"> 
@@ -16,7 +15,6 @@
                 </label>
                 <ul class="menu__box">
                   <li><a class="menu__item" href="/qu">Настройки <br> аккаунта</a></li>
-                  <li><a class="menu__item" href="#">Связаться с <br> менеджером</a></li>
                   <li><a class="menu__item" href="/logout">Выйти</a></li>
                 </ul>
             </div>
@@ -56,8 +54,7 @@
                 <div class="top_line"></div>
                 <div id="top_text_right">{{Log}}</div>
                 <div class="top_information_conteiner">
-                    <a class="top_information_text_btn">Настройки <br> аккаунта</a>
-                    <a class="top_information_textblue_btn">Связаться с <br> менеджером</a>
+                    <a class="top_information_textblue_btn" href="/qu">Настройки <br> аккаунта</a>
                     <a href="/logout"  class="exit_block">
                         <div class="exit" style="margin-right: 5px; margin-top: 5px;"><img src="../static/imgs/icons-EXIT.png" width = "25px" height = "25px"></div>
                         Выйти
@@ -146,8 +143,6 @@
                 <div class="mini_titles_texts">Выполненные заказы</div>
             </div>
 
-            
-            <script src="../static/animation/main.js"></script>
         <footer>
             <div class="social"> 
                 <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-vk-circled-60.png"></a>
@@ -159,4 +154,5 @@
             <div class="footer_line"></div>
             <div class = "helpy_footer">©<strong>Helpy</strong> </div>
         </footer>
+        <script src="../static/animation/acc.js"></script>
     </body>

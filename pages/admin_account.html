@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+        <link rel="stylesheet" href="../static/style/admin_account.css">
+    </head>
+
+    <body class="page"> 
+        <div class="top_mobile_line"></div>
+        <div class="top_mobile_icon" style="background-image: url('../static/imgs/h.svg');"></div>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+            <ul class="menu__box">
+              <li><a class="menu__item" href="/qu">Добавить нового <br> администратора</a></li>
+              <li><a class="menu__item" href="">Редактировать <br> профиль</a></li>
+              <li><a class="menu__item" href="/logout">Выйти</a></li>
+            </ul>
+        </div>
+          
+        <div class="menu-bg" id="menu-bg"></div>
+
+        <div class="container">
+            <div class="head">
+                <div class="top_text_upperblock_for_right"></div>
+                <div class="img_size"><img src="../static/imgs/h.svg" alt="УУПС"></div>
+                <div class="desktop_block head" style="margin-left: 0; margin-top: 0;">
+                    <div class="top_text_left">Личный <br> кабинет</div>
+                    <div class="top_line"></div>
+                    <div id="top_text_right">{{log}}</div>
+                </div>
+                <div class="top_information_conteiner">
+                    <a class="top_information_text_btn" href="/qu">Добавить нового <br> администратора</a>
+                    <a class="top_information_textblue_btn" href="/qu">Редактировать <br> профиль</a>
+                    <a href="/logout" class="exit_block">
+                        <div class="exit_img" style="background-image: url('../static/imgs/icons-EXIT.png');"></div>
+                        Выйти
+                    </a>
+                </div>
+            </div>
+
+
+            <table class="tablet"> <!--таблица с заявками-->
+                <tr><td class="tablet_titles" colspan="4">Мои заявки</td></tr>
+                <tr>
+                    <td class="tablet_element">видеомонтаж. fiverr. свадебный ролик. (хронометраж) 1ч20мин. 13 700р. до 29.10</td>
+                    <td class="tablet_element second_element">не отвечено</td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element">видеомонтаж. fiverr. свадебный ролик. (хронометраж) 1ч20мин. 13 700р. до 29.10</td>
+                    <td class="tablet_element second_element">не отвечено</td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element">видеомонтаж. fiverr. свадебный ролик. (хронометраж) 1ч20мин. 13 700р. до 29.10</td>
+                    <td class="tablet_element second_element">не отвечено</td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element">видеомонтаж. fiverr. свадебный ролик. (хронометраж) 1ч20мин. 13 700р. до 29.10</td>
+                    <td class="tablet_element second_element">не отвечено</td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+
+            </table>
+            <table class="tablet" style="margin-top:5%;"> <!--Выполненные заказы-->
+                <tr><td class="tablet_titles" colspan="4">Выполненные заявки</td></tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="tablet_element"></td>
+                    <td class="tablet_element second_element"></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Сменить статус</a></td>
+                    <td class="tablet_element_sbor"><a class="a_table_style" href="https://www.google.com/">Подробнее</a></td>
+                </tr>
+            </table>
+            <a id="tablet_of_CO_arrow_frame">↓</a>
+            <div id="arrow_block">
+                <a class="arrow_page_frame">&#60;</a>
+                <div id="counter">1</div>
+                <a class="arrow_page_frame" style="border-radius: 0px 0px max(10px, 0.52vw) 0px">&#62;</a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="social"> 
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-vk-circled-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-telegram-app-.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-instagram-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-phone-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-mail-60.png"></a>
+            </div>
+            <div class="footer_line"></div>
+            <div class = "helpy_footer">©<strong>Helpy</strong> </div>
+        </footer>
+        <script src="../static/animation/admine_acc.js"></script>
+    </body>
+</html>
