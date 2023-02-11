@@ -57,20 +57,6 @@ body{
   margin-bottom: max(19px, 1vw);
 }
 
-.errors{
-  z-index: 1;
-  margin-top: -1vw;
-  margin-bottom: 1vw;
-  color: red;
-  width: 100%;
-  font-family: "WSL";
-  font-size: max(0.52vw, 15px);
-  font-weight: 300;
-  text-align: left;
-  letter-spacing: 0.01vw;
-  margin-top: max(19px, 1vw);
-}
-
 .uname{
   width: 100%;
   color: rgb(0, 0, 0);
@@ -120,6 +106,45 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border-color: rgb(2, 96, 232);
   box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(2 96 232 / 30%) inset;
+}
+input:invalid {
+  border-color:rgb(206, 4, 4);
+  box-shadow:0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3);
+}
+input:focus:invalid {
+  border-color:rgb(206, 4, 4);
+  box-shadow:0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3);
+}
+input:required{
+  border-color:#f7f7f7;
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(0 0 0 / 40%);
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: min(-19px, -1vw);
+  margin-bottom: max(19px, 1vw);
+  width  : calc(100% - max(2.6vw, 50px));
+  padding: 0;
+  font-size: max(12px, 0.63vw);
+
+  color: white;
+  background-color: rgb(206, 4, 4);
+  box-shadow:0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3);
+  border-radius: 0 0 max(5px, 0.26vw) max(5px, 0.26vw);
+  z-index: 3;
+  height: 0;
+  padding: 0;
+
+  transition: all 0.2s;
+}
+
+.error.active {
+  height: auto;
+  display: inline-flex;
+  padding: max(5px, 0.26vw);
 }
 
 .btn_pozvol {
