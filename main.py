@@ -173,7 +173,7 @@ def account():
         if summ == 0:
             summ = 'Вы бомж'
         db_lp.close()
-    return render_template('account.html', Log = Log, Sum = summ)
+    return render_template('account.html', Log = Log, Sum = summ, Email = session['email'])
 
 
 @app.route('/')

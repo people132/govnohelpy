@@ -1,12 +1,158 @@
-document.getElementsByClassName("btn_pozvol")[0].onclick = function() {
-    var password = document.getElementById('password');
-    var passagain = document.getElementById('passagain');
-    if(password.value != passagain.value){
-        passagain.style["border-color"] = "rgb(206, 4, 4)";
-        passagain.style["box-shadow"] = "0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3)";
+const form  = document.getElementsByTagName('form')[0];
+
+const email = document.getElementById('email');
+const emailError = document.querySelector('#email + span.error');
+const password = document.getElementById('password');
+const passwordError = document.querySelector('#password + span.error');
+const passagain = document.getElementById('passagain');
+const passagainError = document.querySelector('#passagain + span.error');
+const number = document.getElementById('number');
+const numberError = document.querySelector('#number + span.error');
+const username = document.getElementById('username');
+const usernameError = document.querySelector('#username + span.error');
+const surname = document.getElementById('surname');
+const surnameError = document.querySelector('#surname + span.error');
+
+email.addEventListener('input', function (event) { // realtime валидатор
+    if (email.validity.valid) { // почта
+        emailError.textContent = '';
+        emailError.className = 'error';
+    } else {
+        showErrorEmail()
+    }
+});
+password.addEventListener('input', function (event) { // realtime валидатор
+    if (password.validity.valid) { // пароль
+        passwordError.textContent = '';
+        passwordError.className = 'error';
+    } else {
+        showErrorPassword()
+    }
+});
+passagain.addEventListener('input', function (event) { // realtime валидатор
+    if(passagain.validity.valueMissing) { // пароль снова
+        passagainError.textContent = 'Это обязательное поле';
+        passagainError.className = 'error active';
+    }
+    else if(password.value != passagain.value) {
+        passagainError.textContent = 'Пароли не соответствуют';
+        passagainError.className = 'error active';
     }
     else {
-        passagain.style["border-color"] = "rgba(21, 232, 2, 0.712)";
-        passagain.style["box-shadow"] = "0.32vw 0.27vw 0.78vw 0px rgba(2, 168, 16, 0.575)";
+        passagainError.textContent = '';
+        passagainError.className = 'error';
     }
+});
+number.addEventListener('input', function (event) { // realtime валидатор
+    if (number.validity.valid) { // номер
+        numberError.textContent = '';
+        numberError.className = 'error';
+    } else {
+        showErrorNumber()
+    }
+});
+username.addEventListener('input', function (event) { // realtime валидатор
+    if (username.validity.valid) { // Имя
+        usernameError.textContent = '';
+        usernameError.className = 'error';
+    } else {
+        showErrorUsername()
+    }
+});
+surname.addEventListener('input', function (event) { // realtime валидатор
+    if (surname.validity.valid) { // Фамилия
+        surnameError.textContent = '';
+        surnameError.className = 'error';
+    } else {
+        showErrorSurname()
+    }
+});
+
+form.addEventListener('submit', function (event) { // Валидатор на кнопку
+    var flag = 1;
+    if(!email.validity.valid) { // почта
+        showErrorEmail()
+        event.preventDefault();
+        flag = 0;
+    }
+    if(!password.validity.valid) { // пароль
+        showErrorPassword()
+        event.preventDefault();
+        flag = 0;
+    }
+    if(passagain.validity.valueMissing) { // пароль снова
+        passagainError.textContent = 'Это обязательное поле';
+        passagainError.className = 'error active';
+        event.preventDefault();
+        flag = 0;
+    }
+    if(password.value != passagain.value) {
+        passagainError.textContent = 'Пароли не соответствуют';
+        passagainError.className = 'error active';
+        event.preventDefault();
+        flag = 0;
+    }
+    if(!number.validity.valid) { // номер
+        showErrorNumber()
+        event.preventDefault();
+        flag = 0;
+    }
+    if(!username.validity.valid) { // Имя
+        showErrorUsername()
+        event.preventDefault();
+        flag = 0;
+    }
+    if(!surname.validity.valid) { // Фамилия
+        showErrorSurname()
+        event.preventDefault();
+        flag = 0;
+    }
+    // отправляем форму
+});
+
+function showErrorEmail() {
+    if(email.validity.valueMissing) { // почта
+        emailError.textContent = 'Это обязательное поле';
+    } else if(email.validity.typeMismatch) {
+        emailError.textContent = 'Это не похоже на почту';
+    } else if(email.validity.tooShort) {
+        emailError.textContent = `Почта должна содержать хотябы ${ email.minLength } символов. Вы ввели ${ email.value.length }.`;
+    }
+    emailError.className = 'error active';
+}
+function showErrorPassword() {
+    if(password.validity.valueMissing) { // пароль
+        passwordError.textContent = 'Это обязательное поле';
+    } else if(password.parentNode) {
+        passwordError.textContent = 'Длина пароля должна быть от 8 до 30 символов, включать одну заглавную букву, один символ и одну цифру. Содержать только латинские буквы';
+    }
+    passwordError.className = 'error active';
+}
+function showErrorNumber() {
+    if(number.validity.valueMissing) { // номер
+        numberError.textContent = 'Это обязательное поле';
+    } else if(number.parentNode) {
+        numberError.textContent = 'Введён некорректный номер';
+    }
+    numberError.className = 'error active';
+}
+function showErrorUsername() {
+    if(username.validity.valueMissing) { // Имя
+        usernameError.textContent = 'Это обязательное поле';
+    } else if (username.validity.tooShort) {
+        usernameError.textContent = `Длина имени должна быть от ${ username.minLength } символов. Вы ввели ${ username.value.length }.`;
+    } else if(username.parentNode) {
+        usernameError.textContent = 'Имя должно содержать только буквы';
+    }
+    usernameError.className = 'error active';
+}
+function showErrorSurname() {
+    if(surname.validity.valueMissing) { // Фамилия
+        surnameError.textContent = 'Это обязательное поле';
+    } else if (surname.validity.tooShort) {
+        surnameError.textContent = `Длина фамилии должна быть от ${ surname.minLength } символов. Вы ввели ${ surname.value.length }.`;
+    } else if(surname.parentNode) {
+        surnameError.textContent = 'Фамилия должна содержать только буквы';
+    }
+    surnameError.className = 'error active';
 }

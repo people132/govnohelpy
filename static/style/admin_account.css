@@ -477,19 +477,6 @@ table{
     transform: translateY(max(10px, 0.52vw));
 }
 
-#shadow{
-    border-width: 0px;
-    border-radius: 0px 0px 0.52vw 0.52vw;
-    display: none;
-    z-index: -1;
-    top: calc(130% + 619px);
-    left: calc(70% - 25px);
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    box-shadow: 12px 10px 30px 0px rgb(0 0 0 / 40%);
-}
-
 #arrow_block{
     margin-top: min(-40px, -2.08vw);
     margin-left: auto;
