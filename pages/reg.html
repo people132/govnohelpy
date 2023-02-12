@@ -28,9 +28,12 @@
                 <span class="error" aria-live="polite"></span>
                 <input class="inputs" id="passagain" name="passagain" type="password" placeholder="Повторите пароль" required maxlength="30">
                 <span class="error" aria-live="polite"></span>
-                <div style="display: flex; width: 100%;">
-                    <input class="inputs" style="width: 50%; margin-bottom: 0;" id="code" name="code" type="number" placeholder="Введите код" required minlength="6" maxlength="6">
-                    <a class="change_btn" for="code">Отправить код на почту</a>
+                <div style="display: flex; width: 100%; flex-wrap: wrap;">
+                    <div style="display: flex; width: 100%;">
+                        <input class="inputs" style="width: 50%; margin-bottom: 0;" id="code" name="code" type="number" placeholder="Введите код" required minlength="6" maxlength="6">
+                        <a class="change_btn" for="code">Отправить код на почту</a>
+                    </div>
+                    <span class="error" aria-live="polite" style="width: calc(50% -  max(15px, 1.5vw) - max(2.6vw, 50px)); margin-top: 0; margin-left: max(1.3vw, 25px);"></span>
                 </div>
                 <button class="btn_pozvol" type="submit" style="font-size: max(1.04vw, 20px);">Зарегистрироваться</button>
             </div>
