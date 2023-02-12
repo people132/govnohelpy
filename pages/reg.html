@@ -28,6 +28,10 @@
                 <span class="error" aria-live="polite"></span>
                 <input class="inputs" id="passagain" name="passagain" type="password" placeholder="Повторите пароль" required maxlength="30">
                 <span class="error" aria-live="polite"></span>
+                <div style="display: flex; width: 100%;">
+                    <input class="inputs" style="width: 50%; margin-bottom: 0;" id="code" name="code" type="number" placeholder="Введите код" required minlength="6" maxlength="6">
+                    <a class="change_btn" for="code">Отправить код на почту</a>
+                </div>
                 <button class="btn_pozvol" type="submit" style="font-size: max(1.04vw, 20px);">Зарегистрироваться</button>
             </div>
             <a href="" class="technical_support">Техническая поддержка</a>
