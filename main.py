@@ -100,10 +100,14 @@ def auth():
 @app.route('/reg', methods=['GET', 'POST'])
 def reg():
     if request.method == 'POST':
-        login = request.form['login']
+        surname = request.form['surname']
+        name = request.form['username']
+        patronymic = request.form['patronymic']
+        email = request.form['email']
+        number = request.form['number']
+        tg = request.form['tg']
+        vk = request.form['vk']
         password = request.form['password']
-        phone = request.form['phone']
-        fio = request.form['fio']
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         if cursor_db.execute(f'''SELECT password FROM login_password
