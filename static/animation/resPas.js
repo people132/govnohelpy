@@ -9,7 +9,7 @@ const passwordError = document.querySelector('#password + span.error');
 const passagain = document.getElementById('passagain');
 const passagainError = document.querySelector('#passagain + span.error');
 
-email.addEventListener('input', function (event) { // realtime валидатор
+/*email.addEventListener('input', function (event) { // realtime валидатор
     if (email.validity.valid) { // почта
         emailError.textContent = '';
         emailError.className = 'error';
@@ -98,4 +98,22 @@ function showErrorPassword() {
         passwordError.textContent = 'Длина пароля должна быть от 8 до 30 символов, включать одну заглавную букву, один символ и одну цифру. Содержать только латинские буквы';
     }
     passwordError.className = 'error active';
+}*/
+var left_tab = document.getElementsByClassName("nav-link")[0];
+var right_tab = document.getElementsByClassName("nav-link")[1];
+left_tab.style["background-color"] = "#fff";
+left_tab.style["color"] = "black";
+right_tab.style["background-color"] = "#0260e8";
+right_tab.style["color"] = "white";
+left_tab.onclick = function(){
+    left_tab.style["background-color"] = "#fff";
+    left_tab.style["color"] = "black";
+    right_tab.style["background-color"] = "#0260e8";
+    right_tab.style["color"] = "white";
+}
+right_tab.onclick = function(){
+    right_tab.style["background-color"] = "#fff";
+    right_tab.style["color"] = "black";
+    left_tab.style["background-color"] = "#0260e8";
+    left_tab.style["color"] = "white";
 }

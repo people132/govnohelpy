@@ -66,6 +66,40 @@ body{
   margin-bottom: 1vw;
 }
 
+.nav-pills{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-top: max(10px, 2vw);
+  margin-bottom: min(-30px, -2vw);
+}
+.nav-item{
+  width: 50%;
+  display: flex;
+}
+.nav-link{
+  width: 100%;
+  text-align: center;
+  background: #0260e8;
+  color: #fff;
+  border-radius: 30px;
+  height: max(80px, 4.17vw);
+  font-weight: 400;
+	font-family: 'WM';
+  font-size: max(0.99vw, 19px);
+  text-decoration: none;
+  padding-top: 2%;
+
+  transition: all 0.2s;
+}
+.tab-pane{
+  display: none;
+}
+.tab-pane:target{
+  display: flex;
+}
+
 .inputs{
   min-height: 60px;
   height: 3.13vw;
