@@ -128,7 +128,8 @@ input:required{
   margin-bottom: max(19px, 1vw);
   width  : calc(100% - max(2.6vw, 50px));
   padding: 0;
-  font-size: max(12px, 0.63vw);
+  font-size: max(15px, 0.78vw);
+  font-family: 'WSL',Arial,sans-serif;
 
   color: white;
   background-color: rgb(206, 4, 4);
@@ -149,7 +150,6 @@ input:required{
 
 .btn_pozvol {
   margin-top: max(57px, 3vw);
-  font-family: 'WSL',Arial,sans-serif;
   font-weight: 600;
   text-transform: none;
   border-width: 0;
@@ -220,7 +220,7 @@ input:required{
   width: 50%;
   margin-left: max(10px, 2vw);
   min-height: 60px;
-  height: 3.13vw;
+  height: auto;
   border-radius: max(1.3vw, 25px);
   font-weight: 400;
 	font-family: 'WM';
