@@ -66,7 +66,7 @@ body{
   margin-bottom: 1vw;
 }
 
-.nav-pills{
+.nav-pills{ /*табы для сброса почты/пароля */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -80,25 +80,45 @@ body{
 }
 .nav-link{
   width: 100%;
-  text-align: center;
-  background: #0260e8;
-  color: #fff;
-  border-radius: 30px;
-  height: max(80px, 4.17vw);
-  font-weight: 400;
-	font-family: 'WM';
-  font-size: max(0.99vw, 19px);
   text-decoration: none;
-  padding-top: 2%;
+  background: #0260e8;
+  color: #f1f0f0;
+  border-radius: max(19px, 1vw);
+  height: max(100px, 5.21vw);
+  padding: 0;
 
   transition: all 0.2s;
+  transition-timing-function: ease-in-out;
 }
+.nav-link:not(.active_tab):hover{
+  margin-top: -5px;
+}
+
+.active_tab{
+  background-color: #f1f0f0;
+  color: black;
+  border: 0.05vw solid #dadce0;
+}
+
 .tab-pane{
   display: none;
 }
 .tab-pane:target{
   display: flex;
 }
+
+.text_tab{
+  display: flex;
+  height: calc(max(100px, 5.21vw) + min(-30px, -2vw));
+  font-weight: 400;
+	font-family: 'WM';
+  font-size: max(0.99vw, 19px);
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .inputs{
   min-height: 60px;

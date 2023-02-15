@@ -204,11 +204,13 @@ body{
 }
 
 .change_btn{
-    min-width: 240px;
-    width: 12.50vw;
-    min-height: 80px;
-    height: 4.17vw;
-    border-radius: max(10px, 0.52vw);
+    width: max(200px, 13.02vw);
+    min-height: 60px;
+    height: 3.13vw;
+    border-radius: max(1.3vw, 25px);
+    font-weight: 400;
+    font-family: 'WM';
+    font-size: max(0.99vw, 19px);
     border-color: #0260e8;
     border-width: max(2px, 0.10vw);
     border-style: solid;
@@ -216,12 +218,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-	font-size: max(1.3vw, 23px);
-    font-family: 'WSL',Arial,sans-serif;
+    text-align: center;
     transition: all .2s;
     cursor: pointer;
-    margin-bottom: 2vw;
+    text-decoration: none;
 }
 .change_btn:hover{
     background-color: #0260e8;
