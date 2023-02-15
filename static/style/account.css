@@ -486,7 +486,7 @@ table{
 
 .tooltip{
 	position: fixed;
-	display: none;
+	display: flex;
 	justify-content: center;
 	top: 5%;
 	left: 5%;
@@ -508,9 +508,9 @@ table{
     display: grid;
     grid-template-columns: 1fr 1fr;
     word-wrap: normal;
-    grid-auto-rows:auto;
+    grid-auto-rows: auto;
     gap: max(10px, 0.52vw);
-    overflow:scroll;
+    overflow-y: auto;
 }
 
 .tooltip_main_text{
