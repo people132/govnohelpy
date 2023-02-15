@@ -18,25 +18,300 @@ def qu():
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         try:
-            log1 = cursor_db.execute(('''SELECT name FROM info
-                                               WHERE email = '{}';
-                                               ''').format(session['email'])).fetchone()[0]
+            log1 = cursor_db.execute(('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
             log2 = cursor_db.execute(('''SELECT surname FROM info WHERE email = '{}'; ''').format(session['email'])).fetchone()[0]
             log = log1 + ' ' + log2
         except:
             return redirect(url_for('reg'))
+        db_lp = sqlite3.connect('bases/login_password.db')
+        cursor_db = db_lp.cursor()
+        username = cursor_db.execute(('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        surname = cursor_db.execute(('''SELECT surname FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]        
+        patronymic = cursor_db.execute(('''SELECT patronymic FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        number = cursor_db.execute(('''SELECT phone FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        tg = cursor_db.execute(('''SELECT tg FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        vk = cursor_db.execute(('''SELECT vk FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        mainSkill = cursor_db.execute(('''SELECT mainSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        mainHour = cursor_db.execute(('''SELECT mainHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        secondSkill = cursor_db.execute(('''SELECT secondSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        secondHour = cursor_db.execute(('''SELECT secondHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        language = cursor_db.execute(('''SELECT language FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        workHoure = cursor_db.execute(('''SELECT workHoure FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        typeConnect = cursor_db.execute(('''SELECT typeConnect FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        description = cursor_db.execute(('''SELECT description FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        rus_zac = cursor_db.execute(('''SELECT ruszac FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        language1 = language.split()
+        alllanguage = ['английский', 'французкий', 'немецкий', 'итальянский', 'русский', 'украинский', 'белорусский']
+        english = ''
+        french = ''
+        german = ''
+        italian = ''
+        russian = ''
+        ukraian = '' 
+        belorussian= ''
+        ruszac1 = ''
+        if 'английский' in language1:
+            english = 'checked'
+        if 'французкий' in language1:
+            french = 'checked'
+        if 'немецкий' in language1:
+            german = 'checked'
+        if 'итальянский' in language1:
+            italian = 'checked'
+        if 'русский' in language1:
+            russian = 'checked'
+        if 'украинский' in language1:
+            ukraian = 'checked'
+        if 'белорусский' in language1:
+            belorussian = 'checked'
+        typeConnect1 = typeConnect.split()
+        messenger = ''
+        site = ''
+        if 'messenger' in typeConnect1:
+            messenger = 'checked'
+        if 'site' in typeConnect1:
+            site ='checked'
+        if rus_zac != '':
+            ruszac1 = 'checked'
+
+        video_editing1 = ''
+        photo_editing1 = ''
+        front_end_application_development1 = ''
+        front_end_website_development1 = ''
+        back_end_website_development1 = ''
+        zero_coding1 = ''
+        electronic_music1 = ''
+        live_music1 = ''
+        music_vocals1 = ''
+        announcer_art1 = ''
+        text1 = ''
+        translations1 = ''
+        cgi1 = ''
+        smm1 = ''
+        UI_design1 = ''
+        UX_design1 = ''
+        painting_digital1 = ''
+        painting_classic1 = ''
+        wood_crafts1 = ''
+        fabric_wool_handicrafts1 = ''
+        handicrafts1 = ''
+
+        video_editing2 = ''
+        photo_editing2 = ''
+        front_end_application_development2 = ''
+        front_end_website_development2 = ''
+        back_end_website_development2 = ''
+        zero_coding2 = ''
+        electronic_music2 = ''
+        live_music2 = ''
+        music_vocals2 = ''
+        announcer_art2 = ''
+        text2 = ''
+        translations2 = ''
+        cgi2 = ''
+        smm2 = ''
+        UI_design2 = ''
+        UX_design2 = ''
+        painting_digital2 = ''
+        painting_classic2 = ''
+        wood_crafts2 = ''
+        fabric_wool_handicrafts2 = ''
+        handicrafts2 = ''
+
+        one1 = ''
+        two1 = ''
+        three1 = ''
+        four1 = ''
+        five1 = ''
+        six1 = ''
+        seven1 = ''
+        eight1 = ''
+        nine1 = ''
+        ten1 = ''
+        more1 = ''
+
+        one2 = ''
+        two2 = ''
+        three2 = ''
+        four2 = ''
+        five2 = ''
+        six2 = ''
+        seven2 = ''
+        eight2 = ''
+        nine2 = ''
+        ten2 = ''
+        more2 = ''
+
+        one_five = ''
+        five_ten = ''
+        ten_twenty = ''
+        twenty_thirty = ''
+        thirty_fourty =''
+        fourty_more = ''
+
+        if mainSkill == 'видеомонтаж':
+            video_editing1 = 'selected'
+        elif mainSkill == 'фоторедактура':
+            photo_editing1 = 'selected'
+        elif mainSkill == 'фронт-энд разработка приложений':
+            front_end_application_development1 = 'selected'
+        elif mainSkill == 'фронт-энд разработка сайтов':
+            front_end_website_development1 = 'selected'
+        elif mainSkill == 'бэк-энд разработка сайтов':
+            back_end_website_development1 = 'selected'
+        elif mainSkill == 'zero coding':
+            zero_coding1 = 'selected'
+        elif mainSkill == 'музыка электронная':
+            electronic_music1 = 'selected'
+        elif mainSkill == 'музыка живая':
+            live_music1 = 'selected'
+        elif mainSkill == 'музыка вокал':
+            music_vocals1 = 'selected'
+        elif mainSkill == 'дикторское искусство':
+            announcer_art1 = 'selected'
+        elif mainSkill == 'текст':
+            text1 = 'selected'
+        elif mainSkill == 'переводы (укажите язык ниже)':
+            translations1 = 'selected'
+        elif mainSkill == 'SMM':
+            smm1 = 'selected'
+        elif mainSkill == 'CGI (комп.графика)':
+            cgi1 = 'selected'
+        elif mainSkill == 'Ui-дизайн (пользовательский интерфейс)':
+            UI_design1 = 'selected'
+        elif mainSkill == 'UX-дизайн (архитектура, удобство пользования)':
+            UX_design1 = 'selected'
+        elif mainSkill == 'живопись -digital':
+            painting_digital1 = 'selected'
+        elif mainSkill == 'живопись - классика':
+            painting_classic1 = 'selected'
+        elif mainSkill == 'поделки руками из дерева':
+            wood_crafts1 = 'selected'
+        elif mainSkill == 'поделки руками из ткани/шерсти':
+            fabric_wool_handicrafts1 = 'selected'
+        elif mainSkill == 'поделки руками из прочих худ. материалов':
+            handicrafts1 = 'selected'
+
+        if mainHour == '1':
+            one1 = 'selected'
+        elif mainHour == '2':
+            two1 = 'selected'
+        elif mainHour == '3':
+            three1 = 'selected'
+        elif mainHour == '4':
+            four1 = 'selected'
+        elif mainHour == '5':
+            five1 = 'selected'
+        elif mainHour == '6':
+            six1 = 'selected'
+        elif mainHour == '7':
+            seven1 = 'selected'
+        elif mainHour == '8':
+            eight1 = 'selected'
+        elif mainHour == '9':
+            nine1 = 'selected'
+        elif mainHour == '10':
+            ten1 = 'selected'
+        elif mainHour == 'более 10':
+            more1 = 'selected'
+
+        if secondSkill == 'видеомонтаж':
+            video_editing2 = 'selected'
+        elif secondSkill == 'фоторедактура':
+            photo_editing2 = 'selected'
+        elif secondSkill == 'фронт-энд разработка приложений':
+            front_end_application_development2 = 'selected'
+        elif secondSkill == 'фронт-энд разработка сайтов':
+            front_end_website_development2 = 'selected'
+        elif secondSkill == 'бэк-энд разработка сайтов':
+            back_end_website_development2 = 'selected'
+        elif secondSkill == 'zero coding':
+            zero_coding2 = 'selected'
+        elif secondSkill == 'музыка электронная':
+            electronic_music2 = 'selected'
+        elif secondSkill == 'музыка живая':
+            live_music2 = 'selected'
+        elif secondSkill == 'музыка вокал':
+            music_vocals2 = 'selected'
+        elif secondSkill == 'дикторское искусство':
+            announcer_art2 = 'selected'
+        elif secondSkill == 'текст':
+            text2 = 'selected'
+        elif secondSkill == 'переводы (укажите язык ниже)':
+            translations2 = 'selected'
+        elif secondSkill == 'SMM':
+            smm2 = 'selected'
+        elif secondSkill == 'CGI (комп.графика)':
+            cgi2 = 'selected'
+        elif secondSkill == 'Ui-дизайн (пользовательский интерфейс)':
+            UI_design2 = 'selected'
+        elif secondSkill == 'UX-дизайн (архитектура, удобство пользования)':
+            UX_design2 = 'selected'
+        elif secondSkill == 'живопись -digital':
+            painting_digital2 = 'selected'
+        elif secondSkill == 'живопись - классика':
+            painting_classic2 = 'selected'
+        elif secondSkill == 'поделки руками из дерева':
+            wood_crafts2 = 'selected'
+        elif secondSkill == 'поделки руками из ткани/шерсти':
+            fabric_wool_handicrafts2 = 'selected'
+        elif secondSkill == 'поделки руками из прочих худ. материалов':
+            handicrafts2 = 'selected'
+            
+        if secondHour == '1':
+            one2 = 'selected'
+        elif secondHour == '2':
+            two2 = 'selected'
+        elif secondHour == '3':
+            three2 = 'selected'
+        elif secondHour == '4':
+            four2 = 'selected'
+        elif secondHour == '5':
+            five2 = 'selected'
+        elif secondHour == '6':
+            six2 = 'selected'
+        elif secondHour == '7':
+            seven2 = 'selected'
+        elif secondHour == '8':
+            eight2 = 'selected'
+        elif secondHour == '9':
+            nine2 = 'selected'
+        elif secondHour == '10':
+            ten2 = 'selected'
+        elif secondHour == 'более 10':
+            more2 = 'selected'
+
+        if workHoure == '1-5':
+            one_five = 'selected'
+        elif workHoure == '5-10':
+            five_ten = 'selected'
+        elif workHoure == '10-20':
+            ten_twenty = 'selected'
+        elif workHoure == '20-30':
+            twenty_thirty = 'selected'
+        elif workHoure == '30-40':
+            thirty_fourty = 'selected'
+        elif workHoure == 'более 40':
+            fourty_more = 'selected'
+
         if request.method == 'POST':
             mainSkill = request.form['mainSkill']
             mainHour = request.form['mainHour']
             secondSkill = request.form['secondSkill']
             secondHour = request.form['secondHour']
             workHoure = request.form['workHoure']
+            username = request.form['username']
+            surname = request.form['surname']
+            patronymic = request.form['patronymic']
+            number = request.form['number']
+            tg = request.form['tg']
+            vk = request.form['vk']
+            rus_zac = request.form['rus-zac']
+            description = request.form['description']
             language = ' '.join(request.form.getlist('language'))
             typeConnect = ' '.join(request.form.getlist('typeConnect'))
-            db_lp = sqlite3.connect('bases/login_password.db')
-            cursor_db = db_lp.cursor()
-            sql_insert1 = f'''UPDATE info SET mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}" 
+            sql_insert1 = f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", rus-zac = {rus_zac}
                          WHERE email ="{session['email']}";'''
             cursor_db.execute(sql_insert1)
             cursor_db.close()
@@ -44,7 +319,12 @@ def qu():
             db_lp.close()
             print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
             return redirect(url_for('account'))
-        return render_template('qu.html', log=log)
+        return render_template('qu.html', log=log, Username = username, Surname = surname, Patronymic = patronymic, Number = number, Tg = tg, Vk = vk, Rus_zac = ruszac1, Messenger = messenger, Site = site,
+                            video_editing1 = video_editing1, photo_editing1 = photo_editing1, front_end_application_development1 = front_end_application_development1, front_end_website_development1 = front_end_website_development1, back_end_website_development1 = back_end_website_development1, zero_coding1 = zero_coding1, electronic_music1 = electronic_music1, live_music1 = live_music1, music_vocals1 = music_vocals1, announcer_art1 = announcer_art1, text1 = text1,
+                            translations1 = translations1, smm1 = smm1, cgi1 = cgi1, UI_design1 = UI_design1, UX_design1 = UX_design1, painting_digital1 = painting_digital1, painting_classic1 = painting_classic1, wood_crafts1 = wood_crafts1, fabric_wool_handicrafts1 = fabric_wool_handicrafts1, handicrafts1 = handicrafts1, one1 = one1, two1 = two1, three1 = three1, four1 = four1, five1 = five1, six1 = six1, seven1 = seven1, eight1 = eight1, nine1 = nine1, ten1 = ten1, more1 = more1,
+                            video_editing2 = video_editing2, photo_editing2 = photo_editing2, front_end_application_development2 = front_end_application_development2, front_end_website_development2 = front_end_website_development2, back_end_website_development2 = back_end_website_development2, zero_coding2 = zero_coding2, electronic_music2 = electronic_music2, live_music2 = live_music2, music_vocals2 = music_vocals2, announcer_art2 = announcer_art2, text2 = text2,
+                            translations2 = translations2, smm2 = smm2, cgi2 = cgi2, UI_design2 = UI_design2, UX_design2 = UX_design2, painting_digital2 = painting_digital2, painting_classic2 = painting_classic2, wood_crafts2 = wood_crafts2, fabric_wool_handicrafts2 = fabric_wool_handicrafts2, handicrafts2 = handicrafts2, one2 = one2, two2 = two2, three2 = three2, four2 = four2, five2 = five2, six2 = six2, seven2 = seven2, eight2 = eight2, nine2 = nine2, ten2 = ten2, more2 = more2,
+                            one_five = one_five, five_ten = five_ten, ten_twenty = ten_twenty, twenty_thirty = twenty_thirty, thirty_fourty = thirty_fourty, fourty_more = fourty_more, Description = description)
     else:
         return redirect(url_for('auth'))
 
@@ -79,7 +359,7 @@ def auth():
                     print(skill)
                     print(type(skill))
                     db_lp.close()
-            if skill != '0':
+            if skill != '':
                 return  redirect(url_for('account'))
             else:
                 return redirect(url_for('qu'))
@@ -122,7 +402,7 @@ def reg():
                     if cursor_db.execute(f'''SELECT password FROM login_password
                                                     WHERE login = "{email}"''').fetchone() == None:
                         sql_insert = f'''INSERT INTO login_password VALUES('{email}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
-                        sql_insert1 = f'''INSERT INTO info VALUES('{email}','{name}', '{surname}', '{patronymic}', '{number}', '{vk}', '{tg}', '{0}', '{0}', '{0}', '{0}', {0}, {0}, {0}, {0});'''
+                        sql_insert1 = f'''INSERT INTO info VALUES('{email}','{name}', '{surname}', '{patronymic}', '{number}', '{vk}', '{tg}', '{""}', '{""}', '{""}', '{""}', {""}, {""}, {""}, {""}, {""});'''
                         cursor_db.execute(sql_insert)
                         cursor_db.execute(sql_insert1)
                         cursor_db.close()
