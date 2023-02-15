@@ -40,6 +40,7 @@ def qu():
         typeConnect = cursor_db.execute(('''SELECT typeConnect FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
         description = cursor_db.execute(('''SELECT description FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
         rus_zac = cursor_db.execute(('''SELECT ruszac FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        cursor_db.close()
         language1 = language.split()
         alllanguage = ['английский', 'французкий', 'немецкий', 'итальянский', 'русский', 'украинский', 'белорусский']
         english = ''
@@ -295,6 +296,7 @@ def qu():
             fourty_more = 'selected'
 
         if request.method == 'POST':
+            cursor_db1 = db_lp.cursor()
             mainSkill = request.form['mainSkill']
             mainHour = request.form['mainHour']
             secondSkill = request.form['secondSkill']
@@ -311,10 +313,10 @@ def qu():
             language = ' '.join(request.form.getlist('language'))
             typeConnect = ' '.join(request.form.getlist('typeConnect'))
             sql_insert1 = f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", rus-zac = {rus_zac}
-                         WHERE email ="{session['email']}";'''
-            cursor_db.execute(sql_insert1)
-            cursor_db.close()
+                secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", rus-zac = {rus_zac}
+                     WHERE email ="{session['email']}";'''
+            cursor_db1.execute(sql_insert1)
+            cursor_db1.close()
             db_lp.commit()
             db_lp.close()
             print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
