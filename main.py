@@ -41,6 +41,8 @@ def qu():
         description = cursor_db.execute(('''SELECT description FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
         rus_zac = cursor_db.execute(('''SELECT ruszac FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
         cursor_db.close()
+        db_lp.commit()
+        db_lp.close()
         language1 = language.split()
         alllanguage = ['английский', 'французкий', 'немецкий', 'итальянский', 'русский', 'украинский', 'белорусский']
         english = ''
@@ -296,7 +298,8 @@ def qu():
             fourty_more = 'selected'
 
         if request.method == 'POST':
-            cursor_db1 = db_lp.cursor()
+            db_lp1 = sqlite3.connect('bases/login_password.db')
+            cursor_db1 = db_lp1.cursor()
             mainSkill = request.form['mainSkill']
             mainHour = request.form['mainHour']
             secondSkill = request.form['secondSkill']
@@ -312,16 +315,15 @@ def qu():
             description = request.form['description']
             language = ' '.join(request.form.getlist('language'))
             typeConnect = ' '.join(request.form.getlist('typeConnect'))
-            sql_insert1 = f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", rus-zac = {rus_zac}
-                     WHERE email ="{session['email']}";'''
-            cursor_db1.execute(sql_insert1)
+            cursor_db1.execute(f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
+                     WHERE email ="{session['email']}";''')
             cursor_db1.close()
-            db_lp.commit()
-            db_lp.close()
+            db_lp1.commit()
+            db_lp1.close()
             print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
             return redirect(url_for('account'))
-        return render_template('qu.html', log=log, Username = username, Surname = surname, Patronymic = patronymic, Number = number, Tg = tg, Vk = vk, Rus_zac = ruszac1, Messenger = messenger, Site = site,
+        return render_template('qu.html', log=log, Username = username, Surname = surname, Patronymic = patronymic, Number = number, Tg = tg, Vk = vk, Rus_zac = ruszac1, Messenger = messenger, Site = site, English = english, French = french, German = german, Italian = italian, Russian = russian, Ukrein = ukraian, Belorussian = belorussian,
                             video_editing1 = video_editing1, photo_editing1 = photo_editing1, front_end_application_development1 = front_end_application_development1, front_end_website_development1 = front_end_website_development1, back_end_website_development1 = back_end_website_development1, zero_coding1 = zero_coding1, electronic_music1 = electronic_music1, live_music1 = live_music1, music_vocals1 = music_vocals1, announcer_art1 = announcer_art1, text1 = text1,
                             translations1 = translations1, smm1 = smm1, cgi1 = cgi1, UI_design1 = UI_design1, UX_design1 = UX_design1, painting_digital1 = painting_digital1, painting_classic1 = painting_classic1, wood_crafts1 = wood_crafts1, fabric_wool_handicrafts1 = fabric_wool_handicrafts1, handicrafts1 = handicrafts1, one1 = one1, two1 = two1, three1 = three1, four1 = four1, five1 = five1, six1 = six1, seven1 = seven1, eight1 = eight1, nine1 = nine1, ten1 = ten1, more1 = more1,
                             video_editing2 = video_editing2, photo_editing2 = photo_editing2, front_end_application_development2 = front_end_application_development2, front_end_website_development2 = front_end_website_development2, back_end_website_development2 = back_end_website_development2, zero_coding2 = zero_coding2, electronic_music2 = electronic_music2, live_music2 = live_music2, music_vocals2 = music_vocals2, announcer_art2 = announcer_art2, text2 = text2,
