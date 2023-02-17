@@ -406,7 +406,7 @@ def reg():
                     if cursor_db.execute(f'''SELECT password FROM login_password
                                                     WHERE login = "{email}"''').fetchone() == None:
                         sql_insert = f'''INSERT INTO login_password VALUES('{email}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
-                        sql_insert1 = f'''INSERT INTO info VALUES('{email}','{name}', '{surname}', '{patronymic}', '{number}', '{vk}', '{tg}', '{""}', '{""}', '{""}', '{""}', {""}, {""}, {""}, {""}, {""});'''
+                        sql_insert1 = f'''INSERT INTO info VALUES('{email}','{name}', '{surname}', '{patronymic}', '{number}', '{vk}', '{tg}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}');'''
                         cursor_db.execute(sql_insert)
                         cursor_db.execute(sql_insert1)
                         cursor_db.close()
