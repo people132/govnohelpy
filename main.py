@@ -556,4 +556,15 @@ def letter(email, ms):
 def re():
     return render_template('resPas.html')
 
+@app.route('/qu_admin')
+def qu_admin():
+    return render_template('qu_admin.html')
+
+@app.route('/admin')
+def admin():
+    return render_template('admin_account.html')
+@app.route('/add_admin')
+def add_admin():
+    return render_template('add_admin.html')
+
 app.run(debug=True)
