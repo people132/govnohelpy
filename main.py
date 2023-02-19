@@ -550,6 +550,8 @@ def letter(email, ms):
 
 @app.route('/re')
 def re():
-    return render_template('resPas.html')
+    if request.method == 'POST':
+        pass
+    return render_template('res#Pas.html')
 
 app.run(debug=True)
