@@ -552,19 +552,29 @@ def letter(email, ms):
         smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb') #https://myaccount.google.com/apppasswords
         smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 
+
 @app.route('/re')
 def re():
+    if request.method == 'POST':
+        if request.form['button'] == 'code':
+            email = request.form['email']
+            
     return render_template('resPas.html')
+
 
 @app.route('/qu_admin')
 def qu_admin():
     return render_template('qu_admin.html')
 
+
 @app.route('/admin')
 def admin():
     return render_template('admin_account.html')
+
+
 @app.route('/add_admin')
 def add_admin():
     return render_template('add_admin.html')
+
 
 app.run(debug=True)
