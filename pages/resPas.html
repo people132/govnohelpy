@@ -28,11 +28,11 @@
                         <div style="display: flex; width: 100%; flex-wrap: wrap;">
                             <div style="display: flex; width: 100%;">
                                 <input class="inputs" style="width: 50%; margin-bottom: 0;" id="Pcode" name="Pcode" type="text" placeholder="Введите код" required minlength="6" maxlength="6">
-                                <button type="submit" value = "codePas" name="button" value="code" class="change_btn" for="code">Отправить код на почту</button>
+                                <button type="submit" name="button" id="button" value="code" class="change_btn" for="code">Отправить код на почту</button>
                             </div>
                             <span class="{{Error}}" aria-live="polite" style="width: calc(50% -  max(15px, 1.5vw) - max(2.6vw, 50px)); margin-top: 0; margin-left: max(1.3vw, 25px);">{{Error_msg}}</span>
                         </div>
-                        <button class="btn_pozvol" name="buttonP" value="Pas" type="submit" style="font-size: max(1.04vw, 20px);">Сменить пароль</button>
+                        <button class="btn_pozvol" name="button" id="button" value="Pas" type="submit" style="font-size: max(1.04vw, 20px);">Сменить пароль</button>
                     </div>
                 </div>
             </form>
@@ -50,18 +50,18 @@
                         <div style="display: flex; width: 100%; flex-wrap: wrap;">
                             <div style="display: flex; width: 100%;">
                                 <input class="inputs" style="width: 50%; margin-bottom: 0;" id="code" name="code" type="text" placeholder="Введите код" required minlength="6" maxlength="6">
-                                <button type="submit" name="button" value="codeOld" class="change_btn" for="code">Отправить код на старую почту</button>
+                                <button type="submit" name="button" id="button" value="code" class="change_btn" for="code">Отправить код на старую почту</button>
                             </div>
                             <span class="{{Error}}" aria-live="polite" style="width: calc(50% -  max(15px, 1.5vw) - max(2.6vw, 50px)); margin-top: 0; margin-left: max(1.3vw, 25px);">{{Error_msg}}</span>
                         </div>
                         <div style="display: flex; width: 100%; flex-wrap: wrap; margin-top: max(19px, 1vw)">
                             <div style="display: flex; width: 100%;">
                                 <input class="inputs" style="width: 50%; margin-bottom: 0;" id="codeNew" name="codeNew" type="text" placeholder="Введите код" required minlength="6" maxlength="6">
-                                <button type="submit" name="button" value="codeNew" class="change_btn" for="code">Отправить код на новую почту</button>
+                                <button type="submit" name="button" id="button" value="code" class="change_btn" for="code">Отправить код на новую почту</button>
                             </div>
                             <span class="{{Error}}" aria-live="polite" style="width: calc(50% -  max(15px, 1.5vw) - max(2.6vw, 50px)); margin-top: 0; margin-left: max(1.3vw, 25px);">{{Error_msg}}</span>
                         </div>
-                        <button class="btn_pozvol" name="buttonM" value="Mail" type="submit" style="font-size: max(1.04vw, 20px);">Сменить почту</button>
+                        <button class="btn_pozvol" name="button" id="button" value="Mail" type="submit" style="font-size: max(1.04vw, 20px);">Сменить почту</button>
                     </div>
                 </div>
             </form>

@@ -608,16 +608,16 @@ def generate(length):
 
 def letter(email, ms):
     with smtplib.SMTP_SSL("smtp.gmail.com") as smtp:
-        smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb')  # https://myaccount.google.com/apppasswords
-        smtp.sendmail('kuprvvv@gmail.com', email, msg=ms)
+        smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb') #https://myaccount.google.com/apppasswords
+        smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 
 
 @app.route('/re')
 def re():
-    if 'email' in session:
-        if request.method == 'POST':
-            pass
-            #if request.method ==
+    if request.method == 'POST':
+        if request.form['button'] == 'code':
+            email = request.form['email']
+            
     return render_template('resPas.html')
 
 
