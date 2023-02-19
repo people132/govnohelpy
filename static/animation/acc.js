@@ -93,3 +93,64 @@ loadJSON('../static/animation/temp1.json',
         }
     },
 );
+
+const tooltip = document.getElementsByClassName("tooltip")[0];
+const tooltip_main_text = document.getElementsByClassName("tooltip_main_text");
+const orders = document.getElementsByClassName("tablet_element");
+document.getElementsByClassName("close")[0].onclick = function() {
+    tooltip.style.display = "none";
+}
+
+for (let i = 0; i < 4; i++) {
+    loadJSON('../static/animation/temp2.json',
+        function(data) { 
+            let tablet_element = data[document.getElementById("email").textContent][i][0];
+            orders[i].textContent = tablet_element;
+        },
+    );
+}
+document.getElementsByClassName("a_table_style")[0].onclick = function() {
+    loadJSON('../static/animation/temp2.json',
+        function(data) { 
+            let more = data[document.getElementById("email").textContent][0][1];
+            for (let i = 1; i <= 8; i++) {
+                tooltip_main_text[i * 2 - 1].textContent = more[i - 1];
+            }
+        },
+    );
+    tooltip.style.display = "flex";
+};
+document.getElementsByClassName("a_table_style")[1].onclick = function() {
+    loadJSON('../static/animation/temp2.json',
+        function(data) { 
+            let more = data[document.getElementById("email").textContent][1][1];
+            for (let i = 1; i <= 8; i++) {
+                tooltip_main_text[i * 2 - 1].textContent = more[i - 1];
+            }
+        },
+    );
+    tooltip.style.display = "flex";
+};
+document.getElementsByClassName("a_table_style")[2].onclick = function() {
+    loadJSON('../static/animation/temp2.json',
+        function(data) { 
+            let more = data[document.getElementById("email").textContent][2][1];
+            for (let i = 1; i <= 8; i++) {
+                tooltip_main_text[i * 2 - 1].textContent = more[i - 1];
+            }
+        },
+    );
+    tooltip.style.display = "flex";
+};
+document.getElementsByClassName("a_table_style")[3].onclick = function() {
+    loadJSON('../static/animation/temp2.json',
+        function(data) { 
+            let more = data[document.getElementById("email").textContent][3][1];
+            for (let i = 1; i <= 8; i++) {
+                tooltip_main_text[i * 2 - 1].textContent = more[i - 1];
+            }
+        },
+    );
+    tooltip.style.display = "flex";
+};
+
