@@ -1,3 +1,4 @@
+window.location.replace(window.location.href + "#Pas");
 const form  = document.getElementsByTagName('form')[1]; // форма для смены ПОЧТЫ!!
 
 const email = document.getElementById('email');

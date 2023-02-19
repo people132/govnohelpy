@@ -27,12 +27,16 @@
         </div>
         <form method="POST">
             <div class="container">
-                <input class="inputs" value="{{Surname}}" id="surname" name="surname" type="text" placeholder="Фамилия"/>
-                <input class="inputs" value="{{Username}}" id="username" name="username" type="text" placeholder="Имя"/>
-                <input class="inputs" value="{{Patronymic}}" id="patronymic" name="patronymic" type="text" placeholder="Отчество(при наличии)"/>
-                <input class="inputs" value="{{Number}}" id="number" name="number" type="" placeholder="Номер телефона"/>
-                <input class="inputs" value="{{Tg}}" id="tg" name="tg" type="" placeholder="telegram(по желанию)"/>
-                <input class="inputs" style="margin-bottom: 2vw;" id="vk" name="vk" type="" placeholder="VK(по желанию)"/>
+                <input class="inputs" id="surname" name="surname"  type="text" placeholder="Фамилия"  pattern="^[\p{L}]*$" minlength="2" maxlength="30" value={{Surname}} />
+                <span class="error" aria-live="polite"></span>
+                <input class="inputs" id="username" name="username" value="{{Username}}" type="text" placeholder="Имя" pattern="^[\p{L}]*$" minlength="2" maxlength="30" />
+                <span class="error" aria-live="polite"></span>
+                <input class="inputs" id="patronymic" value="{{Patronymic}}" name="patronymic" type="text" placeholder="Отчество" pattern="^[\p{L}]*$" minlength="2" maxlength="30" />
+                <span class="error" aria-live="polite"></span>
+                <input class="inputs" id="number" name="number" value="{{Number}}" type="" placeholder="Номер телефона" pattern="^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$" maxlength="30" />
+                <span class="error" aria-live="polite"></span>
+                <input class="inputs" value="{{Tg}}" id="tg" name="tg" type="" placeholder="telegram (по желанию)"/>
+                <input class="inputs" style="margin-bottom: 2vw;" id="vk" name="vk" type="" placeholder="VK (по желанию)"/>
                 <div class="main_texts"></div>
                 <div class="main_texts">Главный навык</div>
                 <div class="micro_texts">Умение, которому вы посвящаете наибольшее количество времени, в котором у вас есть большой опыт</div>
@@ -172,5 +176,6 @@
             <div class="footer_line"></div>
             <div class = "helpy_footer">©<strong>Helpy</strong> </div>
         </footer>
+        <script src="../static/animation/qu.js"></script>
     </body>
 </html>

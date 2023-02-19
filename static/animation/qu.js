@@ -1,50 +1,14 @@
 const form  = document.getElementsByTagName('form')[0];
 
-const email = document.getElementById('email');
-const emailError = document.querySelector('#email + span.error');
-const password = document.getElementById('password');
-const passwordError = document.querySelector('#password + span.error');
-const passagain = document.getElementById('passagain');
-const passagainError = document.querySelector('#passagain + span.error');
-const number = document.getElementById('number');
-const numberError = document.querySelector('#number + span.error');
 const username = document.getElementById('username');
 const usernameError = document.querySelector('#username + span.error');
 const surname = document.getElementById('surname');
 const surnameError = document.querySelector('#surname + span.error');
 const patronymic = document.getElementById('patronymic');
 const patronymicError = document.querySelector('#patronymic + span.error');
+const number = document.getElementById('number');
+const numberError = document.querySelector('#number + span.error');
 
-email.addEventListener('input', function (event) { // realtime валидатор
-    if (email.validity.valid) { // почта
-        emailError.textContent = '';
-        emailError.className = 'error';
-    } else {
-        showErrorEmail()
-    }
-});
-password.addEventListener('input', function (event) { // realtime валидатор
-    if (password.validity.valid) { // пароль
-        passwordError.textContent = '';
-        passwordError.className = 'error';
-    } else {
-        showErrorPassword()
-    }
-});
-passagain.addEventListener('input', function (event) { // realtime валидатор
-    if(passagain.validity.valueMissing) { // пароль снова
-        passagainError.textContent = 'Это обязательное поле';
-        passagainError.className = 'error active';
-    }
-    else if(password.value != passagain.value) {
-        passagainError.textContent = 'Пароли не соответствуют';
-        passagainError.className = 'error active';
-    }
-    else {
-        passagainError.textContent = '';
-        passagainError.className = 'error';
-    }
-});
 number.addEventListener('input', function (event) { // realtime валидатор
     if (number.validity.valid) { // номер
         numberError.textContent = '';
@@ -78,26 +42,7 @@ patronymic.addEventListener('input', function (event) { // realtime валида
     }
 });
 
-
 form.addEventListener('submit', function (event) { // Валидатор на кнопку
-    if(!email.validity.valid) { // почта
-        showErrorEmail()
-        event.preventDefault();
-    }
-    if(!password.validity.valid) { // пароль
-        showErrorPassword()
-        event.preventDefault();
-    }
-    if(passagain.validity.valueMissing) { // пароль снова
-        passagainError.textContent = 'Это обязательное поле';
-        passagainError.className = 'error active';
-        event.preventDefault();
-    }
-    if(password.value != passagain.value) {
-        passagainError.textContent = 'Пароли не соответствуют';
-        passagainError.className = 'error active';
-        event.preventDefault();
-    }
     if(!number.validity.valid) { // номер
         showErrorNumber()
         event.preventDefault();
@@ -114,27 +59,7 @@ form.addEventListener('submit', function (event) { // Валидатор на к
         showErrorPatronymic()
         event.preventDefault();
     }
-    // отправляем форму
 });
-
-function showErrorEmail() {
-    if(email.validity.valueMissing) { // почта
-        emailError.textContent = 'Это обязательное поле';
-    } else if(email.validity.typeMismatch) {
-        emailError.textContent = 'Это не похоже на почту';
-    } else if(email.validity.tooShort) {
-        emailError.textContent = `Почта должна содержать хотябы ${ email.minLength } символов. Вы ввели ${ email.value.length }.`;
-    }
-    emailError.className = 'error active';
-}
-function showErrorPassword() {
-    if(password.validity.valueMissing) { // пароль
-        passwordError.textContent = 'Это обязательное поле';
-    } else if(password.parentNode) {
-        passwordError.textContent = 'Длина пароля должна быть от 8 до 30 символов, включать одну заглавную букву, один символ и одну цифру. Содержать только латинские буквы';
-    }
-    passwordError.className = 'error active';
-}
 function showErrorNumber() {
     if(number.validity.valueMissing) { // номер
         numberError.textContent = 'Это обязательное поле';
@@ -143,6 +68,7 @@ function showErrorNumber() {
     }
     numberError.className = 'error active';
 }
+
 function showErrorUsername() {
     if(username.validity.valueMissing) { // Имя
         usernameError.textContent = 'Это обязательное поле';
