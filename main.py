@@ -614,10 +614,52 @@ def letter(email, ms):
 
 @app.route('/re')
 def re():
+    code = ''
+    codeOld = ''
+    codeNew = ''
     if request.method == 'POST':
         if request.form['button'] == 'code':
             email = request.form['email']
-            
+            code = generate(5)
+            letter(email, code)
+        if request.form['button'] == 'Pas':
+            code1 = request.form['Pcode']
+            db_lp = sqlite3.connect('bases/login_password.db')
+            cursor = db_lp.cursor()
+            oldpass = cursor.execute((f'INSERT Password FROM login_password WHERE email = "{session["email"]}";')).fetchone[0]
+            oldPass = str(hashlib.sha512(request.form['Ppassword'].encode()).hexdigest())
+            code = request.form['Pcode']
+            if code1 == code: 
+                if oldPass == oldpass:
+                    newpass = request.form['newPassword']
+                    cursor.execute(f'''UPDATE login_password SET Password = "{newpass}" WHERE email ="{session['email']}";''')
+            cursor.close()
+            db_lp.close()
+        if request.form['button'] == 'codeOld':
+            emailOld = request.form['email']
+            codeOld = generate(5)
+            letter(emailOld, codeOld)
+        if request.form['button'] == 'codeNew':
+            emailNew = request.form['newMail']
+            codeNew = generate(5)
+            letter(emailNew, codeNew)
+        if request.form['button'] == 'Mail':
+            db_lp1 = sqlite3.connect('bases/login_password.db')
+            cursor1 = db_lp1.cursor()
+            pas = cursor.execute((f'INSERT Password FROM login_password WHERE email = "{session["email"]}";')).fetchone[0]
+            userpas = str(hashlib.sha512(request.form['passagain'].encode()).hexdigest())
+            codeOld1 = request.form['codeOld1']
+            codeNew1 = request.form['codeNew1']
+            if codeOld == codeOld1 and codeNew == codeNew1:
+                if userpas == pas:
+                    cursor1.execute(f'''UPDATE login_password SET email = {emailNew} WHERE email = {session["emai"]};''')
+                    cursor1.execute(f'''UPDATE info SET email = {emailNew} WHERE email = {session["email"]};''')
+                    cursor1.execute(f'''UPDATE history SET email = {emailNew} WHERE email = {session["email"]}''')
+                    cursor1.execute(f'''UPDATE queue SET email = {emailNew} WHERE email = {session["email"]}''')
+                    session.pop('email', None)
+                    session['email'] = emailNew
+            cursor1.close()
+            db_lp1.close()
     return render_template('resPas.html')
 
 
