@@ -6,10 +6,9 @@ import json
 import smtplib
 import random
 
-
-
 app = Flask(__name__, template_folder='pages')
 app.secret_key = os.urandom(20).hex()
+
 
 @app.route('/qu', methods=['GET', 'POST'])
 def qu():
@@ -18,28 +17,63 @@ def qu():
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         try:
-            log1 = cursor_db.execute(('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-            log2 = cursor_db.execute(('''SELECT surname FROM info WHERE email = '{}'; ''').format(session['email'])).fetchone()[0]
+            log1 = \
+                cursor_db.execute(
+                    ('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+            log2 = cursor_db.execute(
+                ('''SELECT surname FROM info WHERE email = '{}'; ''').format(session['email'])).fetchone()[0]
             log = log1 + ' ' + log2
         except:
             return redirect(url_for('reg'))
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
-        username = cursor_db.execute(('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        surname = cursor_db.execute(('''SELECT surname FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]        
-        patronymic = cursor_db.execute(('''SELECT patronymic FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        number = cursor_db.execute(('''SELECT phone FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        username = \
+            cursor_db.execute(('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        surname = \
+            cursor_db.execute(('''SELECT surname FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                0]
+        patronymic = \
+            cursor_db.execute(
+                ('''SELECT patronymic FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                0]
+        number = \
+            cursor_db.execute(('''SELECT phone FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
         tg = cursor_db.execute(('''SELECT tg FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
         vk = cursor_db.execute(('''SELECT vk FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        mainSkill = cursor_db.execute(('''SELECT mainSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        mainHour = cursor_db.execute(('''SELECT mainHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        secondSkill = cursor_db.execute(('''SELECT secondSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        secondHour = cursor_db.execute(('''SELECT secondHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        language = cursor_db.execute(('''SELECT language FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        workHoure = cursor_db.execute(('''SELECT workHoure FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        typeConnect = cursor_db.execute(('''SELECT typeConnect FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        description = cursor_db.execute(('''SELECT description FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        rus_zac = cursor_db.execute(('''SELECT ruszac FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        mainSkill = \
+            cursor_db.execute(
+                ('''SELECT mainSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        mainHour = \
+            cursor_db.execute(
+                ('''SELECT mainHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        secondSkill = \
+            cursor_db.execute(
+                ('''SELECT secondSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                0]
+        secondHour = \
+            cursor_db.execute(
+                ('''SELECT secondHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                0]
+        language = \
+            cursor_db.execute(
+                ('''SELECT language FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        workHoure = \
+            cursor_db.execute(
+                ('''SELECT workHoure FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+        typeConnect = \
+            cursor_db.execute(
+                ('''SELECT typeConnect FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                0]
+        description = \
+            cursor_db.execute(
+                ('''SELECT description FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                0]
+        rus_zac = \
+            cursor_db.execute(('''SELECT ruszac FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                0]
+        cursor_db.close()
+        db_lp.commit()
+        db_lp.close()
         language1 = language.split()
         alllanguage = ['английский', 'французкий', 'немецкий', 'итальянский', 'русский', 'украинский', 'белорусский']
         english = ''
@@ -47,8 +81,8 @@ def qu():
         german = ''
         italian = ''
         russian = ''
-        ukraian = '' 
-        belorussian= ''
+        ukraian = ''
+        belorussian = ''
         ruszac1 = ''
         if 'английский' in language1:
             english = 'checked'
@@ -70,7 +104,7 @@ def qu():
         if 'messenger' in typeConnect1:
             messenger = 'checked'
         if 'site' in typeConnect1:
-            site ='checked'
+            site = 'checked'
         if rus_zac != '':
             ruszac1 = 'checked'
 
@@ -146,7 +180,7 @@ def qu():
         five_ten = ''
         ten_twenty = ''
         twenty_thirty = ''
-        thirty_fourty =''
+        thirty_fourty = ''
         fourty_more = ''
 
         if mainSkill == 'видеомонтаж':
@@ -257,7 +291,7 @@ def qu():
             fabric_wool_handicrafts2 = 'selected'
         elif secondSkill == 'поделки руками из прочих худ. материалов':
             handicrafts2 = 'selected'
-            
+
         if secondHour == '1':
             one2 = 'selected'
         elif secondHour == '2':
@@ -295,6 +329,8 @@ def qu():
             fourty_more = 'selected'
 
         if request.method == 'POST':
+            db_lp1 = sqlite3.connect('bases/login_password.db')
+            cursor_db1 = db_lp1.cursor()
             mainSkill = request.form['mainSkill']
             mainHour = request.form['mainHour']
             secondSkill = request.form['secondSkill']
@@ -310,23 +346,48 @@ def qu():
             description = request.form['description']
             language = ' '.join(request.form.getlist('language'))
             typeConnect = ' '.join(request.form.getlist('typeConnect'))
-            sql_insert1 = f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", rus-zac = {rus_zac}
-                         WHERE email ="{session['email']}";'''
-            cursor_db.execute(sql_insert1)
-            cursor_db.close()
-            db_lp.commit()
-            db_lp.close()
+            cursor_db1.execute(
+                f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
+                     WHERE email ="{session['email']}";''')
+            cursor_db1.close()
+            db_lp1.commit()
+            db_lp1.close()
             print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
             return redirect(url_for('account'))
-        return render_template('qu.html', log=log, Username = username, Surname = surname, Patronymic = patronymic, Number = number, Tg = tg, Vk = vk, Rus_zac = ruszac1, Messenger = messenger, Site = site,
-                            video_editing1 = video_editing1, photo_editing1 = photo_editing1, front_end_application_development1 = front_end_application_development1, front_end_website_development1 = front_end_website_development1, back_end_website_development1 = back_end_website_development1, zero_coding1 = zero_coding1, electronic_music1 = electronic_music1, live_music1 = live_music1, music_vocals1 = music_vocals1, announcer_art1 = announcer_art1, text1 = text1,
-                            translations1 = translations1, smm1 = smm1, cgi1 = cgi1, UI_design1 = UI_design1, UX_design1 = UX_design1, painting_digital1 = painting_digital1, painting_classic1 = painting_classic1, wood_crafts1 = wood_crafts1, fabric_wool_handicrafts1 = fabric_wool_handicrafts1, handicrafts1 = handicrafts1, one1 = one1, two1 = two1, three1 = three1, four1 = four1, five1 = five1, six1 = six1, seven1 = seven1, eight1 = eight1, nine1 = nine1, ten1 = ten1, more1 = more1,
-                            video_editing2 = video_editing2, photo_editing2 = photo_editing2, front_end_application_development2 = front_end_application_development2, front_end_website_development2 = front_end_website_development2, back_end_website_development2 = back_end_website_development2, zero_coding2 = zero_coding2, electronic_music2 = electronic_music2, live_music2 = live_music2, music_vocals2 = music_vocals2, announcer_art2 = announcer_art2, text2 = text2,
-                            translations2 = translations2, smm2 = smm2, cgi2 = cgi2, UI_design2 = UI_design2, UX_design2 = UX_design2, painting_digital2 = painting_digital2, painting_classic2 = painting_classic2, wood_crafts2 = wood_crafts2, fabric_wool_handicrafts2 = fabric_wool_handicrafts2, handicrafts2 = handicrafts2, one2 = one2, two2 = two2, three2 = three2, four2 = four2, five2 = five2, six2 = six2, seven2 = seven2, eight2 = eight2, nine2 = nine2, ten2 = ten2, more2 = more2,
-                            one_five = one_five, five_ten = five_ten, ten_twenty = ten_twenty, twenty_thirty = twenty_thirty, thirty_fourty = thirty_fourty, fourty_more = fourty_more, Description = description)
+        return render_template('qu.html', log=log, Username=username, Surname=surname, Patronymic=patronymic,
+                               Number=number, Tg=tg, Vk=vk, Rus_zac=ruszac1, Messenger=messenger, Site=site,
+                               English=english, French=french, German=german, Italian=italian, Russian=russian,
+                               Ukrein=ukraian, Belorussian=belorussian,
+                               video_editing1=video_editing1, photo_editing1=photo_editing1,
+                               front_end_application_development1=front_end_application_development1,
+                               front_end_website_development1=front_end_website_development1,
+                               back_end_website_development1=back_end_website_development1, zero_coding1=zero_coding1,
+                               electronic_music1=electronic_music1, live_music1=live_music1,
+                               music_vocals1=music_vocals1, announcer_art1=announcer_art1, text1=text1,
+                               translations1=translations1, smm1=smm1, cgi1=cgi1, UI_design1=UI_design1,
+                               UX_design1=UX_design1, painting_digital1=painting_digital1,
+                               painting_classic1=painting_classic1, wood_crafts1=wood_crafts1,
+                               fabric_wool_handicrafts1=fabric_wool_handicrafts1, handicrafts1=handicrafts1, one1=one1,
+                               two1=two1, three1=three1, four1=four1, five1=five1, six1=six1, seven1=seven1,
+                               eight1=eight1, nine1=nine1, ten1=ten1, more1=more1,
+                               video_editing2=video_editing2, photo_editing2=photo_editing2,
+                               front_end_application_development2=front_end_application_development2,
+                               front_end_website_development2=front_end_website_development2,
+                               back_end_website_development2=back_end_website_development2, zero_coding2=zero_coding2,
+                               electronic_music2=electronic_music2, live_music2=live_music2,
+                               music_vocals2=music_vocals2, announcer_art2=announcer_art2, text2=text2,
+                               translations2=translations2, smm2=smm2, cgi2=cgi2, UI_design2=UI_design2,
+                               UX_design2=UX_design2, painting_digital2=painting_digital2,
+                               painting_classic2=painting_classic2, wood_crafts2=wood_crafts2,
+                               fabric_wool_handicrafts2=fabric_wool_handicrafts2, handicrafts2=handicrafts2, one2=one2,
+                               two2=two2, three2=three2, four2=four2, five2=five2, six2=six2, seven2=seven2,
+                               eight2=eight2, nine2=nine2, ten2=ten2, more2=more2,
+                               one_five=one_five, five_ten=five_ten, ten_twenty=ten_twenty, twenty_thirty=twenty_thirty,
+                               thirty_fourty=thirty_fourty, fourty_more=fourty_more, Description=description)
     else:
         return redirect(url_for('auth'))
+
 
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
@@ -360,7 +421,7 @@ def auth():
                     print(type(skill))
                     db_lp.close()
             if skill != '':
-                return  redirect(url_for('account'))
+                return redirect(url_for('account'))
             else:
                 return redirect(url_for('qu'))
         except UnboundLocalError:
@@ -402,7 +463,7 @@ def reg():
                     if cursor_db.execute(f'''SELECT password FROM login_password
                                                     WHERE login = "{email}"''').fetchone() == None:
                         sql_insert = f'''INSERT INTO login_password VALUES('{email}','{str(hashlib.sha512(password.encode()).hexdigest())}');'''
-                        sql_insert1 = f'''INSERT INTO info VALUES('{email}','{name}', '{surname}', '{patronymic}', '{number}', '{vk}', '{tg}', '{""}', '{""}', '{""}', '{""}', {""}, {""}, {""}, {""}, {""});'''
+                        sql_insert1 = f'''INSERT INTO info VALUES('{email}','{name}', '{surname}', '{patronymic}', '{number}', '{vk}', '{tg}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}', '{""}');'''
                         cursor_db.execute(sql_insert)
                         cursor_db.execute(sql_insert1)
                         cursor_db.close()
@@ -432,7 +493,8 @@ def reg():
             password = request.form['password']
             session['code'] = generate(5)
             letter(email, session['code'])
-    return render_template('reg.html', Error_msg = error_msg, Error = error, Surname = surname, Username = name, Patronymic = patronymic, Email = email, Number = number, Tg = tg, Vk = vk, Password = password)
+    return render_template('reg.html', Error_msg=error_msg, Error=error, Surname=surname, Username=name,
+                           Patronymic=patronymic, Email=email, Number=number, Tg=tg, Vk=vk, Password=password)
 
 
 @app.route('/logout')
@@ -454,13 +516,12 @@ def account():
                                                WHERE email = '{}';
                                                ''').format(session['email'])).fetchone()[0]
         Log = Log1 + " " + Log2
-        
 
-        #Получаю из базы список email-ов
+        # Получаю из базы список email-ов
         Des = cursor_db.execute('''SELECT email FROM history;''').fetchall()
         des3 = []
-        #прохожу по списку email-ов
-        for i in Des:   
+        # прохожу по списку email-ов
+        for i in Des:
             des3.append(i[0])
         for i in set(des3):
             # получаю описание по взятому email-у
@@ -469,11 +530,11 @@ def account():
             Des2 = cursor_db.execute(('''SELECT pr FROM history WHERE email = '{}';''').format(i)).fetchall()
             des = []
             for j in Des1:
-                 # создаю массив с описаниями
+                # создаю массив с описаниями
                 des.append(j[0])
             des1 = []
             for j in Des2:
-                 # создаю массив с ценами и датами
+                # создаю массив с ценами и датами
                 des1.append(j[0])
             for j in des1:
                 k = j.index('(')
@@ -483,18 +544,18 @@ def account():
             des5 = []
             for j in range(len(des)):
                 # создаю масив с соответсвующими полями из des и des1
-                des6 = [des[j], des1[j]] 
-                 # создаю общий массив состоящий из масивов 
+                des6 = [des[j], des1[j]]
+                # создаю общий массив состоящий из масивов
                 des5.append(des6)
                 # создает словарь с индетификаторм email и значением масив
-            obj = {i:des5} 
+            obj = {i: des5}
             with open('static/animation/temp1.json', 'w') as f:
                 # записывает получившийся словарь в json
-                json.dump(obj, f, indent=2) 
+                json.dump(obj, f, indent=2)
         if summ == 0:
             summ = 'Вы бомж'
         db_lp.close()
-    return render_template('account.html', Log = Log, Sum = summ, Email = session['email'])
+    return render_template('account.html', Log=Log, Sum=summ, Email=session['email'])
 
 
 @app.route('/')
@@ -502,7 +563,7 @@ def main():
     return render_template('main_page.html')
 
 
-@app.route('/newpassword',  methods=['GET', 'POST'])
+@app.route('/newpassword', methods=['GET', 'POST'])
 def newpassword():
     if request.method == 'POST':
         code1 = str(request.form['code'])
@@ -525,6 +586,7 @@ def sent_accept():
     session['code'] = code
     return redirect(url_for('reg'))
 
+
 @app.route('/sentps')
 def sent():
     session.pop('code', None)
@@ -532,6 +594,7 @@ def sent():
     letter('kuprvvv@gmail.com', code)
     session['code'] = code
     return redirect(url_for('newpassword'))
+
 
 def generate(length):
     lower_case = "abcdefghiklmnopqrstuvwxyz"
@@ -548,19 +611,71 @@ def letter(email, ms):
         smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb') #https://myaccount.google.com/apppasswords
         smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 
+
 @app.route('/re')
 def re():
+    code = ''
+    codeOld = ''
+    codeNew = ''
+    if request.method == 'POST':
+        if request.form['button'] == 'code':
+            email = request.form['email']
+            code = generate(5)
+            letter(email, code)
+        if request.form['button'] == 'Pas':
+            code1 = request.form['Pcode']
+            db_lp = sqlite3.connect('bases/login_password.db')
+            cursor = db_lp.cursor()
+            oldpass = cursor.execute((f'INSERT Password FROM login_password WHERE email = "{session["email"]}";')).fetchone[0]
+            oldPass = str(hashlib.sha512(request.form['Ppassword'].encode()).hexdigest())
+            code = request.form['Pcode']
+            if code1 == code: 
+                if oldPass == oldpass:
+                    newpass = request.form['newPassword']
+                    cursor.execute(f'''UPDATE login_password SET Password = "{newpass}" WHERE email ="{session['email']}";''')
+            cursor.close()
+            db_lp.close()
+        if request.form['button'] == 'codeOld':
+            emailOld = request.form['email']
+            codeOld = generate(5)
+            letter(emailOld, codeOld)
+        if request.form['button'] == 'codeNew':
+            emailNew = request.form['newMail']
+            codeNew = generate(5)
+            letter(emailNew, codeNew)
+        if request.form['button'] == 'Mail':
+            db_lp1 = sqlite3.connect('bases/login_password.db')
+            cursor1 = db_lp1.cursor()
+            pas = cursor.execute((f'INSERT Password FROM login_password WHERE email = "{session["email"]}";')).fetchone[0]
+            userpas = str(hashlib.sha512(request.form['passagain'].encode()).hexdigest())
+            codeOld1 = request.form['codeOld1']
+            codeNew1 = request.form['codeNew1']
+            if codeOld == codeOld1 and codeNew == codeNew1:
+                if userpas == pas:
+                    cursor1.execute(f'''UPDATE login_password SET email = {emailNew} WHERE email = {session["emai"]};''')
+                    cursor1.execute(f'''UPDATE info SET email = {emailNew} WHERE email = {session["email"]};''')
+                    cursor1.execute(f'''UPDATE history SET email = {emailNew} WHERE email = {session["email"]}''')
+                    cursor1.execute(f'''UPDATE queue SET email = {emailNew} WHERE email = {session["email"]}''')
+                    session.pop('email', None)
+                    session['email'] = emailNew
+            cursor1.close()
+            db_lp1.close()
     return render_template('resPas.html')
+
 
 @app.route('/qu_admin')
 def qu_admin():
     return render_template('qu_admin.html')
 
+
 @app.route('/admin')
 def admin():
     return render_template('admin_account.html')
+
+
 @app.route('/add_admin')
 def add_admin():
     return render_template('add_admin.html')
+
 
 app.run(debug=True)
