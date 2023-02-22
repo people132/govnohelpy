@@ -663,6 +663,9 @@ def re():
     return render_template('resPas.html')
 
 
+
+
+
 @app.route('/qu_admin')
 def qu_admin():
     return render_template('qu_admin.html')
