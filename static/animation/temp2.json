@@ -1,52 +1,30 @@
 {
-        "kuprvvv@gmail.com": [
-                [
-                        {
-                                "fiver": [
-                                        "tfgh",
-                                        "gjh",
-                                        "fgh",
-                                        "fgdfs",
-                                        "gfds",
-                                        "gdsf",
-                                        "gdsgds"
-                                ]
-                        },
-                        {
-                                "fl": [
-                                        "fgjhk",
-                                        "fsda",
-                                        "fsafa",
-                                        "fasdfg",
-                                        "fsdaf",
-                                        "fdsa",
-                                        "gfdas"
-                                ]
-                        }
-                ],
-                [
-                        {
-                                "fiver": [
-                                        "tfgh",
-                                        "gjh",
-                                        "fgh",
-                                        "fgdfs",
-                                        "gfds",
-                                        "gdsf",
-                                        "gdsgds"
-                                ]
-                        },
-                        {
-                                "fl": [
-                                        "fgjhk",
-                                        "fsda",
-                                        "fsafa",
-                                        "fasdfg",
-                                        "fsdaf",
-                                        "fdsa",
-                                        "gfdas"
-                                ]
-                        }
-                ]
-        ]
+       "kuprvvv@gmail.com": [
+              [
+                     "fiver",
+                     [
+                            "tfgh",
+                            "gjh",
+                            "fgh",
+                            "fgdfs",
+                            "gfds",
+                            "gdsf",
+                            "gdsgds",
+                            "gdfgfd"
+                     ]
+              ],
+              [
+                     "fl",
+                     [
+                            "fgjhk",
+                            "fsda",
+                            "fsafa",
+                            "fasdfg",
+                            "fsdaf",
+                            "fdsa",
+                            "gfdas",
+                            "gdfg"
+                     ]
+              ]
+       ]
 }

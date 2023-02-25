@@ -511,7 +511,7 @@ def account():
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         Log1 = cursor_db.execute(('''SELECT name FROM info
-                                               WHERE email = '{}';
+                                              WHERE email = '{}';
                                                ''').format(session['email'])).fetchone()[0]
         Log2 = cursor_db.execute(('''SELECT surname FROM info
                                                WHERE email = '{}';
@@ -522,14 +522,17 @@ def account():
         Des = cursor_db.execute('''SELECT email FROM history;''').fetchall()
         Des_task = cursor_db.execute('''SELECT email FROM task;''').fetchall()
         des_hi = []
-        des4 = []
+        des_task = []
         # прохожу по списку email-ов
         for i in Des:
             des_hi.append(i[0])
         for i in Des_task:
-            des4.append(i[0])
-        
-        for i in set(des4):
+            des_task.append(i[0])
+        print(des_hi)
+        print(des_task)
+        all_json = {}
+        arr02 = []
+        for i in set(des_task):
             Full_name = cursor_db.execute(('''SELECT full_name FROM task WHERE email = '{}';''').format(i)).fetchall()
             Des1 = cursor_db.execute(('''SELECT status FROM task WHERE email = '{}';''').format(i)).fetchall()
             Des2 = cursor_db.execute(('''SELECT name FROM task WHERE email = '{}';''').format(i)).fetchall()
@@ -538,6 +541,7 @@ def account():
             Des5 = cursor_db.execute(('''SELECT information FROM task WHERE email = '{}';''').format(i)).fetchall()
             Des6 = cursor_db.execute(('''SELECT contact FROM task WHERE email = '{}';''').format(i)).fetchall()
             Des7 = cursor_db.execute(('''SELECT information_meneger FROM task WHERE email = '{}';''').format(i)).fetchall()
+            Des8 = cursor_db.execute(('''SELECT contact_meneger FROM task WHERE email = '{}';''').format(i)).fetchall()
             full_name = []
             des1 = []
             des2 = []
@@ -546,8 +550,8 @@ def account():
             des5 = []
             des6 = []
             des7 = []
-            arr = []
-            pre_obj = []
+            des8 = []
+            arr01 = []
             for j in Full_name:
                 full_name.append(j[0])
             for j in Des1:
@@ -563,39 +567,52 @@ def account():
             for j in Des6:
                 des6.append(j[0])
             for j in Des7:
-                des7.append(j[0])  
-            print('full name', full_name)
-                  
+                des7.append(j[0]) 
+            for j in Des8:
+                des8.append(j[0])
+
+            for j in range(len(des1)):
+                arr01.append(full_name[j])
+                arr01.append([des1[j], des2[j], des3[j], des4[j], des5[j], des6[j], des7[j], des8[j]])
+                arr02.append(arr01)
+                arr01 = []
+            if i == session['email']:
+                all_json[i] = arr02
+                with open('static/animation/temp2.json', 'w') as f1:
+                    json.dump(all_json, f1, indent=7)
+                f1.close()      
+            
         for i in set(des_hi):
-            # получаю описание по взятому email-у
-            Des1 = cursor_db.execute(('''SELECT des FROM history WHERE email = '{}';''').format(i)).fetchall()
-            #  получаю цену по взятому email-у
-            Des2 = cursor_db.execute(('''SELECT pr FROM history WHERE email = '{}';''').format(i)).fetchall()
-            des = []
-            for j in Des1:
-                # создаю массив с описаниями
-                des.append(j[0])
-            des1 = []
-            for j in Des2:
-                # создаю массив с ценами и датами
-                des1.append(j[0])
-            for j in des1:
-                k = j.index('(')
-                l = j[:k]
-                summ = summ + int(l)
-                print(l)
-            des5 = []
-            for j in range(len(des)):
-                # создаю масив с соответсвующими полями из des и des1
-                des6 = [des[j], des1[j]]
-                # создаю общий массив состоящий из масивов
-                des5.append(des6)
-                # создает словарь с индетификаторм email и значением масив
-            obj = {i: des5}
-            with open('static/animation/temp1.json', 'w') as f:
-                # записывает получившийся словарь в json
-                json.dump(obj, f, indent=2)
-            f.close()
+            if i == session['email']:
+                # получаю описание по взятому email-у
+                Des1 = cursor_db.execute(('''SELECT des FROM history WHERE email = '{}';''').format(i)).fetchall()
+                #  получаю цену по взятому email-у
+                Des2 = cursor_db.execute(('''SELECT pr FROM history WHERE email = '{}';''').format(i)).fetchall()
+                des = []
+                for j in Des1:
+                    # создаю массив с описаниями
+                    des.append(j[0])
+                des1 = []
+                for j in Des2:
+                    # создаю массив с ценами и датами
+                    des1.append(j[0])
+                for j in des1:
+                    k = j.index('(')
+                    l = j[:k]
+                    summ = summ + int(l)
+                    print(l)
+                des5 = []
+                for j in range(len(des)):
+                    # создаю масив с соответсвующими полями из des и des1
+                    des6 = [des[j], des1[j]]
+                    # создаю общий массив состоящий из масивов
+                    des5.append(des6)
+                    # создает словарь с индетификаторм email и значением масив
+                obj = {i: des5}
+                with open('static/animation/temp1.json', 'w') as f:
+                    # записывает получившийся словарь в json
+                    json.dump(obj, f, indent=2)
+                f.close()
         if summ == 0:
             summ = 'Вы бомж'
         cursor_db.close()
