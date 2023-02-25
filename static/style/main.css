@@ -177,26 +177,8 @@ body{
 	top: 0%;
 	left: 0%;
 	width: 100%;
-	height: 100%;
-	animation-name: page1_animation;
-	animation-iteration-count: infinite;
-	animation-duration: 16s;
-	animation-timing-function: ease-in-out;
+	height: 100vh;
 	background: linear-gradient(#0260e8 5%, #0461e8 10%, white 80%);
-	box-shadow: 0 max(52.08vw, 1000px) max(52.08vw, 1000px) min(-15.63vw, -300px)  #0260e8 inset;
-	
-}
-
-@keyframes page1_animation{
-	0%{
-		box-shadow: 0 max(15.63vw, 300px) max(52.08vw, 1000px) min(-15.63vw, -300px)  #0260e8 inset;
-	}
-	50%{
-    	box-shadow: 0 max(46.88vw, 900px) max(52.08vw, 1000px) min(-15.63vw, -300px)  #0260e8 inset;
-	}
-	100%{
-		box-shadow: 0 max(15.63vw, 300px) max(52.08vw, 1000px) min(-15.63vw, -300px)  #0260e8 inset;
-	}
 }
 
 .kok3{
@@ -486,10 +468,10 @@ body{
 	position: fixed;
 	display: none;
 	justify-content: center;
-	top: calc(50% - 25%);
-	left: calc(50% - 35%);
-	width: 70%;
-	height: 50%;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
 	background-color: #f7f7f7;
 	border-width: 0px;
     border-radius: max(1.3vw, 25px);
@@ -518,7 +500,7 @@ body{
 	text-align: center;
 	font-family: 'WM';
 	font-size: max(20px, 1.82vw);
-	width: 90%;
+	width: 80%;
 }
 
 .close {
@@ -981,10 +963,6 @@ footer{
     .how_many_text {
 		width: 100%;
 		margin-left: 0;
-	}
-	.tooltip{
-		width: 90%;
-		left: calc(50% - 45%);
 	}
 }
 @media(max-width:830px){
