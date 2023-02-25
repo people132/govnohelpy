@@ -657,8 +657,9 @@ def letter(email, ms):
         smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 
 
-@app.route('/re')
+@app.route('/re', methods=['GET', 'POST'])
 def re():
+    print("/re")
     code = ''
     codeOld = ''
     codeNew = ''
@@ -668,16 +669,23 @@ def re():
             code = generate(5)
             letter(email, code)
         if request.form['button'] == 'Pas':
+            print("jumped into password change form")
             code1 = request.form['Pcode']
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor = db_lp.cursor()
-            oldpass = cursor.execute((f'INSERT Password FROM login_password WHERE email = "{session["email"]}";')).fetchone[0]
+            oldpass = cursor.execute((f'SELECT Password FROM login_password WHERE Login = "{session["email"]}";')).fetchone()[0]
             oldPass = str(hashlib.sha512(request.form['Ppassword'].encode()).hexdigest())
             code = request.form['Pcode']
-            if code1 == code: 
+            if code1 == code:
                 if oldPass == oldpass:
+                    print("changing password")
                     newpass = request.form['newPassword']
-                    cursor.execute(f'''UPDATE login_password SET Password = "{newpass}" WHERE email ="{session['email']}";''')
+                    cursor.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{session['email']}";''')
+                    print(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{session['email']}";''')
+                else:
+                    print('PASSWORD MISMATCH')  # TODO: remove
+            else:
+                print("CODE MISMATCH")
             cursor.close()
             db_lp.close()
         if request.form['button'] == 'codeOld':
