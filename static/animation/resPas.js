@@ -98,6 +98,6 @@ function showErrorNewPassword(){
     newPasswordError.className = 'error active';
 }
 
-document.getElementsByClassName("nav-link")[1].onclick = function() {
+/*document.getElementsByClassName("nav-link")[1].onclick = function() {
     window.location = ("resMail");
-};
+};*/

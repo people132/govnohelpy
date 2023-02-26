@@ -102,9 +102,6 @@ body{
   cursor: default;
 }
 
-.tab-pane{
-  display: none;
-}
 .tab-pane:target{
   display: flex;
 }

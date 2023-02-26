@@ -74,7 +74,7 @@ function showErrorPassword() {
     passwordError.className = 'error active';
 }
 
-document.getElementsByClassName("nav-link")[0].onclick = function() {
+/*document.getElementsByClassName("nav-link")[0].onclick = function() {
     window.location = ("resPas");
-};
+};*/
 
