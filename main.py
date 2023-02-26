@@ -356,8 +356,8 @@ def qu():
                 db_lp1.close()
                 print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
                 return redirect(url_for('account'))
-            #if request.form['button'] == 'reset':
-            #    return redirect(url_for('.re', code = '', codeOld = '', codeNew = '', oldpas = '', newpas1 = '', pos = '', newpas2 = '', emailOld = '', emailNew = ''))
+            if request.form['button'] == 'reset':
+                return redirect(url_for('re'))
         return render_template('qu.html', log=log, Username=username, Surname=surname, Patronymic=patronymic,
                                Number=number, Tg=tg, Vk=vk, Rus_zac=ruszac1, Messenger=messenger, Site=site,
                                English=english, French=french, German=german, Italian=italian, Russian=russian,
