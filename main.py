@@ -395,6 +395,7 @@ def qu():
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
     error = 'error'
+    msg = ''
     if request.method == 'POST':
         try:
             session['email'] = request.form['username']
@@ -409,28 +410,34 @@ def auth():
             print(cur1)
             print(cur)
             if cur1 is None:
+                cursor_db.close()
                 print('reg')
                 db_lp.close()
                 error = 'error active'
+                msg = 'Введён неверный логин или пароль'
             else:
                 print(cur[0], hashlib.sha512(password.encode()).hexdigest())
                 if cur[0] != str(hashlib.sha512(password.encode()).hexdigest()):
+                    cursor_db.close()
                     db_lp.close()
                     error = 'error active'
+                    msg = 'Введён неверный логин или пароль'
                 else:
                     skill = cursor_db.execute(('''SELECT mainSkill FROM info
                                                 WHERE email = '{}';
                                                 ''').format(session['email'])).fetchone()[0]
                     print(skill)
                     print(type(skill))
+                    cursor_db.close()
                     db_lp.close()
             if skill != '':
                 return redirect(url_for('account'))
             else:
                 return redirect(url_for('qu'))
         except UnboundLocalError:
-            return redirect(url_for('reg'))
-    return render_template('auth.html', Error = error)
+                error = 'error active'
+                msg = 'Введён неверный логин или пароль'
+    return render_template('auth.html', Error = error, Msg = msg)
 
 
 @app.route('/reg', methods=['GET', 'POST'])
@@ -720,7 +727,7 @@ def resPas():
                     #f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
                     #secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
                     #    WHERE email ="{session['email']}";''')
-                    cursor.execute(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE login = "{email}";''')
+                    cursor.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{email}";''')
                     print(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE login = "{session['email']}";''')
                 else:
                     print('PASSWORD MISMATCH')  # TODO: remove
