@@ -728,6 +728,7 @@ def resPas():
                     #secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
                     #    WHERE email ="{session['email']}";''')
                     cursor.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{email}";''')
+                    db_lp.commit()
                     print(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE login = "{session['email']}";''')
                 else:
                     print('PASSWORD MISMATCH')  # TODO: remove
@@ -747,6 +748,15 @@ def resMail():
 
 @app.route('/forgot')
 def forgot():
+    email = ''
+    newpass1 = ''
+    newpass2 = ''
+    code = ''
+    if request.method == 'POST':
+        if request.form['button'] == 'code':
+            email = request.form['Pemail']
+            newpass1 = request.form['newPassword']
+            newpass2 = request.form['newPassagain']
     return render_template('forgotPas.html')
 
 
