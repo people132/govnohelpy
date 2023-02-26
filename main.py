@@ -741,7 +741,19 @@ def forgot():
             email = request.form['Pemail']
             newpass1 = request.form['newPassword']
             newpass2 = request.form['newPassagain']
-    return render_template('forgotPas.html')
+            code = generate(5)
+            letter(email, code)
+        if request.form['button'] == 'Pas':
+            code1 = request.form['Pcode']
+            newpass1 = request.form['newPassword']
+            if code == code1:
+                db_lp = sqlite3.connect('bases/login_password.db')
+                cur = db_lp.cursor()
+                cur.execute(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass1.encode()).hexdigest())}"; WHERE login = "{email}"''')
+                db_lp.commit()
+                cur.close()
+                db_lp.close()
+    return render_template('forgotPas.html', Email = email, newPas1 = newpass1, newPas2 = newpass2)
 
 
 @app.route('/qu_admin')
