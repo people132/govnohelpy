@@ -1,4 +1,6 @@
-window.location.replace(window.location.href + "#Pas");
+if(window.location.href == 'http://127.0.0.1:5000/re'){
+    window.location.replace(window.location.href + "#Pas");
+}
 const form  = document.getElementsByTagName('form')[1]; // форма для смены ПОЧТЫ!!
 
 const email = document.getElementById('email');

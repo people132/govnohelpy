@@ -6,15 +6,15 @@ body{
 @keyframes kok{
 	0%{
 		opacity: 0;
-		font-size: 3vw;
+		font-size: max(3vw, 2.97vw);
 	}
 	50%{
 		opacity: 0;
-		font-size: 3vw;
+		font-size: max(3vw, 2.97vw);
 	}
 	100%{
 		opacity: 1;
-		font-size: 8vw;
+		font-size: max(100px, 8vw);
 	}
 }
 .break {
@@ -50,15 +50,12 @@ body{
 @keyframes kok2{
 	0%{
 		opacity: 0;
-		font-size: max(57px, 3vw);
 	}
 	60%{
 		opacity: 0;
-		margin-top: translateY(-5.21vw);
 	}
 	100%{
 		opacity: 1;
-		margin-top: translateY(0);
 	}
 }
 .title_text2{
@@ -354,10 +351,18 @@ body{
 
 .img_cont{
 	display: flex;
-	width: max(544.5px, 28.39vw);
+	height: 100%;
 	justify-content: center;
 	align-items: center;
 	object-fit: contain;
+	width: 33.33%;
+}
+
+.row_right_block{
+	display: flex; 
+	justify-content: center; 
+	flex-wrap: wrap; 
+	width: 66.66%;
 }
 
 .row{
@@ -467,11 +472,12 @@ body{
 .tooltip{
 	position: fixed;
 	display: none;
+	opacity: 0;
 	justify-content: center;
-	top: 5%;
+	top: 15%;
 	left: 5%;
 	width: 90%;
-	height: 90%;
+	height: 70%;
 	background-color: #f7f7f7;
 	border-width: 0px;
     border-radius: max(1.3vw, 25px);
@@ -481,6 +487,16 @@ body{
     box-shadow: 0.63vw 0.52vw 1.56vw 0px rgb(0 0 0 / 40%);
 	flex-wrap: wrap;
 	z-index: 5;
+	overflow-y: auto;
+}
+
+.tooltip._active{
+	animation-fill-mode:backwards;
+	animation-name: row_button_animation;
+	animation-duration: 0.5s;
+	animation-timing-function: cubic-bezier(.19,1,.22,1);
+	display: flex;
+	opacity: 1;
 }
 
 .tooltip_title{
@@ -964,10 +980,14 @@ footer{
 		width: 100%;
 		margin-left: 0;
 	}
-}
-@media(max-width:830px){
-    .row{
-		flex-wrap: wrap;
+	.row{
+		flex-direction: column;
+	}
+	.img_cont{
+		width: 100%;
+	}
+	.row_right_block{
+		width: 100%;
 	}
 }
 

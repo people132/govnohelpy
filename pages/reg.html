@@ -13,7 +13,7 @@
         <div class="container">
             <div class="back" style="margin-top: max(10px, 2vw);">
                 <div class="main_text">Регистрация</div>
-                <input class="inputs" id="surname" name="surname"  type="text" placeholder="Фамилия"  required pattern="^[\p{L}]*$" minlength="2" maxlength="30" value={{Surname}}/>
+                <input class="inputs" id="surname" name="surname"  type="text" placeholder="Фамилия"  required pattern="^[\p{L}]*$" minlength="2" maxlength="30" value={{Surname}}>
                 <span class="error" aria-live="polite"></span>
                 <input class="inputs" id="username" name="username" value="{{Username}}" type="text" placeholder="Имя" required pattern="^[\p{L}]*$" minlength="2" maxlength="30"/>
                 <span class="error" aria-live="polite"></span>
@@ -38,7 +38,6 @@
                 </div>
                 <button class="btn_pozvol" name="button" value="reg" type="submit" style="font-size: max(1.04vw, 20px);">Зарегистрироваться</button>
             </div>
-            <a href="" class="technical_support">Техническая поддержка</a>
         </div>
         </form>
         <script src="../static/animation/reg.js"></script>

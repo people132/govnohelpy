@@ -506,6 +506,7 @@ table{
 }
 
 .tooltip_el_cont{
+    margin-top: max(96px, 3vw);
     display: grid;
     grid-template-columns: 1fr 1fr;
     word-wrap: normal;
