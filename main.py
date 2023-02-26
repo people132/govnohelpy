@@ -695,7 +695,6 @@ def re():
             email = request.form['newPassagain']
             code = generate(5)
             letter(email, code)
-            return redirect("http://127.0.0.1:5000/re#Pas")
         if request.form['button'] == 'Pas':
             print("jumped into password change form")
             code1 = request.form['Pcode']
@@ -724,13 +723,11 @@ def re():
             print(emailNew)
             codeOld = generate(5)
             letter(emailOld, codeOld)
-            return redirect("http://127.0.0.1:5000/re#Mail")
         if request.form['button'] == 'codeNew':
             emailNew = request.form['newMail']
             codeNew = generate(5)
             pos = request.form['passwordMail']
             letter(emailNew, codeNew)
-            return redirect("http://127.0.0.1:5000/re#Mail")
         if request.form['button'] == 'Mail':
             db_lp1 = sqlite3.connect('bases/login_password.db')
             cursor1 = db_lp1.cursor()
