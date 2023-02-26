@@ -394,6 +394,7 @@ def qu():
 
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
+    error = 'error'
     if request.method == 'POST':
         try:
             session['email'] = request.form['username']
@@ -410,12 +411,12 @@ def auth():
             if cur1 is None:
                 print('reg')
                 db_lp.close()
-                redirect(url_for('reg'))
+                error = 'error active'
             else:
                 print(cur[0], hashlib.sha512(password.encode()).hexdigest())
                 if cur[0] != str(hashlib.sha512(password.encode()).hexdigest()):
                     db_lp.close()
-                    return redirect(url_for('reg'))
+                    error = 'error active'
                 else:
                     skill = cursor_db.execute(('''SELECT mainSkill FROM info
                                                 WHERE email = '{}';
@@ -429,7 +430,7 @@ def auth():
                 return redirect(url_for('qu'))
         except UnboundLocalError:
             return redirect(url_for('reg'))
-    return render_template('auth.html')
+    return render_template('auth.html', Error = error)
 
 
 @app.route('/reg', methods=['GET', 'POST'])
