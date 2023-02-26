@@ -745,6 +745,10 @@ def resMail():
 
 
 
+@app.route('/forgot')
+def forgot():
+    return render_template('forgotPas.html')
+
 
 @app.route('/qu_admin')
 def qu_admin():
