@@ -1,4 +1,6 @@
-window.location.replace(window.location.href + "#Pas");
+if(window.location.href == 'http://127.0.0.1:5000/re'){
+    window.location.replace(window.location.href + "#Pas")
+}
 const form  = document.getElementsByTagName('form')[1]; // форма для смены ПОЧТЫ!!
 
 const email = document.getElementById('email');
@@ -7,8 +9,6 @@ const newMail = document.getElementById('newMail');
 const newMailError = document.querySelector('#newMail + span.error');
 const password = document.getElementById('password');
 const passwordError = document.querySelector('#password + span.error');
-const passagain = document.getElementById('passagain');
-const passagainError = document.querySelector('#passagain + span.error');
 
 email.addEventListener('input', function (event) { // realtime валидатор
     if (email.validity.valid) { // почта
@@ -34,20 +34,6 @@ password.addEventListener('input', function (event) { // realtime валидат
         showErrorPassword()
     }
 });
-passagain.addEventListener('input', function (event) { // realtime валидатор
-    if(passagain.validity.valueMissing) { // пароль снова
-        passagainError.textContent = 'Это обязательное поле';
-        passagainError.className = 'error active';
-    }
-    else if(password.value != passagain.value) {
-        passagainError.textContent = 'Пароли не соответствуют';
-        passagainError.className = 'error active';
-    }
-    else {
-        passagainError.textContent = '';
-        passagainError.className = 'error';
-    }
-});
 form.addEventListener('submit', function (event) { // Валидатор на кнопку
     if(!email.validity.valid) { // почта
         showErrorEmail()
@@ -59,16 +45,6 @@ form.addEventListener('submit', function (event) { // Валидатор на к
     }
     if(!password.validity.valid) { // пароль
         showErrorPassword()
-        event.preventDefault();
-    }
-    if(passagain.validity.valueMissing) { // пароль снова
-        passagainError.textContent = 'Это обязательное поле';
-        passagainError.className = 'error active';
-        event.preventDefault();
-    }
-    if(password.value != passagain.value) {
-        passagainError.textContent = 'Пароли не соответствуют';
-        passagainError.className = 'error active';
         event.preventDefault();
     }
 });
