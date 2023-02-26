@@ -685,14 +685,17 @@ def letter(email, ms):
 #return redirect(url_for('.re', code = '', codeOld = '', codeNew = '', oldpas = '', newpas1 = '', pos = '', newpas2 = '', emailOld = '', emailNew = ''))
 def resPas():
     print("/resPas")
-    codeOld1 = ''
-    codeNew1 = ''
+    oldPass1 = ''
+    newpas1 = ''
+    newpas2 = ''
+    code = ''
+    email = ''
     if request.method == 'POST':
         if request.form['button'] == 'code':
-            oldpas = request.form['Ppassword']
+            oldPass1 = request.form['Ppassword']
             newpas1 = request.form['newPassword']
-            newpas2 = request.form['newPas2']
-            email = request.form['newPassagain']
+            newpas2 = request.form['newPassagain']
+            email = request.form['Pemail']
             code = generate(5)
             letter(email, code)
         if request.form['button'] == 'Pas':
@@ -701,25 +704,35 @@ def resPas():
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor = db_lp.cursor()
             oldpass = cursor.execute(f'''SELECT password FROM login_password
-                                                WHERE login = "{session['email']}"''').fetchone()
+                                                WHERE login = "{session['email']}"''').fetchone()[0]
+            print(request.form['Ppassword'])
+            print(str(hashlib.sha512(request.form['Ppassword'].encode())))
             oldPass = str(hashlib.sha512(request.form['Ppassword'].encode()).hexdigest())
             code = request.form['Pcode']
             if code1 == code:
                 if oldPass == oldpass:
                     print("changing password")
                     newpass = request.form['newPassword']
-                    cursor.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{session['email']}";''')
-                    print(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{session['email']}";''')
+                    print(newpass)
+                    print(str(hashlib.sha512(newpass.encode()).hexdigest()))
+                    #cursor_db1.execute(
+                    #f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                    #secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
+                    #    WHERE email ="{session['email']}";''')
+                    cursor.execute(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE login = "{email}";''')
+                    print(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE login = "{session['email']}";''')
                 else:
                     print('PASSWORD MISMATCH')  # TODO: remove
             else:
                 print("CODE MISMATCH")
             cursor.close()
             db_lp.close()
-    return render_template('resPas.html', )
+    return render_template('resPas.html', Email = email, OldPas = oldPass1, newPas1 = newpas1, newPas2 = newpas2 )
     
 @app.route('/resMail')
 def resMail():
+    codeOld1 = ''
+    codeNew1 = ''
     return render_template('resMail.html')
 
 
