@@ -145,8 +145,8 @@
                     <option {{fourty_more}} value="40+">более 40</option>
                 </select>
 
-                <input name="rus-zac" {{Rus_zac}} value="Брать российские" type="checkbox" id="rus-zac">
-                <label for="rus-zac">Брать российские заказы</label>
+                <input name="rus_zac" {{Rus_zac}} value="Брать российские" type="checkbox" id="rus_zac">
+                <label for="rus_zac">Брать российские заказы</label>
 
                 <div class="main_texts">Как вы предпочитаете получать новые заказы</div>
                 <div class="micro_texts">В любом случае вы всегда сможете обратиться в поддержку по всем вопросам</div>
@@ -155,9 +155,9 @@
                 <input id="radio-2" {{Site}} type="radio" name="typeConnect" value="site">
                 <label for="radio-2">В личном кабинете Helpy</label>
                 <input value="{{Description}}" class="inputs" id = "description" name="description" style="margin-bottom: 2vw;" id="self" name="self" type="" placeholder="О себе"/>
-                <a class="change_btn" href="/re">Сменить пароль</a>
+                <button class="change_btn" name="button" id ="button" value="reset">Сменить пароль</button>
                 <div style="width: 100%; display: flex; justify-content: center;">
-                    <button type="submit" class="save_btn">сохранить</button>
+                    <button type="submit" name="button" id="button" value="save" class="save_btn">сохранить</button>
                 </div>
             </div>
         </form>  

@@ -329,32 +329,35 @@ def qu():
             fourty_more = 'selected'
 
         if request.method == 'POST':
-            db_lp1 = sqlite3.connect('bases/login_password.db')
-            cursor_db1 = db_lp1.cursor()
-            mainSkill = request.form['mainSkill']
-            mainHour = request.form['mainHour']
-            secondSkill = request.form['secondSkill']
-            secondHour = request.form['secondHour']
-            workHoure = request.form['workHoure']
-            username = request.form['username']
-            surname = request.form['surname']
-            patronymic = request.form['patronymic']
-            number = request.form['number']
-            tg = request.form['tg']
-            vk = request.form['vk']
-            rus_zac = request.form['rus-zac']
-            description = request.form['description']
-            language = ' '.join(request.form.getlist('language'))
-            typeConnect = ' '.join(request.form.getlist('typeConnect'))
-            cursor_db1.execute(
-                f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
-                     WHERE email ="{session['email']}";''')
-            cursor_db1.close()
-            db_lp1.commit()
-            db_lp1.close()
-            print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
-            return redirect(url_for('account'))
+            if request.form['button'] == 'save':
+                db_lp1 = sqlite3.connect('bases/login_password.db')
+                cursor_db1 = db_lp1.cursor()
+                mainSkill = request.form['mainSkill']
+                mainHour = request.form['mainHour']
+                secondSkill = request.form['secondSkill']
+                secondHour = request.form['secondHour']
+                workHoure = request.form['workHoure']
+                username = request.form['username']
+                surname = request.form['surname']
+                patronymic = request.form['patronymic']
+                number = request.form['number']
+                tg = request.form['tg']
+                vk = request.form['vk']
+                rus_zac = request.form['rus_zac']
+                description = request.form['description']
+                language = ' '.join(request.form.getlist('language'))
+                typeConnect = ' '.join(request.form.getlist('typeConnect'))
+                cursor_db1.execute(
+                    f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
+                        WHERE email ="{session['email']}";''')
+                cursor_db1.close()
+                db_lp1.commit()
+                db_lp1.close()
+                print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
+                return redirect(url_for('account'))
+            #if request.form['button'] == 'reset':
+            #    return redirect(url_for('.re', code = '', codeOld = '', codeNew = '', oldpas = '', newpas1 = '', pos = '', newpas2 = '', emailOld = '', emailNew = ''))
         return render_template('qu.html', log=log, Username=username, Surname=surname, Patronymic=patronymic,
                                Number=number, Tg=tg, Vk=vk, Rus_zac=ruszac1, Messenger=messenger, Site=site,
                                English=english, French=french, German=german, Italian=italian, Russian=russian,
@@ -531,7 +534,8 @@ def account():
         print(des_hi)
         print(des_task)
         all_json = {}
-        arr02 = []
+
+        print(set(des_task))
         for i in set(des_task):
             Full_name = cursor_db.execute(('''SELECT full_name FROM task WHERE email = '{}';''').format(i)).fetchall()
             Des1 = cursor_db.execute(('''SELECT status FROM task WHERE email = '{}';''').format(i)).fetchall()
@@ -552,6 +556,7 @@ def account():
             des7 = []
             des8 = []
             arr01 = []
+            arr02 = []
             for j in Full_name:
                 full_name.append(j[0])
             for j in Des1:
@@ -576,11 +581,13 @@ def account():
                 arr01.append([des1[j], des2[j], des3[j], des4[j], des5[j], des6[j], des7[j], des8[j]])
                 arr02.append(arr01)
                 arr01 = []
-            if i == session['email']:
-                all_json[i] = arr02
-                with open('static/animation/temp2.json', 'w') as f1:
-                    json.dump(all_json, f1, indent=7)
-                f1.close()      
+            #if i == session['email']:
+            all_json[i] = arr02
+            print(arr02)
+        print(all_json)
+        with open('static/animation/temp2.json', 'w') as f1:
+            json.dump(all_json, f1, indent=7)
+        f1.close()      
             
         for i in set(des_hi):
             if i == session['email']:
@@ -675,22 +682,27 @@ def letter(email, ms):
 
 
 @app.route('/re', methods=['GET', 'POST'])
+#return redirect(url_for('.re', code = '', codeOld = '', codeNew = '', oldpas = '', newpas1 = '', pos = '', newpas2 = '', emailOld = '', emailNew = ''))
 def re():
     print("/re")
-    code = ''
-    codeOld = ''
-    codeNew = ''
+    codeOld1 = ''
+    codeNew1 = ''
     if request.method == 'POST':
         if request.form['button'] == 'code':
-            email = request.form['email']
+            oldpas = request.form['Ppassword']
+            newpas1 = request.form['newPassword']
+            newpas2 = request.form['newPas2']
+            email = request.form['newPassagain']
             code = generate(5)
             letter(email, code)
+            return redirect("http://127.0.0.1:5000/re#Pas")
         if request.form['button'] == 'Pas':
             print("jumped into password change form")
             code1 = request.form['Pcode']
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor = db_lp.cursor()
-            oldpass = cursor.execute((f'SELECT Password FROM login_password WHERE Login = "{session["email"]}";')).fetchone()[0]
+            oldpass = cursor.execute(f'''SELECT password FROM login_password
+                                                WHERE login = "{session['email']}"''').fetchone()
             oldPass = str(hashlib.sha512(request.form['Ppassword'].encode()).hexdigest())
             code = request.form['Pcode']
             if code1 == code:
@@ -705,32 +717,48 @@ def re():
                 print("CODE MISMATCH")
             cursor.close()
             db_lp.close()
+        
         if request.form['button'] == 'codeOld':
             emailOld = request.form['email']
+            emailNew = request.form['newMail']
+            print(emailNew)
             codeOld = generate(5)
             letter(emailOld, codeOld)
+            return redirect("http://127.0.0.1:5000/re#Mail")
         if request.form['button'] == 'codeNew':
             emailNew = request.form['newMail']
             codeNew = generate(5)
+            pos = request.form['passwordMail']
             letter(emailNew, codeNew)
+            return redirect("http://127.0.0.1:5000/re#Mail")
         if request.form['button'] == 'Mail':
             db_lp1 = sqlite3.connect('bases/login_password.db')
             cursor1 = db_lp1.cursor()
-            pas = cursor.execute((f'INSERT Password FROM login_password WHERE email = "{session["email"]}";')).fetchone[0]
-            userpas = str(hashlib.sha512(request.form['passagain'].encode()).hexdigest())
+            pas = cursor1.execute(f'''SELECT password FROM login_password
+                                                WHERE Login = "{session['email']}";''').fetchone()
+            userpas = str(hashlib.sha512(request.form['passwordMail'].encode()).hexdigest())
             codeOld1 = request.form['codeOld1']
             codeNew1 = request.form['codeNew1']
+            print(codeOld1, codeNew1)
             if codeOld == codeOld1 and codeNew == codeNew1:
                 if userpas == pas:
-                    cursor1.execute(f'''UPDATE login_password SET email = {emailNew} WHERE email = {session["emai"]};''')
-                    cursor1.execute(f'''UPDATE info SET email = {emailNew} WHERE email = {session["email"]};''')
-                    cursor1.execute(f'''UPDATE history SET email = {emailNew} WHERE email = {session["email"]}''')
-                    cursor1.execute(f'''UPDATE queue SET email = {emailNew} WHERE email = {session["email"]}''')
+                    emailNew = request.form['newMail']
+                    cursor1.execute(f'''UPDATE login_password SET Login = "{emailNew}" WHERE Login = "{session["email"]}";''')
+                    cursor1.execute(f'''UPDATE info SET email = "{emailNew}" WHERE email = "{session["email"]}";''')
+                    cursor1.execute(f'''UPDATE history SET email = "{emailNew}" WHERE email = "{session["email"]}"''')
+                    cursor1.execute(f'''UPDATE queue SET email = "{emailNew}" WHERE email = "{session["email"]}"''')
                     session.pop('email', None)
                     session['email'] = emailNew
+
+                else: print('password')
+            else: 
+                print('codeerror', codeOld, codeNew)
+                print(codeOld1, codeNew1)
             cursor1.close()
             db_lp1.close()
+    #return render_template('resPas.html')
     return render_template('resPas.html')
+    
 
 
 
