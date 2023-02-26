@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
+        <title>Редактирование</title>
         <meta charset="UTF-8">
         <meta name = "viewport" content="width=device-width">
         <link rel="stylesheet" href="{{url_for('static', filename= 'style/qu.css' )}}">
@@ -8,7 +9,7 @@
 
     <body class="page"> 
         <div class="head">
-            <div class="img_size"><img src="../static/imgs/h.svg" alt="УУПС"></div>
+            <a class="img_size" href="/"><img src="../static/imgs/h.svg" alt="УУПС"></a>
             <div class="desktop_block head" style="margin-left: 0; margin-top: 0;">
                 <div class="top_text_left">Личный <br> кабинет</div>
                 <div class="top_line"></div>
@@ -155,7 +156,7 @@
                 <input id="radio-2" {{Site}} type="radio" name="typeConnect" value="site">
                 <label for="radio-2">В личном кабинете Helpy</label>
                 <input value="{{Description}}" class="inputs" id = "description" name="description" style="margin-bottom: 2vw;" id="self" name="self" type="" placeholder="О себе"/>
-                <button class="change_btn" name="button" id ="button" value="reset">Сменить пароль</button>
+                <button class="change_btn" name="button" id ="button" value="reset">Сменить пароль или почту</button>
                 <div style="width: 100%; display: flex; justify-content: center;">
                     <button type="submit" name="button" id="button" value="save" class="save_btn">сохранить</button>
                 </div>

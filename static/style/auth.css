@@ -14,22 +14,6 @@ body{
   flex-flow: row wrap;
 }
 
-.head{
-  width: auto;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  background-color: #0260e8;
-  min-height: 75px;
-  height: 4vw;
-  color: white;
-  font-family: "WSB";
-  font-size: max(1.2vw, 23px);
-  font-weight: 400;
-  text-align: center;
-}
-
 .back{
   margin-top: 7vw;
   margin-bottom: max(19px, 1vw);
