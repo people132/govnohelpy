@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
+        <title>Регистрация | Helpy</title>
         <meta charset="UTF-8">
         <meta name = "viewport" content="width=device-width">
         <link rel="stylesheet" href="/static/style/auth.css">
     </head>
     <body>
-        <div class="head">
-            Начало Вашего сотрудничества с Helpy
-        </div>
         <form method="POST" novalidate>
         <div class="container">
             <div class="back" style="margin-top: max(10px, 2vw);">
+                <a class="img_size" href="\"><img src="../static/imgs/h.svg" alt="УУПС"></a>
                 <div class="main_text">Регистрация</div>
                 <input class="inputs" id="surname" name="surname"  type="text" placeholder="Фамилия"  required pattern="^[\p{L}]*$" minlength="2" maxlength="30" value="{{Surname}}"/>
                 <span class="error" aria-live="polite"></span>
@@ -38,7 +37,6 @@
                 </div>
                 <button class="btn_pozvol" name="button" value="reg" type="submit" style="font-size: max(1.04vw, 20px);">Зарегистрироваться</button>
             </div>
-            <a href="" class="technical_support">Техническая поддержка</a>
         </div>
         </form>
         <script src="../static/animation/reg.js"></script>

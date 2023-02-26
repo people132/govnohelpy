@@ -356,8 +356,8 @@ def qu():
                 db_lp1.close()
                 print(mainSkill, mainHour, secondSkill, secondHour, language, typeConnect)
                 return redirect(url_for('account'))
-            #if request.form['button'] == 'reset':
-            #    return redirect(url_for('.re', code = '', codeOld = '', codeNew = '', oldpas = '', newpas1 = '', pos = '', newpas2 = '', emailOld = '', emailNew = ''))
+            if request.form['button'] == 'reset':
+                return redirect(url_for('resPas'))
         return render_template('qu.html', log=log, Username=username, Surname=surname, Patronymic=patronymic,
                                Number=number, Tg=tg, Vk=vk, Rus_zac=ruszac1, Messenger=messenger, Site=site,
                                English=english, French=french, German=german, Italian=italian, Russian=russian,
@@ -394,6 +394,8 @@ def qu():
 
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
+    error = 'error'
+    msg = ''
     if request.method == 'POST':
         try:
             session['email'] = request.form['username']
@@ -408,28 +410,34 @@ def auth():
             print(cur1)
             print(cur)
             if cur1 is None:
+                cursor_db.close()
                 print('reg')
                 db_lp.close()
-                redirect(url_for('reg'))
+                error = 'error active'
+                msg = 'Введён неверный логин или пароль'
             else:
                 print(cur[0], hashlib.sha512(password.encode()).hexdigest())
                 if cur[0] != str(hashlib.sha512(password.encode()).hexdigest()):
+                    cursor_db.close()
                     db_lp.close()
-                    return redirect(url_for('reg'))
+                    error = 'error active'
+                    msg = 'Введён неверный логин или пароль'
                 else:
                     skill = cursor_db.execute(('''SELECT mainSkill FROM info
                                                 WHERE email = '{}';
                                                 ''').format(session['email'])).fetchone()[0]
                     print(skill)
                     print(type(skill))
+                    cursor_db.close()
                     db_lp.close()
             if skill != '':
                 return redirect(url_for('account'))
             else:
                 return redirect(url_for('qu'))
         except UnboundLocalError:
-            return redirect(url_for('reg'))
-    return render_template('auth.html')
+                error = 'error active'
+                msg = 'Введён неверный логин или пароль'
+    return render_template('auth.html', Error = error, Msg = msg)
 
 
 @app.route('/reg', methods=['GET', 'POST'])
@@ -681,85 +689,59 @@ def letter(email, ms):
         smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 
 
-@app.route('/re', methods=['GET', 'POST'])
+@app.route('/resPas', methods=['GET', 'POST'])
 #return redirect(url_for('.re', code = '', codeOld = '', codeNew = '', oldpas = '', newpas1 = '', pos = '', newpas2 = '', emailOld = '', emailNew = ''))
-def re():
-    print("/re")
-    codeOld1 = ''
-    codeNew1 = ''
+def resPas():
+    print("/resPas")
+    oldPass1 = ''
+    newpas1 = ''
+    newpas2 = ''
+    code = ''
+    email = ''
     if request.method == 'POST':
         if request.form['button'] == 'code':
-            oldpas = request.form['Ppassword']
+            oldPass1 = request.form['Ppassword']
             newpas1 = request.form['newPassword']
-            newpas2 = request.form['newPas2']
-            email = request.form['newPassagain']
+            newpas2 = request.form['newPassagain']
+            email = request.form['Pemail']
             code = generate(5)
             letter(email, code)
-            return redirect("http://127.0.0.1:5000/re#Pas")
         if request.form['button'] == 'Pas':
             print("jumped into password change form")
             code1 = request.form['Pcode']
             db_lp = sqlite3.connect('bases/login_password.db')
             cursor = db_lp.cursor()
             oldpass = cursor.execute(f'''SELECT password FROM login_password
-                                                WHERE login = "{session['email']}"''').fetchone()
+                                                WHERE login = "{session['email']}"''').fetchone()[0]
+            print(request.form['Ppassword'])
+            print(str(hashlib.sha512(request.form['Ppassword'].encode())))
             oldPass = str(hashlib.sha512(request.form['Ppassword'].encode()).hexdigest())
             code = request.form['Pcode']
             if code1 == code:
                 if oldPass == oldpass:
                     print("changing password")
                     newpass = request.form['newPassword']
-                    cursor.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{session['email']}";''')
-                    print(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{session['email']}";''')
+                    print(newpass)
+                    print(str(hashlib.sha512(newpass.encode()).hexdigest()))
+                    #cursor_db1.execute(
+                    #f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
+                    #secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
+                    #    WHERE email ="{session['email']}";''')
+                    cursor.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{email}";''')
+                    print(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE login = "{session['email']}";''')
                 else:
                     print('PASSWORD MISMATCH')  # TODO: remove
             else:
                 print("CODE MISMATCH")
             cursor.close()
             db_lp.close()
-        
-        if request.form['button'] == 'codeOld':
-            emailOld = request.form['email']
-            emailNew = request.form['newMail']
-            print(emailNew)
-            codeOld = generate(5)
-            letter(emailOld, codeOld)
-            return redirect("http://127.0.0.1:5000/re#Mail")
-        if request.form['button'] == 'codeNew':
-            emailNew = request.form['newMail']
-            codeNew = generate(5)
-            pos = request.form['passwordMail']
-            letter(emailNew, codeNew)
-            return redirect("http://127.0.0.1:5000/re#Mail")
-        if request.form['button'] == 'Mail':
-            db_lp1 = sqlite3.connect('bases/login_password.db')
-            cursor1 = db_lp1.cursor()
-            pas = cursor1.execute(f'''SELECT password FROM login_password
-                                                WHERE Login = "{session['email']}";''').fetchone()
-            userpas = str(hashlib.sha512(request.form['passwordMail'].encode()).hexdigest())
-            codeOld1 = request.form['codeOld1']
-            codeNew1 = request.form['codeNew1']
-            print(codeOld1, codeNew1)
-            if codeOld == codeOld1 and codeNew == codeNew1:
-                if userpas == pas:
-                    emailNew = request.form['newMail']
-                    cursor1.execute(f'''UPDATE login_password SET Login = "{emailNew}" WHERE Login = "{session["email"]}";''')
-                    cursor1.execute(f'''UPDATE info SET email = "{emailNew}" WHERE email = "{session["email"]}";''')
-                    cursor1.execute(f'''UPDATE history SET email = "{emailNew}" WHERE email = "{session["email"]}"''')
-                    cursor1.execute(f'''UPDATE queue SET email = "{emailNew}" WHERE email = "{session["email"]}"''')
-                    session.pop('email', None)
-                    session['email'] = emailNew
-
-                else: print('password')
-            else: 
-                print('codeerror', codeOld, codeNew)
-                print(codeOld1, codeNew1)
-            cursor1.close()
-            db_lp1.close()
-    #return render_template('resPas.html')
-    return render_template('resPas.html')
+    return render_template('resPas.html', Email = email, OldPas = oldPass1, newPas1 = newpas1, newPas2 = newpas2 )
     
-
+@app.route('/resMail')
+def resMail():
+    codeOld1 = ''
+    codeNew1 = ''
+    return render_template('resMail.html')
 
 
 
