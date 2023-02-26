@@ -86,6 +86,7 @@ body{
   border-radius: max(19px, 1vw);
   height: max(100px, 5.21vw);
   padding: 0;
+  cursor: pointer;
 
   transition: all 0.2s;
   transition-timing-function: ease-in-out;
@@ -98,6 +99,7 @@ body{
   background-color: #f1f0f0;
   color: black;
   border: 0.05vw solid #dadce0;
+  cursor: default;
 }
 
 .tab-pane{
