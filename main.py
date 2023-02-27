@@ -83,10 +83,11 @@ def qu():
         russian = ''
         ukraian = ''
         belorussian = ''
+        print(language1)
         ruszac1 = ''
         if 'английский' in language1:
             english = 'checked'
-        if 'французкий' in language1:
+        if 'французский' in language1:
             french = 'checked'
         if 'немецкий' in language1:
             german = 'checked'
@@ -361,7 +362,7 @@ def qu():
         return render_template('qu.html', log=log, Username=username, Surname=surname, Patronymic=patronymic,
                                Number=number, Tg=tg, Vk=vk, Rus_zac=ruszac1, Messenger=messenger, Site=site,
                                English=english, French=french, German=german, Italian=italian, Russian=russian,
-                               Ukrein=ukraian, Belorussian=belorussian,
+                               Ukrain=ukraian, Belorussian=belorussian,
                                video_editing1=video_editing1, photo_editing1=photo_editing1,
                                front_end_application_development1=front_end_application_development1,
                                front_end_website_development1=front_end_website_development1,
@@ -792,7 +793,7 @@ def resMail():
             else:
                 cursor.close()
                 db_lp.close()
-    return render_template('resMail.html', Email = oldEmail, newMail = newEmail, MailPas = password, codeOld = codeOld1, codeNew = codeNew1)
+    return render_template('resMail.html', Email = oldEmail, NewMail = newEmail, MailPas = password, codeOld = codeOld1, codeNew = codeNew1)
 
 
 
