@@ -722,11 +722,60 @@ def resPas():
             db_lp.close()
     return render_template('resPas.html', Email = email, OldPas = oldPass1, newPas1 = newpas1, newPas2 = newpas2 )
     
+
 @app.route('/resMail')
 def resMail():
+    oldEmail = ''
+    newEmail = ''
+    newEmail1 = ''
+    password = ''
+    codeOld = ''
+    codeNew = ''
     codeOld1 = ''
     codeNew1 = ''
-    return render_template('resMail.html')
+    if request.method == 'POST':
+        if request.form['button'] == 'CodeOld':
+            codeNew1 = request.form['codeNew1']
+            oldEmail = request.form['email']
+            newEmail = request.form['newMail']
+            password = request.form['passwordMail']
+            codeOld = generate(5)
+            letter(oldEmail, codeOld)
+        if request.form['button'] == 'CodeNew':
+            codeOld1 = request.form['codeOld1']
+            oldEmail = request.form['email']
+            newEmail = request.form['newMail']
+            password = request.form['passwordMail']
+            codeNew = generate(5)
+            letter(newEmail, codeNew)
+        if request.form['button'] == 'Mail':
+            oldEmail = request.form['email']
+            newEmail = request.form['newMail']
+            password = request.form['passwordMail']
+            db_lp = sqlite3.connect('bases/login_password.db')
+            cursor = db_lp.cursor()
+            oldpass = cursor.execute(f'''SELECT password FROM login_password
+                                                WHERE login = "{oldEmail}"''').fetchone()[0]
+            password = str(hashlib.sha512(password.encode()).hexdigest())
+            codeOld1 = request.form['codeOld1']
+            codeNew1 = request.form['codeNew1']
+            if codeOld == codeOld1 and codeNew == codeNew1:
+                if oldpass == password:
+                    cursor.execute(f'''UPDATE login_password SET login = "{newEmail}" WHERE login = "{oldEmail}";''')
+                    cursor.execute(f'''UPDATE info SET login = "{newEmail}" WHERE email = "{oldEmail}";''')
+                    cursor.execute(f'''UPDATE task SET login = "{newEmail}" WHERE email = "{oldEmail}";''')
+                    cursor.execute(f'''UPDATE history SET login = "{newEmail}" WHERE email = "{oldEmail}";''')
+                    db_lp.commit()
+                    cursor.close()
+                    db_lp.close
+                    return redirect(url_for('qu'))
+                else:
+                    cursor.close()
+                    db_lp.close()
+            else:
+                cursor.close()
+                db_lp.close()
+    return render_template('resMail.html', Email = oldEmail, newMail = newEmail, MailPas = password, codeOld = codeOld1, codeNew = codeNew1)
 
 
 
