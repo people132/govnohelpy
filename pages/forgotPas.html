@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/static/style/auth.css">
     </head>
     <body>
-        <form method="POST">
+        <form method="POST" novalidate>
             <div class="container">
                 <div class="back">
                     <a class="img_size" href="\"><img src="../static/imgs/h.svg" alt="УУПС"></a>
@@ -21,7 +21,7 @@
                     <div style="display: flex; width: 100%; flex-wrap: wrap;">
                         <div style="display: flex; width: 100%;">
                             <input class="inputs" style="width: 50%; margin-bottom: 0;" id="Pcode" name="Pcode" value="{{Code}}" type="text" placeholder="Введите код" required minlength="6" maxlength="6">
-                            <button type="submit" name="button" id="button" value="code" class="change_btn" for="code">Отправить код на почту</button>
+                            <button type="submit" name="button" id="button" value="Сode" class="change_btn" for="code">Отправить код на почту</button>
                         </div>
                         <span class="{{Error}}" aria-live="polite" style="width: calc(50% -  max(15px, 1.5vw) - max(2.6vw, 50px)); margin-top: 0; margin-left: max(1.3vw, 25px);">{{Error_msg}}</span>
                     </div>
@@ -30,6 +30,6 @@
                 <a href="" class="technical_support">Техническая поддержка</a>
             </div>
         </form>
-        <script src="../static/animation/resPas.js"></script>
+        <script src="../static/animation/forgotPas.js"></script>
     </body>
 </html>

@@ -514,11 +514,23 @@ def logout():
     return redirect(url_for('auth'))
 
 
-@app.route('/account')
+
+@app.route('/account', methods=['GET', 'POST'])
 def account():
     fio = ''
     summ = 0
     if 'email' in session:
+        if request.method == 'POST':
+            db_lp1 = sqlite3.connect('bases/login_password.db')
+            cur = db_lp1.cursor()
+            mainSkill = cur.execute(f'''SELECT mainSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+            secondSkill = cur.execute(f'''SELECT secondSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+            rus_zak = cur.execute(f'''SELECT ruszac FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+            print(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
+            cur.execute(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
+            db_lp1.commit()
+            cur.close()
+            db_lp1.close()
         db_lp = sqlite3.connect('bases/login_password.db')
         cursor_db = db_lp.cursor()
         Log1 = cursor_db.execute(('''SELECT name FROM info
@@ -718,12 +730,13 @@ def resPas():
                     newpass = request.form['newPassword']
                     cursor.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass.encode()).hexdigest())}" WHERE Login = "{session['email']}";''')
                     db_lp.commit()
+                    return redirect(url_for('account'))
             cursor.close()
             db_lp.close()
     return render_template('resPas.html', Email = email, OldPas = oldPass1, newPas1 = newpas1, newPas2 = newpas2 )
     
 
-@app.route('/resMail')
+@app.route('/resMail', methods=['GET', 'POST'])
 def resMail():
     oldEmail = ''
     newEmail = ''
@@ -740,6 +753,8 @@ def resMail():
             newEmail = request.form['newMail']
             password = request.form['passwordMail']
             codeOld = generate(5)
+            session.pop('codeOld', None)
+            session['codeOld'] = codeOld
             letter(oldEmail, codeOld)
         if request.form['button'] == 'CodeNew':
             codeOld1 = request.form['codeOld1']
@@ -747,6 +762,8 @@ def resMail():
             newEmail = request.form['newMail']
             password = request.form['passwordMail']
             codeNew = generate(5)
+            session.pop('codeNew', None)
+            session['codeNew'] = codeNew
             letter(newEmail, codeNew)
         if request.form['button'] == 'Mail':
             oldEmail = request.form['email']
@@ -759,7 +776,7 @@ def resMail():
             password = str(hashlib.sha512(password.encode()).hexdigest())
             codeOld1 = request.form['codeOld1']
             codeNew1 = request.form['codeNew1']
-            if codeOld == codeOld1 and codeNew == codeNew1:
+            if session['codeOld'] == codeOld1 and session['codeNew'] == codeNew1:
                 if oldpass == password:
                     cursor.execute(f'''UPDATE login_password SET login = "{newEmail}" WHERE login = "{oldEmail}";''')
                     cursor.execute(f'''UPDATE info SET login = "{newEmail}" WHERE email = "{oldEmail}";''')
@@ -768,7 +785,7 @@ def resMail():
                     db_lp.commit()
                     cursor.close()
                     db_lp.close
-                    return redirect(url_for('qu'))
+                    return redirect(url_for('account'))
                 else:
                     cursor.close()
                     db_lp.close()
@@ -779,29 +796,35 @@ def resMail():
 
 
 
-@app.route('/forgot')
+@app.route('/forgot', methods=['GET', 'POST'])
 def forgot():
     email = ''
     newpass1 = ''
     newpass2 = ''
     code = ''
     if request.method == 'POST':
-        if request.form['button'] == 'code':
+        if request.form['button'] == 'Сode':
             email = request.form['Pemail']
             newpass1 = request.form['newPassword']
             newpass2 = request.form['newPassagain']
             code = generate(5)
+            session.pop('code', None)
+            session['code'] = code
             letter(email, code)
         if request.form['button'] == 'Pas':
+            print(f'code: {session["code"]}')
             code1 = request.form['Pcode']
-            newpass1 = request.form['newPassword']
-            if code == code1:
+            if session['code'] == code1:
+                newpass1 = request.form['newPassword']
+                email = request.form['Pemail']
                 db_lp = sqlite3.connect('bases/login_password.db')
                 cur = db_lp.cursor()
-                cur.execute(f'''UPDATE login_password SET password = "{str(hashlib.sha512(newpass1.encode()).hexdigest())}"; WHERE login = "{email}"''')
+                cur.execute(f'''UPDATE login_password SET Password = "{str(hashlib.sha512(newpass1.encode()).hexdigest())}" WHERE Login = "{email}";''')
                 db_lp.commit()
                 cur.close()
                 db_lp.close()
+                return redirect(url_for('auth'))
+            else:  print('error code', code, code1)
     return render_template('forgotPas.html', Email = email, newPas1 = newpass1, newPas2 = newpass2)
 
 
