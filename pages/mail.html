@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Контактный адрес почты | Helpy</title>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+    </head>
+
+    <body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <a id="num" onclick="copyText()" title="Скопировать в буфер обмена">Helpyrussia@gmail.com</a>
+    </body>
+<style>
+    #num {
+        cursor: pointer;
+        text-align: center;
+        font-family: Quicksand;
+        font-size: max(30px, 6vw);
+        color: rgb(0, 0, 0);
+    }
+    @font-face {
+        font-family: 'Quicksand';  
+        src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype"); 
+        font-style: normal; 
+        font-weight: 600;
+    }
+</style>
+<script>
+    function copyText() {
+      navigator.clipboard.writeText("Helpyrussia@gmail.com");
+  }
+</script>

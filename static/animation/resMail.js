@@ -4,8 +4,8 @@ const email = document.getElementById('email');
 const emailError = document.querySelector('#email + span.error');
 const newMail = document.getElementById('newMail');
 const newMailError = document.querySelector('#newMail + span.error');
-const password = document.getElementById('password');
-const passwordError = document.querySelector('#password + span.error');
+const password = document.getElementById('passwordMail');
+const passwordError = document.querySelector('#passwordMail + span.error');
 
 email.addEventListener('input', function (event) { // realtime валидатор
     if (email.validity.valid) { // почта

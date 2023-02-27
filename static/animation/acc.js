@@ -154,3 +154,9 @@ document.getElementsByClassName("a_table_style")[3].onclick = function() {
     tooltip.style.display = "flex";
 };
 
+document.getElementsByClassName("a_footer")[3].onclick = function() {
+    location.href='/number';
+};
+document.getElementsByClassName("a_footer")[4].onclick = function() {
+    location.href='/mail';
+};
