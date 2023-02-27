@@ -843,5 +843,12 @@ def admin():
 def add_admin():
     return render_template('add_admin.html')
 
+@app.route('/number')
+def number():
+    return render_template('number.html')
+
+@app.route('/mail')
+def mail():
+    return render_template('mail.html')
 
 app.run(debug=True)
