@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="utf-8">
-<link rel="stylesheet" href="/static/style/auth.css">
-</head><body>
-
-    <div class="menu">
-        <div class="text_bottom">Вход в личный кабинет Helpy</div>
-    </div>
-<div class="menu_center">
-    <div class="text_center">Заполните поля ниже для входа в личный кабинет</div>
-</div>
-    <form method="POST">
+<html lang="ru">
+    <head>
+        <title>Вход | Helpy</title>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+        <link rel="stylesheet" href="/static/style/auth.css">
+    </head>
+    <body>
+        <form method="POST">
         <div class="container">
-        <p><label for="email" class="font">Email (логин для входа в личный кабинет)</label>
-            <input type="text" placeholder="" name="email" required="" id="email"></p>
-        <p><label for="password" class="font">Пароль</label>
-            <input type="password" placeholder="" name="password" required="" id="password"></p>
-        <button type="submit">Войти</button>
-        <div class="container">
-        <a class="reg" href="/reg">Регистрация</a>
+            <div class="back">
+                <a class="img_size" href="\"><img src="../static/imgs/h.svg" alt="УУПС"></a>
+                <div class="main_text">Вход</div>
+                <input class="inputs" id="username" name="username" type="text" placeholder="Email"/>
+                <input class="inputs" id="password" name="password" type="password" placeholder="Пароль"/>
+                <span class="{{Error}}" aria-live="polite">{{Msg}}</span>
+                <a href="/forgot" class="res_pass">Забыли пароль?</a>
+                <button type="submit" class="btn_pozvol">Войти</button>
+                <a href="/reg" class="btn_reg">Создать аккаунт</a>
+            </div>
+            <a href="" class="technical_support">Техническая поддержка</a>
         </div>
-        </div>
-    </form>
-
-</body>
+        </form>
+    </body>
 </html>

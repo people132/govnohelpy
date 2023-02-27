@@ -1,23 +1,164 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'style/account.css') }}">
-</head>
-<body>
-     <a class="prof" href="">Профессиональная информация</a>
-            <a class="prof1" href=""></a>
+    <head>
+        <title>Личный кабинет | Helpy</title>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+        <link rel="stylesheet" href="../static/style/account.css">
+    </head>
 
-            <div>
-
+    <body class="page"> 
+        <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        <div class="top_mobile_icon" style="background-image: url('../static/imgs/h.svg');"></div>
+        <div class="hamburger-menu">
+            <div class="top_mobile_line">
+                <a href="/qu" class="top_mobile_line_text">Настройки <br> аккаунта</a>
+                <a href="/logout" class="top_mobile_line_text">Выйти</a>
+            </div>
+        </div>
+        <form method="POST">
+        <div class="container">
+            <div class="head">
+                <div class="top_text_upperblock_for_right"></div>
+                <a class="img_size" href="\"><img src="../static/imgs/h.svg" alt="УУПС"></a>
+                <div class="desktop_block head" style="margin-left: 0; margin-top: 0;">
+                    <div class="top_text_left">Личный <br> кабинет</div>
+                    <div class="top_line"></div>
+                    <div id="top_text_right">{{Log}}</div>
+                </div>
+                <div class="top_information_conteiner">
+                    <a href="/qu" class="top_information_textblue_btn"  >Редактировать <br> профиль</a>
+                    <a href="/logout" class="exit_block">
+                        <div class="exit_img" style="background-image: url('../static/imgs/icons-EXIT.png');"></div>
+                        Выйти
+                    </a>
+                </div>
             </div>
 
-            <div>
-
+            <div class="mini_title_frame" style="display: none;">
+                <div class="mini_titles_texts">Мои заказы</div>
+            </div>
+            <div class="up_blocks">
+                <div class="earned_circle_tablet">
+                    <div class="mini_titles_texts" style="top: 2%; width: 100%;">Уже заработано</div>
+                    <div class="earned_circle">{{Sum}}</div>
+                </div>
+                <table class="tablet"> <!--таблица с заявками-->
+                    <tr><td class="tablet_titles" colspan="2">Мои заявки</td></tr>
+                    <tr>
+                        <td class="tablet_element"></td>
+                        <td class="tablet_element_sbor"><a class="a_table_style">Подробнее</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tablet_element"></td>
+                        <td class="tablet_element_sbor"><a class="a_table_style">Подробнее</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tablet_element"></td>
+                        <td class="tablet_element_sbor"><a class="a_table_style">Подробнее</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tablet_element"></td>
+                        <td class="tablet_element_sbor"><a class="a_table_style">Подробнее</a></td>
+                    </tr>
+                </table>
             </div>
 
-<button class="conect">связаться с менеджером</button>
+            <div class="tooltip">
+                <div class="close"></div>
+                <div class="tooltip_el_cont">
+                    <div class="tooltip_main_text">Статус заявки:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div> <!--Вот здесь начинай переменные загонять через одну-->
+                    <div class="tooltip_main_text">Название и краткое описание:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div>
+                    <div class="tooltip_main_text">Цена:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div>
+                    <div class="tooltip_main_text">Описание:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div>
+                    <div class="tooltip_main_text">Информация о пользователе:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div>
+                    <div class="tooltip_main_text">Контакты:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div>
+                    <div class="tooltip_main_text">Информация о менеджере:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div>
+                    <div class="tooltip_main_text">Контакты менеджера:&nbsp;&nbsp;</div>
+                    <div class="tooltip_main_text"></div>
+                </div>
+            </div>
 
+            <div id="container1">
+                <button type="submit" class="learn-more">
+                <span href="/queue" class="circle" aria-hidden="true">
+                    <span href="/queue" class="icon arrow"></span>
+                </span>
+                <span class="button-text" href="/queue">НАЙТИ НОВЫЙ ЗАКАЗ</span>
+                </button>
+            </div>
 
-</body>
-</html>
+            <table class="tablet" style="width: 100%; margin-top: max(80px, 5vw);"> <!--таблица истории-->
+                <tr><td class="tablet_titles" colspan="2">История заказов</td></tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+                <tr>
+                    <td class="tablet_of_CO_el_left"></td>
+                    <td><div class="tablet_of_CO_el_right"></div></td>
+                </tr>
+            </table>
+            <div style="width: 100%;">
+                <a id="tablet_of_CO_arrow_frame">↓</a>
+            </div>
+            <div id="arrow_block">
+                <a class="arrow_page_frame">&#60;</a>
+                <div id="counter">1</div>
+                <a class="arrow_page_frame" style="border-radius: 0px 0px max(10px, 0.52vw) 0px">&#62;</a>
+            </div>
+        </div>
+    </form>
+            <div class="mini_title_frame" style="display: none; left: calc(60px); top: 104%; width: 320px;">
+                <div class="mini_titles_texts">Выполненные заказы</div>
+            </div>
+
+        <div id="email" style="display: none;">{{Email}}</div>
+
+        <footer>
+            <div class="social"> 
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-vk-circled-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-telegram-app-.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-instagram-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-phone-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-mail-60.png"></a>
+            </div>
+            <div class="footer_line"></div>
+            <div class = "helpy_footer">©<strong>Helpy</strong> </div>
+        </footer>
+        <script src="../static/animation/acc.js"></script>
+    </body>

@@ -1,113 +1,377 @@
-.menu{
-    position: fixed;
-    height: 15%;
-    width: 100%;
-    background-color: #0260e8;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.30);
-  }
-  
-  .text_bottom{
-  
-      font-family: ArialSans;
-      margin-right: center; /*Положение формы */
-      margin-left: center; /*Положение формы */
-      text-align: center; /*Центровка текста*/
-      padding-top: 2%;
-      color: white;
-      font-size: 40px;
-      font-weight: 900;
-  }
-  
-  .menu_center{
-    height: 30%;
-    width: 100%;
-    background-color: white;
-    padding-top: 225px;
-    padding-bottom: 100px;
-    top: 0;
-    left: 0;
-  }
-  /**/
+body{
+  margin: 0;
+  background-color: #f7f7f7;
+  min-height: 100%;
+  height: auto;
+}
 
-  .reg{
-    text-decoration: none;
-    color: black;
-    font-family: ArialSans;
-  }
+.container {
+  max-width: 700px;
+  padding-left: 10px; padding-right: 10px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  flex-flow: row wrap;
+}
 
-  .text_center{
-      font-family: ArialSans;
-      margin-left: center;
-      margin-right: center;
-      text-align: center;
-      font-size: 30px;
-      font-weight: 600;
-      color: black;
+.back{
+  margin-top: 7vw;
+  margin-bottom: max(19px, 1vw);
+  background-color: #f1f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-flow: row wrap;
+  border-radius: max(19px, 1vw);
+  padding: max(19px, 1vw) 1vw max(19px, 1vw) 1vw;
+  border: 0.05vw solid #dadce0;
+}
+
+.main_text{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-family: "WSB";
+  font-size: max(0.99vw, 30px);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: max(19px, 1vw);
+}
+
+.uname{
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-family: "WM";
+  font-size: max(0.99vw, 19px);
+  font-weight: 300;
+  margin-bottom: 1vw;
+}
+
+.nav-pills{ /*табы для сброса почты/пароля */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-top: max(10px, 2vw);
+  margin-bottom: min(-30px, -2vw);
+}
+.nav-item{
+  width: 50%;
+  display: flex;
+}
+.nav-link{
+  width: 100%;
+  text-decoration: none;
+  background: #0260e8;
+  color: #f1f0f0;
+  border-radius: max(19px, 1vw);
+  height: max(100px, 5.21vw);
+  padding: 0;
+  cursor: pointer;
+
+  transition: all 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.nav-link:not(.active_tab):hover{
+  margin-top: -5px;
+}
+
+.active_tab{
+  background-color: #f1f0f0;
+  color: black;
+  border: 0.05vw solid #dadce0;
+  cursor: default;
+}
+
+.tab-pane:target{
+  display: flex;
+}
+
+.text_tab{
+  display: flex;
+  height: calc(max(100px, 5.21vw) + min(-30px, -2vw));
+  font-weight: 400;
+	font-family: 'WM';
+  font-size: max(0.99vw, 19px);
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.inputs{
+  min-height: 60px;
+  height: 3.13vw;
+  width: 100%;
+  margin-bottom: max(19px, 1vw);
+  text-align: center;
+  position: relative;
+  border-width: 0.10vw;
+  border-color:#f7f7f7;
+  border-radius: max(1.3vw, 25px);
+  background-color: #ffffff;
+  background-position: center center;
+  border-style: solid;
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(0 0 0 / 40%);
+  color: #000000;
+	font-weight: 400;
+	font-family: 'WM';
+  font-size: max(0.99vw, 19px);
+  align-items: center;
+  outline:none;
+  transition: all 0.3s;
+}
+
+.inputs:focus{
+  transition: all 0.3s;
+  border-color: rgb(2, 96, 232);
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(2 96 232 / 30%);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-color: rgb(2, 96, 232);
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(2 96 232 / 30%) inset;
+}
+input:invalid {
+  border-color:rgb(206, 4, 4);
+  box-shadow:0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3);
+}
+input:focus:invalid {
+  border-color:rgb(206, 4, 4);
+  box-shadow:0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3);
+}
+input:required{
+  border-color:#f7f7f7;
+  box-shadow: 0.32vw 0.27vw 0.78vw 0px rgb(0 0 0 / 40%);
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: min(-19px, -1vw);
+  margin-bottom: max(19px, 1vw);
+  width  : calc(100% - max(2.6vw, 50px));
+  padding: 0;
+  font-size: max(15px, 0.78vw);
+  font-family: 'WSL',Arial,sans-serif;
+
+  color: white;
+  background-color: rgb(206, 4, 4);
+  box-shadow:0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3);
+  border-radius: 0 0 max(5px, 0.26vw) max(5px, 0.26vw);
+  z-index: 3;
+  height: 0;
+  padding: 0;
+
+  transition: all 0.2s;
+}
+
+.error.active {
+  height: auto;
+  display: inline-flex;
+  padding: max(5px, 0.26vw);
+}
+
+.btn_pozvol {
+  margin-top: max(57px, 3vw);
+  font-weight: 600;
+  text-transform: none;
+  border-width: 0;
+  border-radius: 5.21vw;
+	min-width: 250px;
+  width: 13.02vw;
+  min-height: 55px;
+  height: 2.86vw;
+	background-color: #0260e8;
+	font-size: max(1.15vw, 22px);
+  font-family: 'WSL',Arial,sans-serif;
+	box-shadow: 0.52vw 0.52vw 0.52vw 0.05vw rgb(2 96 232 / 30%);
+	color: #ffffff !important;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  transition: all .2s;
+}
+
+.btn_pozvol:link,
+.btn_pozvol:visited {
+  text-decoration: none;
+  transition: all .2s;
+}
+.btn_pozvol:hover {
+  transition: all .2s;
+  transform: translateY(-0.16vw);
+  box-shadow: 0 0.52vw 1.04vw rgba(0, 0, 0, 0.3);
+	background-color: #0260e8;
+}
+.btn_pozvol:active {
+    transform: translateY(-0.05vw);
+    box-shadow: 0 0.26vw 0.52vw rgba(0, 0, 0, 0.2);
+}
+
+.btn_reg{
+  margin-top: max(32px, 1.7vw);
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-family: 'WSL',Arial,sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1a73e8;
+  font-size: max(0.99vw, 19px);
+  cursor: pointer;
+}
+
+.res_pass{
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  font-family: "WSL";
+  font-size: max(0.52vw, 15px);
+  font-weight: 300;
+  text-align: left;
+  letter-spacing: 0.01vw;
+  text-decoration: none;
+}
+.change_btn{
+  width: 50%;
+  margin-left: max(10px, 2vw);
+  min-height: 60px;
+  height: auto;
+  border-radius: max(1.3vw, 25px);
+  font-weight: 400;
+	font-family: 'WM';
+  font-size: max(0.99vw, 19px);
+  border-color: #0260e8;
+  border-width: max(2px, 0.10vw);
+  border-style: solid;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all .2s;
+  cursor: pointer;
+}
+.change_btn:hover{
+  background-color: #0260e8;
+  color: #ffffff;
+}
+
+.technical_support{
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  font-family: "WSL";
+  font-size: max(0.52vw, 15px);
+  font-weight: 300;
+  text-align: right; 
+  letter-spacing: 0.01vw;
+  text-decoration: none;
+  margin-right: max(15px, 1vw);
+  margin-bottom: max(19px, 1vw);
+}
+
+img{
+  min-width: 105px;
+  min-height: 105px; 
+  width: 5.47vw;
+  height: 5.47vw; 
+}
+
+@media(min-width:2350px){
+  .container{
+      max-width: none;
+      width: 40%;
   }
-  
-  form {
-      padding-top: 0px;
-      font: 14px ArialSans,arial, sans-serif;/*Выбираем шрифт */
-      border: 1px solid none;/*Цвет, размер и тип границы */
-      -webkit-border-radius: 20px;/*Скругляем углы */
-      color: #777991;/*Цвет label */
-      width: 100%; /*Ширина формы */
-      margin-right: center; /*Положение формы */
-      margin-left: auto; /*Положение формы */
-      text-align: center; /*Центровка текста*/
-  
+}
+
+@media(max-width:700px){
+  .back{
+    margin-top: max(19px, 1vw);
+    background-color: #f7f7f7;
+    border-width: 0;
+    padding: 0;
   }
-  
-  input[type=text], input[type=password] {
-      text-align: center; /*Центровка текста*/
-      -webkit-border-radius: 4px;/*Скругляем углы */
-      width: 500px; /*Ширина */
-      height: 60px;
-      padding: 5px 20px; /*Размер внутренних отступов*/
-      margin: 10px 0; /*Размер внешних отступов*/
-      margin-right: auto; /*Размер внешних отступов справа*/
-      margin-left: auto; /*Размер внешних отступов слева*/
-      display: block; /*тип отображения*/
-      border: 1px solid #050c26;/*Цвет, размер и тип границы */
-      box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-      font: 14px ArialSans;/*Выбираем шрифт */
-      color: #777991;/*Цвет текста в input */
+  .technical_support{
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
-  
-  button {
-      font: 16px ArialSans, arial, sans-serif; /*Выбираем шрифт кнопки */
-      background-color: #454cee; /*Выбираем цвет фона */
-      -webkit-border-radius: 30px; /*Закругление */
-      color: white; /*Выбираем цвет текста*/
-      padding: 16px 20px; /*Размер внутренних отступов*/
-      margin: 8px 0;/*Размер внешних отступов*/
-      border: none; /*Без границы*/
-      cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-      width: 100px; /*Ширина*/
-      height: 60px;
-      background-color: #0260e8;
-  }
-  
-  button:hover {
-      opacity: 0.9; /*Изменение яркости кнопки при наведении*/
-  }
-  
-   @font-face {
-    font-family: ArialSans;
-    src: url("../fonts/ArialSans.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'Quicksand';  
+	src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+ }
+  @font-face {
+    font-family: 'WSB';
+    src:
+        url('../fonts/Whitney-Semibold.woff2') format('woff2'),
+        url('../fonts/Whitney-Semibold.woff') format('woff'),
+        url('../fonts/Whitney-Semibold.ttf') format('truetype');
+    font-weight: 600;
     font-style: normal;
-    font-weight: normal;
-   }
-  
-  .container {
-      padding-top: 10px; /*Размер внутренних отступов контейнера*/
-      padding-bottom: 10px;
   }
-  
-  font{
-      font-family:ArialSans;
-      font-size:20px;
-      color:black;
+  @font-face {
+    font-family: 'WM';
+    src:
+        url('../fonts/Whitney-Medium.woff2') format('woff2'),
+        url('../fonts/Whitney-Medium.woff') format('woff'),
+        url('../fonts/Whitney-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WSL';
+    src:
+        url('../fonts/Whitney-Light.woff2') format('woff2'),
+        url('../fonts/Whitney-Light.woff') format('woff'),
+        url('../fonts/Whitney-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WSExB';
+    src: local('Whitney Black')
+        url('../fonts/Whitney-Black.woff2') format('woff2'),
+        url('../fonts/Whitney-Black.woff') format('woff'),
+        url('../fonts/Whitney-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WSExB';
+    src: local('Unbounded')
+        url('../fonts/Unbounded-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src:
+        url('../fonts/Roboto-Medium.ttf') format('truetype');
+    font-style: normal;
   }

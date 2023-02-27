@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width">
+        <link rel="stylesheet" href="{{url_for('static', filename= 'style/qu.css' )}}">
+    </head>
+
+    <body class="page"> 
+        <div class="head">
+            <div class="img_size"><img src="../static/imgs/h.svg" alt="УУПС"></div>
+            <div class="desktop_block head" style="margin-left: 0; margin-top: 0;">
+                <div class="top_text_left">Личный <br> кабинет</div>
+                <div class="top_line"></div>
+                <div id="top_text_right">{{log}}</div>
+            </div>
+            <div class="top_information_conteiner">
+                <a class="top_information_text_btn" href="/qu">Назад</a>
+                <a href="/logout" class="exit_block">
+                    <div class="exit_img" style="background-image: url('../static/imgs/icons-EXIT.png');"></div>
+                    Выйти
+                </a>
+                <a href="/logout" class="mobile_top_exit">
+                    <div class="exit_img" style="background-image: url('../static/imgs/icons-EXIT.png');"></div>
+                </a>
+            </div>
+        </div>
+        <form method="POST">
+            <div class="container">
+                <input class="inputs" value="{{Surname}}" id="surname" name="surname" type="text" placeholder="Фамилия"/>
+                <input class="inputs" value="{{Username}}" id="username" name="username" type="text" placeholder="Имя"/>
+                <input class="inputs" value="{{Patronymic}}" id="patronymic" name="patronymic" type="text" placeholder="Отчество (при наличии)"/>
+                <input class="inputs" value="{{Number}}" id="number" name="number" type="" placeholder="Номер телефона"/>
+                <input class="inputs" value="{{Tg}}" id="tg" name="tg" type="" placeholder="telegram (по желанию)"/>
+                <input class="inputs" style="margin-bottom: 2vw;" id="vk" name="vk" type="" placeholder="VK (по желанию)"/>
+                <a class="change_btn" href="/re">Сменить пароль или почту</a>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <button type="submit" class="save_btn">сохранить</button>
+                </div>
+            </div>
+        </form>  
+        <footer>
+            <div class="social"> 
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-vk-circled-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-telegram-app-.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-instagram-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-phone-60.png"></a>
+                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-mail-60.png"></a>
+            </div>
+            <div class="footer_line"></div>
+            <div class = "helpy_footer">©<strong>Helpy</strong> </div>
+        </footer>
+    </body>
+</html>
