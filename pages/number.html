@@ -6,7 +6,7 @@
         <meta name = "viewport" content="width=device-width">
     </head>
 
-    <body style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+    <body>
         <a onclick="copyText()" style="cursor: pointer;">
             <div class="num" title="Скопировать в буфер обмена">+7 904 280 40 92</div>
             <div class="line"></div>
@@ -14,7 +14,14 @@
         </a>
     </body>
 <style>
-
+    body{
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
+        flex-direction: column;
+        margin: 0;
+    }
     .num {
         text-align: center;
         font-family: Quicksand;
