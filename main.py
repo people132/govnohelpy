@@ -696,7 +696,7 @@ def generate(length):
 
 def letter(email, ms):
     with smtplib.SMTP_SSL("smtp.gmail.com") as smtp:
-        smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb') #https://myaccount.google.com/apppasswords
+        smtp.login('Helpyrussia@gmail.com', 'jsxs pshp sndf fqok') #https://myaccount.google.com/apppasswords
         smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 
 
