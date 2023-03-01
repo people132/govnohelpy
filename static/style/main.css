@@ -2,7 +2,8 @@ body{
 	margin: 0;
 	min-height: 100%;
 	height: auto;
-  }
+	cursor: default;
+}
 @keyframes kok{
 	0%{
 		opacity: 0;

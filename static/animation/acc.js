@@ -98,7 +98,7 @@ const tooltip = document.getElementsByClassName("tooltip")[0];
 const tooltip_right = document.getElementsByClassName("tooltip_td");
 const orders = document.getElementsByClassName("tablet_element");
 document.getElementsByClassName("close")[0].onclick = function() {
-    tooltip.style.display = "none";
+    tooltip.classList.remove("_active");
 }
 
 for (let i = 0; i < 4; i++) {
@@ -118,7 +118,7 @@ document.getElementsByClassName("a_table_style")[0].onclick = function() {
             }
         },
     );
-    tooltip.style.display = "flex";
+    tooltip.classList.add("_active");
 };
 document.getElementsByClassName("a_table_style")[1].onclick = function() {
     loadJSON('../static/animation/temp2.json',
@@ -129,7 +129,7 @@ document.getElementsByClassName("a_table_style")[1].onclick = function() {
             }
         },
     );
-    tooltip.style.display = "flex";
+    tooltip.classList.add("_active");
 };
 document.getElementsByClassName("a_table_style")[2].onclick = function() {
     loadJSON('../static/animation/temp2.json',
@@ -140,7 +140,7 @@ document.getElementsByClassName("a_table_style")[2].onclick = function() {
             }
         },
     );
-    tooltip.style.display = "flex";
+    tooltip.classList.add("_active");
 };
 document.getElementsByClassName("a_table_style")[3].onclick = function() {
     loadJSON('../static/animation/temp2.json',
@@ -151,7 +151,7 @@ document.getElementsByClassName("a_table_style")[3].onclick = function() {
             }
         },
     );
-    tooltip.style.display = "flex";
+    tooltip.classList.add("_active");
 };
 
 document.getElementsByClassName("a_footer")[3].onclick = function() {
