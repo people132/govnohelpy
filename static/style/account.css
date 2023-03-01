@@ -505,30 +505,51 @@ table{
     padding: max(10px, 0.52vw);
 }
 
-.tooltip_el_cont{
-    margin-top: max(96px, 3vw);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    word-wrap: normal;
-    grid-auto-rows: auto;
-    gap: max(10px, 0.52vw);
-    overflow-y: auto;
+.tooltip_control_tablet{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    border-radius: max(1.3vw, 25px);
 }
 
-.tooltip_main_text{
-    padding: max(10px, 0.52vw);
-	font-weight: 500;
+.tooltip_tablet{
+    height: 100%;
+    width: 100%;
+	border-collapse: collapse;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background: linear-gradient(45deg, #2BAD94, #0260e8);
+    min-width: 300px;
+    position: relative;
+    border-width: 0px;
+    border-radius: max(1.3vw, 25px);
+}
+
+.tooltip_td{
+    word-break: break-word;
+    display: inline-flex;
+    width: 50%;
+    min-height: 80px;
+    height: 100%;
+    border-width: 0px;
+    background-position: center center;
+    border-style: solid;
+    color: #000000;
+    text-decoration: none;
+	font-weight: 400;
 	text-align: center;
 	font-family: 'WM';
-	font-size: max(20px, 1.82vw);
-    border-width: 0.10vw;
-    border-color: #d6d5d5;
-    border-radius: max(1.3vw, 25px);
-    border-style: solid;
+    font-size: max(1.2vw, 19px);
+    align-items: center;
+    justify-content: center;
+
+    padding: max(15px, 0.2vw);
+	background-color:inherit;
+	color: #fff;
 }
 
-.tooltip_main_text:nth-child(2n){
-    font-weight: 1000;
+.tooltip_tablet tr:hover td {
+	background: rgba(255, 255, 255, 0.137);
 }
 
 .close {
@@ -538,7 +559,8 @@ table{
 	top: max(32px, 1.67vw);
 	width: max(32px, 1.67vw);
 	height: max(32px, 1.67vw);
-	opacity: 0.3;
+	opacity: 0.5;
+    z-index: 9;
 }
 .close:hover {
     opacity: 1;
@@ -549,7 +571,7 @@ table{
     content: ' ';
     height: max(33px, 1.72vw);
     width: max(2px, 0.10vw);
-    background-color: #333;
+    background-color: #ffffff;
 }
 .close:before {
     transform: rotate(45deg);

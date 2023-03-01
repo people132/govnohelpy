@@ -8,7 +8,7 @@ function ChangeURL(fieldName, URL){
     fieldName.href = URL;
 }
 for (let i = 2; i < 8; i++) {
-    document.getElementsByTagName("tr")[6 + i].style.display = "none";
+    document.getElementsByTagName("tr")[12 + i].style.display = "none";
 }
 var flag = 0;
 var tablet_history = document.getElementsByClassName("tablet")[1];
@@ -16,7 +16,7 @@ var tablet_orders = document.getElementsByClassName("tablet")[0];
 document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
     if(flag === 0){
         for (let i = 2; i < 8; i++) {
-            document.getElementsByTagName("tr")[6 + i].style.display = "";
+            document.getElementsByTagName("tr")[12 + i].style.display = "";
         }
         Changename("tablet_of_CO_arrow_frame", "↑");
         document.getElementById("arrow_block").style.display = "flex";
@@ -24,7 +24,7 @@ document.getElementById("tablet_of_CO_arrow_frame").onclick = function() {
     }
     else{
         for (let i = 2; i < 8; i++) {
-            document.getElementsByTagName("tr")[6 + i].style.display = "none";
+            document.getElementsByTagName("tr")[12 + i].style.display = "none";
         }
         Changename("tablet_of_CO_arrow_frame", "↓")
         document.getElementById("arrow_block").style.display = "none";
