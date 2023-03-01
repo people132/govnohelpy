@@ -518,12 +518,16 @@ table{
     width: 100%;
 	border-collapse: collapse;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    background: linear-gradient(45deg, #2BAD94, #0260e8);
     min-width: 300px;
     position: relative;
-    border-width: 0px;
     border-radius: max(1.3vw, 25px);
 }
+
+.tooltip_tablet tr:first-child td:first-child { border-top-left-radius: max(1.3vw, 25px); }
+.tooltip_tablet tr:first-child td:last-child { border-top-right-radius: max(1.3vw, 25px); }
+
+.tooltip_tablet tr:last-child td:first-child { border-bottom-left-radius: max(1.3vw, 25px); }
+.tooltip_tablet tr:last-child td:last-child { border-bottom-right-radius: max(1.3vw, 25px); }
 
 .tooltip_td{
     word-break: break-word;
@@ -542,14 +546,15 @@ table{
     font-size: max(1.2vw, 19px);
     align-items: center;
     justify-content: center;
+    border: 0.05vw solid #dadce0;
 
     padding: max(15px, 0.2vw);
 	background-color:inherit;
-	color: #fff;
+	color: #000000;
 }
 
 .tooltip_tablet tr:hover td {
-	background: rgba(255, 255, 255, 0.137);
+	background: rgba(0, 0, 0, 0.082);
 }
 
 .close {
@@ -571,7 +576,7 @@ table{
     content: ' ';
     height: max(33px, 1.72vw);
     width: max(2px, 0.10vw);
-    background-color: #ffffff;
+    background-color: #000000;
 }
 .close:before {
     transform: rotate(45deg);
