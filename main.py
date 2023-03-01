@@ -640,9 +640,7 @@ def account():
                 with open('static/animation/temp1.json', 'w') as f:
                     # записывает получившийся словарь в json
                     json.dump(obj, f, indent=2)
-                f.close()
-        if summ == 0:
-            summ = 'Вы бомж'
+                f.close()   
         cursor_db.close()
         db_lp.close()
     return render_template('account.html', Log=fio, Sum=summ, Email=session['email'])
