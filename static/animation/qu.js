@@ -99,3 +99,10 @@ function showErrorPatronymic() {
     }
     patronymicError.className = 'error active';
 }
+
+document.getElementsByClassName("a_footer")[3].onclick = function() {
+    location.href='/number';
+};
+document.getElementsByClassName("a_footer")[4].onclick = function() {
+    location.href='/mail';
+};

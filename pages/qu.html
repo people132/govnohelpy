@@ -26,12 +26,16 @@
                 </a>
             </div>
         </div>
-        <form method="POST">
+        <form method="POST" novalidate>
             <div class="container">
-                <input class="inputs" value="{{Surname}}" id="surname" name="surname" type="text" placeholder="Фамилия"/>
-                <input class="inputs" value="{{Username}}" id="username" name="username" type="text" placeholder="Имя"/>
-                <input class="inputs" value="{{Patronymic}}" id="patronymic" name="patronymic" type="text" placeholder="Отчество(при наличии)"/>
-                <input class="inputs" value="{{Number}}" id="number" name="number" type="" placeholder="Номер телефона"/>
+                <input class="inputs" id="surname" name="surname"  type="text" placeholder="Фамилия"  required pattern="^[\p{L}]*$" minlength="2" maxlength="30" value="{{Surname}}"/>
+                <span class="error" aria-live="polite"></span>
+                <input class="inputs" id="username" name="username" value="{{Username}}" type="text" placeholder="Имя" required pattern="^[\p{L}]*$" minlength="2" maxlength="30"/>
+                <span class="error" aria-live="polite"></span>
+                <input class="inputs" id="patronymic" value="{{Patronymic}}" name="patronymic" type="text" placeholder="Отчество (при наличии)" pattern="^[\p{L}]*$" minlength="2" maxlength="30"/>
+                <span class="error" aria-live="polite"></span>
+                <input class="inputs" id="number" name="number" value="{{Number}}" type="" placeholder="Номер телефона" required pattern="^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$" maxlength="30"/>
+                <span class="error" aria-live="polite"></span>
                 <input class="inputs" value="{{Tg}}" id="tg" name="tg" type="" placeholder="telegram(по желанию)"/>
                 <input class="inputs" value="{{Vk}}" style="margin-bottom: 2vw;" id="vk" name="vk" type="" placeholder="VK(по желанию)"/>
                 <div class="main_texts"></div>
@@ -155,7 +159,7 @@
                 <label for="radio-1">через менеджера в Telegram или WhatsApp</label>
                 <input id="radio-2" {{Site}} type="radio" name="typeConnect" value="site">
                 <label for="radio-2">В личном кабинете Helpy</label>
-                <input value="{{Description}}" class="inputs" id = "description" name="description" style="margin-bottom: 2vw;" id="self" name="self" type="" placeholder="О себе"/>
+                <input value="{{Description}}" class="inputs" id = "description" name="description" style="margin-bottom: 2vw;" id="self" name="self" type="" placeholder="О себе" maxlength="1000">
                 <button class="change_btn" name="button" id ="button" value="reset">Сменить пароль или почту</button>
                 <div style="width: 100%; display: flex; justify-content: center;">
                     <button type="submit" name="button" id="button" value="save" class="save_btn">сохранить</button>
@@ -164,11 +168,11 @@
         </form>  
         <footer>
             <div class="social"> 
-                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-vk-circled-60.png"></a>
-                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-telegram-app-.png"></a>
-                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-instagram-60.png"></a>
-                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-phone-60.png"></a>
-                <a href="https://www.google.com/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-mail-60.png"></a>
+                <a href="https://vk.com/public219098869/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-vk-circled-60.png"></a>
+                <a href="https://t.me/helpyrussia/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-telegram-app-.png"></a>
+                <a href="https://wa.me/message/J747DAK7J7VHG1/" class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-whatsapp-60.png"></a>
+                <a class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-phone-60.png"></a>
+                <a class="a_footer"><img width="2vw" height="2vw" class="imgs_footer" src="../static/imgs/icons8-mail-60.png"></a>
             </div>
             <div class="footer_line"></div>
             <div class = "helpy_footer">©<strong>Helpy</strong> </div>

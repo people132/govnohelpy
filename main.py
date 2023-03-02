@@ -19,47 +19,47 @@ def qu():
         try:
             log1 = \
                 cursor_db.execute(
-                    ('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                    '''SELECT name FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
             log2 = cursor_db.execute(
-                ('''SELECT surname FROM info WHERE email = '{}'; ''').format(session['email'])).fetchone()[0]
+                '''SELECT surname FROM info WHERE email = '{}'; '''.format(session['email'])).fetchone()[0]
             log = log1 + ' ' + log2
         except:
             return redirect(url_for('reg'))
         # db_lp = sqlite3.connect('bases/login_password.db')
         # cursor_db = db_lp.cursor()
         username = \
-            cursor_db.execute(('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+            cursor_db.execute('''SELECT name FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         surname = \
-            cursor_db.execute(('''SELECT surname FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+            cursor_db.execute('''SELECT surname FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         patronymic = \
             cursor_db.execute(
-                ('''SELECT patronymic FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                '''SELECT patronymic FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         number = \
-            cursor_db.execute(('''SELECT phone FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        tg = cursor_db.execute(('''SELECT tg FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        vk = cursor_db.execute(('''SELECT vk FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+            cursor_db.execute('''SELECT phone FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
+        tg = cursor_db.execute('''SELECT tg FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
+        vk = cursor_db.execute('''SELECT vk FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         mainSkill = \
             cursor_db.execute(
-                ('''SELECT mainSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT mainSkill FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         mainHour = \
             cursor_db.execute(
-                ('''SELECT mainHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT mainHour FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         secondSkill = \
             cursor_db.execute(
-                ('''SELECT secondSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                '''SELECT secondSkill FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         secondHour = \
             cursor_db.execute(
-                ('''SELECT secondHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                '''SELECT secondHour FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         language = \
             cursor_db.execute(
-                ('''SELECT language FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT language FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         workHoure = \
             cursor_db.execute(
-                ('''SELECT workHoure FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT workHoure FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         typeConnect = \
             cursor_db.execute(
                 ('''SELECT typeConnect FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
@@ -83,10 +83,11 @@ def qu():
         russian = ''
         ukraian = ''
         belorussian = ''
+        print(language1)
         ruszac1 = ''
         if 'английский' in language1:
             english = 'checked'
-        if 'французкий' in language1:
+        if 'французский' in language1:
             french = 'checked'
         if 'немецкий' in language1:
             german = 'checked'
@@ -361,7 +362,7 @@ def qu():
         return render_template('qu.html', log=log, Username=username, Surname=surname, Patronymic=patronymic,
                                Number=number, Tg=tg, Vk=vk, Rus_zac=ruszac1, Messenger=messenger, Site=site,
                                English=english, French=french, German=german, Italian=italian, Russian=russian,
-                               Ukrein=ukraian, Belorussian=belorussian,
+                               Ukrain=ukraian, Belorussian=belorussian,
                                video_editing1=video_editing1, photo_editing1=photo_editing1,
                                front_end_application_development1=front_end_application_development1,
                                front_end_website_development1=front_end_website_development1,
@@ -523,11 +524,16 @@ def account():
         if request.method == 'POST':
             db_lp1 = sqlite3.connect('bases/login_password.db')
             cur = db_lp1.cursor()
-            mainSkill = cur.execute(f'''SELECT mainSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
-            secondSkill = cur.execute(f'''SELECT secondSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
-            rus_zak = cur.execute(f'''SELECT ruszac FROM info WHERE email = "{session['email']}";''').fetchone()[0]
-            print(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
-            cur.execute(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
+            emailyet = cur.execute(f'''SELECT email FROM queue;''').fetchall()
+            if emailyet.count[session['email']] > 4:
+                haveque = 'active error'
+                massege = 'заявка уже отправленна'
+            else:
+                mainSkill = cur.execute(f'''SELECT mainSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+                secondSkill = cur.execute(f'''SELECT secondSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+                rus_zak = cur.execute(f'''SELECT ruszac FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+                print(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
+                cur.execute(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
             db_lp1.commit()
             cur.close()
             db_lp1.close()
@@ -639,9 +645,7 @@ def account():
                 with open('static/animation/temp1.json', 'w') as f:
                     # записывает получившийся словарь в json
                     json.dump(obj, f, indent=2)
-                f.close()
-        if summ == 0:
-            summ = 'Вы бомж'
+                f.close()   
         cursor_db.close()
         db_lp.close()
     return render_template('account.html', Log=fio, Sum=summ, Email=session['email'])
@@ -697,7 +701,7 @@ def generate(length):
 
 def letter(email, ms):
     with smtplib.SMTP_SSL("smtp.gmail.com") as smtp:
-        smtp.login('kuprvvv@gmail.com', 'gqrl dbwn gfjf gpmb') #https://myaccount.google.com/apppasswords
+        smtp.login('Helpyrussia@gmail.com', 'jsxs pshp sndf fqok') #https://myaccount.google.com/apppasswords
         smtp.sendmail('kuprvvv@gmail.com', email, msg = ms)
 
 
@@ -792,7 +796,7 @@ def resMail():
             else:
                 cursor.close()
                 db_lp.close()
-    return render_template('resMail.html', Email = oldEmail, newMail = newEmail, MailPas = password, codeOld = codeOld1, codeNew = codeNew1)
+    return render_template('resMail.html', Email = oldEmail, NewMail = newEmail, MailPas = password, codeOld = codeOld1, codeNew = codeNew1)
 
 
 
@@ -842,5 +846,12 @@ def admin():
 def add_admin():
     return render_template('add_admin.html')
 
+@app.route('/number')
+def number():
+    return render_template('number.html')
 
-app.run(debug=True)
+@app.route('/mail')
+def mail():
+    return render_template('mail.html')
+
+app.run(debug=False)
