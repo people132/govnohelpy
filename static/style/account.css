@@ -553,10 +553,9 @@ table{
 
 .tooltip_td{
     word-break: break-word;
-    display: inline-flex;
     width: 50%;
     min-height: 80px;
-    height: 100%;
+    height: auto;
     border-width: 0px;
     background-position: center center;
     border-style: solid;
@@ -577,6 +576,9 @@ table{
 
 .tooltip_tablet tr:hover td {
 	background: rgba(0, 0, 0, 0.082);
+}
+.tooltip_tablet tr{
+    padding: 0;
 }
 .close_circle{
     width: max(30px, 2.08vw);
