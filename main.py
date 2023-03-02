@@ -854,4 +854,4 @@ def number():
 def mail():
     return render_template('mail.html')
 
-app.run(debug=True)
+app.run(debug=False)
