@@ -19,47 +19,47 @@ def qu():
         try:
             log1 = \
                 cursor_db.execute(
-                    ('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                    '''SELECT name FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
             log2 = cursor_db.execute(
-                ('''SELECT surname FROM info WHERE email = '{}'; ''').format(session['email'])).fetchone()[0]
+                '''SELECT surname FROM info WHERE email = '{}'; '''.format(session['email'])).fetchone()[0]
             log = log1 + ' ' + log2
         except:
             return redirect(url_for('reg'))
         # db_lp = sqlite3.connect('bases/login_password.db')
         # cursor_db = db_lp.cursor()
         username = \
-            cursor_db.execute(('''SELECT name FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+            cursor_db.execute('''SELECT name FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         surname = \
-            cursor_db.execute(('''SELECT surname FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+            cursor_db.execute('''SELECT surname FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         patronymic = \
             cursor_db.execute(
-                ('''SELECT patronymic FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                '''SELECT patronymic FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         number = \
-            cursor_db.execute(('''SELECT phone FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        tg = cursor_db.execute(('''SELECT tg FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
-        vk = cursor_db.execute(('''SELECT vk FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+            cursor_db.execute('''SELECT phone FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
+        tg = cursor_db.execute('''SELECT tg FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
+        vk = cursor_db.execute('''SELECT vk FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         mainSkill = \
             cursor_db.execute(
-                ('''SELECT mainSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT mainSkill FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         mainHour = \
             cursor_db.execute(
-                ('''SELECT mainHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT mainHour FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         secondSkill = \
             cursor_db.execute(
-                ('''SELECT secondSkill FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                '''SELECT secondSkill FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         secondHour = \
             cursor_db.execute(
-                ('''SELECT secondHour FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
+                '''SELECT secondHour FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[
                 0]
         language = \
             cursor_db.execute(
-                ('''SELECT language FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT language FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         workHoure = \
             cursor_db.execute(
-                ('''SELECT workHoure FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[0]
+                '''SELECT workHoure FROM info WHERE email = '{}';'''.format(session['email'])).fetchone()[0]
         typeConnect = \
             cursor_db.execute(
                 ('''SELECT typeConnect FROM info WHERE email = '{}';''').format(session['email'])).fetchone()[
@@ -524,11 +524,16 @@ def account():
         if request.method == 'POST':
             db_lp1 = sqlite3.connect('bases/login_password.db')
             cur = db_lp1.cursor()
-            mainSkill = cur.execute(f'''SELECT mainSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
-            secondSkill = cur.execute(f'''SELECT secondSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
-            rus_zak = cur.execute(f'''SELECT ruszac FROM info WHERE email = "{session['email']}";''').fetchone()[0]
-            print(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
-            cur.execute(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
+            emailyet = cur.execute(f'''SELECT email FROM queue;''').fetchall()
+            if emailyet.count[session['email']] > 4:
+                haveque = 'active error'
+                massege = 'заявка уже отправленна'
+            else:
+                mainSkill = cur.execute(f'''SELECT mainSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+                secondSkill = cur.execute(f'''SELECT secondSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+                rus_zak = cur.execute(f'''SELECT ruszac FROM info WHERE email = "{session['email']}";''').fetchone()[0]
+                print(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
+                cur.execute(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
             db_lp1.commit()
             cur.close()
             db_lp1.close()
