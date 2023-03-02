@@ -173,3 +173,7 @@ function showErrorPatronymic() {
     }
     patronymicError.className = 'error active';
 }
+
+function onSubmit(token) {
+    form.submit();
+}
