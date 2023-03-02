@@ -1,5 +1,5 @@
-from flask import Flask, request, render_template, session, url_for, redirect
 import sqlite3
+from flask import Flask, request, render_template, session, url_for, redirect
 import hashlib
 import os
 import json
@@ -853,5 +853,5 @@ def number():
 @app.route('/mail')
 def mail():
     return render_template('mail.html')
-
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
