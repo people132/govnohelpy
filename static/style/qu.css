@@ -350,6 +350,7 @@ select{
     cursor: pointer;
     transition: all 150ms ease;
     -webkit-appearance: none;
+    line-height: 50px;
 
     margin-bottom: 4%;
 }
