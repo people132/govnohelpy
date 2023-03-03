@@ -432,6 +432,7 @@ def auth():
                     cursor_db.close()
                     db_lp.close()
             if skill != '':
+                print(url_for('account'))
                 return redirect(url_for('account'))
             else:
                 return redirect(url_for('qu'))
@@ -853,5 +854,10 @@ def number():
 @app.route('/mail')
 def mail():
     return render_template('mail.html')
+
+if __name__ != "__main__":
+    from werkzeug.middleware.proxy_fix import ProxyFix
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1)
+    print("Running WSGI, enabled ProxyFix")
 if __name__ == "__main__":
     app.run(debug=True)
