@@ -350,7 +350,7 @@ def qu():
                 typeConnect = ' '.join(request.form.getlist('typeConnect'))
                 cursor_db1.execute(
                     f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
+                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = '{description}', ruszac = "{rus_zac}"
                         WHERE email ="{session['email']}";''')
                 cursor_db1.close()
                 db_lp1.commit()
