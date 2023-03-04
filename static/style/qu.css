@@ -296,7 +296,7 @@ body{
     font-family: 'WSL',Arial,sans-serif;
   
     color: white;
-    background-color: rgb(62, 253, 4);
+    background-color: rgb(206, 4, 4);
     box-shadow:0.32vw 0.27vw 0.78vw 0px rgba(255, 1, 1, 0.3);
     border-radius: 0 0 max(5px, 0.26vw) max(5px, 0.26vw);
     z-index: 3;

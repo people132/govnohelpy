@@ -14,6 +14,7 @@ const surname = document.getElementById('surname');
 const surnameError = document.querySelector('#surname + span.error');
 const patronymic = document.getElementById('patronymic');
 const patronymicError = document.querySelector('#patronymic + span.error');
+const captchaError = document.querySelector('#capErr');
 
 email.addEventListener('input', function (event) { // realtime валидатор
     if (email.validity.valid) { // почта
@@ -114,6 +115,17 @@ form.addEventListener('submit', function (event) { // Валидатор на к
         showErrorPatronymic()
         event.preventDefault();
     }
+
+    let captcha = grecaptcha.getResponse();
+    if(!captcha.length){
+        event.preventDefault();
+        captchaError.textContent = "Капча не пройдена";
+        captchaError.className = 'error active';
+    }
+    else{
+        captchaError.textContent = "";
+        captchaError.className = 'error';
+    }
     // отправляем форму
 });
 
@@ -172,8 +184,4 @@ function showErrorPatronymic() {
         patronymicError.textContent = 'Фамилия должна содержать только буквы';
     }
     patronymicError.className = 'error active';
-}
-
-function onSubmit(token) {
-    form.submit();
 }
