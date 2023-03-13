@@ -842,11 +842,6 @@ def qu_admin():
 def admin():
     return render_template('admin_account.html')
 
-
-@app.route('/add_admin')
-def add_admin():
-    return render_template('add_admin.html')
-
 @app.route('/number')
 def number():
     return render_template('number.html')
@@ -854,6 +849,10 @@ def number():
 @app.route('/mail')
 def mail():
     return render_template('mail.html')
+
+@app.route('/edit_app')
+def edit_app():
+    return render_template('edit_app.html')
 
 if __name__ != "__main__":
     from werkzeug.middleware.proxy_fix import ProxyFix

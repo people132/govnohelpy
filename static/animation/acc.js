@@ -3,10 +3,6 @@ function Changename(fieldName, text) {
     fieldName.textContent = text;
 }
 
-function ChangeURL(fieldName, URL){
-    fieldName = document.getElementById(fieldName);
-    fieldName.href = URL;
-}
 for (let i = 2; i < 8; i++) {
     document.getElementsByTagName("tr")[12 + i].style.display = "none";
 }
