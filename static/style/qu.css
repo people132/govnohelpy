@@ -4,6 +4,7 @@ body{
     margin: 0;
     height: auto;
     cursor: default;
+    -webkit-appearance: none;
 }
 
 .page {
@@ -348,7 +349,7 @@ select{
     padding: 7px 40px 7px 12px;
     cursor: pointer;
     transition: all 150ms ease;
-    -webkit-appearance: menulist-button;
+    -webkit-appearance: none;
 
     margin-bottom: 4%;
 }
