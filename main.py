@@ -1,5 +1,5 @@
-from flask import Flask, request, render_template, session, url_for, redirect
 import sqlite3
+from flask import Flask, request, render_template, session, url_for, redirect
 import hashlib
 import os
 import json
@@ -432,6 +432,7 @@ def auth():
                     cursor_db.close()
                     db_lp.close()
             if skill != '':
+                print(url_for('account'))
                 return redirect(url_for('account'))
             else:
                 return redirect(url_for('qu'))
@@ -841,11 +842,6 @@ def qu_admin():
 def admin():
     return render_template('admin_account.html')
 
-
-@app.route('/add_admin')
-def add_admin():
-    return render_template('add_admin.html')
-
 @app.route('/number')
 def number():
     return render_template('number.html')
@@ -854,4 +850,17 @@ def number():
 def mail():
     return render_template('mail.html')
 
+<<<<<<< HEAD
 app.run(debug=False)
+=======
+@app.route('/edit_app')
+def edit_app():
+    return render_template('edit_app.html')
+
+if __name__ != "__main__":
+    from werkzeug.middleware.proxy_fix import ProxyFix
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1)
+    print("Running WSGI, enabled ProxyFix")
+if __name__ == "__main__":
+    app.run(debug=True)
+>>>>>>> 621bbc440699cccb1558472cded4d81bb90f8f58

@@ -25,19 +25,12 @@
                 </a>
             </div>
         </div>
-        <form method="POST" novalidate>
+        <form method="POST">
             <div class="container">
-                <input class="inputs" id="surname" name="surname"  type="text" placeholder="Фамилия" required pattern="^[\p{L}]*$" minlength="2" maxlength="30" value="{{Surname}}"/>
-                <span class="error" aria-live="polite"></span>
-                <input class="inputs" id="username" name="username" value="{{Username}}" type="text" placeholder="Имя" required pattern="^[\p{L}]*$" minlength="2" maxlength="30"/>
-                <span class="error" aria-live="polite"></span>
-                <input class="inputs" id="patronymic" value="{{Patronymic}}" name="patronymic" type="text" placeholder="Отчество (при наличии)" pattern="^[\p{L}]*$" minlength="2" maxlength="30"/>
-                <span class="error" aria-live="polite"></span>
-                <input class="inputs" id="number" name="number" value="{{Number}}" type="" placeholder="Номер телефона" required pattern="^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$" maxlength="30"/>
-                <span class="error" aria-live="polite"></span>
-                <input class="inputs" value="{{Tg}}" id="tg" name="tg" type="" placeholder="telegram (по желанию)"/>
-                <input class="inputs" value="{{Vk}}" style="margin-bottom: 2vw;" id="vk" name="vk" type="" placeholder="VK (по желанию)"/>
-                <button class="change_btn" name="button" id ="button" value="reset">Сменить пароль или почту</button>
+                <input class="inputs" id="name" name="name"  type="text" placeholder="Название" required minlength="2" maxlength="100" value=""/>
+                <input class="inputs" id="price" name="price" value="" type="text" placeholder="Цена" required minlength="2" maxlength="10"/>
+                <input class="inputs" id="short" value="" name="short" type="text" placeholder="Краткое описание" required minlength="2" maxlength="200"/>
+                <input class="inputs" id="long" name="long" value="" type="text" placeholder="Полное описание" required minlength="2" maxlength="500"/>
                 <div style="width: 100%; display: flex; justify-content: center;">
                     <button type="submit" name="button" id="button" value="save" class="save_btn">сохранить</button>
                 </div>

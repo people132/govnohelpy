@@ -3,10 +3,6 @@ function Changename(fieldName, text) {
     fieldName.textContent = text;
 }
 
-function ChangeURL(fieldName, URL){
-    fieldName = document.getElementById(fieldName);
-    fieldName.href = URL;
-}
 for (let i = 2; i < 8; i++) {
     document.getElementsByTagName("tr")[12 + i].style.display = "none";
 }
@@ -96,9 +92,15 @@ loadJSON('../static/animation/temp1.json',
 
 const tooltip = document.getElementsByClassName("tooltip")[0];
 const tooltip_right = document.getElementsByClassName("tooltip_td");
+const tooltip_back = document.getElementsByClassName("tooltip_back")[0];
 const orders = document.getElementsByClassName("tablet_element");
-document.getElementsByClassName("close")[0].onclick = function() {
+document.getElementsByClassName("close_circle")[0].onclick = function() {
     tooltip.classList.remove("_active");
+    tooltip_back.classList.remove("_active");
+}
+tooltip_back.onclick = function() {
+    tooltip.classList.remove("_active");
+    tooltip_back.classList.remove("_active");
 }
 
 for (let i = 0; i < 4; i++) {
@@ -110,7 +112,8 @@ for (let i = 0; i < 4; i++) {
     );
 }
 document.getElementsByClassName("a_table_style")[0].onclick = function() {
-    loadJSON('../static/animation/temp2.json',
+    if(orders[0].textContent != ''){
+        loadJSON('../static/animation/temp2.json',
         function(data) { 
             let more = data[document.getElementById("email").textContent][0][1];
             for (let i = 1; i <= 6; i++) {
@@ -119,39 +122,50 @@ document.getElementsByClassName("a_table_style")[0].onclick = function() {
         },
     );
     tooltip.classList.add("_active");
+    tooltip_back.classList.add("_active");
+    }
 };
 document.getElementsByClassName("a_table_style")[1].onclick = function() {
-    loadJSON('../static/animation/temp2.json',
-        function(data) { 
-            let more = data[document.getElementById("email").textContent][1][1];
-            for (let i = 1; i <= 6; i++) {
-                tooltip_right[i * 2 - 1].textContent = more[i - 1];
-            }
-        },
-    );
-    tooltip.classList.add("_active");
+    if(orders[1].textContent != ''){
+        loadJSON('../static/animation/temp2.json',
+            function(data) { 
+                let more = data[document.getElementById("email").textContent][1][1];
+                for (let i = 1; i <= 6; i++) {
+                    tooltip_right[i * 2 - 1].textContent = more[i - 1];
+                }
+            },
+        );
+        tooltip.classList.add("_active");
+        tooltip_back.classList.add("_active");
+    }
 };
 document.getElementsByClassName("a_table_style")[2].onclick = function() {
-    loadJSON('../static/animation/temp2.json',
-        function(data) { 
-            let more = data[document.getElementById("email").textContent][2][1];
-            for (let i = 1; i <= 6; i++) {
-                tooltip_right[i * 2 - 1].textContent = more[i - 1];
-            }
-        },
-    );
-    tooltip.classList.add("_active");
+    if(orders[2].textContent != ''){
+        loadJSON('../static/animation/temp2.json',
+            function(data) { 
+                let more = data[document.getElementById("email").textContent][2][1];
+                for (let i = 1; i <= 6; i++) {
+                    tooltip_right[i * 2 - 1].textContent = more[i - 1];
+                }
+            },
+        );
+        tooltip.classList.add("_active");
+        tooltip_back.classList.add("_active");
+    }
 };
 document.getElementsByClassName("a_table_style")[3].onclick = function() {
-    loadJSON('../static/animation/temp2.json',
-        function(data) { 
-            let more = data[document.getElementById("email").textContent][3][1];
-            for (let i = 1; i <= 6; i++) {
-                tooltip_right[i * 2 - 1].textContent = more[i - 1];
-            }
-        },
-    );
-    tooltip.classList.add("_active");
+    if(orders[3].textContent != ''){
+        loadJSON('../static/animation/temp2.json',
+            function(data) { 
+                let more = data[document.getElementById("email").textContent][3][1];
+                for (let i = 1; i <= 6; i++) {
+                    tooltip_right[i * 2 - 1].textContent = more[i - 1];
+                }
+            },
+        );
+        tooltip.classList.add("_active");
+        tooltip_back.classList.add("_active");
+    }
 };
 
 document.getElementsByClassName("a_footer")[3].onclick = function() {
