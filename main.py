@@ -835,11 +835,37 @@ def forgot():
 
 @app.route('/qu_admin')
 def qu_admin():
-    return render_template('qu_admin.html')
-
+    if 'email' in session:
+        db = sqlite3.connect('bases/login_password.db')
+        cursor = db.cursor()
+        surname = cursor.execute(f'''SELECT surname FROM admin WHERE email = "{session['email']}";''')
+        name = cursor.execute(f'''SELECT name FROM admin WHERE email = "{session['email']}";''')
+        patronymic = cursor.execute(f'''SELECT patronymic FROM admin WHERE email = "{session['email']}";''')
+        phone = cursor.execute(f'''SELECT phone FROM admin WHERE email = "{session['email']}";''')
+        tg = cursor.execute(f'''SELECT tg FROM admin WHERE email = "{session['email']}";''')
+        vk = cursor.execute(f'''SELECT vk FROM admin WHERE email = "{session['email']}";''')
+        if request.method == 'POST':
+            surnamef = request.form['surname']
+            namef = request.form['name']
+            patronymicf = request.form['patronymic']
+            phonef = request.form['phone']
+            tgf = request.form['tg']
+            vkf = request.form['vk']
+            cursor.execute(f'''UPDATE admin SET surname = "{surnamef}", name = "{namef}", patronymic = "{patronymicf}", phone = "{phonef}", tg = "{tgf}", vk = "{vkf}" WHERE email = "{session['email']}"''')
+        cursor.close()
+        db.commit()
+        db.close()   
+    return render_template('qu_admin.html', Surname = surname.fetchone()[0], Name = name.fetchone()[0], Patronymic = patronymic.fetchone()[0], Phone = phone.fetchone()[0], Tg = tg.fetchone()[0], Vk = vk.fetchone()[0])
 
 @app.route('/admin')
 def admin():
+    if 'email' in session:
+        db = sqlite3.connect('bases/login_password.db')
+        cursor = db.cursor()
+        admins = cursor.execute(f'''SELECT email FROM admin WHERE email = "{session['email']}";''').fetchall()
+        for email in admins:
+            pass
+        
     return render_template('admin_account.html')
 
 @app.route('/number')
@@ -850,9 +876,6 @@ def number():
 def mail():
     return render_template('mail.html')
 
-<<<<<<< HEAD
-app.run(debug=False)
-=======
 @app.route('/edit_app')
 def edit_app():
     return render_template('edit_app.html')
@@ -863,4 +886,3 @@ if __name__ != "__main__":
     print("Running WSGI, enabled ProxyFix")
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 621bbc440699cccb1558472cded4d81bb90f8f58
