@@ -502,7 +502,7 @@ tr .tablet_element_sbor:last-child:hover{
 	}
 }
 
-.nav-dropdown a{
+.nav-dropdown button{
     width: 100%; 
     user-select: none; 
     cursor: pointer;
@@ -512,11 +512,11 @@ tr .tablet_element_sbor:last-child:hover{
     height: 100%;
 }
 
-.nav-dropdown a:hover{
+.nav-dropdown button:hover{
     background: rgba(0, 0, 0, 0.082);
 }
 
-.nav-dropdown a:last-child{
+.nav-dropdown button:last-child{
     border-radius: 0 0 max(1.3vw, 25px) max(1.3vw, 25px);
 }
 

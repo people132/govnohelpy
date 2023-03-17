@@ -859,12 +859,12 @@ def qu_admin():
 
 @app.route('/admin')
 def admin():
-    if 'email' in session:
-        db = sqlite3.connect('bases/login_password.db')
-        cursor = db.cursor()
-        admins = cursor.execute(f'''SELECT email FROM admin WHERE email = "{session['email']}";''').fetchall()
-        for email in admins:
-            pass
+    #if 'email' in session:
+        #db = sqlite3.connect('bases/login_password.db')
+        #cursor = db.cursor()
+        #admins = cursor.execute(f'''SELECT email FROM admin WHERE email = "{session['email']}";''').fetchall()
+        #for email in admins:
+           # pass
         
     return render_template('admin_account.html')
 
