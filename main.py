@@ -859,13 +859,108 @@ def qu_admin():
 
 @app.route('/admin')
 def admin():
-    #if 'email' in session:
-        #db = sqlite3.connect('bases/login_password.db')
-        #cursor = db.cursor()
-        #admins = cursor.execute(f'''SELECT email FROM admin WHERE email = "{session['email']}";''').fetchall()
-        #for email in admins:
-           # pass
-        
+    if 'email' in session:
+        db = sqlite3.connect('bases/login_password.db')
+        cursor = db.cursor()
+        admins = cursor.execute(f'''SELECT email FROM admin WHERE email = "{session['email']}";''').fetchall()
+        all_json = {}
+        for email in admins:
+            Des1 = cursor.execute(('''SELECT id FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des2 = cursor.execute(('''SELECT status FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des3 = cursor.execute(('''SELECT name FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des4 = cursor.execute(('''SELECT price FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des5 = cursor.execute(('''SELECT description FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des6 = cursor.execute(('''SELECT information FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des7 = cursor.execute(('''SELECT contact FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des8 = cursor.execute(('''SELECT information_meneger FROM task WHERE email = '{}';''').format(email)).fetchall()
+            Des9 = cursor.execute(('''SELECT contact_meneger FROM task WHERE email = '{}';''').format(email)).fetchall()
+            des1 = []
+            des2 = []
+            des3 = []
+            des4 = []
+            des5 = []
+            des6 = []
+            des7 = []
+            des8 = []
+            des9 = []
+            arr01 = []
+            arr02 = []
+            for i in Des1:
+                des1.append(i[0])
+            for i in Des2:
+                des2.append(i[0])
+            for i in Des3:
+                des3.append(i[0])
+            for i in Des4:
+                des4.append(i[0])
+            for i in Des5:
+                des5.append(i[0])
+            for i in Des6:
+                des6.append(i[0])
+            for i in Des7:
+                des7.append(i[0])
+            for i in Des8:
+                des8.append(i[0])
+            for i in Des9:
+                des9.append(i[0])
+            for j in range(len(des1)):
+                arr01.append(des1[j])
+                arr01.append([des2[j], des3[j], des4[j], des5[j], des6[j], des7[j], des8[j]])
+                arr02.append(arr01)
+                arr01 = []
+            #if i == session['email']:
+            all_json[i] = arr02
+            print(arr02)
+        print(all_json)
+        with open('static/animation/temp_admin1.json', 'w') as f1:
+            json.dump(all_json, f1, indent=7)
+        f1.close()
+        des_hi = cursor.execute(('''SELECT contact_meneger FROM history WHERE email = '{}';''').format(session['email'])).fetchall()
+        obj = {}
+        for i in set(des_hi):
+            # получаю описание по взятому email-у
+            Des1 = cursor.execute(('''SELECT id FROM history WHERE email = '{}';''').format(i)).fetchall()
+            #  получаю цену по взятому email-у
+            Des2 = cursor.execute(('''SELECT full_name FROM history WHERE email = '{}';''').format(i)).fetchall()
+            Des3 = cursor.execute(('''SELECT status FROM history WHERE email = '{}';''').format(i)).fetchall()
+            Des4 = cursor.execute(('''SELECT name FROM history WHERE email = '{}';''').format(i)).fetchall()
+            Des5 = cursor.execute(('''SELECT price FROM history WHERE email = '{}';''').format(i)).fetchall()
+            Des6 = cursor.execute(('''SELECT descriprion FROM history WHERE email = '{}';''').format(i)).fetchall()
+            Des7 = cursor.execute(('''SELECT information FROM history WHERE email = '{}';''').format(i)).fetchall()
+            des1 = []
+            for j in Des1:
+                # создаю массив с описаниями
+                des1.append(j[0])
+            des2 = []
+            for j in Des2:
+                # создаю массив с ценами и датами
+                des2.append(j[0])
+            des3 = []
+            for j in Des3:
+                des3.append(j[0])
+            des4 = []
+            for j in Des4:
+                des4.append(j[0])
+            des5 = []
+            for j in Des5:
+                des5.append(j[0])
+            des6 = []
+            for j in Des6:
+                des6.append(j[0])
+            des7 = []
+            for j in Des7:
+                des7.append(j[0])
+            for j in range(len(des1)):
+                # создаю масив с соответсвующими полями из des и des1
+                des8 = [des1[j], des2[j], des3[j], des4[j], des5[j], des6[j], des7[j]]
+                # создаю общий массив состоящий из масивов
+                des9.append(des8)
+                # создает словарь с индетификаторм email и значением масив
+            obj.append({i: des8})
+        with open('static/animation/temp_admin2.json', 'w') as f:
+            # записывает получившийся словарь в json
+            json.dump(obj, f, indent=2)
+        f.close()       
     return render_template('admin_account.html')
 
 @app.route('/number')
@@ -879,6 +974,49 @@ def mail():
 @app.route('/edit_app')
 def edit_app():
     return render_template('edit_app.html')
+
+@app.route('/auth_admin')
+def auth_admin():
+    error = 'error'
+    msg = ''
+    if request.method == 'POST':
+        try:
+            session['email'] = request.form['username']
+            email = request.form['username']
+            password = request.form['password']
+            db_lp = sqlite3.connect('bases/login_password.db')
+            cursor_db = db_lp.cursor()
+            cur = cursor_db.execute(f'''SELECT password FROM admin
+                                                WHERE login = "{email}"''').fetchone()
+            cur1 = cursor_db.execute(f'''SELECT password FROM admin
+                                                WHERE login = "{email}"''').fetchone()
+            print(cur1)
+            print(cur)
+            if cur1 is None:
+                cursor_db.close()
+                print('reg')
+                db_lp.close()
+                error = 'error active'
+                msg = 'Введён неверный логин или пароль'
+            else:
+                print(cur[0], hashlib.sha512(password.encode()).hexdigest())
+                if cur[0] != str(hashlib.sha512(password.encode()).hexdigest()):
+                    cursor_db.close()
+                    db_lp.close()
+                    error = 'error active'
+                    msg = 'Введён неверный логин или пароль'
+                else:
+                    skill = cursor_db.execute(('''SELECT mainSkill FROM info
+                                                WHERE email = '{}';
+                                                ''').format(session['email'])).fetchone()[0]
+                    print(skill)
+                    print(type(skill))
+                    cursor_db.close()
+                    db_lp.close()
+        except UnboundLocalError:
+                error = 'error active'
+                msg = 'Введён неверный логин или пароль'
+    return render_template('auth_admin.html')
 
 if __name__ != "__main__":
     from werkzeug.middleware.proxy_fix import ProxyFix
