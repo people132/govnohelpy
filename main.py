@@ -344,13 +344,13 @@ def qu():
                 number = request.form['number']
                 tg = request.form['tg']
                 vk = request.form['vk']
-                rus_zac = request.form['rus_zac']
+                ruszac = request.form['ruszac']
                 description = request.form['description']
                 language = ' '.join(request.form.getlist('language'))
                 typeConnect = ' '.join(request.form.getlist('typeConnect'))
                 cursor_db1.execute(
                     f'''UPDATE info SET name = "{username}", surname = "{surname}", patronymic = "{patronymic}", phone = "{number}", tg = "{tg}", vk = "{vk}", mainSkill = "{mainSkill}",mainHour = "{mainHour}",secondSkill = "{secondSkill}",
-                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{rus_zac}"
+                    secondHour = "{secondHour}", language = "{language}", workHoure = "{workHoure}", typeConnect = "{typeConnect}",  description = "{description}", ruszac = "{ruszac}"
                         WHERE email ="{session['email']}";''')
                 cursor_db1.close()
                 db_lp1.commit()
@@ -525,16 +525,21 @@ def account():
         if request.method == 'POST':
             db_lp1 = sqlite3.connect('bases/login_password.db')
             cur = db_lp1.cursor()
-            emailyet = cur.execute(f'''SELECT email FROM queue;''').fetchall()
-            if emailyet.count[session['email']] > 4:
+            emailyet = cur.execute(f'''SELECT email FROM task;''').fetchall()
+            print(session['email'], emailyet)
+            Emailyet = []
+            for i in emailyet:
+                Emailyet.append(i[0])
+            print(Emailyet)
+            if session['email'] in Emailyet:
                 haveque = 'active error'
                 massege = 'заявка уже отправленна'
+                print('dfsa')
             else:
                 mainSkill = cur.execute(f'''SELECT mainSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
                 secondSkill = cur.execute(f'''SELECT secondSkill FROM info WHERE email = "{session['email']}";''').fetchone()[0]
                 rus_zak = cur.execute(f'''SELECT ruszac FROM info WHERE email = "{session['email']}";''').fetchone()[0]
-                print(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
-                cur.execute(f'''INSERT INTO queue VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
+                cur.execute(f'''INSERT task VALUES("{session['email']}", "{mainSkill}", "{secondSkill}", "{rus_zak}");''')
             db_lp1.commit()
             cur.close()
             db_lp1.close()
@@ -850,9 +855,6 @@ def number():
 def mail():
     return render_template('mail.html')
 
-<<<<<<< HEAD
-app.run(debug=False)
-=======
 @app.route('/edit_app')
 def edit_app():
     return render_template('edit_app.html')
@@ -863,4 +865,3 @@ if __name__ != "__main__":
     print("Running WSGI, enabled ProxyFix")
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 621bbc440699cccb1558472cded4d81bb90f8f58
