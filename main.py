@@ -960,7 +960,13 @@ def admin():
         with open('static/animation/temp_admin2.json', 'w') as f:
             # записывает получившийся словарь в json
             json.dump(obj, f, indent=2)
-        f.close()       
+        f.close()
+    if request.method == 'POST':      
+        if request.form['button'][request.form['button'].index(' ') + 1:]:
+            ...
+        if request.form == 'edit':
+            id1 = request.form['edit']
+            return redirect(url_for('edit_admin',id1))
     return render_template('admin_account.html')
 
 @app.route('/number')
@@ -973,6 +979,17 @@ def mail():
 
 @app.route('/edit_app')
 def edit_app():
+    if request.method == 'POST':
+        name = request.form['name']
+        price = request.form['price']
+        short = request.form['short']
+        long = request.form['long']
+        db = sqlite3.connect('bases/login_password.db')
+        cursor = db.cursor()
+        cursor.execute(f"""UPDATE task SET name = '{name}', price = '{price}', full_name = '{short}', description = '{long}'""")
+        cursor.close()
+        db.commit()
+        db.close()
     return render_template('edit_app.html')
 
 @app.route('/auth_admin')
