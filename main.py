@@ -857,6 +857,7 @@ def qu_admin():
         db.close()   
     return render_template('qu_admin.html', Surname = surname.fetchone()[0], Name = name.fetchone()[0], Patronymic = patronymic.fetchone()[0], Phone = phone.fetchone()[0], Tg = tg.fetchone()[0], Vk = vk.fetchone()[0])
 
+
 @app.route('/admin')
 def admin():
     if 'email' in session:
