@@ -415,11 +415,11 @@ body{
 	border-style: none;
 	box-shadow: max(3px, 0.16vw) max(4px, 0.21vw) max(5px, 0.26vw) max(2px, 0.10vw) rgb(0 0 0 / 30%);
 
-	opacity: 1;
+	opacity: 0;
 	transition: all .2s;
 }
 .row_button._active{
-	animation-fill-mode:backwards;
+	animation-fill-mode:forwards;
 	animation-name: row_button_animation;
 	animation-duration: 1s;
 	animation-timing-function: cubic-bezier(.19,1,.22,1);
@@ -653,9 +653,11 @@ body{
     color: #000000;
 	font-size: max(80px, 5.21vw);
 	filter: none;
+	opacity: 0;
 }
 
 .how_many_percent._active{
+	animation-fill-mode: forwards;
 	animation-name: how_many_percent_animation;
 	animation-duration: 2s;
 }
