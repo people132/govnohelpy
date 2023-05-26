@@ -275,7 +275,7 @@ body{
 	font-family: WSB;
 	color: black;
 	width: 100%;
-	font-size: 28px;
+	font-size: calc( (100vw - 350px)/(756 - 350) * (40 - 25) + 25px);
 	letter-spacing: 1.1px;
 	font-weight: 300;
 	margin-bottom: 5px;
