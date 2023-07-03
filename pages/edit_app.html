@@ -31,6 +31,10 @@
                 <input class="inputs" id="price" name="price" value="" type="text" placeholder="Цена" required minlength="2" maxlength="10"/>
                 <input class="inputs" id="short" value="" name="short" type="text" placeholder="Краткое описание" required minlength="2" maxlength="200"/>
                 <input class="inputs" id="long" name="long" value="" type="text" placeholder="Полное описание" required minlength="2" maxlength="500"/>
+                <div class="main_texts">Выберите менеджера для выполнения заказа</div>
+                <div class="micro_texts">колличество свободных заказов отображено справа от имени менеджера</div>
+                <select name="menagers" value = "Выберите менеджера" id="menagers">
+                </select>
                 <div style="width: 100%; display: flex; justify-content: center;">
                     <button type="submit" name="button" id="button" value="save" class="save_btn">сохранить</button>
                 </div>
@@ -47,6 +51,6 @@
             <div class="footer_line"></div>
             <div class = "helpy_footer">©<strong>Helpy</strong> </div>
         </footer>
-        <script src="../static/animation/qu.js"></script>
+        <script src="../static/animation/edit_app.js"></script>
     </body>
 </html>
